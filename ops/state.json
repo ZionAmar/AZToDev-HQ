@@ -1,0 +1,222 @@
+{
+  "company": "AZTODEV",
+  "motto": "Build truth. Ship value. Scale leverage.",
+  "updatedAt": "2026-09-07T20:53:20.782Z",
+  "founderAttention": {
+    "waiting": [],
+    "note": "WIP: inventory-deck (Rakza). KidNest audit closed — eng follow-ups in Linear only."
+  },
+  "founderPrefsRef": "ops/founder-prefs.json",
+  "today": {
+    "date": "2026-09-07",
+    "focus": [
+      "OPS-HYGIENE — state truth sync",
+      "Inventory deck (Rakza) — phase 2 after hygiene",
+      "Limit WIP — single active initiative"
+    ],
+    "notDoing": [
+      "Landing pages — killed by founder",
+      "No new builds without Intake → Shape",
+      "No Rakza deck until hygiene complete"
+    ],
+    "dayPlanOwner": "07-product-manager",
+    "facilitator": "32-delivery-lead"
+  },
+  "agentsNow": [
+    {
+      "id": "00-ceo",
+      "name": "Nura",
+      "status": "active",
+      "doing": "Inventory deck (Rakza) — phase 2 prep"
+    },
+    {
+      "id": "07-product-manager",
+      "name": "Amit",
+      "status": "idle",
+      "doing": "Standby for INV deck screen audit"
+    },
+    {
+      "id": "32-delivery-lead",
+      "name": "Keshet",
+      "status": "active",
+      "doing": "OPS-HYGIENE — state sync complete"
+    },
+    {
+      "id": "11-tech-lead",
+      "name": "Ilan",
+      "status": "idle",
+      "doing": "No active build"
+    }
+  ],
+  "initiatives": [
+    {
+      "id": "IDEA-2026-09-06-1788717809587",
+      "title": "IDEA-2026-09-06-1788717809587",
+      "stage": "closed",
+      "status": "killed",
+      "todayGoal": "Killed — founder deferred landing pages",
+      "owners": [
+        "00-ceo",
+        "04-cpo",
+        "07-product-manager",
+        "03-cto"
+      ],
+      "sourceFile": "ops/intake/ideas/IDEA-2026-09-06-1788717809587.md"
+    },
+    {
+      "id": "IDEA-2026-09-06-1788718132326",
+      "title": "IDEA-2026-09-06-1788718132326",
+      "stage": "closed",
+      "status": "killed",
+      "todayGoal": "Killed — founder deferred landing pages",
+      "owners": [
+        "00-ceo",
+        "04-cpo",
+        "07-product-manager",
+        "03-cto"
+      ],
+      "sourceFile": "ops/intake/ideas/IDEA-2026-09-06-1788718132326.md"
+    },
+    {
+      "id": "IDEA-2026-09-06-1788718976771",
+      "title": "IDEA-2026-09-06-1788718976771",
+      "stage": "closed",
+      "status": "killed",
+      "todayGoal": "Killed — founder: נוותר על דפי נחיתה",
+      "owners": [
+        "00-ceo",
+        "04-cpo",
+        "07-product-manager",
+        "03-cto"
+      ],
+      "sourceFile": "ops/intake/ideas/IDEA-2026-09-06-1788718976771.md"
+    },
+    {
+      "id": "IDEA-2026-09-06-1788719375161",
+      "title": "IDEA-2026-09-06-1788719375161",
+      "stage": "closed",
+      "status": "killed",
+      "todayGoal": "Killed — founder deferred landing pages",
+      "owners": [
+        "00-ceo",
+        "04-cpo",
+        "07-product-manager",
+        "03-cto"
+      ],
+      "sourceFile": "ops/intake/ideas/IDEA-2026-09-06-1788719375161.md"
+    },
+    {
+      "id": "IDEA-2026-09-07-kidnest-audit",
+      "title": "IDEA-2026-09-07-kidnest-audit",
+      "stage": "closed",
+      "status": "done",
+      "todayGoal": "Audit complete — report delivered",
+      "owners": [
+        "00-ceo",
+        "04-cpo",
+        "07-product-manager",
+        "03-cto"
+      ],
+      "sourceFile": "ops/intake/ideas/IDEA-2026-09-07-kidnest-audit.md"
+    },
+    {
+      "id": "IDEA-2026-09-07-inventory-deck",
+      "title": "IDEA-2026-09-07-inventory-deck",
+      "stage": "intake",
+      "status": "active",
+      "todayGoal": "Phase 2 — screen audit + deck (post hygiene)",
+      "owners": [
+        "00-ceo",
+        "04-cpo",
+        "07-product-manager",
+        "03-cto"
+      ],
+      "sourceFile": "ops/intake/ideas/IDEA-2026-09-07-inventory-deck.md"
+    }
+  ],
+  "recentMeetings": [
+    {
+      "at": "2026-09-07",
+      "type": "daily",
+      "title": "Daily Parity+"
+    },
+    {
+      "at": "2026-09-06",
+      "type": "intake",
+      "title": "IDEA-2026-09-06-1788719375161"
+    },
+    {
+      "at": "2026-09-06",
+      "type": "intake",
+      "title": "IDEA-2026-09-06-1788718976771"
+    },
+    {
+      "at": "2026-09-06",
+      "type": "intake",
+      "title": "IDEA-2026-09-06-1788718132326"
+    },
+    {
+      "at": "2026-09-06",
+      "type": "intake",
+      "title": "IDEA-2026-09-06-1788717809587"
+    }
+  ],
+  "recentDecisions": [
+    {
+      "at": "2026-09-07",
+      "by": "00-ceo",
+      "text": "End-of-day digest sent/queued to founder Telegram"
+    },
+    {
+      "at": "2026-09-07",
+      "by": "32-delivery-lead",
+      "text": "OPS-HYGIENE complete — state.json synced; landing killed; KidNest audit closed; founderAttention cleared"
+    },
+    {
+      "at": "2026-09-07",
+      "by": "00-ceo",
+      "text": "IDEA IDEA-2026-09-07-inventory-deck.md logged (Nura session owns execution; auto-meeting off)"
+    },
+    {
+      "at": "2026-09-07",
+      "by": "32-delivery-lead",
+      "text": "Daily meeting completed (or stubbed if no LLM key)"
+    },
+    {
+      "at": "2026-09-07",
+      "by": "00-ceo",
+      "text": "Telegram → Nura: אבל למה צריך API? זה מחובר לקרסר עם המייל של החשבון"
+    },
+    {
+      "at": "2026-09-07",
+      "by": "00-ceo",
+      "text": "IDEA IDEA-2026-09-07-kidnest-audit.md logged (Nura session owns execution; auto-meeting off)"
+    },
+    {
+      "at": "2026-09-07",
+      "by": "00-ceo",
+      "text": "Telegram queued (1): נוותר על 2 דפי הנחיתה האלה"
+    }
+  ],
+  "busUnread": 0,
+  "links": {
+    "intakeIdeas": "ops/intake/ideas/",
+    "intakeProblems": "ops/intake/problems/",
+    "meetings": "ops/meetings/",
+    "daily": "ops/daily/",
+    "handbook": "_company/handbook/00-INDEX.md"
+  },
+  "power": "on",
+  "runtime": {
+    "startedAt": "2026-09-07T12:52:38.478Z",
+    "resumedFromCheckpointAt": "2026-09-07T12:52:36.185Z",
+    "resumeNote": "Parity+ tick. LLM=true TG=true ideas=6",
+    "lastTickAt": "2026-09-07T20:53:20.782Z",
+    "ticks": 9584,
+    "resumeReason": "off-no-process",
+    "parity": {
+      "llm": true,
+      "telegram": true
+    }
+  }
+}

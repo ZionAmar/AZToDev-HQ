@@ -1,0 +1,21 @@
+# User-level reference only — cPanel users usually cannot systemd.
+# Actual start: nohup in /home/aztodevc/aztodev-desk
+# Do NOT use /var/www.
+
+[Unit]
+Description=AZToDev thin Telegram desk
+After=network.target
+
+[Service]
+Type=simple
+User=aztodevc
+WorkingDirectory=/home/aztodevc/aztodev-desk
+Environment=PATH=/opt/alt/alt-nodejs22/root/usr/bin:/usr/bin
+Environment=HQ_CLOUD_ONLY=1
+Environment=HQ_BIND=127.0.0.1
+ExecStart=/opt/alt/alt-nodejs22/root/usr/bin/node hq/index.mjs
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>שאלון מתמטיקה כיפי 🎯</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0f4ff;
+      --card: #ffffff;
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --success: #22c55e;
+      --error: #ef4444;
+      --text: #1e293b;
+      --muted: #64748b;
+      --accent: #fbbf24;
+      --radius: 20px;
+      --shadow: 0 8px 32px rgba(99, 102, 241, 0.15);
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+      background: linear-gradient(135deg, #f0f4ff 0%, #fef3c7 50%, #fce7f3 100%);
+      min-height: 100vh;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: clamp(1.6rem, 5vw, 2rem);
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    header p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 5vw, 32px);
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #a78bfa);
+      border-radius: 99px;
+      transition: width 0.4s ease;
+    }
+
+    .progress-label {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .question-badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: var(--primary-dark);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 99px;
+      margin-bottom: 16px;
+    }
+
+    .question-text {
+      font-size: clamp(2rem, 8vw, 2.8rem);
+      font-weight: 700;
+      text-align: center;
+      margin: 24px 0 32px;
+      letter-spacing: 2px;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .answer-btn {
+      font-size: clamp(1.2rem, 4vw, 1.5rem);
+      font-weight: 600;
+      padding: 18px 12px;
+      border: 3px solid #e2e8f0;
+      border-radius: 16px;
+      background: #f8fafc;
+      color: var(--text);
+      cursor: pointer;
+      transition: transform 0.15s, border-color 0.15s, background 0.15s;
+      min-height: 64px;
+    }
+
+    .answer-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: #ede9fe;
+      transform: scale(1.03);
+    }
+
+    .answer-btn:active:not(:disabled) {
+      transform: scale(0.97);
+    }
+
+    .answer-btn.correct {
+      border-color: var(--success);
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .answer-btn.wrong {
+      border-color: var(--error);
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .answer-btn:disabled { cursor: default; }
+
+    .feedback {
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      min-height: 28px;
+      margin-top: 16px;
+    }
+
+    .feedback.ok { color: var(--success); }
+    .feedback.no { color: var(--error); }
+
+    .next-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .next-btn:hover { background: var(--primary-dark); transform: scale(1.02); }
+    .next-btn.hidden { display: none; }
+
+    /* Results */
+    .results { text-align: center; }
+
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), #a78bfa);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+    }
+
+    .score-circle .num {
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .score-circle .den {
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+
+    .score-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--primary-dark);
+    }
+
+    .insight-box {
+      background: #fef9c3;
+      border: 2px solid var(--accent);
+      border-radius: 14px;
+      padding: 16px 20px;
+      text-align: right;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .insight-box h3 {
+      font-size: 1rem;
+      color: #92400e;
+      margin-bottom: 8px;
+    }
+
+    .breakdown {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    .breakdown-item {
+      background: #f1f5f9;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .breakdown-item strong { display: block; margin-bottom: 2px; }
+
+    .restart-btn {
+      width: 100%;
+      padding: 16px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      background: var(--accent);
+      color: #78350f;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    .restart-btn:hover { transform: scale(1.02); }
+
+    .hidden { display: none !important; }
+
+    @media (max-width: 360px) {
+      .answers { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎯 שאלון מתמטיקה</h1>
+      <p>10 שאלות — בואו נראה כמה אתם חזקים!</p>
+    </header>
+
+    <div class="card" id="quiz-screen">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <p class="progress-label" id="progress-label">שאלה 1 מתוך 10</p>
+
+      <span class="question-badge" id="question-badge">חיבור · קל</span>
+      <p class="question-text" id="question-text">5 + 3 = ?</p>
+
+      <div class="answers" id="answers"></div>
+      <p class="feedback" id="feedback"></p>
+      <button class="next-btn hidden" id="next-btn">השאלה הבאה ←</button>
+    </div>
+
+    <div class="card results hidden" id="results-screen">
+      <div class="score-circle">
+        <span class="num" id="score-num">0</span>
+        <span class="den">מתוך 10</span>
+      </div>
+      <p class="score-title" id="score-title">כל הכבוד!</p>
+      <div class="insight-box">
+        <h3>💡 מה למדנו עליך</h3>
+        <p id="insight-text"></p>
+      </div>
+      <div class="breakdown" id="breakdown"></div>
+      <button class="restart-btn" id="restart-btn">🔄 נסו שוב!</button>
+    </div>
+  </div>
+
+  <script>
+    const TOTAL = 10;
+    const OP_LABELS = {
+      add: 'חיבור',
+      sub: 'חיסור',
+      mul: 'כפל',
+      div: 'חילוק'
+    };
+    const DIFF_LABELS = { easy: 'קל', medium: 'בינוני', hard: 'מתקדם' };
+
+    const QUESTION_POOL = [
+      { op: 'add', diff: 'easy',   gen: () => { const a = rand(1,9), b = rand(1,9); return q(a, b, '+', a+b); }},
+      { op: 'add', diff: 'medium', gen: () => { const a = rand(10,49), b = rand(10,49); return q(a, b, '+', a+b); }},
+      { op: 'add', diff: 'hard',   gen: () => { const a = rand(50,99), b = rand(10,99); return q(a, b, '+', a+b); }},
+      { op: 'sub', diff: 'easy',   gen: () => { const a = rand(5,15), b = rand(1,a); return q(a, b, '−', a-b); }},
+      { op: 'sub', diff: 'medium', gen: () => { const a = rand(20,80), b = rand(5,a); return q(a, b, '−', a-b); }},
+      { op: 'sub', diff: 'hard',   gen: () => { const a = rand(80,150), b = rand(20,a); return q(a, b, '−', a-b); }},
+      { op: 'mul', diff: 'easy',   gen: () => { const a = rand(2,5), b = rand(2,5); return q(a, b, '×', a*b); }},
+      { op: 'mul', diff: 'medium', gen: () => { const a = rand(3,9), b = rand(3,9); return q(a, b, '×', a*b); }},
+      { op: 'mul', diff: 'hard',   gen: () => { const a = rand(6,12), b = rand(6,12); return q(a, b, '×', a*b); }},
+      { op: 'div', diff: 'easy',   gen: () => { const b = rand(2,5), ans = rand(2,5); return q(b*ans, b, '÷', ans); }},
+      { op: 'div', diff: 'medium', gen: () => { const b = rand(3,9), ans = rand(3,9); return q(b*ans, b, '÷', ans); }},
+      { op: 'div', diff: 'hard',   gen: () => { const b = rand(4,12), ans = rand(4,12); return q(b*ans, b, '÷', ans); }},
+    ];
+
+    function rand(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
+
+    function q(a, b, sym, answer) {
+      return { text: `${a} ${sym} ${b} = ?`, answer, op: null, diff: null };
+    }
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function buildQuestions() {
+      const byOp = { add: [], sub: [], mul: [], div: [] };
+      QUESTION_POOL.forEach(t => byOp[t.op].push(t));
+
+      const picked = [];
+      ['add', 'sub', 'mul', 'div'].forEach(op => {
+        const sorted = shuffle(byOp[op]).sort((a, b) =>
+          ({ easy: 0, medium: 1, hard: 2 }[a.diff] - ({ easy: 0, medium: 1, hard: 2 }[b.diff])
+        );
+        picked.push(sorted[0], sorted[1]);
+      });
+      const extra = shuffle(QUESTION_POOL.filter(t => !picked.includes(t))).slice(0, 2);
+      return shuffle([...picked, ...extra]).slice(0, TOTAL).map(t => {
+        const item = t.gen();
+        item.op = t.op;
+        item.diff = t.diff;
+        item.options = makeOptions(item.answer);
+        return item;
+      });
+    }
+
+    function makeOptions(correct) {
+      const opts = new Set([correct]);
+      while (opts.size < 4) {
+        const delta = rand(1, Math.max(3, Math.floor(correct * 0.3) + 2));
+        opts.add(correct + (Math.random() > 0.5 ? delta : -delta));
+        if (opts.size < 4) opts.add(correct + rand(-5, 5));
+      }
+      return shuffle([...opts]);
+    }
+
+    let questions = [];
+    let current = 0;
+    let score = 0;
+    let questionStart = 0;
+    let times = [];
+    let stats = {
+      add: { ok: 0, total: 0 },
+      sub: { ok: 0, total: 0 },
+      mul: { ok: 0, total: 0 },
+      div: { ok: 0, total: 0 }
+    };
+
+    const quizScreen = document.getElementById('quiz-screen');
+    const resultsScreen = document.getElementById('results-screen');
+    const progressFill = document.getElementById('progress-fill');
+    const progressLabel = document.getElementById('progress-label');
+    const questionBadge = document.getElementById('question-badge');
+    const questionText = document.getElementById('question-text');
+    const answersEl = document.getElementById('answers');
+    const feedbackEl = document.getElementById('feedback');
+    const nextBtn = document.getElementById('next-btn');
+    const restartBtn = document.getElementById('restart-btn');
+
+    function startQuiz() {
+      questions = buildQuestions();
+      current = 0;
+      score = 0;
+      times = [];
+      stats = { add: { ok: 0, total: 0 }, sub: { ok: 0, total: 0 }, mul: { ok: 0, total: 0 }, div: { ok: 0, total: 0 } };
+      quizScreen.classList.remove('hidden');
+      resultsScreen.classList.add('hidden');
+      showQuestion();
+    }
+
+    function showQuestion() {
+      const q = questions[current];
+      questionStart = Date.now();
+      progressFill.style.width = `${(current / TOTAL) * 100}%`;
+      progressLabel.textContent = `שאלה ${current + 1} מתוך ${TOTAL}`;
+      questionBadge.textContent = `${OP_LABELS[q.op]} · ${DIFF_LABELS[q.diff]}`;
+      questionText.textContent = q.text;
+      feedbackEl.textContent = '';
+      feedbackEl.className = 'feedback';
+      nextBtn.classList.add('hidden');
+
+      answersEl.innerHTML = '';
+      q.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = opt;
+        btn.addEventListener('click', () => selectAnswer(opt, btn));
+        answersEl.appendChild(btn);
+      });
+    }
+
+    function selectAnswer(chosen, btn) {
+      const q = questions[current];
+      const elapsed = (Date.now() - questionStart) / 1000;
+      times.push(elapsed);
+      stats[q.op].total++;
+      const correct = chosen === q.answer;
+
+      if (correct) {
+        score++;
+        stats[q.op].ok++;
+        btn.classList.add('correct');
+        feedbackEl.textContent = '🌟 מצוין!';
+        feedbackEl.className = 'feedback ok';
+      } else {
+        btn.classList.add('wrong');
+        feedbackEl.textContent = `💪 התשובה הנכונה: ${q.answer}`;
+        feedbackEl.className = 'feedback no';
+        [...answersEl.children].forEach(b => {
+          if (Number(b.textContent) === q.answer) b.classList.add('correct');
+        });
+      }
+
+      [...answersEl.children].forEach(b => b.disabled = true);
+      nextBtn.classList.remove('hidden');
+      nextBtn.textContent = current < TOTAL - 1 ? 'השאלה הבאה ←' : 'ראו את התוצאות! 🎉';
+    }
+
+    nextBtn.addEventListener('click', () => {
+      current++;
+      if (current < TOTAL) showQuestion();
+      else showResults();
+    });
+
+    function pct(op) {
+      const s = stats[op];
+      return s.total ? Math.round((s.ok / s.total) * 100) : null;
+    }
+
+    function buildInsight() {
+      const sentences = [];
+      const avgTime = times.reduce((a, b) => a + b, 0) / times.length;
+
+      if (score >= 9) sentences.push('ביצוע מעולה! יש לך בסיס מתמטי חזק מאוד.');
+      else if (score >= 7) sentences.push('עבודה יפה! את/ה בדרך הנכונה ומראה/ה הבנה טובה.');
+      else if (score >= 5) sentences.push('התחלה טובה — עם קצת תרגול תשתפר/י מהר.');
+      else sentences.push('אל תדאג/י — מתמטיקה משתפרת עם תרגול קבוע וכיף!');
+
+      const ops = ['add', 'sub', 'mul', 'div'];
+      const ranked = ops
+        .filter(o => stats[o].total > 0)
+        .map(o => ({ op: o, pct: pct(o), ok: stats[o].ok, total: stats[o].total }))
+        .sort((a, b) => b.pct - a.pct);
+
+      if (ranked.length >= 2) {
+        const best = ranked[0];
+        const worst = ranked[ranked.length - 1];
+        if (best.pct === 100 && best.total >= 2) {
+          sentences.push(`ממש חזק/ה ב${OP_LABELS[best.op]} — ${best.ok} מתוך ${best.total} נכון!`);
+        } else if (best.pct >= 75) {
+          sentences.push(`בולט/ת במיוחד ב${OP_LABELS[best.op]} (${best.ok}/${best.total}).`);
+        }
+        if (worst.pct < 100 && worst.total >= 1 && worst.op !== best.op) {
+          if (worst.pct === 0) {
+            sentences.push(`כדאי לתרגל עוד ${OP_LABELS[worst.op]} — ננסה שוב בפעם הבאה!`);
+          } else {
+            sentences.push(`${OP_LABELS[worst.op]} דורש/ת קצת יותר תרגול (${worst.ok}/${worst.total}).`);
+          }
+        }
+      }
+
+      if (avgTime < 5) sentences.push('הקצב שלך מהיר — את/ה חושב/ת על הרגליים!');
+      else if (avgTime > 12) sentences.push('לקחת/ה את הזמן לחשוב — זה סימן לחשיבה יסודית, מעולה!');
+
+      return sentences.slice(0, 3).join(' ');
+    }
+
+    function scoreTitle() {
+      if (score >= 9) return '🏆 אלוף/ת מתמטיקה!';
+      if (score >= 7) return '🌟 כל הכבוד!';
+      if (score >= 5) return '👍 יפה מאוד!';
+      return '💪 המשיכ/י להתאמן!';
+    }
+
+    function showResults() {
+      quizScreen.classList.add('hidden');
+      resultsScreen.classList.remove('hidden');
+      progressFill.style.width = '100%';
+
+      document.getElementById('score-num').textContent = score;
+      document.getElementById('score-title').textContent = scoreTitle();
+      document.getElementById('insight-text').textContent = buildInsight();
+
+      const breakdown = document.getElementById('breakdown');
+      breakdown.innerHTML = '';
+      ['add', 'sub', 'mul', 'div'].forEach(op => {
+        const s = stats[op];
+        if (!s.total) return;
+        const el = document.createElement('div');
+        el.className = 'breakdown-item';
+        el.innerHTML = `<strong>${OP_LABELS[op]}</strong>${s.ok}/${s.total} נכון`;
+        breakdown.appendChild(el);
+      });
+    }
+
+    restartBtn.addEventListener('click', startQuiz);
+    startQuiz();
+  </script>
+</body>
+</html>

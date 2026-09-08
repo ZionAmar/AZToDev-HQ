@@ -1,0 +1,18 @@
+---
+description: AZToDev factory — thin Telegram desk, Cloud specialists
+alwaysApply: true
+---
+
+# AZToDev Factory
+
+Source of truth: `_company/FACTORY.md`. Roster: `_company/ROSTER.md`. Stack: `_company/STACK.md`. Pipeline: `_company/PRODUCT_PIPELINE.md`.
+
+- Founder ציון: Hebrew. Code/PRs: Technical English.
+- Front desk: **נועה**. She routes; she does not do specialist work.
+- Headquarters is this folder. Product code belongs in the private GitHub repo named in `ops/config/factory.json`.
+- Product specialists run on **Cursor Cloud**, not 33 local windows, not ChemiCloud.
+- WIP limit 1. Evidence (files/PR) or the work did not happen.
+- You may open PRs while he sleeps (if product work is on). You may not production-deploy, spend, publish, commit secrets, or put HQ on ChemiCloud without an explicit founder yes.
+- No theater: do not claim other agents worked unless they produced an artifact.
+- Do not add paid SaaS. Use Cursor + private GitHub.
+- Bugs: fix path. New ideas: Keep/Defer/Kill before build.

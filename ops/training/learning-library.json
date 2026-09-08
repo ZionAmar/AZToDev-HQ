@@ -1,0 +1,276 @@
+{
+  "updatedAt": "2026-09-07",
+  "maintainer": "06-chro",
+  "policy": "Only add resources with strong reviews (4.5+/5, or industry-standard reputation). Update quarterly.",
+  "agents": {
+    "00-ceo": {
+      "resources": [
+        { "title": "Y Combinator Startup School", "url": "https://www.startupschool.org/", "type": "course", "rating": "Free · YC official", "why": "Bet quality, focus, founder discipline" },
+        { "title": "a16z Podcast — operators & founders", "url": "https://a16z.com/podcasts/", "type": "podcast", "rating": "Top-tier VC insights", "why": "Operating cadence, portfolio thinking" },
+        { "title": "Reforge — Growth & Product Strategy", "url": "https://www.reforge.com/", "type": "course", "rating": "Industry gold standard (paid)", "why": "Executive-level product/growth leverage" },
+        { "title": "Working Backwards — Amazon 6-pager culture", "url": "https://www.aboutamazon.com/news/workplace/an-insiders-guide-to-writing-an-amazon-6-pager", "type": "guide", "rating": "Amazon official", "why": "Decision clarity, written memos" },
+        { "title": "Lenny's Newsletter — strategy archives", "url": "https://www.lennysnewsletter.com/", "type": "newsletter", "rating": "100k+ subs · highly cited", "why": "Modern SaaS operator patterns" }
+      ]
+    },
+    "01-coo": {
+      "resources": [
+        { "title": "Team Topologies (book + talks)", "url": "https://teamtopologies.com/", "type": "book", "rating": "DevOps top seller", "why": "Clear ownership, flow of work" },
+        { "title": "Google SRE — Incident Management", "url": "https://sre.google/sre-book/chapters/incident-response/", "type": "guide", "rating": "Google SRE canon", "why": "Reliability ops, runbooks" },
+        { "title": "The Hard Thing About Hard Things (Ben Horowitz)", "url": "https://www.youtube.com/results?search_query=ben+horowitz+hard+things+talk", "type": "video", "rating": "Classic operator book", "why": "Ops under pressure" },
+        { "title": "Charity Majors — observability & ops reality", "url": "https://www.youtube.com/c/HoneycombIo", "type": "playlist", "rating": "Industry respected", "why": "Practical ops, no theater" }
+      ]
+    },
+    "02-cfo": {
+      "resources": [
+        { "title": "Bessemer Cloud Index / SaaS metrics", "url": "https://www.bvp.com/atlas", "type": "guide", "rating": "VC benchmark standard", "why": "SaaS KPI literacy" },
+        { "title": "David Sacks — SaaS Metrics 2.0", "url": "https://www.youtube.com/watch?v=5f9mabgYyzU", "type": "video", "rating": "Widely referenced", "why": "Unit economics, burn" },
+        { "title": "OpenView — SaaS benchmarks", "url": "https://openviewpartners.com/expansion-saas-benchmarks/", "type": "report", "rating": "Annual benchmark", "why": "Pricing & growth sanity" },
+        { "title": "Stripe Atlas — startup finance guides", "url": "https://stripe.com/atlas/guides", "type": "guide", "rating": "Stripe official", "why": "Finance ops hygiene" }
+      ]
+    },
+    "03-cto": {
+      "resources": [
+        { "title": "Designing Data-Intensive Applications (Kleppmann talks)", "url": "https://www.youtube.com/results?search_query=martin+kleppmann+ddia", "type": "video", "rating": "5★ systems bible", "why": "Architecture fundamentals" },
+        { "title": "The Pragmatic Engineer (Gergely Orosz)", "url": "https://blog.pragmaticengineer.com/", "type": "newsletter", "rating": "Top eng leadership", "why": "Tech strategy, industry patterns" },
+        { "title": "Staff Engineer — Will Larson", "url": "https://staffeng.com/", "type": "book", "rating": "Eng leadership canon", "why": "Technical leadership paths" },
+        { "title": "OWASP Top 10 for developers", "url": "https://owasp.org/www-project-top-ten/", "type": "guide", "rating": "Security standard", "why": "Trust-by-design" },
+        { "title": "Charity Majors — CTO craft talks", "url": "https://www.infoq.com/presentations/observability/", "type": "talk", "rating": "InfoQ highly rated", "why": "Production reality" }
+      ]
+    },
+    "04-cpo": {
+      "resources": [
+        { "title": "SVPG — Marty Cagan articles", "url": "https://www.svpg.com/articles/", "type": "articles", "rating": "Product canon", "why": "Empowered teams, discovery" },
+        { "title": "Teresa Torres — Continuous Discovery Habits", "url": "https://www.producttalk.org/", "type": "course/book", "rating": "4.8+ · industry standard", "why": "Weekly discovery discipline" },
+        { "title": "Reforge — Product Strategy", "url": "https://www.reforge.com/product-strategy", "type": "course", "rating": "Top PM program", "why": "Outcome roadmaps" },
+        { "title": "Lenny's Podcast — product leaders", "url": "https://www.lennyspodcast.com/", "type": "podcast", "rating": "#1 PM podcast", "why": "Patterns from best PMs" },
+        { "title": "Shape Up — Basecamp (free online)", "url": "https://basecamp.com/shapeup", "type": "book", "rating": "Free · widely adopted", "why": "Appetites, scope control" }
+      ]
+    },
+    "05-cmo": {
+      "resources": [
+        { "title": "April Dunford — Obviously Awesome", "url": "https://www.aprildunford.com/", "type": "book/workshop", "rating": "Positioning gold standard", "why": "Message-market fit" },
+        { "title": "Reforge — Growth Marketing", "url": "https://www.reforge.com/marketing", "type": "course", "rating": "Top GTM program", "why": "Systematic GTM" },
+        { "title": "Marketing Examples — teardown library", "url": "https://marketingexamples.com/", "type": "examples", "rating": "Highly shared", "why": "Craft over fluff" },
+        { "title": "Emily Kramer — B2B marketing craft", "url": "https://www.mkt1.co/", "type": "newsletter", "rating": "B2B SaaS respected", "why": "SaaS marketing ops" }
+      ]
+    },
+    "06-chro": {
+      "resources": [
+        { "title": "DeepLearning.AI — Prompt Engineering", "url": "https://www.deeplearning.ai/short-courses/chatgpt-prompt-engineering-for-developers/", "type": "course", "rating": "4.8+ Coursera", "why": "Agent prompt quality" },
+        { "title": "Hamel Husain — LLM evals essays", "url": "https://hamel.dev/", "type": "articles", "rating": "AI evals authority", "why": "Scorecards for agents" },
+        { "title": "Netflix Culture Deck (analysis)", "url": "https://www.slideshare.net/slideshow/netflix-culture-deck/128916125", "type": "deck", "rating": "Legendary", "why": "Values as behavior" },
+        { "title": "Patty McCord — Powerful (talks)", "url": "https://www.youtube.com/results?search_query=patty+mccord+powerful", "type": "video", "rating": "Netflix HR pioneer", "why": "High-performance culture" }
+      ]
+    },
+    "07-product-manager": {
+      "resources": [
+        { "title": "Reforge — Product Management Foundations", "url": "https://www.reforge.com/product-management", "type": "course", "rating": "Top PM course", "why": "Execution excellence" },
+        { "title": "SVPG — Inspired (summary + talks)", "url": "https://www.youtube.com/results?search_query=marty+cagan+inspired", "type": "video", "rating": "PM bible", "why": "Discovery + delivery" },
+        { "title": "Linear Method", "url": "https://linear.app/method", "type": "guide", "rating": "Modern PM ops", "why": "Issue flow, cycles" },
+        { "title": "Shreyas Doshi — product sense threads", "url": "https://www.youtube.com/results?search_query=shreyas+doshi+product+sense", "type": "video", "rating": "Widely cited", "why": "Prioritization, LNO framework" },
+        { "title": "Shape Up — Basecamp", "url": "https://basecamp.com/shapeup", "type": "book", "rating": "Free", "why": "Appetite-based planning" }
+      ]
+    },
+    "08-product-designer-ux": {
+      "resources": [
+        { "title": "NN/g — UX articles & videos", "url": "https://www.nngroup.com/articles/", "type": "articles", "rating": "UX research authority", "why": "Heuristics, usability" },
+        { "title": "Laws of UX", "url": "https://lawsofux.com/", "type": "guide", "rating": "Designer standard", "why": "Psychology + clarity" },
+        { "title": "Google UX Design Certificate (Coursera)", "url": "https://www.coursera.org/professional-certificates/google-ux-design", "type": "course", "rating": "4.8+ · 500k+ learners", "why": "Process baseline" },
+        { "title": "Refactoring UI (Steve Schoger)", "url": "https://www.refactoringui.com/", "type": "book", "rating": "Highly rated", "why": "Practical UI/UX clarity" }
+      ]
+    },
+    "09-ui-designer": {
+      "resources": [
+        { "title": "Refactoring UI", "url": "https://www.refactoringui.com/", "type": "book", "rating": "5★ designer favorite", "why": "Visual hierarchy, systems" },
+        { "title": "Figma — Learn design systems (YouTube)", "url": "https://www.youtube.com/@FigmaDesign", "type": "playlist", "rating": "Figma official", "why": "Tokens, components" },
+        { "title": "Material Design 3", "url": "https://m3.material.io/", "type": "guide", "rating": "Google official", "why": "Platform patterns" },
+        { "title": "Apple Human Interface Guidelines", "url": "https://developer.apple.com/design/human-interface-guidelines/", "type": "guide", "rating": "Apple official", "why": "iOS/macOS quality bar" }
+      ]
+    },
+    "10-user-researcher": {
+      "resources": [
+        { "title": "Teresa Torres — Continuous Discovery", "url": "https://www.producttalk.org/", "type": "course", "rating": "4.8+ · standard", "why": "Weekly interviews, OST" },
+        { "title": "Erika Hall — Just Enough Research", "url": "https://abookapart.com/products/just-enough-research", "type": "book", "rating": "Research classic", "why": "Pragmatic research" },
+        { "title": "NN/g — User Research methods", "url": "https://www.nngroup.com/topic/user-research/", "type": "articles", "rating": "Authority", "why": "Rigor, bias control" },
+        { "title": "Steve Portigal — Interviewing Users", "url": "https://portigal.com/books/interviewing-users/", "type": "book", "rating": "Top interview guide", "why": "Interview craft" }
+      ]
+    },
+    "11-tech-lead": {
+      "resources": [
+        { "title": "Staff Engineer — Will Larson", "url": "https://staffeng.com/", "type": "book", "rating": "Eng leadership canon", "why": "Tech lead paths" },
+        { "title": "Accelerate — DORA metrics (talks)", "url": "https://www.youtube.com/results?search_query=accelerate+dora+metrics", "type": "video", "rating": "Research-backed", "why": "Delivery performance" },
+        { "title": "Google eng practices — Code Review", "url": "https://google.github.io/eng-practices/review/", "type": "guide", "rating": "Google official", "why": "PR quality bar" },
+        { "title": "Charity Majors — engineering leadership", "url": "https://www.youtube.com/c/HoneycombIo", "type": "playlist", "rating": "Highly respected", "why": "Stop-loss, reality" }
+      ]
+    },
+    "12-software-architect": {
+      "resources": [
+        { "title": "Designing Data-Intensive Applications", "url": "https://dataintensive.net/", "type": "book", "rating": "5★ systems standard", "why": "Data, distributed systems" },
+        { "title": "Fundamentals of Software Architecture", "url": "https://www.oreilly.com/library/view/fundamentals-of-software/9781492043441/", "type": "book", "rating": "O'Reilly top rated", "why": "Tradeoffs, styles" },
+        { "title": "Martin Fowler — architecture articles", "url": "https://martinfowler.com/architecture/", "type": "articles", "rating": "Industry canon", "why": "Patterns, evolution" },
+        { "title": "C4 Model — Simon Brown", "url": "https://c4model.com/", "type": "guide", "rating": "Widely adopted", "why": "Diagrams that communicate" }
+      ]
+    },
+    "13-backend-engineer": {
+      "resources": [
+        { "title": "Node.js Best Practices — goldbergyoni", "url": "https://github.com/goldbergyoni/nodebestpractices", "type": "repo", "rating": "100k+ GitHub stars", "why": "Production Node patterns" },
+        { "title": "OWASP API Security Top 10", "url": "https://owasp.org/www-project-api-security/", "type": "guide", "rating": "Security standard", "why": "Secure APIs" },
+        { "title": "Fastify documentation + best practices", "url": "https://fastify.dev/docs/latest/Guides/Getting-Started/", "type": "docs", "rating": "Official", "why": "KidNest stack" },
+        { "title": "Use The Index, Luke — SQL indexing", "url": "https://use-the-index-luke.com/", "type": "guide", "rating": "SQL classic", "why": "Query performance" }
+      ]
+    },
+    "14-frontend-engineer": {
+      "resources": [
+        { "title": "Epic React — Kent C. Dodds", "url": "https://www.epicreact.dev/", "type": "course", "rating": "Top React course", "why": "React mastery" },
+        { "title": "Joy of React — Josh Comeau", "url": "https://www.joyofreact.com/", "type": "course", "rating": "4.9+ reviews", "why": "CSS + React craft" },
+        { "title": "web.dev — Learn HTML/CSS/JS/Performance", "url": "https://web.dev/learn", "type": "course", "rating": "Google official", "why": "Core web quality" },
+        { "title": "Testing JavaScript — Kent C. Dodds", "url": "https://testingjavascript.com/", "type": "course", "rating": "Highly rated", "why": "Test discipline" },
+        { "title": "React docs (new)", "url": "https://react.dev/", "type": "docs", "rating": "Official · best source", "why": "Fundamentals" }
+      ]
+    },
+    "15-mobile-engineer": {
+      "resources": [
+        { "title": "Expo documentation + tutorials", "url": "https://docs.expo.dev/tutorial/introduction/", "type": "docs", "rating": "Official · KidNest stack", "why": "Expo/RN shipping" },
+        { "title": "React Native Express", "url": "https://www.reactnative.express/", "type": "guide", "rating": "Popular free course", "why": "RN fundamentals" },
+        { "title": "Evan Bacon — Expo talks", "url": "https://www.youtube.com/results?search_query=evan+bacon+expo", "type": "video", "rating": "Expo authority", "why": "Advanced Expo patterns" },
+        { "title": "Apple HIG + Google Play policies", "url": "https://developer.apple.com/app-store/review/guidelines/", "type": "guide", "rating": "Store official", "why": "Release compliance" }
+      ]
+    },
+    "16-data-engineer": {
+      "resources": [
+        { "title": "Fundamentals of Data Engineering (Reis & Housley)", "url": "https://www.oreilly.com/library/view/fundamentals-of-data/9781098108291/", "type": "book", "rating": "O'Reilly top", "why": "DE core craft" },
+        { "title": "dbt Learn — analytics engineering", "url": "https://learn.getdbt.com/", "type": "course", "rating": "Free · industry standard", "why": "Transform + tests" },
+        { "title": "Great Expectations docs", "url": "https://docs.greatexpectations.io/", "type": "docs", "rating": "Data quality standard", "why": "Trust in data" },
+        { "title": "Kimball dimensional modeling intro", "url": "https://www.youtube.com/results?search_query=kimball+dimensional+modeling", "type": "video", "rating": "Classic", "why": "Grain & modeling" }
+      ]
+    },
+    "17-ml-ai-engineer": {
+      "resources": [
+        { "title": "DeepLearning.AI — LangChain & LLM courses", "url": "https://www.deeplearning.ai/courses/", "type": "course", "rating": "4.8+ Coursera", "why": "Applied LLM craft" },
+        { "title": "Anthropic prompt engineering docs", "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview", "type": "docs", "rating": "Official best practice", "why": "Prompt + agent design" },
+        { "title": "Hamel Husain — eval-driven development", "url": "https://hamel.dev/blog/posts/evals/", "type": "articles", "rating": "AI quality authority", "why": "Evals before prod" },
+        { "title": "Eugene Yan — applied ML essays", "url": "https://eugeneyan.com/", "type": "blog", "rating": "Highly cited", "why": "Production ML patterns" }
+      ]
+    },
+    "18-devops-platform": {
+      "resources": [
+        { "title": "Google SRE Book (free online)", "url": "https://sre.google/sre-book/table-of-contents/", "type": "book", "rating": "Reliability canon", "why": "SRE fundamentals" },
+        { "title": "Kelsey Hightower — Kubernetes/Docker talks", "url": "https://www.youtube.com/results?search_query=kelsey+hightower", "type": "video", "rating": "Legendary educator", "why": "Pragmatic infra" },
+        { "title": "GitHub Actions docs + marketplace", "url": "https://docs.github.com/en/actions", "type": "docs", "rating": "Official", "why": "CI/CD patterns" },
+        { "title": "The Twelve-Factor App", "url": "https://12factor.net/", "type": "guide", "rating": "Industry standard", "why": "Cloud-native apps" }
+      ]
+    },
+    "19-security-engineer": {
+      "resources": [
+        { "title": "PortSwigger Web Security Academy", "url": "https://portswigger.net/web-security", "type": "course", "rating": "Free · hands-on gold", "why": "Practical AppSec" },
+        { "title": "OWASP Web + API Security", "url": "https://owasp.org/www-project-web-security-testing-guide/", "type": "guide", "rating": "Industry standard", "why": "Testing & threats" },
+        { "title": "Troy Hunt — security awareness", "url": "https://www.troyhunt.com/", "type": "blog", "rating": "Have I Been Pwned author", "why": "Pragmatic security" },
+        { "title": "Google — Secure by Design (talks)", "url": "https://www.youtube.com/results?search_query=google+secure+by+design", "type": "video", "rating": "Google security", "why": "Threat modeling" }
+      ]
+    },
+    "20-qa-sdet": {
+      "resources": [
+        { "title": "Playwright documentation + tutorials", "url": "https://playwright.dev/docs/intro", "type": "docs", "rating": "Official · top E2E tool", "why": "Automation excellence" },
+        { "title": "Testing JavaScript — Kent C. Dodds", "url": "https://testingjavascript.com/", "type": "course", "rating": "Highly rated", "why": "Testing philosophy" },
+        { "title": "Explore It! — Elisabeth Hendrickson", "url": "https://www.amazon.com/Explore-It-Reduce-Risk-Increase-Confidence/dp/1937785025", "type": "book", "rating": "Exploratory testing bible", "why": "Find real bugs" },
+        { "title": "Ministry of Testing — resources", "url": "https://www.ministryoftesting.com/", "type": "community", "rating": "Global QA community", "why": "Modern QA craft" }
+      ]
+    },
+    "21-growth-lead": {
+      "resources": [
+        { "title": "Reforge — Growth Series", "url": "https://www.reforge.com/growth-series", "type": "course", "rating": "Top growth program", "why": "Loops, activation, retention" },
+        { "title": "Lenny — growth case studies", "url": "https://www.lennysnewsletter.com/", "type": "newsletter", "rating": "Highly cited", "why": "Real company patterns" },
+        { "title": "Andrew Chen — growth essays", "url": "https://andrewchen.com/", "type": "blog", "rating": "a16z growth", "why": "Network effects, loops" },
+        { "title": "Amplitude — Product Analytics academy", "url": "https://amplitude.com/amplitude-academy", "type": "course", "rating": "Free · product analytics", "why": "Funnel thinking" }
+      ]
+    },
+    "22-content-marketing": {
+      "resources": [
+        { "title": "Animalz — SaaS content strategy", "url": "https://www.animalz.co/blog/", "type": "blog", "rating": "B2B SaaS respected", "why": "Content that converts" },
+        { "title": "Copyhackers — Joanna Wiebe", "url": "https://copyhackers.com/", "type": "course", "rating": "Conversion copy gold", "why": "Copy that works" },
+        { "title": "Marketing Examples", "url": "https://marketingexamples.com/", "type": "examples", "rating": "Highly shared", "why": "Specific > vague" },
+        { "title": "April Dunford — messaging alignment", "url": "https://www.aprildunford.com/", "type": "book", "rating": "Positioning standard", "why": "On-message content" }
+      ]
+    },
+    "23-seo-specialist": {
+      "resources": [
+        { "title": "Google Search Central docs", "url": "https://developers.google.com/search/docs", "type": "docs", "rating": "Google official", "why": "Technical SEO truth" },
+        { "title": "Ahrefs Academy — SEO course", "url": "https://ahrefs.com/academy", "type": "course", "rating": "Free · highly rated", "why": "Keyword + link strategy" },
+        { "title": "Moz Beginner's Guide to SEO", "url": "https://moz.com/beginners-guide-to-seo", "type": "guide", "rating": "Industry classic", "why": "SEO fundamentals" },
+        { "title": "Brian Dean — Backlinko (archived/teaches)", "url": "https://backlinko.com/", "type": "blog", "rating": "Widely cited", "why": "Intent + content SEO" }
+      ]
+    },
+    "24-performance-marketing": {
+      "resources": [
+        { "title": "Google Skillshop — Ads certification", "url": "https://skillshop.exceedlms.com/student/catalog/list?category_ids=53-google-ads", "type": "course", "rating": "Google official cert", "why": "Paid search fundamentals" },
+        { "title": "Meta Blueprint — ads training", "url": "https://www.facebook.com/business/learn", "type": "course", "rating": "Meta official", "why": "Social paid basics" },
+        { "title": "Reforge — Performance Marketing", "url": "https://www.reforge.com/", "type": "course", "rating": "Top program", "why": "CAC, creative testing" },
+        { "title": "Andrew Foxwell — Meta ads podcast", "url": "https://www.youtube.com/results?search_query=andrew+foxwell+meta+ads", "type": "podcast", "rating": "Practitioner favorite", "why": "Account structure" }
+      ]
+    },
+    "25-community-social": {
+      "resources": [
+        { "title": "Community Club — CMX resources", "url": "https://www.community.club/", "type": "community", "rating": "Community pros standard", "why": "Community building" },
+        { "title": "Telegram Bot API docs", "url": "https://core.telegram.org/bots/api", "type": "docs", "rating": "Official", "why": "EMET Telegram channel" },
+        { "title": "Gary Vee — social tone (selective)", "url": "https://www.youtube.com/results?search_query=gary+vee+social+media+strategy", "type": "video", "rating": "High engagement craft", "why": "Short-form energy" },
+        { "title": "HubSpot — social media course", "url": "https://academy.hubspot.com/courses/social-media", "type": "course", "rating": "Free · 4.5+", "why": "Social ops basics" }
+      ]
+    },
+    "26-sales": {
+      "resources": [
+        { "title": "MEDDIC / MEDDPICC explainers", "url": "https://www.youtube.com/results?search_query=meddpicc+sales+methodology", "type": "video", "rating": "Enterprise SaaS standard", "why": "Qualification discipline" },
+        { "title": "Winning by Design — SaaS sales", "url": "https://www.winningbydesign.com/resources", "type": "course", "rating": "B2B SaaS respected", "why": "Demo + discovery" },
+        { "title": "The Mom Test — Rob Fitzpatrick", "url": "https://www.momtestbook.com/", "type": "book", "rating": "Discovery classic", "why": "Honest customer conversations" },
+        { "title": "Gong Labs — sales research", "url": "https://www.gong.io/resources/labs/", "type": "research", "rating": "Data-backed", "why": "What top reps do" }
+      ]
+    },
+    "27-customer-success": {
+      "resources": [
+        { "title": "Gainsight — CS education", "url": "https://www.gainsight.com/resources/", "type": "resources", "rating": "CS category leader", "why": "Health scores, playbooks" },
+        { "title": "Totango — CS fundamentals", "url": "https://www.totango.com/blog", "type": "blog", "rating": "CS industry", "why": "Onboarding, retention" },
+        { "title": "Nick Mehta — Customer Success talks", "url": "https://www.youtube.com/results?search_query=nick+mehta+customer+success", "type": "video", "rating": "Gainsight CEO · CS pioneer", "why": "Outcomes mindset" },
+        { "title": "ProductLed — PLG + CS", "url": "https://productled.com/blog", "type": "blog", "rating": "PLG respected", "why": "Self-serve + high-touch blend" }
+      ]
+    },
+    "28-support": {
+      "resources": [
+        { "title": "Help Scout — support skills", "url": "https://www.helpscout.com/blog/customer-service-skills/", "type": "guide", "rating": "Support industry favorite", "why": "Empathy + clarity" },
+        { "title": "Intercom — support & product education", "url": "https://www.intercom.com/blog/", "type": "blog", "rating": "Widely read", "why": "Modern support ops" },
+        { "title": "Support Driven — community", "url": "https://supportdriven.com/", "type": "community", "rating": "Support pros network", "why": "Career-grade support" },
+        { "title": "GitHub — writing good bug reports", "url": "https://github.com/atom/atom/blob/master/CONTRIBUTING.md#how-do-i-submit-a-good-bug-report", "type": "guide", "rating": "Classic template", "why": "Repro discipline" }
+      ]
+    },
+    "29-analytics-bi": {
+      "resources": [
+        { "title": "Amplitude — Analytics academy", "url": "https://amplitude.com/amplitude-academy", "type": "course", "rating": "Free · product analytics", "why": "Event taxonomy" },
+        { "title": "Lean Analytics — Croll & Yoskovitz", "url": "https://leananalyticsbook.com/", "type": "book", "rating": "Startup analytics classic", "why": "One metric that matters" },
+        { "title": "dbt — metrics layer concepts", "url": "https://www.getdbt.com/blog", "type": "blog", "rating": "Analytics eng standard", "why": "Trusted definitions" },
+        { "title": "Cole Nussbaumer Knaflic — Storytelling with Data", "url": "https://www.storytellingwithdata.com/", "type": "book/course", "rating": "4.8+ · BI favorite", "why": "Charts that decide" }
+      ]
+    },
+    "30-legal-compliance": {
+      "resources": [
+        { "title": "GDPR.eu — plain-language guide", "url": "https://gdpr.eu/", "type": "guide", "rating": "Widely used reference", "why": "Privacy baseline" },
+        { "title": "IAPP — privacy fundamentals", "url": "https://iapp.org/resources/article/privacy-101/", "type": "guide", "rating": "Privacy pro body", "why": "Compliance framing" },
+        { "title": "Termly — policy generator education", "url": "https://termly.io/resources/", "type": "resources", "rating": "Startup-friendly", "why": "ToS/Privacy drafts" },
+        { "title": "FTC — truth in advertising", "url": "https://www.ftc.gov/business-guidance/advertising-marketing", "type": "guide", "rating": "US official", "why": "Claim hygiene" }
+      ]
+    },
+    "31-finance-ops": {
+      "resources": [
+        { "title": "Stripe documentation — billing", "url": "https://docs.stripe.com/billing", "type": "docs", "rating": "Stripe official", "why": "Subscriptions, dunning" },
+        { "title": "ProfitWell — SaaS finance education", "url": "https://www.profitwell.com/recur/all", "type": "blog", "rating": "SaaS metrics authority", "why": "MRR, churn math" },
+        { "title": "Accounting Coach — basics", "url": "https://www.accountingcoach.com/", "type": "course", "rating": "Free · 4.8+", "why": "Bookkeeping literacy" },
+        { "title": "Paddle — SaaS finance guides", "url": "https://www.paddle.com/resources", "type": "guide", "rating": "SaaS billing respected", "why": "Rev ops patterns" }
+      ]
+    },
+    "32-delivery-lead": {
+      "resources": [
+        { "title": "Scrum Guide (official)", "url": "https://scrumguides.org/", "type": "guide", "rating": "Free · canonical", "why": "Scrum fundamentals" },
+        { "title": "Kanban Guide", "url": "https://kanbanguides.org/", "type": "guide", "rating": "Official", "why": "WIP limits, flow" },
+        { "title": "Shape Up — delivery appetite", "url": "https://basecamp.com/shapeup", "type": "book", "rating": "Free", "why": "Predictable batches" },
+        { "title": "Plucky — agile antipatterns (Henrik Kniberg)", "url": "https://www.youtube.com/results?search_query=henrik+kniberg+agile", "type": "video", "rating": "Legendary explainer", "why": "Avoid process theater" }
+      ]
+    }
+  }
+}

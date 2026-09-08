@@ -1,0 +1,106 @@
+{
+  "version": 4,
+  "mode": "standby",
+  "productWorkEnabled": false,
+  "chemiCloudHqDeploy": true,
+  "wipLimit": 1,
+  "activeWork": null,
+  "githubOwner": "ZionAmar",
+  "cursorGithubConnected": true,
+  "cursorGithubRepoCount": 48,
+  "linearHqIssue": "EMET-65",
+  "linearHqUrl": "https://linear.app/my-company1460/issue/EMET-65",
+  "chemiCloudHost": "cvps1645.serverhostgroup.com",
+  "chemiCloudIp": "178.79.149.231",
+  "chemiCloudUser": "aztodevc",
+  "chemiCloudPort": 1988,
+  "socialReady": false,
+  "architecture": {
+    "desk": "thin-telegram-on-chemicloud",
+    "frontDeskNameHe": "נועה",
+    "specialists": "cursor-cloud",
+    "housePcServer": "cloud-ops-except-pc",
+    "chemiCloud": "customer-sites-only",
+    "agentRuntime": {
+      "00-ceo": "cloud",
+      "33-household-ops": "cloud",
+      "34-pc-ops": "local",
+      "35-server-ops": "cloud"
+    }
+  },
+  "capabilitiesArmed": {
+    "gmailRead": true,
+    "serverSshRead": true,
+    "githubList": true,
+    "pcStatus": true,
+    "facebookPublish": false,
+    "youtubeUpload": false
+  },
+  "founderGates": [
+    "prod_deploy",
+    "spend",
+    "public_publish",
+    "new_product",
+    "pricing",
+    "secrets",
+    "prod_data_delete",
+    "security_exception",
+    "chemiCloud_hq_deploy"
+  ],
+  "repos": {
+    "hq": {
+      "github": "https://github.com/ZionAmar/AZToDev-HQ",
+      "private": true,
+      "notes": "Private HQ mirror — Cloud Noa / Ruth / Tamir. Cursor GitHub App must include this repo."
+    },
+    "work_clock": {
+      "github": "https://github.com/ZionAmar/Work_clock",
+      "private": true
+    },
+    "fitime": {
+      "github": "https://github.com/ZionAmar/FiTime",
+      "private": true
+    },
+    "telemust": {
+      "github": "https://github.com/ZionAmar/TelemustAddUsers",
+      "private": true
+    }
+  },
+  "coreAgents": [
+    "00-ceo",
+    "33-household-ops",
+    "34-pc-ops",
+    "35-server-ops",
+    "04-cpo",
+    "07-product-manager",
+    "32-delivery-lead",
+    "12-software-architect",
+    "16-data-engineer",
+    "13-backend-engineer",
+    "14-frontend-engineer",
+    "15-mobile-engineer",
+    "20-qa-sdet",
+    "18-devops-platform",
+    "11-tech-lead",
+    "19-security-engineer",
+    "05-cmo",
+    "02-cfo"
+  ],
+  "phoneCommands": {
+    "status": [
+      "סטטוס",
+      "/status",
+      "החברה"
+    ],
+    "help": [
+      "עזרה",
+      "/help"
+    ],
+    "reset": [
+      "שיחה חדשה",
+      "/start"
+    ]
+  },
+  "updatedAt": "2026-09-08",
+  "lastHqHelloAt": "2026-09-08T12:02:41.526Z"
+}

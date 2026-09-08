@@ -1,0 +1,41 @@
+{
+  "updatedAt": "2026-09-07T13:15:00.000Z",
+  "initiative": "OPS-HYGIENE",
+  "jobId": "job-1788786640421-0oyyw",
+  "mandate": "founder 2026-09-07 16:09",
+  "owner": "32-delivery-lead",
+  "status": "done",
+  "tasks": [
+    {
+      "id": "OPS-HYGIENE-01",
+      "titleHe": "ניקוי founderAttention + today.date",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "waiting ריק; today.date=2026-09-07; focus מעודכן; Linear API INFO resolved",
+      "artifact": "ops/state.json",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-60/ops-hygiene-01-ניקוי-founderattention-todaydate",
+      "linearId": "EMET-60",
+      "completedAt": "2026-09-07T13:15:00.000Z"
+    },
+    {
+      "id": "OPS-HYGIENE-02",
+      "titleHe": "סגירת initiatives ישנים (KidNest audit done, landing killed)",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "KidNest closed; 4 landing IDEAs killed; agentsNow אמיתי",
+      "artifact": "ops/state.json",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-61/ops-hygiene-02-סגירת-initiatives-kidnest-done-landing-killed",
+      "linearId": "EMET-61",
+      "completedAt": "2026-09-07T13:15:00.000Z"
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "done": 2,
+    "todo": 0,
+    "in_progress": 0,
+    "blocked": 0
+  }
+}

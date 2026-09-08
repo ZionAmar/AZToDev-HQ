@@ -1,0 +1,150 @@
+{
+  "updatedAt": "2026-09-07T11:08:00.000Z",
+  "initiative": "IDEA-2026-09-07-kidnest-audit",
+  "project": "KidNest — ביקורת פרודקשן",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "founderAsk": "עבור על האפליקציה בפרודקשן — תראה מה קורה — תן דוח בעברית",
+  "status": "completed",
+  "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-ביקורת-פרודקשן-19c4b73f9ce6",
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "owners": {
+    "lead": "07-product-manager",
+    "review": "14-frontend-engineer",
+    "infra": "03-cto",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "בדיקת פרודקשן — nestube.aztodev.com",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "nameHe": "דוח לציון",
+      "status": "done"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "NS-01",
+      "phase": "P1",
+      "titleHe": "דף נחיתה + הורדות APK — מה רואים המשתמש",
+      "owner": "03-cto",
+      "status": "done",
+      "priority": "P0",
+      "dod": "צילום/תיאור: landing, #downloads, קישורי APK, טופס contact",
+      "statusHe": "הושלמה",
+      "resultHe": "Landing + APK + contact — PASS",
+      "artifact": "ops/meetings/kidnest-audit/NS-01-landing-review.md",
+      "completedAt": "2026-09-07T10:46:00.000Z"
+    },
+    {
+      "id": "NS-02",
+      "phase": "P1",
+      "titleHe": "ממשק הורים (Admin) — login, דשבורד, ערוצים",
+      "owner": "07-product-manager",
+      "status": "done",
+      "priority": "P0",
+      "dod": "רשימת מסכים שנבדקו + מה עובד/שבור/חסום בלי credentials",
+      "statusHe": "הושלמה",
+      "resultHe": "Admin login + dashboard + 1052 ערוצים — PASS. אין כפתור Google ב-UI.",
+      "artifact": "ops/meetings/kidnest-audit/NS-02-admin-review.md",
+      "completedAt": "2026-09-07T13:55:00.000Z"
+    },
+    {
+      "id": "NS-03",
+      "phase": "P1",
+      "titleHe": "אפליקציית ילדים (/app) — בית, צפייה, חיפוש",
+      "owner": "14-frontend-engineer",
+      "status": "done",
+      "priority": "P0",
+      "dod": "מסמך: מסכים, טעינה, שגיאות console/network, נגן",
+      "statusHe": "הושלמה",
+      "resultHe": "/app PASS: login/home/channels/search/watch+iframe. P0: GET /home → 500 pinChannelSql. home-lite OK.",
+      "artifact": "ops/meetings/kidnest-audit/NS-03-app-review.md",
+      "completedAt": "2026-09-07T14:00:00.000Z"
+    },
+    {
+      "id": "NS-04",
+      "phase": "P1",
+      "titleHe": "ממשק טלוויזיה (/tv) — NesTV, ניווט, צפייה",
+      "owner": "14-frontend-engineer",
+      "status": "done",
+      "priority": "P0",
+      "dod": "מסמך: UX TV, redirect מ-/app, נגן, פוקוס",
+      "statusHe": "הושלמה",
+      "resultHe": "NesTV PASS: rails+search. Smart-TV redirect PASS (/app→/tv, ?desktop=1 escape). TV player ~12s mount.",
+      "artifact": "ops/meetings/kidnest-audit/NS-04-tv-review.md",
+      "completedAt": "2026-09-07T14:00:00.000Z"
+    },
+    {
+      "id": "NS-05",
+      "phase": "P1",
+      "titleHe": "נגן וידאו — next/prev, שורטס, המשך צפייה",
+      "owner": "11-tech-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "בדיקה בפרודקשן (web): האם next/prev עובד, שגיאות ידועות",
+      "statusHe": "הושלמה",
+      "resultHe": "נגן PASS (iframe). שורטס 0 ב-feed. המשך צפייה: 16 API + UI playlists. next/prev: UI+תור 97 OK; advance PARTIAL (headless). KN-008 מאושר runtime.",
+      "artifact": "ops/meetings/kidnest-audit/NS-05-player-prod-review.md",
+      "completedAt": "2026-09-07T11:08:00.000Z"
+    },
+    {
+      "id": "NS-06",
+      "phase": "P1",
+      "titleHe": "קטלוג — קטגוריות וערוצים (אחרי תיקון 27)",
+      "owner": "07-product-manager",
+      "status": "done",
+      "priority": "P1",
+      "dod": "אימות שכל הערוצים מסווגים, אין מחיקות",
+      "statusHe": "הושלמה",
+      "resultHe": "27/27 ערוצים קיבלו קטגוריה. 0 נמחקו.",
+      "artifact": "ops/meetings/kidnest-audit/KN-004-catalog-categories.md",
+      "completedAt": "2026-09-07T06:00:00.000Z"
+    },
+    {
+      "id": "NS-07",
+      "phase": "P2",
+      "titleHe": "איסוף ממצאים — מה עובד / מה תקוע / חומרה",
+      "owner": "00-ceo",
+      "status": "done",
+      "priority": "P0",
+      "dod": "טבלת ממצאים בעברית מכל NS-02..05",
+      "statusHe": "הושלמה",
+      "artifact": "ops/meetings/kidnest-audit/NS-07-findings.md",
+      "completedAt": "2026-09-07T14:00:00.000Z"
+    },
+    {
+      "id": "NS-08",
+      "phase": "P2",
+      "titleHe": "דוח סופי לציון — עברית + קول + מייל",
+      "owner": "00-ceo",
+      "status": "done",
+      "priority": "P0",
+      "dod": "Word/PDF + Telegram voice + aztodev@gmail.com",
+      "statusHe": "הושלמה",
+      "artifact": "ops/meetings/kidnest-audit/NS-08-founder-report.md",
+      "completedAt": "2026-09-07T14:00:00.000Z",
+      "updatedAt": "2026-09-07T10:58:18.534Z",
+      "resultHe": "דוח ביקורת KidNest הושלם: הפרודקשן עובד — לא תקוע. Landing, Admin, קטלוג, APK, API feeds — PASS. נגן: API מוכן (97 בתור, shorts חסומים), מומלץ בדיקה ידנית של iframe. הדוח המלא ב-NS-08-founder-report.md"
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "todo": 0,
+    "ready": 0,
+    "in_progress": 0,
+    "waiting_founder": 0,
+    "done": 8,
+    "blocked": 0
+  },
+  "legacyNote": "25 משימות KN-001..KN-025 (הנדסה פנימית) בוטלו 2026-09-07",
+  "workflow": {
+    "mode": "parallel",
+    "language": "he",
+    "waitFounderBetweenTasks": false
+  }
+}

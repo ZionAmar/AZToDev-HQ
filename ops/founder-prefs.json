@@ -1,0 +1,161 @@
+{
+  "founder": {
+    "name": "ציון",
+    "nameLatin": "Zion",
+    "role": "Founder / Ultimate Gate",
+    "preferredLanguage": "he",
+    "productLanguage": "en-technical"
+  },
+  "architecture": {
+    "agentsRuntime": "local-pc",
+    "founderChannel": "telegram-via-ceo-only",
+    "interAgentChannel": "ops-bus-local",
+    "remoteVisibility": "linear",
+    "localDashboard": "http://localhost:8787"
+  },
+  "frontDesk": {
+    "agentId": "00-ceo",
+    "name": "Noa",
+    "backupAgentId": "07-product-manager"
+  },
+  "priorityGuardians": [
+    "32-delivery-lead",
+    "07-product-manager",
+    "00-ceo",
+    "11-tech-lead"
+  ],
+  "channels": {
+    "telegramFounderDm": {
+      "enabled": true,
+      "onlyAgent": "00-ceo",
+      "purpose": "human conversation + execute via company; push only EOD / major / gates / replies",
+      "voiceReplies": "mirror",
+      "voiceRepliesNote": "mirror=reply in voice when founder sent voice; always|never also supported",
+      "pushUnsolicited": [
+        "end_of_day_summary",
+        "end_of_major_action_summary",
+        "waiting_founder_gate",
+        "SEV1",
+        "founder_dm_reply"
+      ],
+      "neverPush": [
+        "routine_intake_summary",
+        "agent_bus_chatter",
+        "every_tick",
+        "info_without_ask"
+      ]
+    },
+    "telegramCompanyGroup": {
+      "enabled": false,
+      "purpose": "optional read-only log later"
+    },
+    "internalDashboardChat": {
+      "enabled": true,
+      "purpose": "local HQ when at PC; mirrors into same ops pipeline"
+    },
+    "emailDailyDigest": {
+      "enabled": true,
+      "to": "aztodev@gmail.com",
+      "note": "Overnight / EOD / per-task reports via GMAIL_USER + GMAIL_APP_PASS"
+    },
+    "taskPipeline": {
+      "enabled": true,
+      "language": "he",
+      "mode": "gated_sequential",
+      "afterEachTask": ["update_status", "telegram_text", "telegram_voice", "email", "wait_approve"],
+      "approvePhrases": ["כן", "המשך", "אשר", "APPROVE", "יאללה"],
+      "remoteBoard": "Linear + ops/intake/kidnest-audit-board.json"
+    },
+    "emailPerAgent": {
+      "enabled": false
+    },
+    "linear": {
+      "enabled": true,
+      "purpose": "tasks + daily + remote phone visibility"
+    },
+    "telegramRichMedia": {
+      "enabled": true,
+      "inbound": ["text", "photo", "document", "video", "video_note", "voice", "audio", "location", "reply"],
+      "inboxPath": "ops/chat/telegram-inbox/",
+      "voiceTranscription": "OPENAI_API_KEY (Whisper inbound)",
+      "voiceReplies": "OPENAI TTS → Telegram sendVoice when mirror/always"
+    },
+    "whatsapp": { "enabled": false },
+    "phone": { "enabled": false, "onlySev1": true }
+  },
+  "conversationModel": {
+    "style": "human-thinking-partner",
+    "thinkAloudDoesNotExecute": true,
+    "executeThroughCompanyRules": true,
+    "maxClarifyingQuestions": 3,
+    "acknowledgeInHebrew": true
+  },
+  "delegationPolicy": {
+    "mandatory": true,
+    "source": "_company/DELEGATION_POLICY.md",
+    "ceoExecutesSpecialistWork": false,
+    "requireDelegateForNonCeoWork": true,
+    "requireArtifactBeforeDone": true,
+    "requireJobIdInReports": true,
+    "onDelegateFailure": "report_honestly_no_substitution",
+    "note": "Founder mandate Sep 2026 — Noa delegates real Cursor sessions; no theater under other agents' names"
+  },
+  "cursorRuntime": {
+    "settingSources": "project",
+    "note": "Lean project settings on Windows to reduce CMD flashes; set EMET_CURSOR_SETTING_SOURCES=all for full plugins"
+  },
+  "quietHours": {
+    "timezone": "Asia/Jerusalem",
+    "start": "21:30",
+    "end": "08:30",
+    "respectShabbatHolidays": true,
+    "allowDuringQuiet": ["SEV1", "founder_initiated_thread"]
+  },
+  "workHoursInterrupt": {
+    "start": "08:30",
+    "end": "21:30",
+    "allow": ["waiting_founder_gate", "SEV1", "SEV2_expanding", "end_of_major_action", "founder_dm_reply"]
+  },
+  "mustShareWithFounder": [
+    "new_product_bet_or_kill",
+    "pricing_or_spend",
+    "production_deploy",
+    "external_publish_or_ads",
+    "irreversible_architecture",
+    "legal_privacy_exception",
+    "ai_cloud_budget_breach",
+    "end_of_day_summary",
+    "end_of_major_action_summary"
+  ],
+  "doNotInterruptFor": [
+    "routine_progress",
+    "SEV3",
+    "SEV4",
+    "internal_tech_debates",
+    "unpublished_drafts",
+    "agent_bus_chatter",
+    "info_without_ask"
+  ],
+  "dmInitiatorsAllowed": ["00-ceo"],
+  "dmInitiatorsLimited": ["07-product-manager"],
+  "externalAccountsPolicy": {
+    "founderFacing": ["00-ceo"],
+    "socialAdsOnlyWhenPublishing": [
+      "05-cmo",
+      "22-content-marketing",
+      "23-seo-specialist",
+      "24-performance-marketing",
+      "25-community-social"
+    ],
+    "linearWriters": ["07-product-manager", "32-delivery-lead", "11-tech-lead", "00-ceo"],
+    "everyoneElse": "local-tools-only"
+  },
+  "messageFormatRequired": ["type", "ask", "deadline", "default_if_no_reply"],
+  "messageTypes": ["APPROVE", "CHOOSE", "INFO", "EMERGENCY"],
+  "whenFounderSpeaksFirst": {
+    "maxClarifyingQuestions": 3,
+    "thinkAloudDoesNotExecute": true,
+    "acknowledgeInHebrew": true,
+    "routeThroughFrontDesk": true
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "aztodev-company",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "on": "node runtime/emet.mjs on",
+    "off": "node runtime/emet.mjs off",
+    "status": "node runtime/emet.mjs status",
+    "fg": "node runtime/emet.mjs fg",
+    "hq": "node hq/index.mjs"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.0.0",
+    "@linear/sdk": "^93.0.1",
+    "imapflow": "^2.0.0",
+    "nodemailer": "^10.0.0"
+  }
+}

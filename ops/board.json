@@ -1,0 +1,183 @@
+{
+  "updatedAt": "2026-09-07T06:00:34.013Z",
+  "note": "Clean board for Linear publish. Source: intake meetings IDEA-8976771 + IDEA-9375161.",
+  "initiatives": {
+    "primary": "IDEA-2026-09-06-1788718976771",
+    "dedupe": "IDEA-2026-09-06-1788719375161",
+    "killed": "IDEA-2026-09-06-1788718132326"
+  },
+  "columns": {
+    "waiting_founder": [
+      {
+        "id": "task_choose_landing_abc",
+        "title": "CHOOSE landing wedge (A|B|C) — gates all landing + legal build",
+        "owner": "00-ceo → founder",
+        "source": "intake",
+        "label": "waiting-founder",
+        "details": "A=Fold to Parity+ (PP-LND-legal) | B=Hold until Parity+ Done (default 24h silence) | C=EMET standalone (needs full bet)"
+      }
+    ],
+    "blocked": [
+      {
+        "id": "task_conditional_seed",
+        "title": "Conditional ticket seed (PP-LND-* / EMET-LND-*) — HOLD until CHOOSE",
+        "owner": "07-product-manager",
+        "source": "intake",
+        "label": "blocked"
+      },
+      {
+        "id": "task_conditional_prd",
+        "title": "Conditional PRD skeleton (PP-LND-legal / EMET-LND-legal) — HOLD until CHOOSE",
+        "owner": "04-cpo",
+        "source": "intake",
+        "label": "blocked"
+      }
+    ],
+    "today": [
+      {
+        "id": "task_mark_defer_8976771",
+        "title": "Mark defer IDEA-8976771 — order-no-bet / parity-plus-protect",
+        "owner": "07-product-manager",
+        "source": "intake",
+        "label": "intake"
+      },
+      {
+        "id": "task_mark_defer_9375161",
+        "title": "Mark defer IDEA-9375161 — dedupe link to 8976771",
+        "owner": "07-product-manager",
+        "source": "intake",
+        "label": "intake"
+      },
+      {
+        "id": "task_close_8132326",
+        "title": "Close/archive IDEA-8132326 (killed persona probe)",
+        "owner": "07-product-manager",
+        "source": "intake",
+        "label": "intake"
+      },
+      {
+        "id": "task_backlog_sweep",
+        "title": "Backlog sweep — zero tickets/epics under 8976771 + 9375161 + 8132326",
+        "owner": "07-product-manager",
+        "source": "intake",
+        "label": "plan"
+      },
+      {
+        "id": "task_ship_gate02",
+        "title": "Ship OPS-INTAKE-GATE-02 — minimum bar + defer vs kill catalog",
+        "owner": "04-cpo",
+        "source": "intake",
+        "label": "plan"
+      },
+      {
+        "id": "task_ship_gate01",
+        "title": "Ship OPS-INTAKE-GATE-01 — reject-before-mint + audit log",
+        "owner": "03-cto",
+        "source": "intake",
+        "label": "plan"
+      },
+      {
+        "id": "task_linear_publish",
+        "title": "Publish board to Linear team EMET — founder phone visibility",
+        "owner": "07-product-manager",
+        "source": "ops",
+        "label": "build"
+      },
+      {
+        "id": "task_eod_digest",
+        "title": "End-of-day digest — Done / Doing / Blocked / Asks",
+        "owner": "07-product-manager",
+        "source": "ops",
+        "label": "plan"
+      },
+      {
+        "title": "Hygiene Sweep Audit - Confirm Zero Artifacts",
+        "owner": "07-product-manager",
+        "source": "daily",
+        "id": "task_1788760833262",
+        "updatedAt": "2026-09-07T06:00:33.262Z"
+      },
+      {
+        "title": "Ship OPS-INTAKE-GATE-01",
+        "owner": "07-product-manager",
+        "source": "daily",
+        "id": "task_1788760833402",
+        "updatedAt": "2026-09-07T06:00:33.402Z"
+      },
+      {
+        "title": "Ship OPS-INTAKE-GATE-02",
+        "owner": "07-product-manager",
+        "source": "daily",
+        "id": "task_1788760833448",
+        "updatedAt": "2026-09-07T06:00:33.448Z"
+      },
+      {
+        "title": "Close and Archive IDEA-8132326",
+        "owner": "07-product-manager",
+        "source": "daily",
+        "id": "task_1788760833464",
+        "updatedAt": "2026-09-07T06:00:33.464Z"
+      },
+      {
+        "title": "Defer IDEA-9375161 and Link Dedupe to 8976771",
+        "owner": "07-product-manager",
+        "source": "daily",
+        "id": "task_1788760833572",
+        "updatedAt": "2026-09-07T06:00:33.572Z"
+      },
+      {
+        "title": "Monitor Blockers on `8976771` and Escalate if CHOOSE >24h",
+        "owner": "32-delivery-lead",
+        "source": "daily",
+        "id": "task_1788760833712",
+        "updatedAt": "2026-09-07T06:00:33.713Z"
+      },
+      {
+        "title": "Enforce Zero Start on Landing/Legal Builds and PRs",
+        "owner": "11-tech-lead",
+        "source": "daily",
+        "id": "task_1788760833848",
+        "updatedAt": "2026-09-07T06:00:33.848Z"
+      },
+      {
+        "title": "Update Reject Catalog & Intake Bar Rules",
+        "owner": "07-product-manager",
+        "source": "daily",
+        "id": "task_1788760833865",
+        "updatedAt": "2026-09-07T06:00:33.865Z"
+      },
+      {
+        "title": "Monitor Deploy Policy Compliance",
+        "owner": "00-ceo",
+        "source": "daily",
+        "id": "task_1788760833998",
+        "updatedAt": "2026-09-07T06:00:33.998Z"
+      },
+      {
+        "title": "Prepare Founder Status Summary",
+        "owner": "00-ceo",
+        "source": "daily",
+        "id": "task_1788760834013",
+        "updatedAt": "2026-09-07T06:00:34.013Z"
+      }
+    ],
+    "backlog": [
+      {
+        "id": "task_bet_template",
+        "title": "Bet one-liner template for founder — Problem | Users | Wedge | Non-goals",
+        "owner": "04-cpo",
+        "source": "intake",
+        "label": "plan"
+      },
+      {
+        "id": "task_constraints_doc",
+        "title": "Constraints doc — mobile-first static, same pipeline, milestone comms",
+        "owner": "03-cto",
+        "source": "intake",
+        "label": "architect"
+      }
+    ],
+    "in_progress": [],
+    "done": []
+  }
+}

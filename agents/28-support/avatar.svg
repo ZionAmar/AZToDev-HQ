@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Chen">
+  <rect width="128" height="128" rx="64" fill="hsl(190 42% 18%)"/>
+  <circle cx="64" cy="64" r="58" fill="none" stroke="hsl(190 55% 48%)" stroke-width="4"/>
+  <text x="64" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="42" font-weight="700" fill="hsl(190 70% 72%)">CH</text>
+</svg>

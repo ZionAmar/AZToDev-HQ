@@ -1,0 +1,159 @@
+{
+  "publishedAt": "2026-09-07T10:50:10.028Z",
+  "source": "ops/intake/kidnest-audit-board.json",
+  "initiative": "IDEA-2026-09-07-kidnest-audit",
+  "projectName": "KidNest — ביקורת פרודקשן",
+  "workspaceUrl": "https://linear.app/my-company1460",
+  "teamName": "EMET",
+  "teamId": "fced5adc-3d17-442d-9c75-3c3989049895",
+  "projectId": "c51eede3-cca2-4e41-ab45-f21ce1fb4847",
+  "projectUrl": "https://linear.app/my-company1460/project/kidnest-ביקורת-פרודקשן-19c4b73f9ce6",
+  "cancelledCount": 50,
+  "cancelled": [
+    "EMET-27",
+    "EMET-28",
+    "EMET-29",
+    "EMET-30",
+    "EMET-31",
+    "EMET-32",
+    "EMET-33",
+    "EMET-34",
+    "EMET-35",
+    "EMET-36",
+    "EMET-37",
+    "EMET-38",
+    "EMET-39",
+    "EMET-40",
+    "EMET-41",
+    "EMET-42",
+    "EMET-43",
+    "EMET-44",
+    "EMET-45",
+    "EMET-46",
+    "EMET-47",
+    "EMET-48",
+    "EMET-49",
+    "EMET-50",
+    "EMET-51",
+    "EMET-26",
+    "EMET-25",
+    "EMET-24",
+    "EMET-23",
+    "EMET-22",
+    "EMET-21",
+    "EMET-20",
+    "EMET-19",
+    "EMET-18",
+    "EMET-17",
+    "EMET-16",
+    "EMET-15",
+    "EMET-14",
+    "EMET-13",
+    "EMET-12",
+    "EMET-11",
+    "EMET-10",
+    "EMET-9",
+    "EMET-8",
+    "EMET-7",
+    "EMET-6",
+    "EMET-5",
+    "EMET-4",
+    "EMET-3",
+    "EMET-2"
+  ],
+  "issueCount": 8,
+  "issues": [
+    {
+      "localId": "NS-01",
+      "identifier": "EMET-52",
+      "url": "https://linear.app/my-company1460/issue/EMET-52/ns-01-דף-נחיתה-הורדות-apk-מה-רואים-המשתמש",
+      "status": "done"
+    },
+    {
+      "localId": "NS-02",
+      "identifier": "EMET-53",
+      "url": "https://linear.app/my-company1460/issue/EMET-53/ns-02-ממשק-הורים-admin-login-דשבורד-ערוצים",
+      "status": "in_progress"
+    },
+    {
+      "localId": "NS-03",
+      "identifier": "EMET-54",
+      "url": "https://linear.app/my-company1460/issue/EMET-54/ns-03-אפליקציית-ילדים-app-בית-צפייה-חיפוש",
+      "status": "in_progress"
+    },
+    {
+      "localId": "NS-04",
+      "identifier": "EMET-55",
+      "url": "https://linear.app/my-company1460/issue/EMET-55/ns-04-ממשק-טלוויזיה-tv-nestv-ניווט-צפייה",
+      "status": "in_progress"
+    },
+    {
+      "localId": "NS-05",
+      "identifier": "EMET-56",
+      "url": "https://linear.app/my-company1460/issue/EMET-56/ns-05-נגן-וידאו-nextprev-שורטס-המשך-צפייה",
+      "status": "done"
+    },
+    {
+      "localId": "NS-06",
+      "identifier": "EMET-57",
+      "url": "https://linear.app/my-company1460/issue/EMET-57/ns-06-קטלוג-קטגוריות-וערוצים-אחרי-תיקון-27",
+      "status": "done"
+    },
+    {
+      "localId": "NS-07",
+      "identifier": "EMET-58",
+      "url": "https://linear.app/my-company1460/issue/EMET-58/ns-07-איסוף-ממצאים-מה-עובד-מה-תקוע-חומרה",
+      "status": "todo"
+    },
+    {
+      "localId": "NS-08",
+      "identifier": "EMET-59",
+      "url": "https://linear.app/my-company1460/issue/EMET-59/ns-08-דוח-סופי-לציון-עברית-קול-מייל",
+      "status": "todo"
+    }
+  ],
+  "opsHygiene": {
+    "publishedAt": "2026-09-07T13:14:40.588Z",
+    "issues": [
+      {
+        "localId": "OPS-HYGIENE-01",
+        "identifier": "EMET-60",
+        "url": "https://linear.app/my-company1460/issue/EMET-60/ops-hygiene-01-ניקוי-founderattention-todaydate",
+        "status": "done"
+      },
+      {
+        "localId": "OPS-HYGIENE-02",
+        "identifier": "EMET-61",
+        "url": "https://linear.app/my-company1460/issue/EMET-61/ops-hygiene-02-סגירת-initiatives-kidnest-done-landing-killed",
+        "status": "done"
+      }
+    ]
+  },
+  "inventoryDeck": {
+    "publishedAt": "2026-09-07T15:24:29.209Z",
+    "initiative": "IDEA-2026-09-07-inventory-deck",
+    "issues": [
+      {
+        "localId": "INV-01",
+        "issueId": "6cd5ead0-feba-4bd7-92a4-6d16aad0ad13",
+        "identifier": "EMET-62",
+        "url": "https://linear.app/my-company1460/issue/EMET-62/inv-01-קטalog-מסכים-screenshots",
+        "status": "done"
+      },
+      {
+        "localId": "INV-02",
+        "issueId": "a9af2533-d2ba-4f3b-9573-01752413e58e",
+        "identifier": "EMET-63",
+        "url": "https://linear.app/my-company1460/issue/EMET-63/inv-02-מצגת-pptx-7-דק-script",
+        "status": "in_progress"
+      },
+      {
+        "localId": "INV-03",
+        "issueId": "1f0e0ddf-1477-43c5-89a2-e1966bf208a1",
+        "identifier": "EMET-64",
+        "url": "https://linear.app/my-company1460/issue/EMET-64/inv-03-linear-publish-מסירה",
+        "status": "todo"
+      }
+    ]
+  }
+}

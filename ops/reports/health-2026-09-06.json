@@ -1,0 +1,72 @@
+{
+  "at": "2026-09-06T22:28:05.943Z",
+  "ok": true,
+  "checks": [
+    {
+      "name": "CURSOR_API_KEY",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "TELEGRAM_BOT_TOKEN",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "TELEGRAM_FOUNDER_CHAT_ID",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "OPENAI_API_KEY",
+      "pass": true,
+      "detail": "voice+optional"
+    },
+    {
+      "name": "GMAIL",
+      "pass": true,
+      "detail": "email digest"
+    },
+    {
+      "name": "cursor_model",
+      "pass": true,
+      "detail": "composer-2.5"
+    },
+    {
+      "name": "agents",
+      "pass": true,
+      "detail": "33 agents"
+    },
+    {
+      "name": "ops",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "runtime",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "dashboard",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "emet_on",
+      "pass": true,
+      "detail": "Parity+ tick. LLM=true TG=true ideas=5"
+    },
+    {
+      "name": "parity_telegram",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "parity_llm",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "failed": []
+}

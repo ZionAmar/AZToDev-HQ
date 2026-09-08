@@ -1,0 +1,93 @@
+{
+  "updatedAt": "2026-09-07T15:30:00.000Z",
+  "initiative": "IDEA-2026-09-07-inventory-deck",
+  "jobId": "job-1788788179373-sh3zn",
+  "project": "Rakza — מצגת שיווק 7 דק'",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\ניהול מלאי\\rakza",
+  "founderAsk": "מצגת PowerPoint שיווקית ~7 דקות עברית — לבעל החברה (איציק)",
+  "status": "done",
+  "linearProjectUrl": null,
+  "linearBlockedNote": "Linear MCP unavailable in agent session — see ops/linear-founder-unblock.md",
+  "owners": {
+    "audit": "07-product-manager",
+    "deck": "22-content-marketing",
+    "delivery": "32-delivery-lead",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "סקירת מסכים + screenshots",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "nameHe": "מצגת PPTX + script",
+      "status": "done"
+    },
+    {
+      "id": "P3",
+      "nameHe": "מסירה למייסד",
+      "status": "done"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "INV-01",
+      "phase": "P1",
+      "titleHe": "קטalog מסכים + screenshots",
+      "owner": "07-product-manager",
+      "status": "done",
+      "priority": "P0",
+      "dod": "screen-catalog.md + 27 screenshots בכל המודולים",
+      "statusHe": "הושלמה",
+      "resultHe": "27 screenshots localhost — admin/agent/warehouse/driver/super-admin + landing/login",
+      "artifact": "ops/intake/inventory-audit/screen-catalog.md",
+      "screenshotsDir": "ops/intake/inventory-audit/screenshots/",
+      "completedAt": "2026-09-07T14:10:00.000Z"
+    },
+    {
+      "id": "INV-02",
+      "phase": "P2",
+      "titleHe": "מצגת PPTX ~7 דק' + script עברית",
+      "owner": "22-content-marketing",
+      "status": "done",
+      "priority": "P0",
+      "dod": "PPTX RTL + script + email aztodev@gmail.com",
+      "statusHe": "הושלמה — 14 שקפים, RTL, 27 screenshots, מייל נשלח",
+      "dependsOn": ["INV-01"],
+      "inputs": [
+        "ops/intake/inventory-audit/screen-catalog.md",
+        "ops/intake/inventory-audit/screenshots/"
+      ],
+      "deliverables": [
+        "ops/outbox-founder/2026-09-07_inventory-management-deck-he.pptx",
+        "ops/outbox-founder/2026-09-07_inventory-management-deck-script-he.md",
+        "C:\\Users\\amazi\\Desktop\\ניהול מלאי\\05-מצגת-שיווק\\Rakza_מצגת_שיווק_7דק.pptx",
+        "C:\\Users\\amazi\\Desktop\\ניהול מלאי\\05-מצגת-שיווק\\_build_sales_pitch.py"
+      ],
+      "completedAt": "2026-09-07T15:30:00.000Z",
+      "resultHe": "14 שקפים NAVY/TEAL/GOLD, script ~7 דק', email aztodev@gmail.com"
+    },
+    {
+      "id": "INV-03",
+      "phase": "P3",
+      "titleHe": "Linear publish + מסירה",
+      "owner": "32-delivery-lead",
+      "status": "blocked",
+      "priority": "P1",
+      "dod": "INV-* issues ב-Linear + email founder",
+      "dependsOn": ["INV-02"],
+      "blocker": "LINEAR_API_KEY / MCP",
+      "noteHe": "מייל למייסד נשלח ב-INV-02; Linear עדיין חסום"
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "done": 2,
+    "ready": 0,
+    "todo": 0,
+    "in_progress": 0,
+    "blocked": 1
+  }
+}

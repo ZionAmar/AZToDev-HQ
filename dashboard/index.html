@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AZToDev — Command</title>
+  <link rel="icon" type="image/png" href="./brand/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Heebo:wght@700;800&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="bg"></div>
+  <header class="top">
+    <div class="brand-row">
+      <img class="brand-logo" src="./brand/logo.png" width="56" height="56" alt="AZToDev" />
+      <div>
+      <p class="eyebrow">AZToDev</p>
+      <h1>דשבורד החברה</h1>
+      <p class="motto" id="motto">פיתוח תוכנה, אפליקציות ואתרים — לצורך אישי או לעסק. יזמות והוראה.</p>
+      </div>
+    </div>
+    <div class="top-meta">
+      <div id="powerBadge" class="power off">POWER —</div>
+      <div id="updated">—</div>
+      <div class="power-actions">
+        <button type="button" id="btnOn" title="מריץ EMET-ON בתהליך חיצוני דרך הוראה">הדלק</button>
+        <button type="button" id="btnOff">כבה + שמור נקודה</button>
+        <button type="button" id="btnCp">שמור checkpoint</button>
+        <button type="button" id="refresh">רענון</button>
+      </div>
+      <p class="sub" id="resumeNote"></p>
+    </div>
+  </header>
+
+  <section class="founder" id="founderBox">
+    <h2>מחכה לך</h2>
+    <div id="founderAttention"></div>
+    <p class="sub" id="founderMeta" style="margin-top:10px"></p>
+  </section>
+
+  <section class="card wide chat-card">
+    <div class="chat-head">
+      <div>
+        <h2>צ׳אט החברה</h2>
+        <p class="sub">שפה חופשית → ניתוב לסוכן → פרומפט מלא → הרצה ב־Cursor → פלט חזרה (כולל צילומים/קבצים)</p>
+      </div>
+      <div id="keyBadge" class="key-badge">CURSOR_API_KEY —</div>
+    </div>
+    <div id="chatLog" class="chat-log"></div>
+    <div class="chat-compose">
+      <textarea id="chatInput" rows="3" placeholder="לדוגמה: @רז תוסיף ראוט התחברות ותצלם לי מסך של התוצאה…"></textarea>
+      <div class="chat-actions">
+        <button type="button" id="btnMic">הקלטה</button>
+        <button type="button" id="btnSend" class="primary">שלח לביצוע</button>
+      </div>
+    </div>
+    <p class="sub" id="chatHint">אפשר לתייג סוכן: @רז @דפנה @עמית @נורה או פשוט לכתוב חופשי.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h2>תוכנית היום</h2>
+      <p class="sub" id="todayDate"></p>
+      <ul id="todayFocus"></ul>
+      <h3>לא עושים היום</h3>
+      <ul id="notDoing"></ul>
+      <p class="owners" id="dayOwners"></p>
+    </article>
+
+    <article class="card">
+      <h2>מה קורה עכשיו</h2>
+      <div id="agentsNow" class="agents"></div>
+    </article>
+  </section>
+
+  <section class="card wide">
+    <h2>יוזמות לפי שלב</h2>
+    <div id="stagesLegend" class="legend"></div>
+    <div id="initiatives" class="initiatives"></div>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h2>החלטות אחרונות</h2>
+      <ul id="decisions"></ul>
+    </article>
+    <article class="card">
+      <h2>ישיבות אחרונות</h2>
+      <ul id="meetings"></ul>
+    </article>
+  </section>
+
+  <footer>
+    <p>מקור אמת: <code>ops/state.json</code> · כללים: <code>_company/handbook/</code></p>
+    <p>רעיון חדש → <code>ops/intake/ideas/</code> · בעיה → <code>ops/intake/problems/</code></p>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
