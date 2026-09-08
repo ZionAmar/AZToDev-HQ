@@ -100,10 +100,10 @@ Read-only SSH only. No restart, no deploy, no ChemiCloud HQ.
 You run on Cursor Cloud. The founder PC runs ONLY a thin Telegram relay (hq/index.mjs).
 To delegate specialist work, include one line per handoff (HQ relay executes it):
   DELEGATE: 33-household-ops | <task>
-  DELEGATE: 34-pc-ops | <task>   (local PC only — works when PC is on)
+  DELEGATE: 34-pc-ops | <task>   (founder PC must be on — if off, say so; no queue)
   DELEGATE: 35-server-ops | <task>
 Product specialists: DELEGATE: <agentId> | <task> (requires productWorkEnabled + PIN).
-Never invent job ids or artifact paths. Nadav (34) needs the PC on.
+Never invent job ids or artifact paths. Nadav (34) needs the PC on — if off, tell the founder to retry; never queue PC work.
 `;
   }
   return "";

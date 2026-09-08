@@ -1,4 +1,4 @@
-import { pcStatus } from "./pc-status.mjs";
+import { isFounderPcAvailable } from "./pc-availability.mjs";
 import { sshConfigured } from "./ssh-chemicloud.mjs";
 import { gmailReadConfigured } from "./gmail-read.mjs";
 import { emailConfigured } from "./mail.mjs";
@@ -20,7 +20,7 @@ export function capabilitiesSnapshot() {
     gmailRead: gmailReadConfigured(),
     githubViaCursor: Boolean((process.env.CURSOR_API_KEY || "").trim()),
     cloudProduct: cloudConfigured(),
-    pcWhenOn: true,
+    pcWhenOn: isFounderPcAvailable(),
     serverSsh: sshConfigured(),
     facebookPixel: social.facebook.pixel,
     facebookPublish: social.facebook.publish,

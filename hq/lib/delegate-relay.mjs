@@ -11,6 +11,10 @@ import { chatWithAgent } from "../../runtime/lib/agent-sessions.mjs";
 import { runCloudOpsWork, runCloudWork } from "./cloud-work.mjs";
 import { startBackgroundDelegate } from "../../runtime/lib/background-delegate.mjs";
 import { isProductWorkEnabled } from "../../runtime/lib/company-state.mjs";
+import {
+  pcUnavailableForAgent,
+  PC_UNAVAILABLE_HE,
+} from "../../runtime/lib/pc-availability.mjs";
 
 const DELEGATE_LINE = /^DELEGATE:\s*([^\s|]+)\s*\|\s*(.+)$/i;
 
@@ -40,6 +44,12 @@ export async function executeDelegateRelay(text, { background = true, fromAgentI
   for (const { agentId, task } of jobs) {
     if (!agentId || !task) continue;
     const name = readAgentName(agentId);
+
+    if (pcUnavailableForAgent(agentId)) {
+      delegateResults.push(`▸ ${name}: ${PC_UNAVAILABLE_HE}`);
+      journal("delegate_relay_pc_off", { agentId, task: task.slice(0, 120) });
+      continue;
+    }
 
     if (background) {
       const job = startBackgroundDelegate({

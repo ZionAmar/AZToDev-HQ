@@ -8,6 +8,7 @@ import { chatWithAgent, sanitizeForTelegram } from "./agent-sessions.mjs";
 import { sendFounderTelegram } from "./telegram.mjs";
 import { readAgentName } from "./router.mjs";
 import { specialistUsesCloud, cloudOpsAgent } from "./specialist-runtime.mjs";
+import { pcUnavailableForAgent, PC_UNAVAILABLE_HE } from "./pc-availability.mjs";
 import { runCloudWork, runCloudOpsWork } from "../../hq/lib/cloud-work.mjs";
 import fs from "fs";
 
@@ -44,6 +45,18 @@ export function startBackgroundDelegate({
 }) {
   const jobId = `job-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
   const name = readAgentName(agentId);
+
+  if (pcUnavailableForAgent(agentId)) {
+    journal("delegate_background_pc_off", { agentId, fromAgentId });
+    return {
+      jobId: null,
+      agentId,
+      agentName: name,
+      status: "pc_off",
+      message: PC_UNAVAILABLE_HE,
+    };
+  }
+
   const store = readJobs();
   store.jobs = store.jobs || [];
   store.jobs.unshift({

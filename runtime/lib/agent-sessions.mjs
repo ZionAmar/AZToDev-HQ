@@ -22,6 +22,7 @@ import { sendGmail } from "./mail.mjs";
 import { specialistUsesCloud, standbyDelegateAllowed, cloudOpsAgent } from "./specialist-runtime.mjs";
 import { runReadOnlySsh } from "./ssh-chemicloud.mjs";
 import { pcStatus } from "./pc-status.mjs";
+import { pcUnavailableForAgent, PC_UNAVAILABLE_HE } from "./pc-availability.mjs";
 import { socialStatus } from "./social.mjs";
 import { capabilitiesSnapshot } from "./capabilities.mjs";
 import { requireActionPin } from "./action-pin.mjs";
@@ -214,6 +215,9 @@ function buildCompanyTools(ownerAgentId) {
         if (delegateDepth >= MAX_DELEGATE_DEPTH) {
           return "Max delegation depth — finish the work yourself or escalate to Noa.";
         }
+        if (pcUnavailableForAgent(agentId)) {
+          return PC_UNAVAILABLE_HE;
+        }
 
         const wait =
           args.wait === true ||
@@ -230,6 +234,9 @@ function buildCompanyTools(ownerAgentId) {
             task: args.repo ? `[repo=${args.repo}]\n${task}` : task,
             notifyFounder: ownerAgentId === "00-ceo",
           });
+          if (job.status === "pc_off") {
+            return job.message || PC_UNAVAILABLE_HE;
+          }
           return `Started BACKGROUND job ${job.jobId} with ${job.agentName} (${agentId})${cloud ? " on Cursor Cloud" : ""}. They keep working independently — you can reply to the founder now. You will get a Telegram update when they finish.`;
         }
 
