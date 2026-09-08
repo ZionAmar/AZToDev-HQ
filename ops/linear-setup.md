@@ -1,6 +1,6 @@
 # Linear setup — EMET
 
-Status: **OAuth green in Cursor UI** — but **0 issues published** (2026-09-07 01:16 UTC+3). Linear MCP namespace **not loaded** in agent sessions; `LINEAR_API_KEY` commented out in `.env`.
+Status: **API key green** — **23 board issues published** (2026-09-08 22:19 UTC). Workspace: `my-company1460`, team **EMET**.
 
 See unblock guide: `ops/linear-founder-unblock.md`
 
@@ -57,3 +57,33 @@ Add to `.env` on machine (not Telegram):
 - [EMET-24](https://linear.app/my-company1460/issue/EMET-24/kn-023-statusmd-prod-health-blockers-last-deploy-regressions) — KN-023: STATUS.md — prod health, blockers, last deploy, regressions
 - [EMET-25](https://linear.app/my-company1460/issue/EMET-25/kn-024-runbook-local-pack-chemicloud-eas-post-deploy-db) — KN-024: Runbook — local, pack, ChemiCloud, EAS, post-deploy db:*
 - [EMET-26](https://linear.app/my-company1460/issue/EMET-26/kn-025-דוח-תובנות-לציון-מה-הפרויקט-עושה-המלצות-עדיפות) — KN-025: דוח תובנות לציון — מה הפרויקט עושה + המלצות עדיפות
+## Last publish
+- **At:** 2026-09-08T22:19:22.176Z
+- **Workspace:** https://linear.app/my-company1460
+- **Team:** EMET (`fced5adc-3d17-442d-9c75-3c3989049895`)
+- **Issues:** 23
+
+### Issue URLs (founder phone)
+- [EMET-67](https://linear.app/my-company1460/issue/EMET-67/choose-landing-wedge-abc-gates-all-landing-legal-build) — CHOOSE landing wedge (A|B|C) — gates all landing + legal build
+- [EMET-68](https://linear.app/my-company1460/issue/EMET-68/conditional-ticket-seed-pp-lnd-emet-lnd-hold-until-choose) — Conditional ticket seed (PP-LND-* / EMET-LND-*) — HOLD until CHOOSE
+- [EMET-69](https://linear.app/my-company1460/issue/EMET-69/conditional-prd-skeleton-pp-lnd-legal-emet-lnd-legal-hold-until-choose) — Conditional PRD skeleton (PP-LND-legal / EMET-LND-legal) — HOLD until CHOOSE
+- [EMET-70](https://linear.app/my-company1460/issue/EMET-70/mark-defer-idea-8976771-order-no-bet-parity-plus-protect) — Mark defer IDEA-8976771 — order-no-bet / parity-plus-protect
+- [EMET-71](https://linear.app/my-company1460/issue/EMET-71/mark-defer-idea-9375161-dedupe-link-to-8976771) — Mark defer IDEA-9375161 — dedupe link to 8976771
+- [EMET-72](https://linear.app/my-company1460/issue/EMET-72/closearchive-idea-8132326-killed-persona-probe) — Close/archive IDEA-8132326 (killed persona probe)
+- [EMET-73](https://linear.app/my-company1460/issue/EMET-73/backlog-sweep-zero-ticketsepics-under-8976771-9375161-8132326) — Backlog sweep — zero tickets/epics under 8976771 + 9375161 + 8132326
+- [EMET-74](https://linear.app/my-company1460/issue/EMET-74/ship-ops-intake-gate-02-minimum-bar-defer-vs-kill-catalog) — Ship OPS-INTAKE-GATE-02 — minimum bar + defer vs kill catalog
+- [EMET-75](https://linear.app/my-company1460/issue/EMET-75/ship-ops-intake-gate-01-reject-before-mint-audit-log) — Ship OPS-INTAKE-GATE-01 — reject-before-mint + audit log
+- [EMET-76](https://linear.app/my-company1460/issue/EMET-76/publish-board-to-linear-team-emet-founder-phone-visibility) — Publish board to Linear team EMET — founder phone visibility
+- [EMET-77](https://linear.app/my-company1460/issue/EMET-77/end-of-day-digest-done-doing-blocked-asks) — End-of-day digest — Done / Doing / Blocked / Asks
+- [EMET-78](https://linear.app/my-company1460/issue/EMET-78/hygiene-sweep-audit-confirm-zero-artifacts) — Hygiene Sweep Audit - Confirm Zero Artifacts
+- [EMET-79](https://linear.app/my-company1460/issue/EMET-79/ship-ops-intake-gate-01) — Ship OPS-INTAKE-GATE-01
+- [EMET-80](https://linear.app/my-company1460/issue/EMET-80/ship-ops-intake-gate-02) — Ship OPS-INTAKE-GATE-02
+- [EMET-81](https://linear.app/my-company1460/issue/EMET-81/close-and-archive-idea-8132326) — Close and Archive IDEA-8132326
+- [EMET-82](https://linear.app/my-company1460/issue/EMET-82/defer-idea-9375161-and-link-dedupe-to-8976771) — Defer IDEA-9375161 and Link Dedupe to 8976771
+- [EMET-83](https://linear.app/my-company1460/issue/EMET-83/monitor-blockers-on-8976771-and-escalate-if-choose-24h) — Monitor Blockers on `8976771` and Escalate if CHOOSE >24h
+- [EMET-84](https://linear.app/my-company1460/issue/EMET-84/enforce-zero-start-on-landinglegal-builds-and-prs) — Enforce Zero Start on Landing/Legal Builds and PRs
+- [EMET-85](https://linear.app/my-company1460/issue/EMET-85/update-reject-catalog-and-intake-bar-rules) — Update Reject Catalog & Intake Bar Rules
+- [EMET-86](https://linear.app/my-company1460/issue/EMET-86/monitor-deploy-policy-compliance) — Monitor Deploy Policy Compliance
+- [EMET-87](https://linear.app/my-company1460/issue/EMET-87/prepare-founder-status-summary) — Prepare Founder Status Summary
+- [EMET-88](https://linear.app/my-company1460/issue/EMET-88/bet-one-liner-template-for-founder-problem-users-wedge-non-goals) — Bet one-liner template for founder — Problem | Users | Wedge | Non-goals
+- [EMET-89](https://linear.app/my-company1460/issue/EMET-89/constraints-doc-mobile-first-static-same-pipeline-milestone-comms) — Constraints doc — mobile-first static, same pipeline, milestone comms
