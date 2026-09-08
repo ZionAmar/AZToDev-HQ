@@ -39,6 +39,12 @@ GITHUB_HQ_REF=main
 | `CHEMICLOUD_PORT` | 1988 |
 | `CHEMICLOUD_SSH_KEY` | private key (PEM) |
 
+**קשת / לינאר (לוח משימות בנייד):**
+| Secret | מה זה |
+|--------|--------|
+| `LINEAR_API_KEY` | Personal API key מ-Linear → Settings → Security (Write) |
+| `LINEAR_TEAM_ID` | אופציונלי — UUID של צוות EMET |
+
 ## 4) איך זה עובד
 
 ```

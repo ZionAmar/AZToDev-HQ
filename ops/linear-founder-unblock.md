@@ -19,6 +19,19 @@
    ```
 6. Open `ops/linear-issues.json` — all issue URLs listed there + appended to `ops/linear-setup.md`
 
+## Option C — Cursor Cloud secrets (for Cloud agents: Keshet, Amit)
+
+After the founder creates a Linear Personal API key (steps 1–3 in Option A):
+
+1. Open [Cursor Cloud → Environments](https://cursor.com/dashboard/cloud-agents/environments) → environment for **AZToDev-HQ**
+2. **Runtime secrets** → Add:
+   - Name: `LINEAR_API_KEY`
+   - Value: `lin_api_...` (never paste in Telegram)
+3. Save — new Cloud agent runs pick up the secret automatically
+4. Founder replies «סיימתי» in Telegram → Noa delegates `32-delivery-lead` (Keshet) to publish `ops/board.json` + enable ongoing sync
+
+Optional (skips team auto-detect): `LINEAR_TEAM_ID` = EMET team UUID from Linear → Settings → Teams.
+
 ## Option B — Cursor MCP only (no API key)
 
 1. Cursor → **Settings** → **MCP** → **Linear** → ensure **Connected** (green)
