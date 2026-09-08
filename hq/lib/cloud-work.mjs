@@ -9,6 +9,7 @@ import { cursorModelId } from "../../runtime/lib/cursor-local.mjs";
 import { isProductWorkEnabled, readFactory } from "../../runtime/lib/company-state.mjs";
 import { readAgentName } from "../../runtime/lib/router.mjs";
 import { cloudOpsAgent } from "../../runtime/lib/specialist-runtime.mjs";
+import { memoryPromptBlock, recordAgentTurn, stripLearningBlock } from "../../runtime/lib/agent-memory.mjs";
 
 export function cloudRepoUrl() {
   return (process.env.GITHUB_REPO || "").trim();
@@ -77,6 +78,46 @@ function specialistPromptSlice(agentId) {
   }
 }
 
+function hqRef() {
+  return (process.env.GITHUB_HQ_REF || process.env.GITHUB_REF || "main").trim();
+}
+
+async function launchCloudRun(prompt, { apiKey, modelId, repoUrl, ref, autoCreatePR }) {
+  const sdk = await import("@cursor/sdk");
+  const Agent = sdk.Agent;
+  const cloud = {
+    repos: [{ url: repoUrl, startingRef: ref }],
+    autoCreatePR,
+    skipReviewerRequest: true,
+  };
+  const opts = { apiKey, model: { id: modelId }, cloud };
+  try {
+    const agent = await Agent.create(opts);
+    try {
+      const run = await agent.send(prompt);
+      const result = await run.wait();
+      return {
+        result,
+        cloudAgentId: agent.agentId || run.agentId || null,
+        runId: run.id || result?.id || null,
+      };
+    } finally {
+      if (typeof agent[Symbol.asyncDispose] === "function") {
+        await agent[Symbol.asyncDispose]();
+      } else if (typeof agent.close === "function") {
+        agent.close();
+      }
+    }
+  } catch {
+    const result = await Agent.prompt(prompt, opts);
+    return {
+      result,
+      cloudAgentId: result?.agentId || null,
+      runId: result?.id || null,
+    };
+  }
+}
+
 function cloudOpsSecretsBlock(agentId) {
   if (agentId === "33-household-ops") {
     return `
@@ -119,6 +160,7 @@ export async function runCloudOpsWork({
   agentId = "",
   agentLabel = "AZToDev ops",
   autoCreatePR = false,
+  fromAgentId = "",
 }) {
   const apiKey = (process.env.CURSOR_API_KEY || "").trim();
   const url = resolveAgentRepo(agentId, "hq");
@@ -134,51 +176,62 @@ export async function runCloudOpsWork({
   const name = agentId ? readAgentName(agentId) : agentLabel;
   const role = specialistPromptSlice(agentId);
   const secrets = cloudOpsSecretsBlock(agentId);
-  const sdk = await import("@cursor/sdk");
-  const Agent = sdk.Agent;
+  const memory = memoryPromptBlock(agentId);
   const prompt = `[AZToDev · ${name}${agentId ? ` · ${agentId}` : ""} · CLOUD OPS]
 Founder: ציון עמר. Hebrew with founder. Code/PRs: Technical English.
 Source of truth: _company/FACTORY.md + DELEGATION_POLICY.md + agents/${agentId || "?"}/.
 You run on Cursor Cloud — not on the founder PC, not on ChemiCloud customer sites.
+Your home between runs is agents/${agentId || "?"}/ on GitHub HQ (this clone). Read it. Do not pretend you are a standing chat URL.
 ${secrets}
 ${role ? `Role snapshot:\n${role}\n` : ""}
+${memory}
+
 Task:
 ${task}
 `;
 
-  const result = await Agent.prompt(prompt, {
+  const launched = await launchCloudRun(prompt, {
     apiKey,
-    model: { id: cursorModelId(agentId || undefined) },
-    cloud: {
-      repos: [
-        {
-          url,
-          startingRef: (process.env.GITHUB_HQ_REF || process.env.GITHUB_REF || "main").trim(),
-        },
-      ],
-      autoCreatePR,
-      skipReviewerRequest: true,
-    },
+    modelId: cursorModelId(agentId || undefined),
+    repoUrl: url,
+    ref: hqRef(),
+    autoCreatePR,
   });
+  const result = launched.result;
 
   journal("cloud_ops_finished", {
     url,
     status: result?.status,
     agentLabel: name,
     specialistId: agentId || null,
-    cloudAgentId: result?.agentId || null,
+    cloudAgentId: launched.cloudAgentId || result?.agentId || null,
+    runId: launched.runId || result?.id || null,
   });
 
-  const text =
+  const raw =
     typeof result?.result === "string"
       ? result.result
       : JSON.stringify(result?.result ?? result, null, 2);
+  const text = String(raw).slice(0, 8000);
+  const cloudAgentId = launched.cloudAgentId || result?.agentId || "";
+
+  if (agentId) {
+    recordAgentTurn({
+      agentId,
+      task,
+      text,
+      ok: result?.status !== "error",
+      cloudAgentId,
+      fromAgentId,
+    });
+  }
 
   return {
     ok: result?.status !== "error",
     status: result?.status,
-    text: String(text).slice(0, 8000),
-    agentId: result?.agentId,
+    text: stripLearningBlock(text),
+    rawText: text,
+    agentId: cloudAgentId || result?.agentId,
     repo: url,
     specialistId: agentId || null,
     cloudOps: true,
@@ -211,6 +264,7 @@ export async function runCloudWork({
 
   const name = agentId ? readAgentName(agentId) : agentLabel;
   const role = specialistPromptSlice(agentId);
+  const memory = agentId ? memoryPromptBlock(agentId) : "";
   const sdk = await import("@cursor/sdk");
   const Agent = sdk.Agent;
   const prompt = `[AZToDev · ${name}${agentId ? ` · ${agentId}` : ""}]
@@ -220,6 +274,8 @@ Default stack: MySQL + Node + React. PWA if it fits. Do not production-deploy. D
 You run on Cursor Cloud — not on the founder PC, not on ChemiCloud.
 
 ${role ? `Role snapshot:\n${role}\n` : ""}
+${memory}
+
 Task:
 ${task}
 `;

@@ -5,12 +5,13 @@ import { runCloudOpsWork, cloudOpsConfigured } from "./cloud-work.mjs";
 import { executeDelegateRelay } from "./delegate-relay.mjs";
 import { recentTelegramThread } from "../../runtime/lib/agent-sessions.mjs";
 import { journal } from "../../runtime/lib/paths.mjs";
+import { founderFacingText } from "../../runtime/lib/agent-memory.mjs";
 
 /**
  * @param {string} prompt — founder turn (may include standby block)
  * @returns {{ ok: boolean, text?: string, error?: string, fallback?: boolean, cloudAgentId?: string }}
  */
-export async function chatWithCloudCeo(prompt) {
+export async function chatWithCloudCeo(prompt, { founderText = "" } = {}) {
   if (!cloudOpsConfigured()) {
     return {
       ok: false,
@@ -36,12 +37,13 @@ export async function chatWithCloudCeo(prompt) {
     return out;
   }
 
-  const relay = await executeDelegateRelay(out.text, {
+  const relay = await executeDelegateRelay(out.rawText || out.text, {
     background: true,
     fromAgentId: "00-ceo",
+    founderText,
   });
 
-  let text = relay.cleanedText || out.text || "";
+  let text = founderFacingText(relay.cleanedText || out.text || "");
   const names = [...new Set(relay.delegateResults.filter(Boolean))];
   if (names.length === 1) {
     text = `${text}\n\n${names[0]} על זה ברקע. אעדכן כשיהיה תשובה.`.trim();

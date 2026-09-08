@@ -7,8 +7,8 @@
 ## במשפט אחד
 
 ציון מדבר בטלגרם עם **נועה**. היא יועצת + מנתבת. היא **לא** עושה עבודת מומחה.  
-מומחים רצים **בשרתי Cursor** (Cloud) על ריפו GitHub פרטי — לא 33 חלונות על המחשב, לא על ChemiCloud.  
-המחשב האישי מחזיק רק דלפק טלגרם דק (`hq/index.mjs`). ChemiCloud **לא** מקבל HQ עד שציון יגיד כן.
+מומחים רצים **בשרתי Cursor** (Cloud) על ריפו GitHub פרטי — לא 33 חלונות על המחשב, לא Cursor על ChemiCloud.  
+דלפק טלגרם דק על ChemiCloud (`aztodev-desk`). המחשב האישי: **נדב** נפתח עם Windows (בלי סקר טלגרם כפול).
 
 ---
 
@@ -16,11 +16,11 @@
 
 | שכבה | איפה רץ | מה זה | כש-PC כבוי |
 |------|---------|--------|-------------|
-| **דלפק טלגרם** | PC (`hq/index.mjs` · 8788) | טלגרם, PIN, relay ל-Cloud | **PC כבוי = אין טלגרם** |
-| **נועה** | **Cursor Cloud** (+ relay על PC) | ייעוץ, ניתוב, שערים | **כן** — Cloud |
+| **דלפק טלגרם** | ChemiCloud `aztodev-desk` בלבד | טלגרם, PIN, תור לנדב | **כן** |
+| **נועה** | **Cursor Cloud** | ייעוץ, ניתוב, שערים | **כן** |
 | **מומחים (מוצר)** | Cursor Cloud + GitHub | קוד, PR, QA | כן |
 | **רות / תמיר** | Cursor Cloud (repo HQ) | מיילים, SSH read-only | **כן** |
-| **נדב** | PC local | דיסק, קבצים | **לא** — PC חייב דולק |
+| **נדב** | PC worker בפתיחת Windows | דיסק, קבצים | **לא** — PC כבוי |
 
 **ChemiCloud = אתרים חיים של לקוחות.** אסור להעלות לשם את החברה, Cursor, Docker, או 33 סוכנים.
 
@@ -86,5 +86,14 @@
 | [`PERMISSIONS.md`](./PERMISSIONS.md) | מה באמת מחובר |
 | [`DELEGATION_POLICY.md`](./DELEGATION_POLICY.md) | נועה מנתבת, לא מבצעת |
 | [`FOUNDER.md`](./FOUNDER.md) | מי ציון |
+| [`CORE_CONTEXT.md`](./CORE_CONTEXT.md) | מוח משותף — כל סוכן חי קורא לפני עבודה |
 | `ops/config/factory.json` | מצב + WIP |
 | [`../AGENTS.md`](../AGENTS.md) | הוראות לכל סוכן Cursor |
+
+## בית הישויות (לא שיחת Cursor)
+
+הריצה = Cursor Cloud (או נדב על ה-PC).  
+הבית = תיקייה ב-GitHub HQ: `agents/{id}/memory/learning-log.md`.
+
+כל משימה: HQ מזריק את היומן לפרומפט → בסוף נכתב לקח לקובץ. בלי זה אין ישות, יש כובע.  
+נועה בלי `DELEGATE:` למשימת מייל/דיסק/שרת — HQ מפעיל את המומחה בכל זאת. «רות בדקה» בלי האצלה נחתך.

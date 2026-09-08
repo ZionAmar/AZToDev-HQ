@@ -38,6 +38,7 @@ import {
 } from "./cleanup-consoles.mjs";
 import { withAgentTurnLock } from "./console-gate.mjs";
 import { polishTelegramHebrew } from "./telegram-format.mjs";
+import { recordAgentTurn, stripLearningBlock } from "./agent-memory.mjs";
 
 const SESSIONS_PATH = path.join(RUNTIME_DIR, "agent-sessions.json");
 const THREAD_PATH = path.join(RUNTIME_DIR, "telegram-thread.jsonl");
@@ -145,6 +146,7 @@ export function sanitizeForTelegram(text) {
   t = t.replace(/עוברת לביצוע אמיתי[^\n]*/gi, "");
   t = t.replace(/מסלול ה(?:מהיר|כבד)[^\n]*/gi, "");
   t = t.replace(/ביצוע ב-?Cursor[^\n]*/gi, "");
+  t = stripLearningBlock(t);
   t = polishTelegramHebrew(t);
 
   if (t.length > 3500) t = `${t.slice(0, 3480)}…`;
@@ -859,6 +861,15 @@ async function chatWithAgentUnlocked(
       status: result?.status,
       runId: result?.id,
       asDelegation,
+    });
+
+    recordAgentTurn({
+      agentId,
+      task: String(userMessage || "").slice(0, 500),
+      text: raw,
+      ok: result?.status !== "error" && result?.status !== "cancelled",
+      cloudAgentId: "",
+      fromAgentId: fromAgentId || "",
     });
 
     return {

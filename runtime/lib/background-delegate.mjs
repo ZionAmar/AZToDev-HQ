@@ -7,8 +7,10 @@ import path from "path";
 import { chatWithAgent, sanitizeForTelegram } from "./agent-sessions.mjs";
 import { sendFounderTelegram } from "./telegram.mjs";
 import { readAgentName } from "./router.mjs";
-import { specialistUsesCloud, cloudOpsAgent } from "./specialist-runtime.mjs";
+import { specialistUsesCloud, cloudOpsAgent, hqCloudOnly } from "./specialist-runtime.mjs";
 import { runCloudWork, runCloudOpsWork } from "../../hq/lib/cloud-work.mjs";
+import { enqueueNadavJob, shouldNotifyPcOffline } from "./nadav-queue.mjs";
+import { isActionUnlocked } from "./action-pin.mjs";
 import fs from "fs";
 
 const JOBS_PATH = path.join(OPS, "runtime", "background-jobs.json");
@@ -61,6 +63,39 @@ export function startBackgroundDelegate({
   writeBusHandoff(fromAgentId, agentId, `[BACKGROUND ${jobId}]\n${task}`);
   journal("delegate_background_start", { jobId, agentId, fromAgentId });
 
+  const pcQueue = hqCloudOnly() && !specialistUsesCloud(agentId);
+  if (pcQueue) {
+    const unlock = readJson(path.join(OPS, "runtime", "action-pin-unlock.json"), {});
+    const queued = enqueueNadavJob({
+      task,
+      fromAgentId,
+      actionUnlockedUntil: isActionUnlocked() ? unlock.until || null : null,
+    });
+    const jobs = readJobs();
+    const row = (jobs.jobs || []).find((j) => j.id === jobId);
+    if (row) {
+      row.status = "queued_pc";
+      row.nadavJobId = queued.id;
+    }
+    writeJobs(jobs);
+    journal("nadav_delegate_queued", { jobId, nadavJobId: queued.id });
+    setImmediate(() => {
+      (async () => {
+        if (!notifyFounder || !shouldNotifyPcOffline()) return;
+        await sendFounderTelegram(
+          "נדב בתור. ייפתח על המחשב כשהוא דולק — בלי Cursor על השרת.",
+          { silent: true }
+        ).catch(() => {});
+      })();
+    });
+    return {
+      jobId,
+      agentId,
+      agentName: name,
+      status: "queued_pc",
+    };
+  }
+
   setImmediate(() => {
     (async () => {
       try {
@@ -70,6 +105,7 @@ export function startBackgroundDelegate({
                 task: `${readAgentName(fromAgentId || "00-ceo")} asked you:\n\n${task}`,
                 agentId,
                 agentLabel: name,
+                fromAgentId,
               })
             : await runCloudWork({
                 task: `${readAgentName(fromAgentId || "00-ceo")} asked you:\n\n${task}`,

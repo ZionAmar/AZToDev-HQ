@@ -28,12 +28,9 @@ import {
   unlockActionPin,
 } from "./action-pin.mjs";
 import { chatWithCloudCeo, cloudOpsConfigured } from "../../hq/lib/cloud-ceo.mjs";
+import { hqCloudOnly } from "./specialist-runtime.mjs";
 
-/** ChemiCloud desk: never spawn local Cursor (would load the VPS). */
-export function hqCloudOnly() {
-  const v = String(process.env.HQ_CLOUD_ONLY || "").trim().toLowerCase();
-  return v === "1" || v === "true" || v === "yes";
-}
+export { hqCloudOnly };
 
 export { shouldPushUnsolicited, extractFounderPush } from "./front-desk-push.mjs";
 
@@ -193,7 +190,7 @@ function withTimeout(promise, ms, label) {
   });
 }
 
-async function runNoaTurn(prompt) {
+async function runNoaTurn(prompt, founderText = "") {
   if (hqCloudOnly()) {
     if (!cloudOpsConfigured()) {
       return {
@@ -206,7 +203,7 @@ async function runNoaTurn(prompt) {
       };
     }
     const out = await withTimeout(
-      chatWithCloudCeo(prompt),
+      chatWithCloudCeo(prompt, { founderText }),
       AGENT_TIMEOUT_MS,
       "Noa Cloud"
     );
@@ -216,7 +213,7 @@ async function runNoaTurn(prompt) {
 
   if (cloudOpsConfigured()) {
     const out = await withTimeout(
-      chatWithCloudCeo(prompt),
+      chatWithCloudCeo(prompt, { founderText }),
       AGENT_TIMEOUT_MS,
       "Noa Cloud"
     );
@@ -362,7 +359,7 @@ export async function handleFounderTelegramMessage(input) {
 
   try {
     const prompt = wrapFounderTelegramTurn(raw, "", msg);
-    let out = await runNoaTurn(prompt);
+    let out = await runNoaTurn(prompt, raw);
 
     if (
       !hqCloudOnly() &&
@@ -370,7 +367,7 @@ export async function handleFounderTelegramMessage(input) {
         /already has active run/i.test(String(out.error || "")))
     ) {
       resetAgentSession("00-ceo");
-      out = await runNoaTurn(prompt);
+      out = await runNoaTurn(prompt, raw);
     }
 
     clearTimeout(ackTimer);

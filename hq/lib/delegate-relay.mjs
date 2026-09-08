@@ -11,6 +11,7 @@ import { chatWithAgent } from "../../runtime/lib/agent-sessions.mjs";
 import { runCloudOpsWork, runCloudWork } from "./cloud-work.mjs";
 import { startBackgroundDelegate } from "../../runtime/lib/background-delegate.mjs";
 import { isProductWorkEnabled } from "../../runtime/lib/company-state.mjs";
+import { inferRequiredDelegate } from "../../runtime/lib/agent-memory.mjs";
 
 const DELEGATE_LINE = /^DELEGATE:\s*([^\s|]+)\s*\|\s*(.+)$/i;
 
@@ -33,8 +34,19 @@ export function extractDelegateLines(text) {
  * Run delegate handoffs embedded in Cloud CEO reply.
  * Default: background so Telegram stays responsive.
  */
-export async function executeDelegateRelay(text, { background = true, fromAgentId = "00-ceo" } = {}) {
-  const { cleanedText, jobs } = extractDelegateLines(text);
+export async function executeDelegateRelay(
+  text,
+  { background = true, fromAgentId = "00-ceo", founderText = "" } = {}
+) {
+  const extracted = extractDelegateLines(text);
+  let { cleanedText, jobs } = extracted;
+  if (!jobs.length && founderText) {
+    const forced = inferRequiredDelegate(founderText);
+    if (forced) {
+      jobs = [forced];
+      journal("delegate_forced", { agentId: forced.agentId, reason: "founder_specialist_ask" });
+    }
+  }
   const delegateResults = [];
 
   for (const { agentId, task } of jobs) {
@@ -57,7 +69,12 @@ export async function executeDelegateRelay(text, { background = true, fromAgentI
       let out;
       if (specialistUsesCloud(agentId)) {
         if (cloudOpsAgent(agentId) || !isProductWorkEnabled()) {
-          out = await runCloudOpsWork({ task, agentId, agentLabel: name });
+          out = await runCloudOpsWork({
+            task,
+            agentId,
+            agentLabel: name,
+            fromAgentId,
+          });
         } else {
           out = await runCloudWork({ task, agentId, agentLabel: name });
         }

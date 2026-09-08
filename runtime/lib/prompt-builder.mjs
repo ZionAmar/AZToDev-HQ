@@ -3,6 +3,7 @@ import path from "path";
 import { ROOT } from "./paths.mjs";
 import { readAgentName } from "./router.mjs";
 import { isProductWorkEnabled } from "./company-state.mjs";
+import { memoryPromptBlock } from "./agent-memory.mjs";
 
 function read(p) {
   try {
@@ -31,12 +32,15 @@ Workspace:
 - Products: ${path.join(ROOT, "products")}
 - Ops: ${path.join(ROOT, "ops")}
 
-Read your role files in cwd when needed: SYSTEM_PROMPT.md, PERSONALITY.md, TOOLS.md, ACCESS.md, PERMISSIONS.md.
+Read your role files in cwd when needed: SYSTEM_PROMPT.md, PERSONALITY.md, TOOLS.md, ACCESS.md, PERMISSIONS.md, memory/learning-log.md.
 Also: ${path.join(ROOT, "_company", "FOUNDER.md")} and ${path.join(ROOT, "_shared", "MOTTO_PREAMBLE.md")}.
 Pipeline: ${path.join(ROOT, "_company", "PRODUCT_PIPELINE.md")}.
+Shared brain: ${path.join(ROOT, "_company", "CORE_CONTEXT.md")}.
 
 Role snapshot:
 ${systemHead || "(read SYSTEM_PROMPT.md)"}
+
+${memoryPromptBlock(agentId)}
 
 How to work:
 - Talk and work like a normal Cursor agent chat. Use tools. Write real files.

@@ -17,6 +17,20 @@ export const STANDBY_DELEGATE_OK = new Set([
   "35-server-ops",
 ]);
 
+/** ChemiCloud thin desk: never spawn local Cursor (Nadav included). */
+export function hqCloudOnly() {
+  const v = String(process.env.HQ_CLOUD_ONLY || "").trim().toLowerCase();
+  return v === "1" || v === "true" || v === "yes";
+}
+
+export function localPcOpsBlockedReason(agentId) {
+  if (!LOCAL_TOOL_AGENTS.has(String(agentId || "").trim())) return "";
+  if (!hqCloudOnly()) return "";
+  return (
+    "נדב לא רץ על ChemiCloud. המשימה נכנסת לתור — העובד על המחשב יריץ אותה אחרי כניסה ל-Windows."
+  );
+}
+
 export function specialistUsesCloud(agentId) {
   return !LOCAL_TOOL_AGENTS.has(String(agentId || "").trim());
 }
