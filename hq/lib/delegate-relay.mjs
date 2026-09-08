@@ -48,7 +48,7 @@ export async function executeDelegateRelay(text, { background = true, fromAgentI
         task,
         notifyFounder: fromAgentId === "00-ceo",
       });
-      delegateResults.push(`▸ ${name}: ברקע (${job.jobId})`);
+      delegateResults.push(name);
       journal("delegate_relay_background", { agentId, jobId: job.jobId });
       continue;
     }

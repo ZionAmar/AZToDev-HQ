@@ -42,8 +42,11 @@ export async function chatWithCloudCeo(prompt) {
   });
 
   let text = relay.cleanedText || out.text || "";
-  if (relay.delegateResults.length) {
-    text = `${text}\n\n${relay.delegateResults.join("\n")}`.trim();
+  const names = [...new Set(relay.delegateResults.filter(Boolean))];
+  if (names.length === 1) {
+    text = `${text}\n\n${names[0]} על זה ברקע. אעדכן כשיהיה תשובה.`.trim();
+  } else if (names.length > 1) {
+    text = `${text}\n\n${names.join(" ו")} על זה ברקע. אעדכן כשיהיה תשובה.`.trim();
   }
 
   journal("cloud_ceo_ok", {

@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { OPS, nowIso, journal, writeJson, readJson } from "./paths.mjs";
 import { normalizeFounderTelegramMessage } from "./telegram-media.mjs";
-import { formatTelegramHtml, stripTelegramMarkdown } from "./telegram-format.mjs";
+import { formatTelegramHtml, stripTelegramMarkdown, polishTelegramHebrew } from "./telegram-format.mjs";
 
 const OFFSET_PATH = path.join(OPS, "runtime", "telegram-offset.json");
 
@@ -32,7 +32,7 @@ async function api(method, payload) {
  * pop/steal focus for every bot message.
  */
 export async function sendFounderTelegram(text, { silent = true } = {}) {
-  const raw = String(text).slice(0, 3500);
+  const raw = polishTelegramHebrew(String(text).slice(0, 4000)).slice(0, 3500);
   if (!telegramConfigured()) {
     const dir = path.join(OPS, "outbox-founder");
     fs.mkdirSync(dir, { recursive: true });

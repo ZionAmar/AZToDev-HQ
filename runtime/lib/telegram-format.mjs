@@ -8,10 +8,26 @@ function escapeHtml(s) {
 }
 
 /**
- * **bold** / __bold__ → <b>; *italic* → <i>; `code` → <code>
- * Falls back to plain escaped text if parsing looks unsafe.
+ * Phone-readable Hebrew: paragraphs, bullets, no internal plumbing.
  */
+export function polishTelegramHebrew(text) {
+  let t = String(text ?? "");
+  t = t.replace(/^DELEGATE:\s.+$/gim, "");
+  t = t.replace(/^```[\w-]*\s*/gm, "").replace(/```$/gm, "");
+  t = t.replace(/^#{1,4}\s+/gm, "");
+  t = t.replace(/^[-*]\s+/gm, "• ");
+  t = t.replace(/^▸\s+/gm, "• ");
+  t = t.replace(/\b(?:emet_[a-z0-9_]+|job-[a-z0-9-]+)\b/gi, "");
+  t = t.replace(/\(\s*\)/g, "");
+  t = t.replace(/[ \t]+\n/g, "\n");
+  t = t.replace(/\n{3,}/g, "\n\n");
+  t = t.replace(/[ \t]{2,}/g, " ");
+  t = t.replace(/ +\./g, ".");
+  return t.trim();
+}
+
 export function formatTelegramHtml(text) {
+  /** **bold** / `code` → Telegram HTML */
   let t = String(text ?? "");
   if (!t.trim()) return "";
 

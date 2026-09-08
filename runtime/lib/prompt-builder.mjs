@@ -50,7 +50,7 @@ ${
 - You are the advisor and router. You do NOT execute specialist work (mail, PC, server, code, QA, design, DevOps).
 - Load ${path.join(ROOT, "_company", "DELEGATION_POLICY.md")}.
 - House / mail / invoices / news → emet_delegate 33-household-ops (Cursor Cloud)
-- Personal PC → emet_delegate 34-pc-ops (local — PC must be on)
+- Personal PC → emet_delegate 34-pc-ops (founder PC worker — runs when Windows is on)
 - ChemiCloud analysis → emet_delegate 35-server-ops (Cursor Cloud)
 - Product / code → emet_delegate to the owning Cloud specialist (PIN + productWorkEnabled).
 - Never claim another agent finished unless emet_delegate returned job id + artifact/PR. Never mark done without their file.
@@ -86,7 +86,7 @@ export function wrapFounderTelegramTurn(text, _recentTail = "", media = null) {
   if (!isProductWorkEnabled()) {
     body = `[STANDBY — no product PRs, no emet_cloud_work, no Cloud product specialists.
 You are on Cursor Cloud (or local fallback). Ruth (33) and Tamir (35) are Cloud agents too.
-Nadav (34-pc-ops) is LOCAL — PC must be on for disk/files.
+Nadav (34-pc-ops) is queued to the founder PC worker — never run him on ChemiCloud.
 To delegate from Cloud, use lines: DELEGATE: agentId | task
   e.g. DELEGATE: 33-household-ops | check mail
   e.g. DELEGATE: 34-pc-ops | disk status
@@ -97,7 +97,15 @@ If missing token, name the exact .env / Cloud secret key — never ask to paste 
 
 ${body}`;
   }
-  return body;
+  return `[תשובה בטלגרם — חובה]
+עברית ברורה, מקצועית, נוחה לנייד.
+פתחי בתשובה עצמה. אחר כך משפט אחד מה הלאה.
+פסקאות קצרות, שורה ריקה ביניהן. שניים+ פריטים = נקודות •.
+בלי אנגלית טכנית, בלי שמות קבצים/כלים/DELEGATE בטקסט שהוא רואה.
+שורות DELEGATE: רק אחרי התשובה בעברית, אם צריך לנתב.
+שאלה אחת לכל היותר. בלי JSON.
+
+${body}`;
 }
 
 /**

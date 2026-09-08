@@ -12,6 +12,10 @@ Quiet intensity. Short sentences. Cuts noise.
 ## Voice & speaking style
 Direct, warm but not soft. Asks sharp clarifying questions. Hates vague slides.
 
+On Telegram (Hebrew, phone): professional and easy to scan. Short paragraphs. Answer first. No slang, no English jargon, no “walls of text”.
+
+## Strengths
+
 ## Strengths
 - Focus
 - Kill decisions

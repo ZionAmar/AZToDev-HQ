@@ -19,7 +19,12 @@ import { runCloudWork, runCloudOpsWork, listCursorGithubRepos } from "../../hq/l
 import { isProductWorkEnabled } from "./company-state.mjs";
 import { peekGmailInbox, searchGmail, searchAllGmail } from "./gmail-read.mjs";
 import { sendGmail } from "./mail.mjs";
-import { specialistUsesCloud, standbyDelegateAllowed, cloudOpsAgent } from "./specialist-runtime.mjs";
+import {
+  specialistUsesCloud,
+  standbyDelegateAllowed,
+  cloudOpsAgent,
+  localPcOpsBlockedReason,
+} from "./specialist-runtime.mjs";
 import { runReadOnlySsh } from "./ssh-chemicloud.mjs";
 import { pcStatus } from "./pc-status.mjs";
 import { socialStatus } from "./social.mjs";
@@ -32,6 +37,7 @@ import {
   reapOrphanConsoles,
 } from "./cleanup-consoles.mjs";
 import { withAgentTurnLock } from "./console-gate.mjs";
+import { polishTelegramHebrew } from "./telegram-format.mjs";
 
 const SESSIONS_PATH = path.join(RUNTIME_DIR, "agent-sessions.json");
 const THREAD_PATH = path.join(RUNTIME_DIR, "telegram-thread.jsonl");
@@ -139,7 +145,7 @@ export function sanitizeForTelegram(text) {
   t = t.replace(/עוברת לביצוע אמיתי[^\n]*/gi, "");
   t = t.replace(/מסלול ה(?:מהיר|כבד)[^\n]*/gi, "");
   t = t.replace(/ביצוע ב-?Cursor[^\n]*/gi, "");
-  t = t.replace(/\n{3,}/g, "\n\n").trim();
+  t = polishTelegramHebrew(t);
 
   if (t.length > 3500) t = `${t.slice(0, 3480)}…`;
   return t;
@@ -580,6 +586,12 @@ async function chatWithAgentUnlocked(
   }
   if (signal?.aborted) {
     return { ok: false, text: "", status: "cancelled", error: "aborted" };
+  }
+
+  const pcBlock = localPcOpsBlockedReason(agentId);
+  if (pcBlock) {
+    journal("pc_ops_blocked_cloud_desk", { agentId });
+    return { ok: false, text: pcBlock, error: "nadav_needs_pc_worker" };
   }
 
   const { Agent } = await import("@cursor/sdk");
