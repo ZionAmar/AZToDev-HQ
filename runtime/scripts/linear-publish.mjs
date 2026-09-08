@@ -102,11 +102,14 @@ async function ensureTeam() {
 }
 
 async function ensureLabels(teamId) {
-  const existing = await client.issueLabels({ filter: { team: { id: { eq: teamId } } } });
-  const byName = new Map(existing.nodes.map((l) => [l.name, l]));
   for (const name of LABELS) {
-    if (!byName.has(name)) {
-      await client.createIssueLabel({ name, teamId });
+    try {
+      const existing = await client.issueLabels({ filter: { name: { eq: name } } });
+      if (!existing.nodes[0]) {
+        await client.createIssueLabel({ name, teamId });
+      }
+    } catch {
+      /* label exists workspace-wide */
     }
   }
 }
@@ -165,9 +168,7 @@ async function main() {
 
     const labelIds = [];
     for (const name of [...new Set(issue.labels)]) {
-      const labels = await client.issueLabels({
-        filter: { name: { eq: name }, team: { id: { eq: team.id } } },
-      });
+      const labels = await client.issueLabels({ filter: { name: { eq: name } } });
       if (labels.nodes[0]) labelIds.push(labels.nodes[0].id);
     }
 

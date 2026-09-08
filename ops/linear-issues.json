@@ -1,159 +1,170 @@
 {
-  "publishedAt": "2026-09-07T10:50:10.028Z",
-  "source": "ops/intake/kidnest-audit-board.json",
-  "initiative": "IDEA-2026-09-07-kidnest-audit",
-  "projectName": "KidNest — ביקורת פרודקשן",
+  "publishedAt": "2026-09-08T22:23:49.862Z",
   "workspaceUrl": "https://linear.app/my-company1460",
   "teamName": "EMET",
   "teamId": "fced5adc-3d17-442d-9c75-3c3989049895",
-  "projectId": "c51eede3-cca2-4e41-ab45-f21ce1fb4847",
-  "projectUrl": "https://linear.app/my-company1460/project/kidnest-ביקורת-פרודקשן-19c4b73f9ce6",
-  "cancelledCount": 50,
-  "cancelled": [
-    "EMET-27",
-    "EMET-28",
-    "EMET-29",
-    "EMET-30",
-    "EMET-31",
-    "EMET-32",
-    "EMET-33",
-    "EMET-34",
-    "EMET-35",
-    "EMET-36",
-    "EMET-37",
-    "EMET-38",
-    "EMET-39",
-    "EMET-40",
-    "EMET-41",
-    "EMET-42",
-    "EMET-43",
-    "EMET-44",
-    "EMET-45",
-    "EMET-46",
-    "EMET-47",
-    "EMET-48",
-    "EMET-49",
-    "EMET-50",
-    "EMET-51",
-    "EMET-26",
-    "EMET-25",
-    "EMET-24",
-    "EMET-23",
-    "EMET-22",
-    "EMET-21",
-    "EMET-20",
-    "EMET-19",
-    "EMET-18",
-    "EMET-17",
-    "EMET-16",
-    "EMET-15",
-    "EMET-14",
-    "EMET-13",
-    "EMET-12",
-    "EMET-11",
-    "EMET-10",
-    "EMET-9",
-    "EMET-8",
-    "EMET-7",
-    "EMET-6",
-    "EMET-5",
-    "EMET-4",
-    "EMET-3",
-    "EMET-2"
-  ],
-  "issueCount": 8,
+  "issueCount": 23,
   "issues": [
     {
-      "localId": "NS-01",
-      "identifier": "EMET-52",
-      "url": "https://linear.app/my-company1460/issue/EMET-52/ns-01-דף-נחיתה-הורדות-apk-מה-רואים-המשתמש",
-      "status": "done"
+      "localId": "task_choose_landing_abc",
+      "identifier": "EMET-90",
+      "title": "CHOOSE landing wedge (A|B|C) — gates all landing + legal build",
+      "url": "https://linear.app/my-company1460/issue/EMET-90/choose-landing-wedge-abc-gates-all-landing-legal-build",
+      "column": "waiting_founder"
     },
     {
-      "localId": "NS-02",
-      "identifier": "EMET-53",
-      "url": "https://linear.app/my-company1460/issue/EMET-53/ns-02-ממשק-הורים-admin-login-דשבורד-ערוצים",
-      "status": "in_progress"
+      "localId": "task_conditional_seed",
+      "identifier": "EMET-91",
+      "title": "Conditional ticket seed (PP-LND-* / EMET-LND-*) — HOLD until CHOOSE",
+      "url": "https://linear.app/my-company1460/issue/EMET-91/conditional-ticket-seed-pp-lnd-emet-lnd-hold-until-choose",
+      "column": "blocked"
     },
     {
-      "localId": "NS-03",
-      "identifier": "EMET-54",
-      "url": "https://linear.app/my-company1460/issue/EMET-54/ns-03-אפליקציית-ילדים-app-בית-צפייה-חיפוש",
-      "status": "in_progress"
+      "localId": "task_conditional_prd",
+      "identifier": "EMET-92",
+      "title": "Conditional PRD skeleton (PP-LND-legal / EMET-LND-legal) — HOLD until CHOOSE",
+      "url": "https://linear.app/my-company1460/issue/EMET-92/conditional-prd-skeleton-pp-lnd-legal-emet-lnd-legal-hold-until-choose",
+      "column": "blocked"
     },
     {
-      "localId": "NS-04",
-      "identifier": "EMET-55",
-      "url": "https://linear.app/my-company1460/issue/EMET-55/ns-04-ממשק-טלוויזיה-tv-nestv-ניווט-צפייה",
-      "status": "in_progress"
+      "localId": "task_mark_defer_8976771",
+      "identifier": "EMET-93",
+      "title": "Mark defer IDEA-8976771 — order-no-bet / parity-plus-protect",
+      "url": "https://linear.app/my-company1460/issue/EMET-93/mark-defer-idea-8976771-order-no-bet-parity-plus-protect",
+      "column": "today"
     },
     {
-      "localId": "NS-05",
-      "identifier": "EMET-56",
-      "url": "https://linear.app/my-company1460/issue/EMET-56/ns-05-נגן-וידאו-nextprev-שורטס-המשך-צפייה",
-      "status": "done"
+      "localId": "task_mark_defer_9375161",
+      "identifier": "EMET-94",
+      "title": "Mark defer IDEA-9375161 — dedupe link to 8976771",
+      "url": "https://linear.app/my-company1460/issue/EMET-94/mark-defer-idea-9375161-dedupe-link-to-8976771",
+      "column": "today"
     },
     {
-      "localId": "NS-06",
-      "identifier": "EMET-57",
-      "url": "https://linear.app/my-company1460/issue/EMET-57/ns-06-קטלוג-קטגוריות-וערוצים-אחרי-תיקון-27",
-      "status": "done"
+      "localId": "task_close_8132326",
+      "identifier": "EMET-95",
+      "title": "Close/archive IDEA-8132326 (killed persona probe)",
+      "url": "https://linear.app/my-company1460/issue/EMET-95/closearchive-idea-8132326-killed-persona-probe",
+      "column": "today"
     },
     {
-      "localId": "NS-07",
-      "identifier": "EMET-58",
-      "url": "https://linear.app/my-company1460/issue/EMET-58/ns-07-איסוף-ממצאים-מה-עובד-מה-תקוע-חומרה",
-      "status": "todo"
+      "localId": "task_backlog_sweep",
+      "identifier": "EMET-96",
+      "title": "Backlog sweep — zero tickets/epics under 8976771 + 9375161 + 8132326",
+      "url": "https://linear.app/my-company1460/issue/EMET-96/backlog-sweep-zero-ticketsepics-under-8976771-9375161-8132326",
+      "column": "today"
     },
     {
-      "localId": "NS-08",
-      "identifier": "EMET-59",
-      "url": "https://linear.app/my-company1460/issue/EMET-59/ns-08-דוח-סופי-לציון-עברית-קול-מייל",
-      "status": "todo"
+      "localId": "task_ship_gate02",
+      "identifier": "EMET-97",
+      "title": "Ship OPS-INTAKE-GATE-02 — minimum bar + defer vs kill catalog",
+      "url": "https://linear.app/my-company1460/issue/EMET-97/ship-ops-intake-gate-02-minimum-bar-defer-vs-kill-catalog",
+      "column": "today"
+    },
+    {
+      "localId": "task_ship_gate01",
+      "identifier": "EMET-98",
+      "title": "Ship OPS-INTAKE-GATE-01 — reject-before-mint + audit log",
+      "url": "https://linear.app/my-company1460/issue/EMET-98/ship-ops-intake-gate-01-reject-before-mint-audit-log",
+      "column": "today"
+    },
+    {
+      "localId": "task_linear_publish",
+      "identifier": "EMET-99",
+      "title": "Publish board to Linear team EMET — founder phone visibility",
+      "url": "https://linear.app/my-company1460/issue/EMET-99/publish-board-to-linear-team-emet-founder-phone-visibility",
+      "column": "today"
+    },
+    {
+      "localId": "task_eod_digest",
+      "identifier": "EMET-100",
+      "title": "End-of-day digest — Done / Doing / Blocked / Asks",
+      "url": "https://linear.app/my-company1460/issue/EMET-100/end-of-day-digest-done-doing-blocked-asks",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833262",
+      "identifier": "EMET-101",
+      "title": "Hygiene Sweep Audit - Confirm Zero Artifacts",
+      "url": "https://linear.app/my-company1460/issue/EMET-101/hygiene-sweep-audit-confirm-zero-artifacts",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833402",
+      "identifier": "EMET-102",
+      "title": "Ship OPS-INTAKE-GATE-01",
+      "url": "https://linear.app/my-company1460/issue/EMET-102/ship-ops-intake-gate-01",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833448",
+      "identifier": "EMET-103",
+      "title": "Ship OPS-INTAKE-GATE-02",
+      "url": "https://linear.app/my-company1460/issue/EMET-103/ship-ops-intake-gate-02",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833464",
+      "identifier": "EMET-104",
+      "title": "Close and Archive IDEA-8132326",
+      "url": "https://linear.app/my-company1460/issue/EMET-104/close-and-archive-idea-8132326",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833572",
+      "identifier": "EMET-105",
+      "title": "Defer IDEA-9375161 and Link Dedupe to 8976771",
+      "url": "https://linear.app/my-company1460/issue/EMET-105/defer-idea-9375161-and-link-dedupe-to-8976771",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833712",
+      "identifier": "EMET-106",
+      "title": "Monitor Blockers on `8976771` and Escalate if CHOOSE >24h",
+      "url": "https://linear.app/my-company1460/issue/EMET-106/monitor-blockers-on-8976771-and-escalate-if-choose-24h",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833848",
+      "identifier": "EMET-107",
+      "title": "Enforce Zero Start on Landing/Legal Builds and PRs",
+      "url": "https://linear.app/my-company1460/issue/EMET-107/enforce-zero-start-on-landinglegal-builds-and-prs",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833865",
+      "identifier": "EMET-108",
+      "title": "Update Reject Catalog & Intake Bar Rules",
+      "url": "https://linear.app/my-company1460/issue/EMET-108/update-reject-catalog-and-intake-bar-rules",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760833998",
+      "identifier": "EMET-109",
+      "title": "Monitor Deploy Policy Compliance",
+      "url": "https://linear.app/my-company1460/issue/EMET-109/monitor-deploy-policy-compliance",
+      "column": "today"
+    },
+    {
+      "localId": "task_1788760834013",
+      "identifier": "EMET-110",
+      "title": "Prepare Founder Status Summary",
+      "url": "https://linear.app/my-company1460/issue/EMET-110/prepare-founder-status-summary",
+      "column": "today"
+    },
+    {
+      "localId": "task_bet_template",
+      "identifier": "EMET-111",
+      "title": "Bet one-liner template for founder — Problem | Users | Wedge | Non-goals",
+      "url": "https://linear.app/my-company1460/issue/EMET-111/bet-one-liner-template-for-founder-problem-users-wedge-non-goals",
+      "column": "backlog"
+    },
+    {
+      "localId": "task_constraints_doc",
+      "identifier": "EMET-112",
+      "title": "Constraints doc — mobile-first static, same pipeline, milestone comms",
+      "url": "https://linear.app/my-company1460/issue/EMET-112/constraints-doc-mobile-first-static-same-pipeline-milestone-comms",
+      "column": "backlog"
     }
-  ],
-  "opsHygiene": {
-    "publishedAt": "2026-09-07T13:14:40.588Z",
-    "issues": [
-      {
-        "localId": "OPS-HYGIENE-01",
-        "identifier": "EMET-60",
-        "url": "https://linear.app/my-company1460/issue/EMET-60/ops-hygiene-01-ניקוי-founderattention-todaydate",
-        "status": "done"
-      },
-      {
-        "localId": "OPS-HYGIENE-02",
-        "identifier": "EMET-61",
-        "url": "https://linear.app/my-company1460/issue/EMET-61/ops-hygiene-02-סגירת-initiatives-kidnest-done-landing-killed",
-        "status": "done"
-      }
-    ]
-  },
-  "inventoryDeck": {
-    "publishedAt": "2026-09-07T15:24:29.209Z",
-    "initiative": "IDEA-2026-09-07-inventory-deck",
-    "issues": [
-      {
-        "localId": "INV-01",
-        "issueId": "6cd5ead0-feba-4bd7-92a4-6d16aad0ad13",
-        "identifier": "EMET-62",
-        "url": "https://linear.app/my-company1460/issue/EMET-62/inv-01-קטalog-מסכים-screenshots",
-        "status": "done"
-      },
-      {
-        "localId": "INV-02",
-        "issueId": "a9af2533-d2ba-4f3b-9573-01752413e58e",
-        "identifier": "EMET-63",
-        "url": "https://linear.app/my-company1460/issue/EMET-63/inv-02-מצגת-pptx-7-דק-script",
-        "status": "in_progress"
-      },
-      {
-        "localId": "INV-03",
-        "issueId": "1f0e0ddf-1477-43c5-89a2-e1966bf208a1",
-        "identifier": "EMET-64",
-        "url": "https://linear.app/my-company1460/issue/EMET-64/inv-03-linear-publish-מסירה",
-        "status": "todo"
-      }
-    ]
-  }
+  ]
 }
