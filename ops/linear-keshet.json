@@ -1,0 +1,282 @@
+{
+  "restructuredAt": "2026-09-08T22:44:37.018Z",
+  "dryRun": false,
+  "projectName": "AZToDev Product — Keshet",
+  "projectId": "045497c9-38c3-4683-896b-bc648d693193",
+  "projectUrl": "https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd",
+  "holdingIssue": "EMET-66",
+  "wipLimit": 1,
+  "canceledCount": 61,
+  "canceled": [
+    "EMET-112",
+    "EMET-111",
+    "EMET-110",
+    "EMET-109",
+    "EMET-108",
+    "EMET-107",
+    "EMET-106",
+    "EMET-103",
+    "EMET-102",
+    "EMET-101",
+    "EMET-100",
+    "EMET-99",
+    "EMET-98",
+    "EMET-97",
+    "EMET-96",
+    "EMET-95",
+    "EMET-94",
+    "EMET-93",
+    "EMET-92",
+    "EMET-91",
+    "EMET-90",
+    "EMET-89",
+    "EMET-88",
+    "EMET-87",
+    "EMET-86",
+    "EMET-85",
+    "EMET-84",
+    "EMET-83",
+    "EMET-80",
+    "EMET-79",
+    "EMET-78",
+    "EMET-77",
+    "EMET-76",
+    "EMET-75",
+    "EMET-74",
+    "EMET-73",
+    "EMET-72",
+    "EMET-71",
+    "EMET-70",
+    "EMET-69",
+    "EMET-68",
+    "EMET-67",
+    "EMET-65",
+    "EMET-64",
+    "EMET-63",
+    "EMET-62",
+    "EMET-61",
+    "EMET-60",
+    "EMET-59",
+    "EMET-58",
+    "EMET-57",
+    "EMET-56",
+    "EMET-55",
+    "EMET-54",
+    "EMET-53",
+    "EMET-52",
+    "EMET-1"
+  ],
+  "keptCount": 55,
+  "kept": [
+    "EMET-105",
+    "EMET-104",
+    "EMET-82",
+    "EMET-81",
+    "EMET-66",
+    "EMET-51",
+    "EMET-50",
+    "EMET-49",
+    "EMET-48",
+    "EMET-47",
+    "EMET-46",
+    "EMET-45",
+    "EMET-44",
+    "EMET-43",
+    "EMET-42",
+    "EMET-41",
+    "EMET-40",
+    "EMET-39",
+    "EMET-38",
+    "EMET-37",
+    "EMET-36",
+    "EMET-35",
+    "EMET-34",
+    "EMET-33",
+    "EMET-32",
+    "EMET-31",
+    "EMET-30",
+    "EMET-29",
+    "EMET-28",
+    "EMET-27",
+    "EMET-26",
+    "EMET-25",
+    "EMET-24",
+    "EMET-23",
+    "EMET-22",
+    "EMET-21",
+    "EMET-20",
+    "EMET-19",
+    "EMET-18",
+    "EMET-17",
+    "EMET-16",
+    "EMET-15",
+    "EMET-14",
+    "EMET-13",
+    "EMET-12",
+    "EMET-11",
+    "EMET-10",
+    "EMET-9",
+    "EMET-8",
+    "EMET-7",
+    "EMET-6",
+    "EMET-5",
+    "EMET-4",
+    "EMET-3",
+    "EMET-2"
+  ],
+  "pipelineStages": [
+    {
+      "localId": "KSH-00",
+      "identifier": "EMET-66",
+      "issueId": "ae068a5b-d6e7-4275-96ad-208665c6c8df",
+      "url": "https://linear.app/my-company1460/issue/EMET-66",
+      "existed": true
+    },
+    {
+      "localId": "KSH-01",
+      "identifier": "EMET-113",
+      "issueId": "2fccb0c7-bd11-401f-9aa1-e92e40476dff",
+      "url": "https://linear.app/my-company1460/issue/EMET-113/ksh-01-venture-market-unique-value-valuation",
+      "title": "[KSH-01] Venture — market, unique value, valuation"
+    },
+    {
+      "localId": "KSH-02",
+      "identifier": "EMET-114",
+      "issueId": "f90bdc90-5978-4921-b2ad-231288f77151",
+      "url": "https://linear.app/my-company1460/issue/EMET-114/ksh-02-founder-gate-approve-venture-brief",
+      "title": "[KSH-02] Founder gate — approve venture brief"
+    },
+    {
+      "localId": "KSH-03",
+      "identifier": "EMET-115",
+      "issueId": "6e3500ed-e499-4f1d-a6b5-c8e4228dad41",
+      "url": "https://linear.app/my-company1460/issue/EMET-115/ksh-03-architect-spec-screens-use-cases-erd-tree",
+      "title": "[KSH-03] Architect — spec, screens, use cases, ERD, tree"
+    },
+    {
+      "localId": "KSH-04",
+      "identifier": "EMET-116",
+      "issueId": "03024701-55a4-4602-9d0f-f73e05cf4a41",
+      "url": "https://linear.app/my-company1460/issue/EMET-116/ksh-04-founder-gate-approve-spec-folder",
+      "title": "[KSH-04] Founder gate — approve spec folder"
+    },
+    {
+      "localId": "KSH-05",
+      "identifier": "EMET-117",
+      "issueId": "4c2c751c-ed26-4024-bdfb-2d4a68156acb",
+      "url": "https://linear.app/my-company1460/issue/EMET-117/ksh-05-customer-review-spec-screens-round-1",
+      "title": "[KSH-05] Customer review — spec + screens (round 1)"
+    },
+    {
+      "localId": "KSH-06",
+      "identifier": "EMET-118",
+      "issueId": "e5ebdc23-bc0f-40ba-b017-4b117c84848a",
+      "url": "https://linear.app/my-company1460/issue/EMET-118/ksh-06-db-schema-migrations-per-spec",
+      "title": "[KSH-06] DB — schema + migrations per spec"
+    },
+    {
+      "localId": "KSH-07",
+      "identifier": "EMET-119",
+      "issueId": "cc46dd78-fb55-42f2-ab25-2609b6efa90a",
+      "url": "https://linear.app/my-company1460/issue/EMET-119/ksh-07-backend-node-api-contract-doc",
+      "title": "[KSH-07] Backend — Node API + contract doc"
+    },
+    {
+      "localId": "KSH-08",
+      "identifier": "EMET-120",
+      "issueId": "64460698-181b-451e-a3cb-6533a397d092",
+      "url": "https://linear.app/my-company1460/issue/EMET-120/ksh-08-frontend-react-ui-pwa-if-chosen",
+      "title": "[KSH-08] Frontend — React UI + PWA if chosen"
+    },
+    {
+      "localId": "KSH-09",
+      "identifier": "EMET-121",
+      "issueId": "cb857c22-7301-4b70-ac99-a8212d2b6144",
+      "url": "https://linear.app/my-company1460/issue/EMET-121/ksh-09-customer-review-every-screen-round-2",
+      "title": "[KSH-09] Customer review — every screen (round 2)"
+    },
+    {
+      "localId": "KSH-10",
+      "identifier": "EMET-122",
+      "issueId": "80e8fc65-a877-43aa-a805-31f89defc9d5",
+      "url": "https://linear.app/my-company1460/issue/EMET-122/ksh-10-qa-full-test-pass-repro-docs",
+      "title": "[KSH-10] QA — full test pass + repro docs"
+    },
+    {
+      "localId": "KSH-11",
+      "identifier": "EMET-123",
+      "issueId": "55400782-3af8-4b71-9330-a645261ab3df",
+      "url": "https://linear.app/my-company1460/issue/EMET-123/ksh-11-founder-customer-sign-off",
+      "title": "[KSH-11] Founder + customer sign-off"
+    },
+    {
+      "localId": "KSH-12",
+      "identifier": "EMET-124",
+      "issueId": "ef34f457-3998-4654-b8c9-4e688bbaa91d",
+      "url": "https://linear.app/my-company1460/issue/EMET-124/ksh-12-devops-deploy-prod-gate-required",
+      "title": "[KSH-12] DevOps — deploy (prod gate required)"
+    }
+  ],
+  "relations": [
+    {
+      "from": "KSH-00",
+      "to": "KSH-01",
+      "relationId": "08c284f7-e38b-4f99-b42b-1055247620f0"
+    },
+    {
+      "from": "KSH-01",
+      "to": "KSH-02",
+      "relationId": "de632d06-8130-4791-a145-7ae2b84efbd1"
+    },
+    {
+      "from": "KSH-02",
+      "to": "KSH-03",
+      "relationId": "ca1f357a-0ccf-4fd3-809a-e2499c261b07"
+    },
+    {
+      "from": "KSH-03",
+      "to": "KSH-04",
+      "relationId": "47de6c94-0a89-424d-aa24-3e1cf32cf23b"
+    },
+    {
+      "from": "KSH-04",
+      "to": "KSH-05",
+      "relationId": "36f247f5-6709-443f-b091-1eb65028aebf"
+    },
+    {
+      "from": "KSH-05",
+      "to": "KSH-06",
+      "relationId": "6857ee1e-aa25-4fbb-8cd9-57894b27c8a9"
+    },
+    {
+      "from": "KSH-06",
+      "to": "KSH-07",
+      "relationId": "6c086762-af04-4647-a030-37147fad4cbd"
+    },
+    {
+      "from": "KSH-07",
+      "to": "KSH-08",
+      "relationId": "9c225da4-5323-408b-8699-5fcd2828f8e0"
+    },
+    {
+      "from": "KSH-08",
+      "to": "KSH-09",
+      "relationId": "16a090e7-608a-4d0a-8ed5-6c3d824efe98"
+    },
+    {
+      "from": "KSH-09",
+      "to": "KSH-10",
+      "relationId": "a6755764-052a-4576-82ed-53de72217edd"
+    },
+    {
+      "from": "KSH-10",
+      "to": "KSH-11",
+      "relationId": "16e89d3b-a672-44bc-a135-6432d9a60a5b"
+    },
+    {
+      "from": "KSH-11",
+      "to": "KSH-12",
+      "relationId": "710e5136-a077-4464-8ecb-58677ecc650f"
+    }
+  ]
+}

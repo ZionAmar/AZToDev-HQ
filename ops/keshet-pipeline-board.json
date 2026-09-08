@@ -1,0 +1,171 @@
+{
+  "updatedAt": "2026-09-09",
+  "projectName": "AZToDev Product — Keshet",
+  "projectId": "045497c9-38c3-4683-896b-bc648d693193",
+  "holdingIssue": "EMET-66",
+  "wipLimit": 1,
+  "note": "Product development pipeline only. Ops/household/intake live in HQ files — not Linear.",
+  "stages": [
+    {
+      "id": "KSH-00",
+      "linearKey": "EMET-66",
+      "title": "Armed — wait for founder build order",
+      "ownerAgent": "32-delivery-lead",
+      "ownerName": "קשת",
+      "stageLabel": "plan",
+      "extraLabels": ["WIP-1", "waiting-founder"],
+      "state": "backlog",
+      "blockedBy": null,
+      "artifact": "ACTIVATE_PRODUCT line + PIN window"
+    },
+    {
+      "id": "KSH-01",
+      "title": "Venture — market, unique value, valuation",
+      "ownerAgent": "04-cpo",
+      "ownerName": "ענבר",
+      "stageLabel": "discover",
+      "state": "backlog",
+      "blockedBy": "KSH-00",
+      "artifact": "ops/pipeline/<slug>/01-venture.md"
+    },
+    {
+      "id": "KSH-02",
+      "title": "Founder gate — approve venture brief",
+      "ownerAgent": "founder",
+      "ownerName": "ציון",
+      "stageLabel": "waiting-founder",
+      "state": "backlog",
+      "blockedBy": "KSH-01",
+      "artifact": "Founder APPROVE on venture brief"
+    },
+    {
+      "id": "KSH-03",
+      "title": "Architect — spec, screens, use cases, ERD, tree",
+      "ownerAgent": "12-software-architect",
+      "ownerName": "יונה",
+      "stageLabel": "architect",
+      "state": "backlog",
+      "blockedBy": "KSH-02",
+      "artifact": "ops/pipeline/<slug>/02-spec.md … 06-tree.md"
+    },
+    {
+      "id": "KSH-04",
+      "title": "Founder gate — approve spec folder",
+      "ownerAgent": "founder",
+      "ownerName": "ציון",
+      "stageLabel": "waiting-founder",
+      "state": "backlog",
+      "blockedBy": "KSH-03",
+      "artifact": "Founder APPROVE on spec outputs"
+    },
+    {
+      "id": "KSH-05",
+      "title": "Customer review — spec + screens (round 1)",
+      "ownerAgent": "10-user-researcher",
+      "ownerName": "קרן",
+      "stageLabel": "shape",
+      "state": "backlog",
+      "blockedBy": "KSH-04",
+      "artifact": "ops/pipeline/<slug>/07-customer-review.md"
+    },
+    {
+      "id": "KSH-06",
+      "title": "DB — schema + migrations per spec",
+      "ownerAgent": "16-data-engineer",
+      "ownerName": "שני",
+      "stageLabel": "build",
+      "state": "backlog",
+      "blockedBy": "KSH-05",
+      "artifact": "Product repo migrations + 05-db.md sync"
+    },
+    {
+      "id": "KSH-07",
+      "title": "Backend — Node API + contract doc",
+      "ownerAgent": "13-backend-engineer",
+      "ownerName": "רז",
+      "stageLabel": "build",
+      "state": "backlog",
+      "blockedBy": "KSH-06",
+      "artifact": "ops/pipeline/<slug>/08-api.md + product repo PR"
+    },
+    {
+      "id": "KSH-08",
+      "title": "Frontend — React UI + PWA if chosen",
+      "ownerAgent": "14-frontend-engineer",
+      "ownerName": "דפנה",
+      "stageLabel": "build",
+      "state": "backlog",
+      "blockedBy": "KSH-07",
+      "artifact": "Product repo PR (components + pages)"
+    },
+    {
+      "id": "KSH-09",
+      "title": "Customer review — every screen (round 2)",
+      "ownerAgent": "10-user-researcher",
+      "ownerName": "קרן",
+      "stageLabel": "shape",
+      "state": "backlog",
+      "blockedBy": "KSH-08",
+      "artifact": "Updated 07-customer-review.md"
+    },
+    {
+      "id": "KSH-10",
+      "title": "QA — full test pass + repro docs",
+      "ownerAgent": "20-qa-sdet",
+      "ownerName": "אורי",
+      "stageLabel": "harden",
+      "state": "backlog",
+      "blockedBy": "KSH-09",
+      "artifact": "ops/pipeline/<slug>/09-qa.md"
+    },
+    {
+      "id": "KSH-11",
+      "title": "Founder + customer sign-off",
+      "ownerAgent": "founder",
+      "ownerName": "ציון",
+      "stageLabel": "waiting-founder",
+      "state": "backlog",
+      "blockedBy": "KSH-10",
+      "artifact": "Explicit APPROVE before prod gate"
+    },
+    {
+      "id": "KSH-12",
+      "title": "DevOps — deploy (prod gate required)",
+      "ownerAgent": "18-devops-platform",
+      "ownerName": "פז",
+      "stageLabel": "launch",
+      "extraLabels": ["blocked"],
+      "state": "backlog",
+      "blockedBy": "KSH-11",
+      "artifact": "ops/pipeline/<slug>/10-go-live.md"
+    }
+  ],
+  "cancelPatterns": {
+    "opsHygiene": ["OPS-HYGIENE", "ops-hygiene"],
+    "inventory": ["INV-0", "INV-"],
+    "hqDesk": ["דלפק נועה", "EMET-65"],
+    "intakeBoard": [
+      "CHOOSE landing wedge",
+      "Conditional ticket seed",
+      "Conditional PRD skeleton",
+      "Mark defer IDEA",
+      "Defer IDEA",
+      "Close/archive IDEA",
+      "Close and Archive IDEA",
+      "Backlog sweep",
+      "OPS-INTAKE-GATE",
+      "Publish board to Linear",
+      "End-of-day digest",
+      "Hygiene Sweep",
+      "Monitor Blockers",
+      "Enforce Zero Start",
+      "Update Reject Catalog",
+      "Monitor Deploy Policy",
+      "Prepare Founder Status",
+      "Bet one-liner template",
+      "Constraints doc — mobile-first"
+    ],
+    "kidnest": ["KN-", "NS-0", "KN-TEST"],
+    "smoke": ["KN-TEST", "publish smoke"]
+  }
+}

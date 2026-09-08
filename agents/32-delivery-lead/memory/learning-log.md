@@ -15,5 +15,10 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 
 ## Iteration log
 ### 2026-09-09
+- task: Linear dev-only policy — cancel ops/intake/hygiene; restructure Keshet project with pipeline blocked-by chain + commit linking doc
+- do: cancel by title patterns; seed KSH-00..12 in Keshet project; manifest in ops/linear-keshet.json
+- dont: re-run restructure script blindly after stages exist (creates duplicates)
+- note: 61 canceled, 13 active (EMET-66 + EMET-113..124); policy in agents/32-delivery-lead/outbox/
+### 2026-09-09
 - Company armed. Waiting for founder build order.
 
