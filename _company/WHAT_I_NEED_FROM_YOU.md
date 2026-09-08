@@ -11,7 +11,8 @@
 | Gmail | חי |
 | OpenAI | חי |
 | Gemini | חסר — אם יש, שים `GEMINI_API_KEY` ב-`.env` (לא כאן) |
-| ChemiCloud | חסר — IP + משתמש SSH כדי שנורה תחיה כשהמחשב כבוי |
+| ChemiCloud | אתרי לקוחות בלבד — **לא** HQ / desk על השרver |
+| Cursor Cloud secrets | Gmail×3 + SSH key — פעם אחת ב-Cursor dashboard (ראה `ops/setup/cloud-ops-migration.md`) |
 | סושיאל | חסר — אסמונות מדיה כשתרצה שהמשווק יפרסם |
 
 **לא צריך ריפו עכשיו.** ציון ביקש הקמת חברה בלבד.

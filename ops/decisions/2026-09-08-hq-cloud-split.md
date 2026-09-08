@@ -133,6 +133,8 @@ Gmail OAuth / app passwords + SSH key → **Cursor Cloud secrets** (או vault �
 Implementation: `runtime/lib/specialist-runtime.mjs`, `hq/lib/cloud-work.mjs`, `hq/lib/cloud-ceo.mjs`.  
 Setup steps: `ops/setup/cloud-ops-migration.md`.
 
+**Status:** IMPLEMENTED (2026-09-08) — `factory.json` `chemiCloudHqDeploy: false`, `desk: cursor-cloud`, docs aligned.
+
 ---
 
 *Evidence path:* `ops/decisions/2026-09-08-hq-cloud-split.md`

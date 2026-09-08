@@ -1,32 +1,33 @@
 # AZToDev HQ
 
-המפעל האמיתי לפי החלום: **טלגרם תמיד-חי + Cursor Cloud על ריפו פרטי**.  
-33 התיקיות ב-`agents/` הן ספריית מומחים, לא 33 תהליכים.
+**Cloud-first:** rules and agents live in GitHub (`AZToDev-HQ`). AI runs on **Cursor Cloud**, not on ChemiCloud.
 
-## מה רץ
 ```
-הטלפון (Telegram)
-    → נורה (HQ)
-    → קוד: Cursor Cloud על GitHub פרטי  (המחשב יכול להיות כבוי)
-    → לוח: Linear (כבר ב-.env)
-    → מייל: Gmail (כבר ב-.env)
+Founder (Telegram / Cursor chat)
+    → Noa (00-ceo) — Cursor Cloud
+    → DELEGATE → Ruth / Tamir / product specialists — Cursor Cloud
+    → GitHub — code + PR
+    → ChemiCloud — customer sites only (deploy = gate)
 ```
 
-## הפעלה מקומית
+## Optional local relay (founder PC)
+
+When the PC is on, a thin relay can forward Telegram + PIN:
+
 ```bat
 HQ-ON.bat
 ```
-בריאות: http://127.0.0.1:8788/health
 
-המפתחות נטענים מ-`.env` הקיים. אל תדביק אותם בצ'אט.
+Health: http://127.0.0.1:8788/health
 
-## Cloud (כשהמחשב כבוי)
-1. חבר GitHub לחשבון Cursor (Settings → GitHub).
-2. שים ב-`.env`: `GITHUB_REPO=https://github.com/OWNER/repo` (פרטי).
-3. נורה קוראת `emet_cloud_work` — PR, לא דיפלוי לפרוד.
+Secrets load from local `.env` — never paste them in chat.
 
-## VPS (ChemiCloud) — כדי שטלגרם יעבוד כשה-PC כבוי
-ראה [`../deploy/CHEMICLOUD.md`](../deploy/CHEMICLOUD.md)
+## Cloud (primary)
 
-## שערים (ציון בלבד)
-פרוד, כסף, פרסום, מוצר חדש, סודות.
+1. Connect GitHub to Cursor (Settings → GitHub).
+2. HQ repo: `https://github.com/ZionAmar/AZToDev-HQ` (private).
+3. Product work: Cloud Agents on private product repos → PR, not prod deploy.
+
+## Gates (founder only)
+
+Prod, spend, publish, new product, secrets, ChemiCloud HQ deploy.
