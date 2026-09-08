@@ -1,4 +1,5 @@
 /** Where each specialist runs. Product + ops (except PC) = Cursor Cloud. Nadav = local HQ tools. */
+import { isProductWorkEnabled } from "./company-state.mjs";
 
 /** Must stay on founder PC — filesystem + OS access. */
 export const LOCAL_TOOL_AGENTS = new Set(["34-pc-ops"]);
@@ -15,6 +16,7 @@ export const STANDBY_DELEGATE_OK = new Set([
   "33-household-ops",
   "34-pc-ops",
   "35-server-ops",
+  "32-delivery-lead",
 ]);
 
 /** ChemiCloud thin desk: never spawn local Cursor (Nadav included). */
@@ -39,6 +41,23 @@ export function cloudOpsAgent(agentId) {
   return CLOUD_OPS_AGENTS.has(String(agentId || "").trim());
 }
 
+/** HQ repo Cloud (no product PR): ops + Keshet while productWorkEnabled is false. */
+export function usesHqOpsCloud(agentId) {
+  const id = String(agentId || "").trim();
+  if (cloudOpsAgent(id)) return true;
+  if (id === "32-delivery-lead" && !isProductWorkEnabled()) return true;
+  return false;
+}
+
 export function standbyDelegateAllowed(agentId) {
   return STANDBY_DELEGATE_OK.has(String(agentId || "").trim()) || cloudOpsAgent(agentId);
+}
+
+/** Engineers / CPO / etc. — blocked until productWorkEnabled. Keshet planning is not. */
+export function productCloudBlocked(agentId) {
+  const id = String(agentId || "").trim();
+  if (!id) return false;
+  if (isProductWorkEnabled()) return false;
+  if (usesHqOpsCloud(id)) return false;
+  return specialistUsesCloud(id);
 }

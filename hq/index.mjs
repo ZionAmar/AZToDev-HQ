@@ -28,6 +28,7 @@ function snapshot() {
     company: "AZToDev",
     mode: factory.mode || "standby",
     productWorkEnabled: factory.productWorkEnabled === true,
+    productCompanyReady: factory.productCompanyReady === true,
     telegram: telegramConfigured(),
     cloudOps: cloudOpsConfigured(),
     connections: conn?.accounts || null,

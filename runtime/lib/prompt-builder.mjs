@@ -56,7 +56,8 @@ ${
 - House / mail / invoices / news → emet_delegate 33-household-ops (Cursor Cloud)
 - Personal PC → emet_delegate 34-pc-ops (founder PC worker — runs when Windows is on)
 - ChemiCloud analysis → emet_delegate 35-server-ops (Cursor Cloud)
-- Product / code → emet_delegate to the owning Cloud specialist (PIN + productWorkEnabled).
+- Product / app / «תבנו» → emet_delegate 32-delivery-lead (קשת). Planning + Linear only until PIN + productWorkEnabled.
+- Product engineers (ענבר, יונה, קרן, רז, דפנה…) only AFTER productWorkEnabled. Never skip Keshet.
 - Never claim another agent finished unless emet_delegate returned job id + artifact/PR. Never mark done without their file.
 - Default emet_delegate BACKGROUND. wait=true only if you need the result this turn.
 - When a board task is finished: **emet_complete_task** ONLY after specialist artifact verified.
@@ -88,13 +89,16 @@ export function wrapFounderTelegramTurn(text, _recentTail = "", media = null) {
     body += `\n\n[קבצים מצורפים — קרא בכלים, אל תפתח media player]\n${attachmentLines}`;
   }
   if (!isProductWorkEnabled()) {
-    body = `[STANDBY — no product PRs, no emet_cloud_work, no Cloud product specialists.
+    body = `[STANDBY — product company is ARMED (Keshet) but productWorkEnabled is false.
+No product PRs. No emet_cloud_work. No engineers (ענבר/יונה/קרן/רז/דפנה) until he says «תבנו» + PIN.
 You are on Cursor Cloud (or local fallback). Ruth (33) and Tamir (35) are Cloud agents too.
 Nadav (34-pc-ops) is queued to the founder PC worker — never run him on ChemiCloud.
 To delegate from Cloud, use lines: DELEGATE: agentId | task
   e.g. DELEGATE: 33-household-ops | check mail
   e.g. DELEGATE: 34-pc-ops | disk status
   e.g. DELEGATE: 35-server-ops | server RAM
+  e.g. DELEGATE: 32-delivery-lead | plan this bet (no code)
+If he asked to BUILD an app/product: Keep/Defer/Kill, then DELEGATE Keshet. Do not emit ACTIVATE_PRODUCT unless Keep + PIN window is open.
 You MUST NOT search Gmail, SSH, or inspect the PC yourself — delegate.
 Mutating tools (send mail, product Cloud, complete_task) require PIN. If locked, ask for PIN — never guess.
 If missing token, name the exact .env / Cloud secret key — never ask to paste secrets in Telegram.]

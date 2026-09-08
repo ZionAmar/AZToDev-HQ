@@ -7,10 +7,16 @@ import path from "path";
 import { chatWithAgent, sanitizeForTelegram } from "./agent-sessions.mjs";
 import { sendFounderTelegram } from "./telegram.mjs";
 import { readAgentName } from "./router.mjs";
-import { specialistUsesCloud, cloudOpsAgent, hqCloudOnly } from "./specialist-runtime.mjs";
+import {
+  specialistUsesCloud,
+  hqCloudOnly,
+  usesHqOpsCloud,
+  productCloudBlocked,
+} from "./specialist-runtime.mjs";
 import { runCloudWork, runCloudOpsWork } from "../../hq/lib/cloud-work.mjs";
 import { enqueueNadavJob, shouldNotifyPcOffline } from "./nadav-queue.mjs";
 import { isActionUnlocked } from "./action-pin.mjs";
+import { applyActivateProduct } from "./product-activate.mjs";
 import fs from "fs";
 
 const JOBS_PATH = path.join(OPS, "runtime", "background-jobs.json");
@@ -63,6 +69,23 @@ export function startBackgroundDelegate({
   writeBusHandoff(fromAgentId, agentId, `[BACKGROUND ${jobId}]\n${task}`);
   journal("delegate_background_start", { jobId, agentId, fromAgentId });
 
+  if (productCloudBlocked(agentId)) {
+    const jobs = readJobs();
+    const row = (jobs.jobs || []).find((j) => j.id === jobId);
+    if (row) {
+      row.status = "blocked_standby";
+      row.finishedAt = nowIso();
+    }
+    writeJobs(jobs);
+    journal("delegate_blocked_standby", { jobId, agentId });
+    return {
+      jobId,
+      agentId,
+      agentName: name,
+      status: "blocked_standby",
+    };
+  }
+
   const pcQueue = hqCloudOnly() && !specialistUsesCloud(agentId);
   if (pcQueue) {
     const unlock = readJson(path.join(OPS, "runtime", "action-pin-unlock.json"), {});
@@ -100,7 +123,7 @@ export function startBackgroundDelegate({
     (async () => {
       try {
         const out = specialistUsesCloud(agentId)
-          ? cloudOpsAgent(agentId)
+          ? usesHqOpsCloud(agentId)
             ? await runCloudOpsWork({
                 task: `${readAgentName(fromAgentId || "00-ceo")} asked you:\n\n${task}`,
                 agentId,
@@ -117,14 +140,19 @@ export function startBackgroundDelegate({
               fromAgentId,
             });
         const result = String(out.text || "").slice(0, 8000);
-        writeBusHandoff(agentId, fromAgentId, `RESULT ${jobId}:\n${result.slice(0, 3000)}`);
+        const activated = applyActivateProduct(result);
+        writeBusHandoff(
+          agentId,
+          fromAgentId,
+          `RESULT ${jobId}:\n${activated.cleaned.slice(0, 3000)}`
+        );
 
         const jobs = readJobs();
         const row = (jobs.jobs || []).find((j) => j.id === jobId);
         if (row) {
           row.status = out.ok ? "done" : "error";
           row.finishedAt = nowIso();
-          row.resultPreview = result.slice(0, 500);
+          row.resultPreview = activated.cleaned.slice(0, 500);
         }
         writeJobs(jobs);
         journal("delegate_background_done", {
@@ -134,9 +162,10 @@ export function startBackgroundDelegate({
         });
 
         if (notifyFounder) {
-          const clean = sanitizeForTelegram(result).slice(0, 1200);
+          const clean = sanitizeForTelegram(activated.cleaned).slice(0, 1200);
+          const extra = activated.message ? `\n\n${activated.message}` : "";
           await sendFounderTelegram(
-            `עדכון מרקע · ${name} (${agentId})\nמשימה הסתיימה.\n\n${clean || "(בלי טקסט)"}\n\nאפשר לשאול אותי מה המשמעות / מה הצעד הבא.`,
+            `עדכון מרקע · ${name} (${agentId})\nמשימה הסתיימה.\n\n${clean || "(בלי טקסט)"}${extra}\n\nאפשר לשאול אותי מה המשמעות / מה הצעד הבא.`,
             { silent: false }
           );
         }

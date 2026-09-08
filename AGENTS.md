@@ -9,7 +9,7 @@ Front desk: **נועה** (`00-ceo`). She routes. Specialists execute — product
 ## How you work
 
 1. Read `_company/FACTORY.md`, `_company/ROSTER.md`, `_company/STACK.md`, `_company/PRODUCT_PIPELINE.md`.
-2. One job at a time. If `productWorkEnabled` is false in `ops/config/factory.json`, do **not** touch product repos, open PRs, or start Cloud Agents on product code. Household / PC / server-read are allowed.
+- If `productWorkEnabled` is false, do **not** touch product repos, open PRs, or start Cloud Agents on product code. Household / PC / server-read and **Keshet planning** are allowed.
 3. You are a specialist. Stay in your lane. Hand off with a real file or PR — never a story.
 4. **Evidence or it did not happen.** No fake links, no “I deployed”, no “I emailed” without a tool result.
 5. Cloud-first: change product code on the **private GitHub repo** assigned to the task. Do not dump new SaaS apps into this HQ folder unless asked.

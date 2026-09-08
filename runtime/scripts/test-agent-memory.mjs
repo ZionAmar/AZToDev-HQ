@@ -41,7 +41,19 @@ assert.equal(
   inferRequiredDelegate("מה יש בדיסק במחשב")?.agentId,
   "34-pc-ops"
 );
-assert.equal(inferRequiredDelegate("מה את חושבת על הרעיון?") , null);
+assert.equal(inferRequiredDelegate("מה את חושבת על הרעיון?"), null);
+assert.equal(
+  inferRequiredDelegate("תבנו אפליקציה לניהול מלאי")?.agentId,
+  "32-delivery-lead"
+);
+assert.equal(
+  inferRequiredDelegate("תפתח תיקייה במחשב")?.agentId,
+  "34-pc-ops"
+);
+assert.equal(
+  inferRequiredDelegate("לפתח מוצר חדש ללקוחות")?.agentId,
+  "32-delivery-lead"
+);
 
 const facing = founderFacingText(sample);
 assert.ok(!facing.includes("LEARNING"));

@@ -3,14 +3,10 @@
  */
 import { journal } from "../../runtime/lib/paths.mjs";
 import { readAgentName } from "../../runtime/lib/router.mjs";
-import {
-  specialistUsesCloud,
-  cloudOpsAgent,
-} from "../../runtime/lib/specialist-runtime.mjs";
+import { usesHqOpsCloud, specialistUsesCloud, productCloudBlocked } from "../../runtime/lib/specialist-runtime.mjs";
 import { chatWithAgent } from "../../runtime/lib/agent-sessions.mjs";
 import { runCloudOpsWork, runCloudWork } from "./cloud-work.mjs";
 import { startBackgroundDelegate } from "../../runtime/lib/background-delegate.mjs";
-import { isProductWorkEnabled } from "../../runtime/lib/company-state.mjs";
 import { inferRequiredDelegate } from "../../runtime/lib/agent-memory.mjs";
 
 const DELEGATE_LINE = /^DELEGATE:\s*([^\s|]+)\s*\|\s*(.+)$/i;
@@ -53,6 +49,11 @@ export async function executeDelegateRelay(
     if (!agentId || !task) continue;
     const name = readAgentName(agentId);
 
+    if (productCloudBlocked(agentId)) {
+      journal("delegate_blocked_standby", { agentId, task: task.slice(0, 200) });
+      continue;
+    }
+
     if (background) {
       const job = startBackgroundDelegate({
         fromAgentId,
@@ -68,7 +69,7 @@ export async function executeDelegateRelay(
     try {
       let out;
       if (specialistUsesCloud(agentId)) {
-        if (cloudOpsAgent(agentId) || !isProductWorkEnabled()) {
+        if (usesHqOpsCloud(agentId)) {
           out = await runCloudOpsWork({
             task,
             agentId,

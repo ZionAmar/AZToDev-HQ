@@ -22,9 +22,10 @@ import { sendGmail } from "./mail.mjs";
 import {
   specialistUsesCloud,
   standbyDelegateAllowed,
-  cloudOpsAgent,
+  usesHqOpsCloud,
   localPcOpsBlockedReason,
 } from "./specialist-runtime.mjs";
+import { stripActivateProduct } from "./product-activate.mjs";
 import { runReadOnlySsh } from "./ssh-chemicloud.mjs";
 import { pcStatus } from "./pc-status.mjs";
 import { socialStatus } from "./social.mjs";
@@ -147,6 +148,8 @@ export function sanitizeForTelegram(text) {
   t = t.replace(/מסלול ה(?:מהיר|כבד)[^\n]*/gi, "");
   t = t.replace(/ביצוע ב-?Cursor[^\n]*/gi, "");
   t = stripLearningBlock(t);
+  t = stripActivateProduct(t);
+  t = t.replace(/^DELEGATE:\s*.+$/gim, "").replace(/\n{3,}/g, "\n\n").trim();
   t = polishTelegramHebrew(t);
 
   if (t.length > 3500) t = `${t.slice(0, 3480)}…`;
@@ -209,11 +212,11 @@ function buildCompanyTools(ownerAgentId) {
           return `Unknown agentId. Valid: ${listCompanyAgentIds().join(", ")}`;
         }
         const cloud = specialistUsesCloud(agentId);
-        if (cloud && !cloudOpsAgent(agentId)) {
+        if (cloud && !usesHqOpsCloud(agentId)) {
           const lock = requireActionPin();
           if (lock) return lock;
           if (!isProductWorkEnabled()) {
-            return "STANDBY: product Cloud work is off. Ops agents (33/35) and Nadav (34 local) are allowed. To build a product, ציון must enable product work and send the PIN.";
+            return "STANDBY: product Cloud work is off. Ops + קשת (planning) are allowed. Engineers start only after ציון asks to build and sends the PIN.";
           }
         }
         if (!cloud && !standbyDelegateAllowed(agentId) && !isProductWorkEnabled()) {
@@ -247,7 +250,7 @@ function buildCompanyTools(ownerAgentId) {
           let out;
           if (cloud) {
             const { runCloudWork, runCloudOpsWork } = await import("../../hq/lib/cloud-work.mjs");
-            const runner = cloudOpsAgent(agentId) ? runCloudOpsWork : runCloudWork;
+            const runner = usesHqOpsCloud(agentId) ? runCloudOpsWork : runCloudWork;
             out = await runner({
               task,
               agentId,

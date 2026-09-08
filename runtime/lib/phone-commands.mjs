@@ -1,6 +1,7 @@
 import path from "path";
 import { OPS, readJson } from "./paths.mjs";
 import { companyMode, isProductWorkEnabled, readFactory } from "./company-state.mjs";
+import { nadavHeartbeatSnapshot } from "./nadav-queue.mjs";
 
 export function matchPhoneCommand(raw) {
   const t = String(raw || "").trim();
@@ -31,22 +32,28 @@ export function matchPhoneCommand(raw) {
 
 export function helpHebrew() {
   const work = isProductWorkEnabled();
+  const factory = readFactory();
+  const ready = factory.productCompanyReady === true;
   return [
     "נועה · AZToDev",
     work
       ? "עבודת מוצר: דולקת. תכתוב מה לעשות."
-      : "החברה מוכנה. מוצר ב-GitHub כבוי עד שתאשר. בית / מחשב / שרת-קריאה — פתוחים.",
+      : ready
+        ? "קשת מוכנה. אף אחד לא בונה עד שתכתוב «תבנו» + סיסמה."
+        : "החברה מוכנה. מוצר ב-GitHub כבוי עד שתאשר. בית / מחשב / שרת-קריאה — פתוחים.",
     "",
     "מהנייד:",
-    "• טקסט או הקלטה — מגיע אליי. הקלטה = תמלול + תשובה כתובה + קול (כמה הודעות אם ארוך).",
+    "• טקסט או הקלטה — מגיע אליי. הקלטה = תמלול + תשובה בכתב.",
     "• הוראה שמשנה משהו (מייל יוצא, קוד, PR) — קודם סיסמה, אחר כך ההוראה.",
     "• «סטטוס» — מי מחובר, מה מוכן",
     "• «עזרה» — ההודעה הזו",
     "• «שיחה חדשה» — מתחילים שיחה נקייה",
     "",
-    "אני מנתבת, לא מבצעת: מיילים→רות · מחשב→נדב · שרת→תמיר · מוצר→צוות Cloud.",
+    "אני מנתבת, לא מבצעת: מיילים→רות · מחשב→נדב · שרת→תמיר · מוצר→קשת (ואז הצינור).",
     "",
-    "לוח משימות בנייד: Linear · issue EMET-65",
+    factory.linearProductIssue
+      ? `לוח מוצר: Linear · ${factory.linearProductIssue}`
+      : "לוח משימות בנייד: Linear · issue EMET-65",
   ].join("\n");
 }
 
@@ -58,11 +65,14 @@ export function companyStatusHebrew() {
   const factory = readFactory();
   const conn = readJson(path.join(OPS, "runtime", "connections.json"), {});
   const c = conn.accounts || {};
+  const nadav = nadavHeartbeatSnapshot();
   const lines = [
     "AZToDev — מצב החברה",
     `מצב: ${companyMode() === "standby" ? "הקמה / מוכנה" : companyMode()}`,
-    `דלפק: נועה על המחשב (לא ChemiCloud)`,
+    "דלפק: נועה בטלגרם על ChemiCloud (תיקייה נפרדת, בלי Cursor)",
+    `נדב (מחשב): ${nadav.online ? "דולק" : "כבוי / ממתין לפתיחת המחשב"}`,
     `עבודת מוצר (Cloud/PR): ${isProductWorkEnabled() ? "דולקת" : "כבויה (בכוונה)"}`,
+    `חברת קשת: ${factory.productCompanyReady ? "מוכנה — ממתינה ל«תבנו»" : "לא חמושה"}`,
     "",
     "חשבונות:",
     `• Cursor: ${mark(c.cursor?.ok)}`,
@@ -79,7 +89,9 @@ export function companyStatusHebrew() {
     `• פייסבוק פרסום: ${mark(c.facebookPublish?.ok)}`,
     `• יוטיוב העלאה: ${mark(c.youtubeUpload?.ok)}`,
     "",
-    factory.linearHqIssue
+    factory.linearProductIssue
+      ? `לוח מוצר: ${factory.linearProductIssue}`
+      : factory.linearHqIssue
       ? `לוח: ${factory.linearHqIssue}`
       : "לוח: Linear (צוות EMET)",
     "",

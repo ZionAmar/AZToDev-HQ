@@ -19,6 +19,10 @@ export function isProductWorkEnabled() {
   return readFactory().productWorkEnabled === true;
 }
 
+export function isProductCompanyReady() {
+  return readFactory().productCompanyReady === true;
+}
+
 export function companyMode() {
   return readFactory().mode || "standby";
 }

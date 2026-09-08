@@ -6,6 +6,7 @@ import { executeDelegateRelay } from "./delegate-relay.mjs";
 import { recentTelegramThread } from "../../runtime/lib/agent-sessions.mjs";
 import { journal } from "../../runtime/lib/paths.mjs";
 import { founderFacingText } from "../../runtime/lib/agent-memory.mjs";
+import { applyActivateProduct } from "../../runtime/lib/product-activate.mjs";
 
 /**
  * @param {string} prompt — founder turn (may include standby block)
@@ -43,7 +44,11 @@ export async function chatWithCloudCeo(prompt, { founderText = "" } = {}) {
     founderText,
   });
 
-  let text = founderFacingText(relay.cleanedText || out.text || "");
+  const activated = applyActivateProduct(relay.cleanedText || out.text || "");
+  let text = founderFacingText(activated.cleaned);
+  if (activated.message) {
+    text = `${text}\n\n${activated.message}`.trim();
+  }
   const names = [...new Set(relay.delegateResults.filter(Boolean))];
   if (names.length === 1) {
     text = `${text}\n\n${names[0]} על זה ברקע. אעדכן כשיהיה תשובה.`.trim();

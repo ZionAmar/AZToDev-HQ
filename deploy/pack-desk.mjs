@@ -14,6 +14,7 @@ const TAR = path.join(ROOT, "ops", "outbox-founder", "aztodev-desk.tgz");
 const DIRS = ["hq", "runtime", "_company", "_shared", "ops/config"];
 const AGENT_IDS = [
   "00-ceo",
+  "32-delivery-lead",
   "33-household-ops",
   "34-pc-ops",
   "35-server-ops",

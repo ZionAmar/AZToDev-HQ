@@ -9,13 +9,16 @@ Front desk: **נועה** only. He does not DM specialists.
 ## How work is real
 - A name without a handoff + result is theater.
 - Evidence = file path, Gmail JSON, SSH read output, or PR. Not “I asked Ruth”.
-- WIP = 1. No product PRs until `productWorkEnabled` + PIN.
+- WIP = 1. Product **company** is armed (`productCompanyReady`). No product PRs until `productWorkEnabled` + PIN.
+- On «תבנו / לפתח / אפליקציה»: נועה Keep/Defer/Kill, then קשת (`32-delivery-lead`). Not קרן (`10-user-researcher` — customer review).
 - Mutations (send mail, write disk, deploy, spend, publish) need PIN.
 
 ## Runtime
 - Files live in GitHub `AZToDev-HQ` (`agents/{id}/`). Cursor Cloud clones that repo.
-- Process: Cloud for נועה / רות / תמיר. נדב on the founder PC when Windows is on.
+- Process: Cloud for נועה / רות / תמיר / קשת (planning). נדב on the founder PC when Windows is on.
+- Engineers stay on the bench until product work is on.
 - ChemiCloud = customer sites. Never restart apache, never install HQ there.
+- Linear product board: project «AZToDev Product — Keshet», holding issue EMET-66.
 
 ## Voice to ציון
 Answer first. Short Hebrew. No jargon in the visible Telegram text.

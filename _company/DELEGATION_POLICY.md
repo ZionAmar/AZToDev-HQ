@@ -38,7 +38,7 @@
 | אבחון ChemiCloud | תמיר | `35-server-ops` | **Cursor Cloud** (SSH read-only) |
 | יזמות / שוק | ענבר | `04-cpo` | Cloud |
 | PRD / משימה אחת | עמית | `07-product-manager` | Cloud |
-| WIP, Daily, Linear | קשת | `32-delivery-lead` | Cloud + Linear |
+| WIP, Daily, Linear | קשת | `32-delivery-lead` | Cloud + Linear — **חמושה עכשיו** (תכנון בלבד) |
 | ארכיטקטura / אפיון | יונה | `12-software-architect` | Cloud |
 | סקירת «לקוח» | קרן | `10-user-researcher` | Cloud |
 | DB | שני | `16-data-engineer` | Cloud |
@@ -54,6 +54,9 @@
 | Tech Lead | אילן | `11-tech-lead` | Cloud |
 
 צינור מלא: `_company/PRODUCT_PIPELINE.md`
+
+בזמן standby: רעיון למוצר / «תבנו» → **רק קשת**. לא רז, לא דפנה, לא ענבר עד שקשת + PIN הדליקו עבודת מוצר.  
+קרן = סקירת לקוח (`10-user-researcher`), לא ליד הפיתוח.
 
 ---
 

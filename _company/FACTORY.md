@@ -26,12 +26,17 @@
 
 ---
 
-## עכשיו (הקמה)
+## עכשיו (הקמה — מטבח דולק, בלי בישול)
 
-- `ops/config/factory.json` → `"productWorkEnabled": false`, `"chemiCloudHqDeploy": false`
+- `ops/config/factory.json` → `"productCompanyReady": true`, `"productWorkEnabled": false`
+- דלפק טלגרם דק כבר על ChemiCloud (`aztodev-desk`). **אין** HQ מלא / Cursor / Docker על השרת
 - אין PR למוצר, אין deploy, אין נגיעה באתרים חיים
 - טלגרם + בית + סטטוס PC/שרת (קריאה) — **כן**
-- לוח נייד: Linear [EMET-65](https://linear.app/my-company1460/issue/EMET-65)
+- קשת חמושה לתכנון + Linear. מהנדסים על הספסל עד «תבנו» + PIN
+- לוח HQ: Linear [EMET-65](https://linear.app/my-company1460/issue/EMET-65)
+- לוח מוצר: [AZToDev Product — Keshet](https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd) · [EMET-66](https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order)
+
+כשציון יבקש לבנות: נועה Keep/Defer/Kill → `DELEGATE: 32-delivery-lead` → קשת מתייעצת עם הצינור → PIN מדליק `productWorkEnabled` → מהנדסים.
 
 ---
 
@@ -43,8 +48,8 @@
          ├── בית / מיילים / חדשות     → רות  (33-household-ops)
          ├── המחשב האישי              → נדב  (34-pc-ops)     [PC דולק]
          ├── שרת ChemiCloud (קריאה)   → תמיר (35-server-ops)
-         └── מוצר / קוד / אפיון
-                → קשת (WIP=1, Linear)
+         └── מוצר / קוד / אפיון  (רק אחרי «תבנו» + PIN)
+                → קשת (WIP=1, Linear — תכנון מותר כבר עכשיו)
                 → צינור: יזם → אישור ציון → ארכיטקט → לקוח → DB → באק → פרונט → QA
                 → כל שלב משמעותי = סיסמה (PIN) + אישור ציון
                 → Cloud Agent על ריפו פרטי → PR

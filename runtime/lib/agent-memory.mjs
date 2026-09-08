@@ -6,6 +6,7 @@ import fs from "fs";
 import path from "path";
 import { ROOT, OPS, RUNTIME_DIR, nowIso, journal, ensureRuntimeDirs } from "./paths.mjs";
 import { readAgentName } from "./router.mjs";
+import { stripActivateProduct } from "./product-activate.mjs";
 
 export const LIVE_AGENT_IDS = [
   "00-ceo",
@@ -106,13 +107,24 @@ export function stripFakeSpecialistClaims(text) {
 export function inferRequiredDelegate(founderText) {
   const t = String(founderText || "");
   if (!t.trim()) return null;
+  const task = t.replace(/\[STANDBY[\s\S]*?\]\s*/g, "").slice(0, 500).trim();
+
+  if (
+    /תבנו|תבנה|תפעיל(?:י|ו)?\s+(?:את\s+)?קשת|לבנות\s+(?:מוצר|אפליק)|לפתח\s+(?:מוצר|אפליק)|פיתוח מוצר|מוצר חדש|תפתח(?:ו|י)?\s+(?:מוצר|אפליק|סאאס|saas)|keshet|(?:^|\s)קשת(?:\s|$|[.,!?])/i.test(
+      t
+    )
+  ) {
+    return {
+      agentId: "32-delivery-lead",
+      task: task || "Founder asked to start product work — plan only until PIN + explicit build",
+    };
+  }
+
   const action =
     /בדק|מצא|חפש|תרא|תציג|סטטוס|מה יש|תביא|תוציא|תפתח|תקרא|תרים|check|find|search|status|show|open/i.test(
       t
     );
   if (!action && !/חשבונית|כביש\s*6|כרמל/.test(t)) return null;
-
-  const task = t.replace(/\[STANDBY[\s\S]*?\]\s*/g, "").slice(0, 500).trim();
 
   if (
     /מייל|gmail|חשבונית|כביש\s*6|מנהרות הכרמל|כרמל|pdf|inbox|חשבון/i.test(t)
@@ -224,5 +236,9 @@ export function recordAgentTurn({
 }
 
 export function founderFacingText(text) {
-  return stripFakeSpecialistClaims(stripLearningBlock(text));
+  return stripFakeSpecialistClaims(
+    stripActivateProduct(stripLearningBlock(text)).replace(/^DELEGATE:\s*.+$/gim, "")
+  )
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
 }

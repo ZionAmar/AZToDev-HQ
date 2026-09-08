@@ -8,7 +8,7 @@ import { journal, ROOT } from "../../runtime/lib/paths.mjs";
 import { cursorModelId } from "../../runtime/lib/cursor-local.mjs";
 import { isProductWorkEnabled, readFactory } from "../../runtime/lib/company-state.mjs";
 import { readAgentName } from "../../runtime/lib/router.mjs";
-import { cloudOpsAgent } from "../../runtime/lib/specialist-runtime.mjs";
+import { usesHqOpsCloud } from "../../runtime/lib/specialist-runtime.mjs";
 import { memoryPromptBlock, recordAgentTurn, stripLearningBlock } from "../../runtime/lib/agent-memory.mjs";
 
 export function cloudRepoUrl() {
@@ -40,7 +40,7 @@ export function resolveProductRepo(repoKeyOrUrl) {
 }
 
 export function resolveAgentRepo(agentId, repoKeyOrUrl = "") {
-  if (cloudOpsAgent(agentId)) {
+  if (usesHqOpsCloud(agentId)) {
     const hq = hqRepoUrl();
     if (hq) return hq;
   }
@@ -143,9 +143,24 @@ To delegate specialist work, include one line per handoff (HQ relay executes it)
   DELEGATE: 33-household-ops | <task>
   DELEGATE: 34-pc-ops | <task>   (queued for founder PC; runs when the PC is on)
   DELEGATE: 35-server-ops | <task>
-Product specialists: DELEGATE: <agentId> | <task> (requires productWorkEnabled + PIN).
+  DELEGATE: 32-delivery-lead | <bet>   (קשת — product company. Planning on HQ. No code until PIN + build order.)
+Product engineers (ענבר, יונה, קרן, רז, דפנה…): only AFTER productWorkEnabled. Until then route ALL product/app/build ideas to Keshet, not to engineers.
+If the founder clearly said to BUILD and the PIN window is open, Keshet may emit:
+  ACTIVATE_PRODUCT: <slug> | <one-line bet>
+You do not emit ACTIVATE_PRODUCT yourself unless he already confirmed Keep + PIN.
 Never invent job ids or artifact paths. Nadav (34) never runs on ChemiCloud.
 Telegram replies: clear professional Hebrew. Answer first. Short paragraphs. No jargon in the visible text.
+`;
+  }
+  if (agentId === "32-delivery-lead") {
+    return `
+You are קשת. Product company is ARMED (productCompanyReady) but productWorkEnabled may still be false.
+NOW: plan only. Linear project "AZToDev Product — Keshet". Issue EMET-66 until a real bet exists.
+Pipeline: _company/PRODUCT_PIPELINE.md. WIP=1. Consult ענבר → ציון gate → יונה → קרן before רז/דפנה.
+Do NOT write product code. Do NOT open product PRs. Do NOT deploy.
+When he ordered a build AND HQ says PIN is unlocked, you may emit:
+  ACTIVATE_PRODUCT: <slug> | <one-line bet>
+Then DELEGATE the next pipeline owner. Linear issue per stage.
 `;
   }
   return "";
