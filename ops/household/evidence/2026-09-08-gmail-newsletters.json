@@ -1,0 +1,161 @@
+{
+  "generatedAt": "2026-09-08T17:55:00.000Z",
+  "agent": "33-household-ops",
+  "task": "daily-news-briefing-2026-09-08",
+  "householdConfig": "ops/config/household.json",
+  "newsChannelsConfigured": false,
+  "newsChannelsCount": 0,
+  "gmailAccountsChecked": ["aztodev", "amzion", "zion"],
+  "searches": [
+    {
+      "query": "newer_than:2d (category:promotions OR label:newsletter OR subject:(newsletter OR digest OR weekly OR daily))",
+      "results": {
+        "aztodev": { "totalHits": 0, "recent": [] },
+        "amzion": {
+          "totalHits": 3,
+          "recent": [
+            {
+              "uid": 6079,
+              "from": "support@cvwizard.com",
+              "fromName": "CVwizard",
+              "subject": "חם מהתנור: משרות מנהלת חשבונות (Jerusalem)",
+              "date": "2026-09-07T06:14:27.000Z"
+            },
+            {
+              "uid": 6083,
+              "from": "hot_consumer@ma.hot.co.il",
+              "fromName": "הוט מועדון צרכנות",
+              "subject": "ציון,שנה חדשה מתחילה עם הטבות משתלמות במיוחד : עד 15% הנחה ברשתות המזון המובילות | עד 60% הנחה על מתנות ומוצרי אירוח . חג שמח! (פרסומת)",
+              "date": "2026-09-07T10:54:09.000Z"
+            },
+            {
+              "uid": 6089,
+              "from": "team@news-mail.elementor.com",
+              "fromName": "Elementor",
+              "subject": "[פרסומת] שנה טובה, ומתנה קטנה לדרך",
+              "date": "2026-09-08T13:19:21.000Z"
+            }
+          ]
+        },
+        "zion": {
+          "totalHits": 8,
+          "recent": [
+            {
+              "uid": 23469,
+              "from": "tefilot@tefilot.online",
+              "fromName": "Tefilot Online",
+              "subject": "ראש השנה בשבת, הפחד של גדולי הדורות...",
+              "date": "2026-09-07T07:30:58.000Z"
+            },
+            {
+              "uid": 23471,
+              "from": "today@kspmail.co.il",
+              "fromName": "KSP.co.il",
+              "subject": "שנה חדשה עם טעם קפה Lavazza אמיתי! קפסולות נספרסו ו-Modo Mio, מארזי קפה טחון ופולים במחירים מנצחים!(פרסומת)",
+              "date": "2026-09-07T10:50:24.000Z"
+            },
+            {
+              "uid": 23472,
+              "from": "Coursera@m.learn.coursera.org",
+              "fromName": "Coursera",
+              "subject": "Ready: Google Cybersecurity",
+              "date": "2026-09-07T13:47:44.000Z"
+            },
+            {
+              "uid": 23474,
+              "from": "today@kspmail.co.il",
+              "fromName": "KSP.co.il",
+              "subject": "חגיגת טקסטיל לילדים! כריות, שמיכות, סדינים, ציפיות, מגבות ועוד במחירי חג שווים! סט מצעים 3 חלקים מיני מאוס רק ב-₪72 (פרסומת)",
+              "date": "2026-09-07T16:07:23.000Z"
+            },
+            {
+              "uid": 23475,
+              "from": "chessed@chessed.online",
+              "fromName": "מש' גולדמן",
+              "subject": "\"אבא הלך לבקר את אמא בביה\"ח – ונפטר\"",
+              "date": "2026-09-08T07:30:21.000Z"
+            },
+            {
+              "uid": 23478,
+              "from": "today@kspmail.co.il",
+              "fromName": "KSP.co.il",
+              "subject": "חג משפחתי במיוחד עם משחקי חברה וקופסא במבצע!  לוטי קרוטי, טאקי, משחקי זכרון, מודלים להרכבה ועוד! ₪30 הנחה לרוכשים ב-₪299!* (פרסומת)",
+              "date": "2026-09-08T10:50:16.000Z"
+            },
+            {
+              "uid": 23479,
+              "from": "maya@mayaway.co.il",
+              "fromName": "מאיה בן שוהם MSL",
+              "subject": "ציון עמר שנה טובה ומתוקה",
+              "date": "2026-09-08T11:30:51.000Z"
+            },
+            {
+              "uid": 23481,
+              "from": "today@kspmail.co.il",
+              "fromName": "KSP.co.il",
+              "subject": "בחזרה לאוניברסיטה! תיקים, ציוד משרדי, בקבוקי שתייה ועוד! תיק גב למחשב נייד 15.6 אינץ' Case Logic ב-₪215(פרסומת)",
+              "date": "2026-09-08T16:05:32.000Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "newer_than:2d (from:qz.com OR subject:(breaking OR \"top stories\" OR briefing))",
+      "results": {
+        "zion": {
+          "totalHits": 1,
+          "recent": [
+            {
+              "uid": 23480,
+              "from": "founder@e.qz.com",
+              "fromName": "Quartz Founders Report",
+              "subject": "Takin' it for a test drive",
+              "date": "2026-09-08T13:04:19.000Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "query": "newer_than:2d from:noreply@github.com subject:Dependabot",
+      "results": {
+        "amzion": {
+          "totalHits": 1,
+          "recent": [
+            {
+              "uid": 6086,
+              "from": "noreply@github.com",
+              "fromName": "GitHub",
+              "subject": "[GitHub] Your Dependabot alerts for the week of Sep 1 - Sep 8",
+              "date": "2026-09-08T06:42:11.000Z"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "inboxPeekLatest": {
+    "aztodev": [
+      "EMET · דוח משימה KN-002 הושלמה — ממתין לאישורך להמשך",
+      "EMET · דוח משימה NS-08 הושלמה — ממתין לאישורך להמשך",
+      "EMET — מה קרה + סטטוס (לא קרס שוב)",
+      "Rakza — מצגת שיווק 7 דק'",
+      "EMET | נעה | סוף-יום 2026-09-07"
+    ],
+    "amzion": [
+      "Package RS1336250716Y has been delivered (AliExpress)",
+      "[GitHub] Your Dependabot alerts for the week of Sep 1 - Sep 8",
+      "Your Google Play Order Receipt from Sep 8, 2026",
+      "Security alert (Google)",
+      "[פרסומת] שנה טובה, ומתנה קטנה לדרך (Elementor)"
+    ],
+    "zion": [
+      "מה הקשר בין ״דה זה וו 2״ לכירולוגיה? (חני רובינשטיין)",
+      "חג משפחתי במיוחד עם משחקי חברה... (KSP פרסומת)",
+      "ציון עמר שנה טובה ומתוקה (מאיה בן שוהם MSL)",
+      "Takin' it for a test drive (Quartz Founders Report)",
+      "בחזרה לאוניברסיטה! ... (KSP פרסומת)"
+    ]
+  }
+}
