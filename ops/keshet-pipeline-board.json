@@ -1,0 +1,125 @@
+{
+  "updatedAt": "2026-09-08T22:50:00.000Z",
+  "projectName": "AZToDev Product — Keshet",
+  "projectUrl": "https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd",
+  "holdingIssue": {
+    "localId": "KSH-00",
+    "identifier": "EMET-66",
+    "url": "https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order",
+    "ownerAgent": "32-delivery-lead",
+    "ownerName": "קשת"
+  },
+  "stages": [
+    {
+      "localId": "KSH-01",
+      "identifier": "EMET-113",
+      "title": "Venture — market, unique value, valuation",
+      "ownerAgent": "04-cpo",
+      "ownerName": "ענבר",
+      "label": "discover",
+      "artifact": "ops/pipeline/<slug>/01-venture.md"
+    },
+    {
+      "localId": "KSH-02",
+      "identifier": "EMET-114",
+      "title": "Founder gate — approve venture brief",
+      "ownerAgent": "founder",
+      "ownerName": "ציון",
+      "label": "waiting-founder",
+      "artifact": "Founder APPROVE on venture brief",
+      "founderGate": true
+    },
+    {
+      "localId": "KSH-03",
+      "identifier": "EMET-115",
+      "title": "Architect — spec, screens, use cases, ERD, tree",
+      "ownerAgent": "12-software-architect",
+      "ownerName": "יונה",
+      "label": "architect",
+      "artifact": "ops/pipeline/<slug>/02-spec.md … 06-tree.md"
+    },
+    {
+      "localId": "KSH-04",
+      "identifier": "EMET-116",
+      "title": "Founder gate — approve spec folder",
+      "ownerAgent": "founder",
+      "ownerName": "ציון",
+      "label": "waiting-founder",
+      "artifact": "Founder APPROVE on spec outputs",
+      "founderGate": true
+    },
+    {
+      "localId": "KSH-05",
+      "identifier": "EMET-117",
+      "title": "Customer review — spec + screens (round 1)",
+      "ownerAgent": "10-user-researcher",
+      "ownerName": "קרן",
+      "label": "shape",
+      "artifact": "ops/pipeline/<slug>/07-customer-review.md"
+    },
+    {
+      "localId": "KSH-06",
+      "identifier": "EMET-118",
+      "title": "DB — schema + migrations per spec",
+      "ownerAgent": "16-data-engineer",
+      "ownerName": "שני",
+      "label": "build",
+      "artifact": "Product repo migrations + 05-db.md sync"
+    },
+    {
+      "localId": "KSH-07",
+      "identifier": "EMET-119",
+      "title": "Backend — Node API + contract doc",
+      "ownerAgent": "13-backend-engineer",
+      "ownerName": "רז",
+      "label": "build",
+      "artifact": "ops/pipeline/<slug>/08-api.md + product repo PR"
+    },
+    {
+      "localId": "KSH-08",
+      "identifier": "EMET-120",
+      "title": "Frontend — React UI + PWA if chosen",
+      "ownerAgent": "14-frontend-engineer",
+      "ownerName": "דפנה",
+      "label": "build",
+      "artifact": "Product repo PR (components + pages)"
+    },
+    {
+      "localId": "KSH-09",
+      "identifier": "EMET-121",
+      "title": "Customer review — every screen (round 2)",
+      "ownerAgent": "10-user-researcher",
+      "ownerName": "קרן",
+      "label": "shape",
+      "artifact": "Updated 07-customer-review.md"
+    },
+    {
+      "localId": "KSH-10",
+      "identifier": "EMET-122",
+      "title": "QA — full test pass + repro docs",
+      "ownerAgent": "20-qa-sdet",
+      "ownerName": "אורי",
+      "label": "harden",
+      "artifact": "ops/pipeline/<slug>/09-qa.md"
+    },
+    {
+      "localId": "KSH-11",
+      "identifier": "EMET-123",
+      "title": "Founder + customer sign-off",
+      "ownerAgent": "founder",
+      "ownerName": "ציון · קרן",
+      "label": "waiting-founder",
+      "artifact": "Explicit APPROVE before prod gate",
+      "founderGate": true
+    },
+    {
+      "localId": "KSH-12",
+      "identifier": "EMET-124",
+      "title": "DevOps — deploy (prod gate required)",
+      "ownerAgent": "18-devops-platform",
+      "ownerName": "פז",
+      "label": "launch",
+      "artifact": "ops/pipeline/<slug>/10-go-live.md"
+    }
+  ]
+}

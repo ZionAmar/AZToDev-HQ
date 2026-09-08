@@ -14,6 +14,11 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 - Do not skip to engineers. Do not confuse קרן (customer review) with this role.
 
 ## Iteration log
+### 2026-09-08
+- task: Noa asked: Confirm dev-only Linear board clean for founder phone; set stage assignee names KSH-01..12
+- do: audit EMET team active issues; only EMET-66 carries waiting-founder while armed; title prefix [KSH-NN · ownerHe]
+- dont: leave waiting-founder on future founder gates — clutters phone filter
+- note: 13 active Keshet-only issues; KSH titles patched EMET-113..124; manifest ops/linear-keshet-issues.json
 ### 2026-09-09
 - Company armed. Waiting for founder build order.
 

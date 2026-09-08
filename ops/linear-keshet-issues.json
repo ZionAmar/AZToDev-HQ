@@ -1,0 +1,110 @@
+{
+  "auditedAt": "2026-09-08T22:49:40.624Z",
+  "projectName": "AZToDev Product — Keshet",
+  "projectUrl": "https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd",
+  "devOnlyClean": true,
+  "activeIssueCount": 13,
+  "nonKeshetActive": [],
+  "holdingIssue": {
+    "localId": "KSH-00",
+    "identifier": "EMET-66",
+    "url": "https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order",
+    "ownerAgent": "32-delivery-lead",
+    "ownerName": "קשת"
+  },
+  "stages": [
+    {
+      "localId": "KSH-01",
+      "identifier": "EMET-113",
+      "ownerName": "ענבר",
+      "ownerAgent": "04-cpo",
+      "url": "https://linear.app/my-company1460/issue/EMET-113"
+    },
+    {
+      "localId": "KSH-02",
+      "identifier": "EMET-114",
+      "ownerName": "ציון",
+      "ownerAgent": "founder",
+      "url": "https://linear.app/my-company1460/issue/EMET-114"
+    },
+    {
+      "localId": "KSH-03",
+      "identifier": "EMET-115",
+      "ownerName": "יונה",
+      "ownerAgent": "12-software-architect",
+      "url": "https://linear.app/my-company1460/issue/EMET-115"
+    },
+    {
+      "localId": "KSH-04",
+      "identifier": "EMET-116",
+      "ownerName": "ציון",
+      "ownerAgent": "founder",
+      "url": "https://linear.app/my-company1460/issue/EMET-116"
+    },
+    {
+      "localId": "KSH-05",
+      "identifier": "EMET-117",
+      "ownerName": "קרן",
+      "ownerAgent": "10-user-researcher",
+      "url": "https://linear.app/my-company1460/issue/EMET-117"
+    },
+    {
+      "localId": "KSH-06",
+      "identifier": "EMET-118",
+      "ownerName": "שני",
+      "ownerAgent": "16-data-engineer",
+      "url": "https://linear.app/my-company1460/issue/EMET-118"
+    },
+    {
+      "localId": "KSH-07",
+      "identifier": "EMET-119",
+      "ownerName": "רז",
+      "ownerAgent": "13-backend-engineer",
+      "url": "https://linear.app/my-company1460/issue/EMET-119"
+    },
+    {
+      "localId": "KSH-08",
+      "identifier": "EMET-120",
+      "ownerName": "דפנה",
+      "ownerAgent": "14-frontend-engineer",
+      "url": "https://linear.app/my-company1460/issue/EMET-120"
+    },
+    {
+      "localId": "KSH-09",
+      "identifier": "EMET-121",
+      "ownerName": "קרן",
+      "ownerAgent": "10-user-researcher",
+      "url": "https://linear.app/my-company1460/issue/EMET-121"
+    },
+    {
+      "localId": "KSH-10",
+      "identifier": "EMET-122",
+      "ownerName": "אורי",
+      "ownerAgent": "20-qa-sdet",
+      "url": "https://linear.app/my-company1460/issue/EMET-122"
+    },
+    {
+      "localId": "KSH-11",
+      "identifier": "EMET-123",
+      "ownerName": "ציון · קרן",
+      "ownerAgent": "founder",
+      "url": "https://linear.app/my-company1460/issue/EMET-123"
+    },
+    {
+      "localId": "KSH-12",
+      "identifier": "EMET-124",
+      "ownerName": "פז",
+      "ownerAgent": "18-devops-platform",
+      "url": "https://linear.app/my-company1460/issue/EMET-124"
+    }
+  ],
+  "founderPhoneFilter": {
+    "label": "waiting-founder",
+    "issues": [
+      {
+        "id": "EMET-66",
+        "title": "Armed — wait for founder build order"
+      }
+    ]
+  }
+}
