@@ -2,7 +2,7 @@
   "version": 4,
   "mode": "standby",
   "productWorkEnabled": false,
-  "chemiCloudHqDeploy": true,
+  "chemiCloudHqDeploy": false,
   "wipLimit": 1,
   "activeWork": null,
   "githubOwner": "ZionAmar",
@@ -16,7 +16,7 @@
   "chemiCloudPort": 1988,
   "socialReady": false,
   "architecture": {
-    "desk": "thin-telegram-on-chemicloud",
+    "desk": "cursor-cloud",
     "frontDeskNameHe": "נועה",
     "specialists": "cursor-cloud",
     "housePcServer": "cloud-ops-except-pc",
@@ -101,6 +101,6 @@
       "/start"
     ]
   },
-  "updatedAt": "2026-09-08",
+  "updatedAt": "2026-09-08T15:30:00Z",
   "lastHqHelloAt": "2026-09-08T12:02:41.526Z"
 }

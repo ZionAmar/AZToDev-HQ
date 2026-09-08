@@ -1,32 +1,41 @@
 # AZToDev HQ
 
-המפעל האמיתי לפי החלום: **טלגרם תמיד-חי + Cursor Cloud על ריפו פרטי**.  
-33 התיקיות ב-`agents/` הן ספריית מומחים, לא 33 תהליכים.
+**Telegram + Cursor Cloud on a private GitHub repo.**  
+The 33 folders under `agents/` are a specialist library — not 33 local processes.
 
-## מה רץ
+## What runs where
+
 ```
-הטלפון (Telegram)
-    → נורה (HQ)
-    → קוד: Cursor Cloud על GitHub פרטי  (המחשב יכול להיות כבוי)
-    → לוח: Linear (כבר ב-.env)
-    → מייל: Gmail (כבר ב-.env)
+Founder (Telegram / Cursor chat)
+    → Noa (00-ceo) — Cursor Cloud
+    → DELEGATE → Ruth / Tamir / product specialists — Cursor Cloud
+    → Code: private GitHub repos → PR
+    → Tasks: Linear (EMET-65)
 ```
 
-## הפעלה מקומית
+| Component | Runtime | Notes |
+|-----------|---------|--------|
+| Noa + specialists | **Cursor Cloud** | Rules in `AZToDev-HQ` on GitHub |
+| Thin Telegram relay | **PC** (`hq/index.mjs`, port 8788) | Optional when PC is on |
+| Nadav (PC ops) | **PC local** | Disk, git, `gh` — PC must be on |
+| ChemiCloud | **Customer sites only** | No HQ, no agents — see `deploy/CHEMICLOUD.md` |
+
+## Local relay (PC)
+
 ```bat
 HQ-ON.bat
 ```
-בריאות: http://127.0.0.1:8788/health
 
-המפתחות נטענים מ-`.env` הקיים. אל תדביק אותם בצ'אט.
+Health: http://127.0.0.1:8788/health
 
-## Cloud (כשהמחשב כבוי)
-1. חבר GitHub לחשבון Cursor (Settings → GitHub).
-2. שים ב-`.env`: `GITHUB_REPO=https://github.com/OWNER/repo` (פרטי).
-3. נורה קוראת `emet_cloud_work` — PR, לא דיפלוי לפרוד.
+Keys load from local `.env`. Never paste them in chat.
 
-## VPS (ChemiCloud) — כדי שטלגרם יעבוד כשה-PC כבוי
-ראה [`../deploy/CHEMICLOUD.md`](../deploy/CHEMICLOUD.md)
+## Cloud
 
-## שערים (ציון בלבד)
-פרוד, כסף, פרסום, מוצר חדש, סודות.
+1. Connect GitHub in Cursor Settings.
+2. Set in `.env`: `GITHUB_HQ_REPO=https://github.com/ZionAmar/AZToDev-HQ`
+3. Cloud agents read HQ rules from GitHub; product work → PR, never prod deploy without gate.
+
+## Gates (founder only)
+
+Prod, spend, publish, new product, secrets.

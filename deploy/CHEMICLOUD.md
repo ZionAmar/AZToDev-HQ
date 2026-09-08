@@ -1,12 +1,18 @@
-# ChemiCloud — AZToDev thin desk
+# ChemiCloud — customer sites only (no AZToDev HQ)
 
 Host: `cvps1645.serverhostgroup.com`  
 IP: `178.79.149.231`  
 User: `aztodevc`  
 Port: `1988`
 
-**Live sites are sacred.** Desk lives only in `/home/aztodevc/aztodev-desk`.  
-Never `/var/www`, never `public_html`, never nestube/workclock/pulsechannel.
+**Decision (2026-09-08):** ChemiCloud runs **live customer sites only**.  
+**No** AZToDev HQ, **no** Telegram relay, **no** Cursor, **no** Docker, **no** 33 agents.
+
+| Allowed | Forbidden |
+|---------|-----------|
+| Customer site files under `/var/www` / `public_html` | `aztodev-desk` or any HQ runtime |
+| Controlled prod deploy by **Pez** (`18-devops-platform`) after founder gate | AI agents, orchestration, daily jobs |
+| SSH **read-only** diagnostics by **Tamir** (`35-server-ops`) from **Cursor Cloud** | Storing Gmail secrets or running HQ on the VPS |
 
 Do not put SSH passwords, `.ppk`, or `.env` in git or chat.
 
@@ -14,8 +20,7 @@ Do not put SSH passwords, `.ppk`, or `.env` in git or chat.
 ssh -p 1988 -i ops/secrets/aztodev-cpanel.nopass aztodevc@178.79.149.231
 ```
 
-Run: `PATH=/opt/alt/alt-nodejs22/root/usr/bin:$PATH`  
-`HQ_CLOUD_ONLY=1` — no local Cursor on the VPS.  
-Listen: `127.0.0.1:8788` (not public).
+**Agent runtime:** Cursor Cloud + private GitHub (`AZToDev-HQ`).  
+**Founder desk:** Cursor chat and/or thin PC relay (`hq/index.mjs`) — never ChemiCloud.
 
-Swap is often full; confirm `free -m` (available) before start.
+See: `ops/decisions/2026-09-08-hq-cloud-split.md`

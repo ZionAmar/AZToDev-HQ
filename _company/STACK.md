@@ -3,7 +3,7 @@
 משלמים על מה שכבר יש: **Cursor** (כולל Cloud Agents).  
 חינם ופרטי: **GitHub**.  
 טלפון: **טלגרם ↔ נועה** + **Linear**.  
-הדלפק חי כש-`HQ-ON.bat` / `node hq/index.mjs` דולק **על המחשב**. לא על ChemiCloud עד אישור.
+הדלפק: **Cursor Cloud** (נועה + מומחים). relay דק אופציונלי על PC (`HQ-ON.bat`). **ChemiCloud = אתרי לקוחות בלבד** — לא HQ, לא סוכנים.
 
 ---
 

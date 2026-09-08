@@ -135,4 +135,19 @@ Setup steps: `ops/setup/cloud-ops-migration.md`.
 
 ---
 
+## Implementation status (2026-09-08)
+
+**IMPLEMENTED** — config + docs aligned to Cloud-first, no ChemiCloud HQ:
+
+| File | Change |
+|------|--------|
+| `ops/config/factory.json` | `chemiCloudHqDeploy: false`, `architecture.desk: cursor-cloud` |
+| `deploy/CHEMICLOUD.md` | Customer sites only; `aztodev-desk` killed |
+| `hq/README.md` | Removed VPS desk path; Noa / Cloud-first |
+| `_company/STACK.md`, `DELEGATION_POLICY.md`, `WHAT_I_NEED_FROM_YOU.md` | Synced |
+
+**Not in scope:** Cursor Cloud secrets migration (founder one-time), PC relay setup, full נורה→נועה rebrand.
+
+---
+
 *Evidence path:* `ops/decisions/2026-09-08-hq-cloud-split.md`

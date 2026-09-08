@@ -69,5 +69,6 @@ PIN לכל שינוי (שליחת מייל, Cloud, PR). קריאה בלי PIN.
 
 ## 5) ChemiCloud
 
-תמיר = קריאה בלבד. פז = פריסה רק אחרי שער.  
-**אסור** להעלות את HQ / Cursor / 33 סוכנים לשרת.
+תמיר = SSH **קריאה בלבד** מ-**Cursor Cloud** (לא רץ על השרver).  
+פז = deploy ללקוחות **רק אחרי שער פרוד**.  
+**Kill:** HQ / Telegram relay / Cursor / Docker / 33 סוכנים על ChemiCloud — `chemiCloudHqDeploy: false` ב-`factory.json`.
