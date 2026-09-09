@@ -1,12 +1,15 @@
 import path from "path";
 import fs from "fs";
+import os from "os";
 import { spawn } from "child_process";
 import { ROOT } from "./paths.mjs";
 import { readFactory } from "./company-state.mjs";
 
 const SSH_EXE =
   process.env.SSH_EXE ||
-  "C:\\Windows\\System32\\OpenSSH\\ssh.exe";
+  (process.platform === "win32"
+    ? "C:\\Windows\\System32\\OpenSSH\\ssh.exe"
+    : "ssh");
 
 const ALLOWED = new Set([
   "whoami",
@@ -20,24 +23,54 @@ const ALLOWED = new Set([
   "free -h",
 ]);
 
+/** @type {string | null} */
+let cachedKeyPath = null;
+/** @type {string | null} */
+let cachedKeySource = null;
+
 function isAllowedCommand(cmd) {
   if (ALLOWED.has(cmd)) return true;
   if (/^ps aux --sort=-%mem \| head -\d{1,2}$/.test(cmd)) return true;
   return false;
 }
 
-export function sshConfigured() {
+function resolveChemiCloudConfig() {
   const f = readFactory();
-  const key = sshKeyPath();
-  return Boolean(f.chemiCloudIp && f.chemiCloudUser && key);
+  return {
+    host: (process.env.CHEMICLOUD_HOST || f.chemiCloudIp || "").trim(),
+    user: (process.env.CHEMICLOUD_USER || f.chemiCloudUser || "").trim(),
+    port: String(process.env.CHEMICLOUD_PORT || f.chemiCloudPort || 1988),
+  };
 }
 
 export function sshKeyPath() {
+  const envPath = (process.env.CHEMICLOUD_SSH_KEY_PATH || "").trim();
+  if (envPath && fs.existsSync(envPath)) return envPath;
+
+  const pem = (process.env.CHEMICLOUD_SSH_KEY || "").trim();
+  if (pem) {
+    if (cachedKeyPath && cachedKeySource === pem && fs.existsSync(cachedKeyPath)) {
+      return cachedKeyPath;
+    }
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "aztodev-ssh-"));
+    const keyFile = path.join(dir, "chemicloud");
+    fs.writeFileSync(keyFile, pem.endsWith("\n") ? pem : `${pem}\n`, { mode: 0o600 });
+    cachedKeyPath = keyFile;
+    cachedKeySource = pem;
+    return keyFile;
+  }
+
   const nopass = path.join(ROOT, "ops", "secrets", "aztodev-cpanel.nopass");
   const raw = path.join(ROOT, "ops", "secrets", "aztodev-cpanel");
   if (fs.existsSync(nopass)) return nopass;
   if (fs.existsSync(raw)) return raw;
   return "";
+}
+
+export function sshConfigured() {
+  const { host, user } = resolveChemiCloudConfig();
+  const key = sshKeyPath();
+  return Boolean(host && user && key);
 }
 
 /**
@@ -53,11 +86,8 @@ export function runReadOnlySsh(command = "uptime") {
       allowed: [...ALLOWED, "ps aux --sort=-%mem | head -15"],
     });
   }
-  const f = readFactory();
+  const { host, user, port } = resolveChemiCloudConfig();
   const key = sshKeyPath();
-  const host = f.chemiCloudIp;
-  const user = f.chemiCloudUser;
-  const port = String(f.chemiCloudPort || 1988);
   if (!host || !user || !key) {
     return Promise.resolve({ ok: false, error: "ssh_not_configured" });
   }
@@ -80,7 +110,9 @@ export function runReadOnlySsh(command = "uptime") {
       `${user}@${host}`,
       cmd,
     ];
-    const child = spawn(SSH_EXE, args, { windowsHide: true });
+    const child = spawn(SSH_EXE, args, {
+      windowsHide: process.platform === "win32",
+    });
     let out = "";
     let err = "";
     child.stdout.on("data", (d) => {
