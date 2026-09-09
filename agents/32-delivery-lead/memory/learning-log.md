@@ -44,3 +44,9 @@ LEARNING:
 - dont: Leave a well-specified, non-blocked inbox packet untouched through repeated founder escalations about silence.
 - note: Closed PCI-07/07b/08 for real this turn with a dated outbox file; PCI-09 (founder report) handed to 00-ceo; PCI-10 (real repo-count reconciliation) opened to 34-pc-ops as a non-blocking follow-up.
 
+### 2026-09-09 (later, +10)
+- task: Noa relayed founder re-ask: "מה לגבי המשימה שביקשתי בהודעה קולית" (what about the voice-message task).
+- do: `git fetch origin main` + pull first (checkout was 2 commits behind — `b45318c..63d170d`), then answered strictly from the git-tracked board/outbox/ledger, not memory. Re-ran the same `gh repo list ZionAmar` spot-check to confirm the closed artifact is still current (still 18 repos) instead of re-writing a second classification table.
+- dont: Don't treat "what about X" as a signal to redo X — check files first; if the artifact + founder report already landed (ledger `18:00:30Z`), say so plainly and only restate what's genuinely still open (Nadav's PC-dependent PCI-01/02/04/10, founder PIN for PCI-05/06, founder's own Keep/Review/Archive call, PCI-P3 Linear-ticket blocker).
+- note: Confirmed PCI-07/07b/08/09 done with real evidence, not theater. Wrote a short outbox confirmation (`2026-09-09_status-check-voice-task-confirmed-done.md`) instead of silence, per "no open gate on me right now" — nothing new for 32-delivery-lead to execute this turn.
+
