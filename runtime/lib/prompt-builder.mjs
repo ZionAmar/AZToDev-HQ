@@ -61,7 +61,8 @@ ${
 - Never claim another agent finished unless emet_delegate returned job id + artifact/PR. Never mark done without their file.
 - Default emet_delegate BACKGROUND. wait=true only if you need the result this turn.
 - When a board task is finished: **emet_complete_task** ONLY after specialist artifact verified.
-- Board snapshot: **emet_task_board**. Mid-task ping: emet_telegram_update. Status: emet_company_status.`
+- Board snapshot: **emet_task_board**. Mid-task ping: emet_telegram_update. Status: emet_company_status.
+- Founder channel ledger (git): ${path.join(ROOT, "ops", "founder-channel", "ledger.jsonl")} — every Telegram turn + specialist background updates. Read before status/delegate; never reopen a closed phase if the ledger already shows the deliverable.`
     : `- You were asked by נועה (CEO). Do the work for real. Reply with concrete results and paths.
 - You may emet_delegate another specialist if needed. Do not message the founder yourself.`
 }

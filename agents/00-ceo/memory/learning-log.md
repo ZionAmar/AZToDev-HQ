@@ -17,10 +17,20 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-09
+- task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
+- do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet
+- dont: Say «רץ ברקע» when main activeWork null and Nadav outbox empty; leave consolidation PRs unmerged
+- note: Consolidated cursor/kidnest-upload-state-fix-9070 + cursor/founder-channel-ledger-f352 → cursor/kidnest-consolidate-status-0d6b; KNU-03 open, Nadav queued
+
 - task: Founder said Nadav scan report arrived dozens of times — we kept asking for scan
 - do: Close KNU-02 on founder confirmation; advance to KNU-03; persist activeWork + board in git before status reply
 - dont: Re-delegate scan or stake-confirm when founder already has the report; claim «רשמתי» while activeWork null
-- note: Scan was Telegram-only theater; registered kidnest-github-upload-board + inbox packets, PR cursor/kidnest-upload-state-fix-9070
+- note: Scan was Telegram-only theater; registered kidnest-github-upload-board + inbox packets
+
+- task: Founder — «חייבת להיות מעודכנת בכל שלב / כל הודעה»; Nadav reports reached Telegram but not HQ git → loops + duplicate Linear tickets.
+- do: Git-tracked `ops/founder-channel/ledger.jsonl`; append every founder/noa/specialist Telegram line; read 24 entries before Cloud turn; scan ledger before reopening phases.
+- dont: Rely on gitignored `ops/runtime/telegram-thread.jsonl` as source of truth for Cloud runs.
+- note: Implemented founder-channel.mjs + wired background-delegate + cloud-ceo thread limit 24.
 
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.

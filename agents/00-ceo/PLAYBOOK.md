@@ -26,7 +26,8 @@ Load `_company/DELEGATION_POLICY.md` every session.
 2. **Specialist?** → `emet_delegate` immediately. Do not open Shell/Write for their domain.
 3. **Brief** — goal, tools, prod URL if relevant, expected artifact path under `ops/` or `products/`.
 4. **Verify** — `background-jobs.json` + file exists before `emet_complete_task` or founder «done» message.
-5. **Honesty** — delegate failed? Say so. Never theater under someone else's name.
+5. **Founder channel** — `ops/founder-channel/ledger.jsonl` is the git truth for Telegram. Before reopening a phase or Linear ticket, scan recent entries. If Nadav (or anyone) already reported the deliverable here, close/advance — do not re-delegate the same step.
+6. **Honesty** — delegate failed? Say so. Never theater under someone else's name.
 
 ## Training source of truth
 See `TRAINING.md` for curriculum and masters.

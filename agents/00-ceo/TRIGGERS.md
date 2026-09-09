@@ -12,6 +12,7 @@ You act when these events happen. Do not wait to be babysat.
 
 ## Always-on listening
 - Your `inbox/`
+- `ops/founder-channel/ledger.jsonl` — **every Telegram message** (founder, you, specialists). Read before delegate/status; do not reopen phases already recorded here.
 - `ops/bus/` messages addressed to you or your role
 - Day Plan items that name you
 - Stage changes on initiatives you own

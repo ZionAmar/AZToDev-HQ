@@ -22,7 +22,7 @@ export async function chatWithCloudCeo(prompt, { founderText = "" } = {}) {
     };
   }
 
-  const thread = recentTelegramThread(8);
+  const thread = recentTelegramThread(24);
   const fullTask = thread
     ? `[Telegram thread — last messages]\n${thread}\n\n---\n\n${prompt}`
     : prompt;

@@ -40,9 +40,12 @@ import {
 import { withAgentTurnLock } from "./console-gate.mjs";
 import { polishTelegramHebrew } from "./telegram-format.mjs";
 import { recordAgentTurn, stripLearningBlock } from "./agent-memory.mjs";
+import {
+  appendFounderChannel,
+  recentFounderChannel,
+} from "./founder-channel.mjs";
 
 const SESSIONS_PATH = path.join(RUNTIME_DIR, "agent-sessions.json");
-const THREAD_PATH = path.join(RUNTIME_DIR, "telegram-thread.jsonl");
 
 /** Prevent runaway nested delegation */
 let delegateDepth = 0;
@@ -79,30 +82,12 @@ export function resetAgentSession(agentId) {
   journal("agent_session_reset", { agentId });
 }
 
-export function appendTelegramThread(role, text) {
-  ensureRuntimeDirs();
-  fs.appendFileSync(
-    THREAD_PATH,
-    JSON.stringify({ at: nowIso(), role, text: String(text).slice(0, 4000) }) + "\n",
-    "utf8"
-  );
+export function appendTelegramThread(role, text, meta = {}) {
+  appendFounderChannel(role, text, meta);
 }
 
-export function recentTelegramThread(limit = 8) {
-  if (!fs.existsSync(THREAD_PATH)) return "";
-  const lines = fs.readFileSync(THREAD_PATH, "utf8").trim().split("\n").filter(Boolean);
-  const slice = lines.slice(-limit);
-  return slice
-    .map((l) => {
-      try {
-        const j = JSON.parse(l);
-        return `${j.role}: ${j.text}`;
-      } catch {
-        return null;
-      }
-    })
-    .filter(Boolean)
-    .join("\n");
+export function recentTelegramThread(limit = 24) {
+  return recentFounderChannel(limit);
 }
 
 /** Strip classifier JSON / tool dumps so Telegram stays human. */
