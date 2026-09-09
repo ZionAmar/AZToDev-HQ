@@ -12,6 +12,7 @@ import { syncHqMirror } from "./hq-mirror-sync.mjs";
 import { activeWorkStallNag } from "./active-work-watch.mjs";
 import { tickCompanyRituals } from "./company-rituals.mjs";
 import { tickCompanyPresence } from "./company-presence.mjs";
+import { expireStaleQueuedPcJobs } from "./background-delegate.mjs";
 import path from "path";
 
 function briefDue() {
@@ -31,6 +32,9 @@ export async function tickCompanyHeartbeat() {
     if (ticks % 4 === 0) {
       syncHqMirror();
     }
+
+    const expired = expireStaleQueuedPcJobs();
+    if (expired) journal("heartbeat_expired_queued_pc", { n: expired });
 
     try {
       await tickCompanyRituals();

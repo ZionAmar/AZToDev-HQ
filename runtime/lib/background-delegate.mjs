@@ -305,6 +305,31 @@ export function listBackgroundJobs(limit = 10) {
   return (readJobs().jobs || []).slice(0, limit);
 }
 
+const QUEUED_PC_STALE_MS = 45 * 60 * 1000;
+
+/**
+ * Stale queued_pc (Nadav never finished / KidNest done elsewhere) must not block WIP forever.
+ */
+export function expireStaleQueuedPcJobs(maxAgeMs = QUEUED_PC_STALE_MS) {
+  const jobs = readJobs();
+  const now = Date.now();
+  let cleared = 0;
+  for (const row of jobs.jobs || []) {
+    if (row.status !== "queued_pc") continue;
+    const started = Date.parse(row.startedAt || "") || 0;
+    if (!started || now - started < maxAgeMs) continue;
+    row.status = "done";
+    row.finishedAt = nowIso();
+    row.clearedReason = "stale_queued_pc";
+    cleared += 1;
+  }
+  if (cleared) {
+    writeJobs(jobs);
+    journal("queued_pc_stale_expired", { cleared });
+  }
+  return cleared;
+}
+
 /**
  * Nadav finished on the PC — clear desk WIP so the company queue can advance.
  */

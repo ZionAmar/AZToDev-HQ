@@ -4,7 +4,7 @@
 import path from "path";
 import { RUNTIME_DIR, readJson, writeJson, nowIso, journal } from "./paths.mjs";
 import { filterJobsForFounderAsk } from "./work-intent.mjs";
-import { listBackgroundJobs, startBackgroundDelegate } from "./background-delegate.mjs";
+import { listBackgroundJobs, startBackgroundDelegate, expireStaleQueuedPcJobs } from "./background-delegate.mjs";
 import { productCloudBlocked } from "./specialist-runtime.mjs";
 import { sendFounderTelegram } from "./telegram.mjs";
 import { liveStatusHebrew } from "./live-status.mjs";
@@ -21,6 +21,7 @@ function writeQueue(data) {
 }
 
 function busyNow() {
+  expireStaleQueuedPcJobs();
   return (listBackgroundJobs(20) || []).some(
     (j) => j.status === "running" || j.status === "queued_pc"
   );
