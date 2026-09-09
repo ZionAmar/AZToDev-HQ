@@ -1,0 +1,133 @@
+{
+  "updatedAt": "2026-09-09T10:10:02.390Z",
+  "initiative": "kidnest-github-upload",
+  "project": "KidNest — GitHub upload",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "targetRepo": "https://github.com/ZionAmar/KidNest",
+  "founderAsk": "העלה את KidNest ל-GitHub פרטי — מונורפו v1, בלי לפצל",
+  "status": "plan",
+  "mode": "plan-only",
+  "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80",
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "owners": {
+    "lead": "32-delivery-lead",
+    "pc": "34-pc-ops",
+    "repo": "18-devops-platform",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תכנון מבנה ריפו",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "nameHe": "הכנת PC — סкан ו-git status",
+      "status": "todo"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו פרטי ב-GitHub",
+      "status": "blocked"
+    },
+    {
+      "id": "P4",
+      "nameHe": "push מונורפו v1",
+      "status": "blocked"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KNU-01",
+      "phase": "P1",
+      "titleHe": "תכנית מבנה ריפו — monorepo v1, .gitignore, secrets policy",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "plan.md: tree (api/admin/mobile/tv/tv-home), .env.example, no secrets, branch strategy",
+      "statusHe": "הושלמה",
+      "completedAt": "2026-09-09T10:30:00.000Z",
+      "resultHe": "Repo plan committed — monorepo v1, .gitignore, secrets policy",
+      "artifact": "agents/32-delivery-lead/memory/kidnest-github-upload-plan.md",
+      "pinRequired": false,
+      "linearIssue": "EMET-143",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-143/knu-01-תכנית-מבנה-ריפו-monorepo-v1-gitignore-secrets-policy"
+    },
+    {
+      "id": "KNU-02",
+      "phase": "P2",
+      "titleHe": "סריקת PC — נתיב, גודל, git status, node_modules",
+      "owner": "34-pc-ops",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "דוח: file counts, .git exists?, remotes, disk GB, blockers for push",
+      "statusHe": "בתור",
+      "dependsOn": [
+        "KNU-01"
+      ],
+      "artifact": null,
+      "pinRequired": false,
+      "linearIssue": "EMET-144",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-144/knu-02-סריקת-pc-נתיב-גודל-git-status-node-modules"
+    },
+    {
+      "id": "KNU-03",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי KidNest ב-GitHub",
+      "owner": "18-devops-platform",
+      "status": "blocked",
+      "priority": "P0",
+      "dod": "Private repo ZionAmar/KidNest exists; README stub; no code push yet",
+      "statusHe": "חסומה — PIN + אישור",
+      "dependsOn": [
+        "KNU-02"
+      ],
+      "blockedReason": "plan-only: repo create requires founder PIN",
+      "pinRequired": true,
+      "linearIssue": "EMET-145",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-145/knu-03-יצירת-ריפו-פרטי-kidnest-ב-github"
+    },
+    {
+      "id": "KNU-04",
+      "phase": "P4",
+      "titleHe": "push מונורפו — initial commit, verify CI-ready tree",
+      "owner": "18-devops-platform",
+      "status": "blocked",
+      "priority": "P0",
+      "dod": "main branch pushed; .gitignore verified; no .env/secrets; factory.json repos.kidnest updated",
+      "statusHe": "חסומה — PIN + אישור",
+      "dependsOn": [
+        "KNU-03"
+      ],
+      "blockedReason": "plan-only: push requires founder PIN",
+      "pinRequired": true,
+      "linearIssue": "EMET-146",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-146/knu-04-push-מונורפו-initial-commit-verify-ci-ready-tree"
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "todo": 1,
+    "ready": 0,
+    "in_progress": 0,
+    "waiting_founder": 0,
+    "done": 1,
+    "blocked": 2
+  },
+  "workflow": {
+    "mode": "gated_sequential",
+    "language": "he",
+    "waitFounderBetweenTasks": true,
+    "pinGates": [
+      "KNU-03",
+      "KNU-04"
+    ]
+  },
+  "constraints": [
+    "Monorepo v1 — do not split api/admin/mobile/tv into separate repos",
+    "No repo create/push during plan-only",
+    "No secrets in git"
+  ]
+}

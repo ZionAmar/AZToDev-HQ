@@ -15,5 +15,10 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 
 ## Iteration log
 ### 2026-09-09
+- task: Noa — agent-stake spec + KidNest GitHub upload Linear (4 phases) + factory activeWork
+- do: Board JSON + idempotent intake-board-linear-publish + agent-stake-spec; cancel EMET-66 when bet lands
+- dont: Repo create/push during plan-only; dont split monorepo v1
+- note: KidNest GitHub upload live EMET-143..146; KNU-01 done; activeWork registered; EMET-66 canceled
+### 2026-09-09
 - Company armed. Waiting for founder build order.
 
