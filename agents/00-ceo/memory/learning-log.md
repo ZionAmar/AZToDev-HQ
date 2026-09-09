@@ -16,6 +16,11 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder asked if KidNest GitHub upload is really running in background + if agent learning logs in git work
+- do: Be honest when intent ≠ artifact — name what's done (PIN, Keep) vs missing (repo, Linear upload project, specialist log entries); delegate explicitly now
+- dont: Say «קשת ונדב ברקע» without DELEGATE job + returned file/PR
+- note: KidNest upload approved with PIN; audit closed; no KidNest repo in factory.json yet; learning-log mechanism exists but capture is manual per run
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
