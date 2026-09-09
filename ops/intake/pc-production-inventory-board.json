@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T13:40:00.000Z",
+  "updatedAt": "2026-09-09T15:03:30.000Z",
   "initiative": "pc-production-inventory",
   "project": "PC — סריקת in_production (פרויקטים לא בגיטהאב)",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production",
@@ -26,7 +26,8 @@
   },
   "phases": [
     { "id": "P1", "nameHe": "סריקת in_production + אימות חוזר kidnest", "status": "in_progress" },
-    { "id": "P2", "nameHe": "דוח לציון + החלטת Keep/Defer לכל פרויקט", "status": "waiting_founder" }
+    { "id": "P2", "nameHe": "דוח לציון + החלטת Keep/Defer לכל פרויקט", "status": "waiting_founder" },
+    { "id": "P3", "nameHe": "Keep ישיר של ציון לשני פרויקטים ספציפיים (תהילים, תהורה) — איתור + ריפו פרטי + push", "status": "in_progress" }
   ],
   "tasks": [
     {
@@ -64,6 +65,43 @@
       "dependsOn": ["PCI-01", "PCI-02"],
       "linearIssue": "EMET-157",
       "linearUrl": "https://linear.app/my-company1460/issue/EMET-157/pci-03-דוח-לציון-רשימת-פרויקטים-לא-בגיטהאב-ממתין-ל-keepdefer-לכל-אחד"
+    },
+    {
+      "id": "PCI-04",
+      "phase": "P3",
+      "titleHe": "איתור תיקיות 'תהילים' ו'תהורה' תחת in_production (קריאה בלבד)",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "נתיב מלא + גודל + git remote (אם יש) לכל תיקייה שנמצאה; אם שם לא ודאי — לרשום את כל המועמדים, לא לבחור לבד",
+      "blockedBy": null,
+      "instructions": "קריאה בלבד. אין יצירת ריפו, אין push. שמות מתועתקים מדיבור — ייתכן שאינם מדויקים.",
+      "linearIssue": null,
+      "linearUrl": null
+    },
+    {
+      "id": "PCI-05",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי + push — פרויקט 'תהילים'",
+      "owner": "34-pc-ops",
+      "status": "blocked",
+      "priority": "P0",
+      "dod": "ריפו פרטי חדש תחת ZionAmar, קוד מועלה במלואו, URL חוזר לנועה",
+      "blockedBy": ["PCI-04", "founder_pin"],
+      "linearIssue": null,
+      "linearUrl": null
+    },
+    {
+      "id": "PCI-06",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי + push — פרויקט 'תהורה'",
+      "owner": "34-pc-ops",
+      "status": "blocked",
+      "priority": "P0",
+      "dod": "ריפו פרטי חדש תחת ZionAmar, קוד מועלה במלואו, URL חוזר לנועה",
+      "blockedBy": ["PCI-04", "founder_pin"],
+      "linearIssue": null,
+      "linearUrl": null
     }
   ]
 }

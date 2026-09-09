@@ -8,16 +8,22 @@
   "activeWork": {
     "slug": "pc-production-inventory",
     "bet": "PC — סריקת in_production, פרויקטים לא בגיטהאב",
-    "phase": "P1",
+    "phase": "P3",
     "owner": "34-pc-ops",
     "board": "ops/intake/pc-production-inventory-board.json",
     "startedAt": "2026-09-09T13:40:00.000Z",
-    "gate": "scan",
-    "waitingFor": "נדב על המחשב — PCI-01 סריקת in_production + PCI-02 אימות חוזר kidnest",
-    "next": "PCI-03 — דוח לציון, ממתין להחלטת Keep/Defer לכל פרויקט",
+    "gate": "locate_and_pin",
+    "waitingFor": "נדב — PCI-04 איתור תיקיות 'תהילים' + 'תהורה' תחת in_production (קריאה בלבד, כבר נשלח) | ציון — PIN ליצירת 2 ריפואים פרטיים ב-GitHub + push",
+    "next": "אחרי איתור+PIN: PCI-05/06 — נדב יוצר ריפו פרטי נפרד לכל פרויקט תחת ZionAmar ומעלה את הקוד, אחד בכל פעם (WIP=1), קשת מעדכנת Linear על אותו פרויקט קיים",
     "status": "in_progress",
     "finishedAt": null,
     "founderRepeatedAskAt": "2026-09-09T14:56:20.000Z",
+    "founderNamedProjectsAt": "2026-09-09T15:03:30.000Z",
+    "founderNamedProjects": [
+      "תהילים (שם משוער — תעתיק דיבור, לאמת מול השם האמיתי בתיקייה)",
+      "תהורה (שם משוער — תעתיק דיבור, לאמת מול השם האמיתי בתיקייה)"
+    ],
+    "founderNote": "ציון דילג על הדוח המלא (PCI-03, Keep/Defer לכל פרויקט) וקבע Keep ישיר לשני פרויקטים ספציפיים. PCI-01/02 (הסריקה הכללית) עדיין פתוחים אצל נדב ולא נסגרו — לא נזנחים, רק לא חוסמים את הבקשה הממוקדת הזו.",
     "nudges": [
       {
         "at": "2026-09-09T14:50:00.000Z",
@@ -30,6 +36,12 @@
         "by": "00-ceo",
         "reason": "Founder repeated the identical in_production/Baytor/Worklock/KidNest ask a second time. Same task, not reopened as new. Still no outbox report.",
         "action": "Appended nudge note to existing agents/34-pc-ops/inbox packet + re-sent DELEGATE. No new board or Linear ticket."
+      },
+      {
+        "at": "2026-09-09T15:03:30.000Z",
+        "by": "00-ceo",
+        "reason": "Founder skipped ahead of the PCI-03 Keep/Defer report and named two specific projects (תהילים, תהורה) to upload as private repos now.",
+        "action": "Opened P3 in the same board (no new Linear project). Delegated locate-only task to 34-pc-ops immediately (no PIN needed for read-only locate). Asked founder for PIN in the same reply — repo creation + push are mutations and wait for it."
       }
     ]
   },
