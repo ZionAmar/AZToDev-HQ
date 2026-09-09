@@ -15,3 +15,14 @@ HQ appends after each job. Read before touching mail.
 ## Iteration log
 ### 2026-09-08
 - Folder existed; memory was empty. This log is the start of a real desk.
+### 2026-09-09
+- task: Nadav asked you: Send the inventory management presentation PPTX as email attachment to ציון (founder at FOUNDER_EMAIL). Attachment (exact path on founder PC): C:\Users\amazi\Desktop\my_company\ops\outbox-founder\2026-09
+- do: לבדוק הימצאות קבצים מצורפים בריפו בענן לפני ניסיון שליחה, ולהעביר לתור של 34-pc-ops כאשר הקובץ שמור בלעדית על דיסק המחשב האישי.
+- dont: לא לשאול את המייסד האם המחשב דולק כשה-heartbeat מצביע על offline; להכניס לתור של נדב ולדווח שהעבודה ממתינה בתור.
+- note: משימת שליחת המצגת נרשמה לתור המחשב (job-1788992285942-l5zfw) עבור נדב לביצוע עם עליית הווינדוס.
+### 2026-09-09
+- task: Noa asked you: תסכמי לי בבקשה את חדשות היום
+- do: לבדוק את ops/config/household.json עבור ערוצים מוגדרים, לקרוא נתונים אמיתיים מ-3 חשבונות Gmail המחוברים (aztodev, amzion, zion), לדווח בבירור שרשימת ערוצי החדשות ריקה ב-household.json, ולספק סיכום מסודר של כל העדכונים וההודעות שהגיעו היום לחשבונות.
+- dont: לא להמציא חדשות או מבזקים שלא הגיעו בערוצים המוגדרים או במייל; לא להחזיר רק נתיב קובץ אלא תוצר מפורט בעברית לציון ונועה.
+- note: בוצעה בדיקה של household.json (newsChannels ריק) ונסרקו 3 חשבונות המייל ל-09/09/2026. הופק דוח מלא ונשמר ב-outbox.
+
