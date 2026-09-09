@@ -77,8 +77,8 @@
       "dod": "נתיב מלא + גודל + git remote (אם יש) לכל תיקייה שנמצאה; אם שם לא ודאי — לרשום את כל המועמדים, לא לבחור לבד",
       "blockedBy": null,
       "instructions": "קריאה בלבד. אין יצירת ריפו, אין push. שמות מתועתקים מדיבור — ייתכן שאינם מדויקים.",
-      "linearIssue": null,
-      "linearUrl": null
+      "linearIssue": "EMET-162",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-162/pci-04-\u05d0\u05d9\u05ea\u05d5\u05e8-\u05ea\u05d9\u05e7\u05d9\u05d5\u05ea-\u05ea\u05d4\u05d9\u05dc\u05d9\u05dd-\u05d5\u05ea\u05d4\u05d5\u05e8\u05d4-\u05ea\u05d7\u05ea-in-production-\u05e7\u05e8\u05d9\u05d0\u05d4-\u05d1\u05dc\u05d1\u05d3"
     },
     {
       "id": "PCI-05",
@@ -89,8 +89,8 @@
       "priority": "P0",
       "dod": "ריפו פרטי חדש תחת ZionAmar, קוד מועלה במלואו, URL חוזר לנועה",
       "blockedBy": ["PCI-04", "founder_pin"],
-      "linearIssue": null,
-      "linearUrl": null
+      "linearIssue": "EMET-163",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-163/pci-05-\u05d9\u05e6\u05d9\u05e8\u05ea-\u05e8\u05d9\u05e4\u05d5-\u05e4\u05e8\u05d8\u05d9-push-\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8-\u05ea\u05d4\u05d9\u05dc\u05d9\u05dd"
     },
     {
       "id": "PCI-06",
@@ -101,8 +101,8 @@
       "priority": "P0",
       "dod": "ריפו פרטי חדש תחת ZionAmar, קוד מועלה במלואו, URL חוזר לנועה",
       "blockedBy": ["PCI-04", "founder_pin"],
-      "linearIssue": null,
-      "linearUrl": null
+      "linearIssue": "EMET-164",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-164/pci-06-\u05d9\u05e6\u05d9\u05e8\u05ea-\u05e8\u05d9\u05e4\u05d5-\u05e4\u05e8\u05d8\u05d9-push-\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8-\u05ea\u05d4\u05d5\u05e8\u05d4"
     },
     {
       "id": "PCI-07",
