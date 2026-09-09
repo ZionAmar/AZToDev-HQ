@@ -17,6 +17,11 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-09
+- task: Founder — «בוא נראה משימה הבאה... איזה עוד פרויקטים משמעותיים קיימים רק על המחשב ולא בגיטאב»
+- do: Verify KidNest closure in git/factory.json before replying (it was already done — KNU-01..04, repo pushed); answer new ask on its own terms instead of reopening KidNest; register new job as `proposed` + wait for אשר before delegating (company loop order: plan → אשר → Keshet/Linear → Nadav)
+- dont: Re-litigate a closed gate when founder pivots to a new ask; delegate execution before he confirms; invent a comparison to "Tom's company" with no data
+- note: KidNest done (https://github.com/ZionAmar/kidnest); new proposed board ops/intake/pc-projects-inventory-board.json (PPI-01/PPI-02) — read-only PC scan for projects not yet on GitHub, gated on founder confirm
+
 - task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
 - do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet
 - dont: Say «רץ ברקע» when main activeWork null and Nadav outbox empty; leave consolidation PRs unmerged

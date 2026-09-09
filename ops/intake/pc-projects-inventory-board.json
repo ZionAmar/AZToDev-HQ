@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-09-09T13:28:00.000Z",
+  "initiative": "pc-projects-inventory",
+  "project": "מלאי פרויקטים במחשב — מה קיים רק מקומית ולא בגיטהאב",
+  "founderAsk": "לסרוק את תיקיית הפרויקטים בשולחן העבודה (כולל תיקיית ה-production שבה קידניסט היה תקוע) ולאתר פרויקטים משמעותיים נוספים שקיימים רק על המחשב ולא הועלו לגיטהאב. דיווח בלבד — העלאה רק אחרי אישור פרטני לכל פרויקט.",
+  "status": "proposed",
+  "gate": "waiting_founder_confirm",
+  "waitingFor": "אשר מציון להתחיל בסריקה (עדיין לא ניתן)",
+  "linearProjectUrl": "https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd",
+  "linearIssue": null,
+  "owners": {
+    "lead": "32-delivery-lead",
+    "pc": "34-pc-ops",
+    "report": "00-ceo"
+  },
+  "note": "Read-only inventory only. Do not create/push any repo without a separate per-project founder approval. Reuse the already-confirmed production folder path from KNU-02/KNU-03 — no repeat 'confirm the location' loop.",
+  "referenceRepos": [
+    "hq -> https://github.com/ZionAmar/AZToDev-HQ",
+    "work_clock -> https://github.com/ZionAmar/Work_clock",
+    "fitime -> https://github.com/ZionAmar/FiTime",
+    "telemust -> https://github.com/ZionAmar/TelemustAddUsers",
+    "kidnest -> https://github.com/ZionAmar/kidnest"
+  ],
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "אישור יזום מהמייסד",
+      "status": "in_progress"
+    },
+    {
+      "id": "P2",
+      "nameHe": "סריקת תיקיית הפרויקטים במחשב",
+      "status": "blocked",
+      "blockedBy": "P1"
+    },
+    {
+      "id": "P3",
+      "nameHe": "דוח השוואה מול ריפואים קיימים בגיטהאב + מסירה לציון",
+      "status": "blocked",
+      "blockedBy": "P2"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "PPI-01",
+      "phase": "P2",
+      "titleHe": "סריקת תיקיית הפרויקטים בשולחן העבודה (כולל production)",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P1",
+      "blockedBy": "founder_confirm",
+      "dod": "רשימת תיקיות פרויקט: שם, נתיב, נפח משוער, תאריך עדכון אחרון, יש/אין גיט מקומי, יש/אין remote",
+      "instructions": "Read-only. No upload, no repo creation, no repeated location-confirm prompt — production folder path already known from KNU-02/KNU-03."
+    },
+    {
+      "id": "PPI-02",
+      "phase": "P3",
+      "titleHe": "השוואה מול הריפואים הקיימים בגיטהאב + טבלת מועמדים להעלאה",
+      "owner": "00-ceo",
+      "status": "queued",
+      "priority": "P1",
+      "dependsOn": ["PPI-01"],
+      "dod": "טבלה: פרויקט | על גיטהאב? | המלצה — ממתינה להחלטת ציון פר-פרויקט (Keep/Defer/Kill או Upload)"
+    }
+  ]
+}
