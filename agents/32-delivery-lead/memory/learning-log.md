@@ -15,5 +15,10 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 
 ## Iteration log
 ### 2026-09-09
+- task: Noa asked KidNest → GitHub: Linear project + phases, replace EMET-66, 01-venture stub
+- do: Dedicated Linear project KidNest — GitHub Migration; KNG-01..04 with ownerHe; cancel EMET-66 when bet is concrete
+- dont: Create repo/push during plan mode; dont leave EMET-66 open once real issues exist
+- note: EMET-125..128 live; EMET-66 canceled; venture at ops/pipeline/kidnest/01-venture.md
+### 2026-09-09
 - Company armed. Waiting for founder build order.
 

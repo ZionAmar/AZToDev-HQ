@@ -1,0 +1,61 @@
+{
+  "publishedAt": "2026-09-09T09:12:40.406Z",
+  "source": "ops/intake/kidnest-github-board.json",
+  "initiative": "KIDNEST-GITHUB-MIGRATION",
+  "projectName": "KidNest — GitHub Migration",
+  "projectUrl": "https://linear.app/my-company1460/project/kidnest-github-migration-c64b279d4f80",
+  "projectParent": "פיתוח מוצר — EMET",
+  "projectParentUrl": "https://linear.app/my-company1460/project/פיתוח-מוצר-emet-938f19d950dd",
+  "workspaceUrl": "https://linear.app/my-company1460",
+  "teamName": "EMET",
+  "teamId": "fced5adc-3d17-442d-9c75-3c3989049895",
+  "replacedHoldingIssue": "EMET-66",
+  "holdingCancelResult": {
+    "ok": true,
+    "identifier": "EMET-66",
+    "url": "https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order"
+  },
+  "issueCount": 4,
+  "issues": [
+    {
+      "localId": "KNG-01",
+      "identifier": "EMET-125",
+      "title": "[KNG-01 · קשת] תוכנית ריפו — מבנה monorepo, scrub סודות, .gitignore, factory.json",
+      "url": "https://linear.app/my-company1460/issue/EMET-125/kng-01-קשת-תוכנית-ריפו-מבנה-monorepo-scrub-סודות-gitignore-factoryjson",
+      "phase": "P1",
+      "owner": "32-delivery-lead",
+      "ownerHe": "קשת",
+      "label": "plan"
+    },
+    {
+      "localId": "KNG-02",
+      "identifier": "EMET-126",
+      "title": "[KNG-02 · נדב] הכנת PC — אימות נתיב, git auth, סריקת hygiene",
+      "url": "https://linear.app/my-company1460/issue/EMET-126/kng-02-נדב-הכנת-pc-אימות-נתיב-git-auth-סריקת-hygiene",
+      "phase": "P2",
+      "owner": "34-pc-ops",
+      "ownerHe": "נדב",
+      "label": "plan"
+    },
+    {
+      "localId": "KNG-03",
+      "identifier": "EMET-127",
+      "title": "[KNG-03 · ציון] שער מייסד — אישור תוכנית מigration ל-GitHub",
+      "url": "https://linear.app/my-company1460/issue/EMET-127/kng-03-ציון-שער-מייסד-אישור-תוכנית-מigration-ל-github",
+      "phase": "P2",
+      "owner": "founder",
+      "ownerHe": "ציון",
+      "label": "waiting-founder"
+    },
+    {
+      "localId": "KNG-04",
+      "identifier": "EMET-128",
+      "title": "[KNG-04 · קשת] יצירת ריפו פרטי KidNest + push ראשון",
+      "url": "https://linear.app/my-company1460/issue/EMET-128/kng-04-קשת-יצירת-ריפו-פרטי-kidnest-push-ראשון",
+      "phase": "P3",
+      "owner": "32-delivery-lead",
+      "ownerHe": "קשת",
+      "label": "build"
+    }
+  ]
+}

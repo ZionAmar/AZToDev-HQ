@@ -1,0 +1,94 @@
+{
+  "updatedAt": "2026-09-09T09:15:00.000Z",
+  "initiative": "KIDNEST-GITHUB-MIGRATION",
+  "project": "KidNest — GitHub Migration",
+  "projectParent": "פיתוח מוצר — EMET",
+  "projectParentUrl": "https://linear.app/my-company1460/project/פיתוח-מוצר-emet-938f19d950dd",
+  "localPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "targetRepo": "https://github.com/ZionAmar/KidNest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "ventureArtifact": "ops/pipeline/kidnest/01-venture.md",
+  "replacesHoldingIssue": "EMET-66",
+  "status": "planning",
+  "owners": {
+    "delivery": "32-delivery-lead",
+    "pc": "34-pc-ops",
+    "founder": "founder"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תוכנית ריפו — מבנה, סודות, factory.json",
+      "status": "in_progress"
+    },
+    {
+      "id": "P2",
+      "nameHe": "הכנת PC — נדב",
+      "status": "todo"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו + push ראשון",
+      "status": "blocked",
+      "gate": "PIN + founder approve"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KNG-01",
+      "phase": "P1",
+      "titleHe": "תוכנית ריפו — מבנה monorepo, scrub סודות, .gitignore, factory.json",
+      "owner": "32-delivery-lead",
+      "ownerHe": "קשת",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "01-venture.md + checklist; manifest ops/linear-kidnest-github-issues.json",
+      "artifact": "ops/pipeline/kidnest/01-venture.md",
+      "label": "plan"
+    },
+    {
+      "id": "KNG-02",
+      "phase": "P2",
+      "titleHe": "הכנת PC — אימות נתיב, git auth, סריקת hygiene",
+      "owner": "34-pc-ops",
+      "ownerHe": "נדב",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "דוח: path exists, gh auth OK, .env excluded, disk space; PC דולק",
+      "artifact": "ops/pipeline/kidnest/02-pc-prep-report.md",
+      "label": "plan"
+    },
+    {
+      "id": "KNG-03",
+      "phase": "P2",
+      "titleHe": "שער מייסד — אישור תוכנית מigration ל-GitHub",
+      "owner": "founder",
+      "ownerHe": "ציון",
+      "status": "waiting_founder",
+      "priority": "P0",
+      "dod": "ציון APPROVE בטלגרם; label waiting-founder מוסר אחרי אישור",
+      "label": "waiting-founder"
+    },
+    {
+      "id": "KNG-04",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי KidNest + push ראשון",
+      "owner": "32-delivery-lead",
+      "ownerHe": "קשת",
+      "status": "blocked",
+      "priority": "P0",
+      "dod": "ZionAmar/KidNest private exists; main pushed; factory.json merged; no secrets in history",
+      "artifact": "ops/pipeline/kidnest/03-repo-created.md",
+      "label": "build",
+      "requiresPin": true
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "todo": 1,
+    "in_progress": 1,
+    "waiting_founder": 1,
+    "blocked": 1,
+    "done": 0
+  }
+}
