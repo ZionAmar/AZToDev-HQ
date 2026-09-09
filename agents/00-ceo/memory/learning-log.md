@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09 (continued)
+- task: Founder demands continuous progress — no stopping, no loops
+- do: Merge consolidate branch to main first; mark KNU-02 in_progress; delegate Nadav scan-only packet; mid-task updates on phase change
+- dont: Promise progress while activeWork null on main; let Nadav re-confirm stake
+- note: Merged kidnest-consolidate-main-cb2e → main via PR; KNU-01+Linear done; KNU-02 open; KNU-03/04 wait PIN+PC scan
+
 ### 2026-09-09
 - task: Founder sees Nadav repeating location confirm — KidNest stuck, tasks reopening
 - do: Merge best branch to main before claiming progress; one inbox packet per open task; evidence-based status

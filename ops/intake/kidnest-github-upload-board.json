@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T10:13:00.000Z",
+  "updatedAt": "2026-09-09T10:25:00.000Z",
   "initiative": "kidnest-github-upload",
   "project": "KidNest — GitHub upload",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
@@ -25,7 +25,7 @@
     {
       "id": "P2",
       "nameHe": "הכנת PC — סкан ו-git status",
-      "status": "todo"
+      "status": "in_progress"
     },
     {
       "id": "P3",
@@ -60,10 +60,11 @@
       "phase": "P2",
       "titleHe": "סריקת PC — נתיב, גודל, git status, node_modules",
       "owner": "34-pc-ops",
-      "status": "todo",
+      "status": "in_progress",
       "priority": "P0",
       "dod": "דוח: file counts, .git exists?, remotes, disk GB, blockers for push",
-      "statusHe": "בתור",
+      "statusHe": "בעבודה",
+      "startedAt": "2026-09-09T10:25:00.000Z",
       "dependsOn": [
         "KNU-01"
       ],
@@ -109,9 +110,9 @@
   ],
   "summary": {
     "total": 4,
-    "todo": 1,
+    "todo": 0,
     "ready": 0,
-    "in_progress": 0,
+    "in_progress": 1,
     "waiting_founder": 0,
     "done": 1,
     "blocked": 2
