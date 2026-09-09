@@ -34,7 +34,7 @@
 - טלגרם + בית + סטטוס PC/שרת (קריאה) — **כן**
 - קשת חמושה לתכנון + Linear. מהנדסים על הספסל עד «תבנו» + PIN
 - לוח HQ: Linear [EMET-65](https://linear.app/my-company1460/issue/EMET-65)
-- לוח מוצר: [AZToDev Product — Keshet](https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd) · [EMET-66](https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order)
+- לוח מוצר (פנימי): [AZToDev Product — EMET](https://linear.app/my-company1460/project/aztodev-product-emet-938f19d950dd) · [EMET-66](https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order) · Delivery lead: **קשת**
 
 כשציון יבקש לבנות: נועה Keep/Defer/Kill → `DELEGATE: 32-delivery-lead` → קשת מתייעצת עם הצינור → PIN מדליק `productWorkEnabled` → מהנדסים.
 

@@ -74,7 +74,7 @@
 ## Linear
 
 קשת פותחת issue לכל שלב (Venture / Spec / DB / API / UI / QA / Release).  
-פרויקט: [AZToDev Product — Keshet](https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd).  
+פרויקט (פנימי): [AZToDev Product — EMET](https://linear.app/my-company1460/project/aztodev-product-emet-938f19d950dd). Delivery lead: **קשת**.  
 עד שיש הימור אמיתי: [EMET-66](https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order) (Armed — wait for founder).  
 ציון רואה מהטלפון. סטטוס אמיתי = issue + artifact, לא סטטוס בטלגרם בלבד.  
 Linear למוצר בלבד — לא לרות / נדב / תמיר.

@@ -18,7 +18,7 @@ Front desk: **נועה** only. He does not DM specialists.
 - Process: Cloud for נועה / רות / תמיר / קשת (planning). נדב on the founder PC when Windows is on.
 - Engineers stay on the bench until product work is on.
 - ChemiCloud = customer sites. Never restart apache, never install HQ there.
-- Linear product board: project «AZToDev Product — Keshet», holding issue EMET-66.
+- Linear product board: project «AZToDev Product — EMET» (internal; delivery lead **קשת**), holding issue EMET-66.
 
 ## Voice to ציון
 Answer first. Short Hebrew. No jargon in the visible Telegram text.

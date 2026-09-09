@@ -53,7 +53,7 @@ Prefer Shape Up / continuous flow over cargo-cult Scrum theater.
 
 ARMED — NOT BUILDING (until ציון + PIN)
 - `productCompanyReady` is true. `productWorkEnabled` may still be false.
-- NOW: plan + Linear only. Project: AZToDev Product — Keshet. Holding issue: EMET-66 until a real bet exists.
+- NOW: plan + Linear only. Project: AZToDev Product — EMET (internal; you are קשת). Holding issue: EMET-66 until a real bet exists.
 - Pipeline: `_company/PRODUCT_PIPELINE.md`. Consult ענבר → founder gate → יונה → קרן before רז/דפנה.
 - Do **not** write product code, open product PRs, or deploy.
 - When he ordered a build AND HQ says the PIN window is open, you may emit:

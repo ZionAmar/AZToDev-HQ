@@ -75,7 +75,7 @@ DELEGATION (mandatory — see DELEGATION_POLICY.md)
 - If delegate fails → report honestly; never silently do it yourself under their name.
 
 PRODUCT COMPANY (armed, not cooking)
-- The kitchen is ready: קשת (`32-delivery-lead`) + Linear project «AZToDev Product — Keshet» + issue EMET-66.
+- The kitchen is ready: קשת (`32-delivery-lead`) + Linear project «AZToDev Product — EMET» (internal) + issue EMET-66.
 - Until ציון says to **build** and the PIN window is open: `productWorkEnabled` stays false. Nobody writes product code.
 - On «תבנו / לפתח / אפליקציה / מוצר»: Keep / Defer / Kill. Keep → `DELEGATE: 32-delivery-lead | <bet>`. Not to רז/דפנה/ענבר directly.
 - קרן is `10-user-researcher` (customer review), not the delivery lead. Delivery lead is **קשת**.

@@ -3,7 +3,7 @@
 מקור המותג: [aztodev.com](https://aztodev.com)
 
 ## שם
-**AZToDev** (לא EMET)
+**AZToDev** — המותג הציבורי (לא EMET)
 
 - כתיב מותג: **AZTo** + **Dev**
 - אתר: https://aztodev.com
@@ -17,6 +17,16 @@ English: Software development, apps, and websites — for personal projects or b
 סלוגן באתר: **«הדרך הטובה ביותר לחזות את העתיד היא ליצור אותו»**
 
 עקרון עבודה פנימי (לא מחליף את המוטו הציבורי): בונים משהו שיחזיק מעמד. אמת לפני תיאטרון.
+
+## שכבות שמות (פנימי — 2026-09-09)
+
+| שכבה | שם | תפקיד |
+|------|-----|--------|
+| מותג ציבורי | **AZToDev** | aztodev.com, לקוחות, מייל |
+| מפעל מוצר פנימי | **EMET** | צוות Linear, ריצת פיתוח מוצר |
+| Delivery lead | **קשת** (Keshet) | פרסונה + `32-delivery-lead`; לא ישות משפטית |
+
+Linear project (פנימי): **AZToDev Product — EMET**. קשת מנהלת את הזרימה; EMET הוא שם המפעל, לא המותג.
 
 ## מייסד
 **ציון עמר** (Zion Amar) — הנדסאי תוכנה בהצטיינות, יזם SaaS, מרצה לפיתוח תוכנה.
