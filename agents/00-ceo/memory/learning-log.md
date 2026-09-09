@@ -23,6 +23,11 @@ HQ appends after each turn. You read this before answering ציון.
 - note: Opened `pc-production-inventory` (WIP=1, replaces finished kidnest slug in `ops/config/factory.json`, old claim preserved under `priorWork` with `liveVerification`). New Linear project + EMET-155/156/157. Inbox packet to 34-pc-ops: read-only scan of `Desktop\Projects\in_production` + quick kidnest remote/push check, no stake-confirm loop.
 
 ### 2026-09-09
+- task: Founder — «אז מי יותר טוב עכשיו? החברה שלנו או של תום?»
+- do: Read `_company/TOM_EVEN_PARITY.md` (updated same day — 8/11 checklist items done) before answering; separate our own bar from Tom's actual live state, which we have no data on.
+- dont: Give a verdict on Tom's live system with zero data on it; trust an unverified activeWork «done» flag as proof of anything.
+- note: Local main was 2 commits behind origin (Tom-parity infra + desk↔PC bridge already merged). factory.json marks KNU-03/04 (KidNest repo) done with a repo URL, but there is no matching Nadav line in `ops/founder-channel/ledger.jsonl` and this session's GitHub read token is scoped to the HQ repo only, so it could not independently confirm the repo exists — flagged, not repeated to founder, not touched since he didn't ask about KidNest this turn.
+
 - task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
 - do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet
 - dont: Say «רץ ברקע» when main activeWork null and Nadav outbox empty; leave consolidation PRs unmerged

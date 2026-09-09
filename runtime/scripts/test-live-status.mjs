@@ -37,4 +37,16 @@ assert.match(live, /עכשיו:/);
 assert.match(live, /מחכה ל:/);
 assert.match(live, /הבא:/);
 assert.equal(unfinishedActiveWork(), null);
+assert.equal(
+  (await import("../lib/models.mjs")).cursorModelForAgent("00-ceo"),
+  "claude-sonnet-5"
+);
+assert.equal(
+  (await import("../lib/models.mjs")).cursorModelForAgent("34-pc-ops"),
+  "composer-2.5"
+);
+assert.equal(
+  (await import("../lib/models.mjs")).cursorModelForAgent("12-software-architect"),
+  "claude-opus-5"
+);
 console.log("ok live-status");

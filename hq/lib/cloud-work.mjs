@@ -5,7 +5,7 @@
 import fs from "fs";
 import path from "path";
 import { journal, ROOT } from "../../runtime/lib/paths.mjs";
-import { cursorModelId } from "../../runtime/lib/cursor-local.mjs";
+import { cursorModelForRun } from "../../runtime/lib/cursor-local.mjs";
 import { isProductWorkEnabled, readFactory } from "../../runtime/lib/company-state.mjs";
 import { readAgentName } from "../../runtime/lib/router.mjs";
 import { usesHqOpsCloud } from "../../runtime/lib/specialist-runtime.mjs";
@@ -95,7 +95,7 @@ async function emitLiveStart(onStart, info) {
 
 async function launchCloudRun(prompt, {
   apiKey,
-  modelId,
+  model,
   repoUrl,
   ref,
   autoCreatePR,
@@ -108,7 +108,11 @@ async function launchCloudRun(prompt, {
     autoCreatePR,
     skipReviewerRequest: true,
   };
-  const opts = { apiKey, model: { id: modelId }, cloud };
+  const modelSel =
+    model && typeof model === "object" && model.id
+      ? model
+      : { id: String(model || "composer-2.5") };
+  const opts = { apiKey, model: modelSel, cloud };
   let agent;
   try {
     agent = await Agent.create(opts);
@@ -181,6 +185,7 @@ If PIN is needed, say it in Hebrew immediately. Do not drop the task.
 Never invent job ids. Nadav never runs on ChemiCloud.
 NEVER DELEGATE Tamir (35-server-ops) unless ציון explicitly asked to check the server (RAM/swap/load). Do not scan ChemiCloud because a status JSON says SSH is missing. Do not add side quests.
 Telegram: clear professional Hebrew. Answer first. If a specialist hit a problem, you own routing it — fix, tell ציון only if he must act, or move the next stage.
+When you change HQ files (inbox/outbox/board/learning-log), commit and push to main so the ChemiCloud desk can pull. Unfinished activeWork must name waitingFor exactly.
 `;
   }
   if (agentId === "32-delivery-lead") {
@@ -191,7 +196,8 @@ After the founder said אשר: open/update the board, then DELEGATE: 34-pc-ops f
 WIP=1. Do NOT write product code while productWorkEnabled is false.
 Do NOT DELEGATE Tamir or invent SSH/server tickets unless the founder asked to check the server.
 When PIN is required, say so and stop that step — HQ nags. After PIN, continue the SAME ticket.
-When a stage finishes: DELEGATE the next owner. One issue per stage.
+When a stage finishes: write outbox evidence + DELEGATE the next owner on its own line. One issue per stage.
+Always commit+push HQ files you change (inbox/outbox/learning-log/board) so the Telegram desk can pull them. Silence after unfinished work is a bug.
 `;
   }
   return "";
@@ -243,7 +249,7 @@ ${task}
   try {
     launched = await launchCloudRun(prompt, {
       apiKey,
-      modelId: cursorModelId(agentId || undefined),
+      model: cursorModelForRun(agentId || undefined),
       repoUrl: url,
       ref: hqRef(),
       autoCreatePR,
@@ -348,7 +354,7 @@ ${task}
   try {
     launched = await launchCloudRun(prompt, {
       apiKey,
-      modelId: cursorModelId(agentId || undefined),
+      model: cursorModelForRun(agentId || undefined),
       repoUrl: url,
       ref: (process.env.GITHUB_REF || "main").trim(),
       autoCreatePR,

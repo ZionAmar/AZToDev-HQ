@@ -7,12 +7,14 @@
     "off": "node runtime/emet.mjs off",
     "status": "node runtime/emet.mjs status",
     "fg": "node runtime/emet.mjs fg",
-    "hq": "node hq/index.mjs"
+    "hq": "node hq/index.mjs",
+    "nadav": "node hq/nadav-pc-worker.mjs",
+    "install-nadav": "powershell -ExecutionPolicy Bypass -File ops/scripts/install-nadav-startup.ps1"
   },
   "dependencies": {
     "@cursor/sdk": "^1.0.0",
     "@linear/sdk": "^93.0.1",
     "imapflow": "^2.0.0",
-    "nodemailer": "^10.0.0"
+    "nodemailer": "^10.0.1"
   }
 }

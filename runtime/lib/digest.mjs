@@ -19,34 +19,34 @@ export async function buildEndOfDayDigest() {
   };
 
   if (!llmConfigured()) {
-    const text = `EMET | נורה | סוף-יום ${base.date}
+    const text = `AZToDev | נועה | סוף-יום ${base.date}
 Focus: ${(base.focuses || []).join(" · ") || "—"}
 יוזמות: ${base.initiatives.length}
 ממתינים לך: ${base.waiting.length ? base.waiting.map((w) => w.ask).join(" | ") : "אין"}
 לוח:
 ${board}
-(מוח LLM כבוי — סיכום גולמי. חבר ANTHROPIC_API_KEY לסיכום ברמת תום אבן+)`;
+(סיכום גולמי — בריף חי רץ מהדלפק דרך founder-brief)`;
     return text;
   }
 
   const out = await llmChat({
     system:
-      "You are Nura, EMET CEO and sole Telegram contact for founder ציון. Write a crisp Hebrew end-of-day summary. Max 12 lines. Include asks with APPROVE|CHOOSE|INFO only if real. No spam. If nothing material happened, say so in 3 lines.",
+      "You are Noa (נועה), AZToDev front desk for founder ציון. Write a crisp Hebrew end-of-day summary. Max 12 lines. Include asks with APPROVE|CHOOSE|INFO only if real. No spam. If nothing material happened, say so in 3 lines.",
     user: JSON.stringify(base) + "\n\nMemory tail:\n" + memoryTail,
     maxTokens: 700,
   });
-  return `EMET | נורה | סוף-יום\n${out.text}`;
+  return `AZToDev | נועה | סוף-יום\n${out.text}`;
 }
 
 export async function sendEndOfDayDigest() {
-  const text = sanitizeForTelegram(await buildEndOfDayDigest()) || "EMET | נורה | סוף-יום — אין מה לדווח.";
+  const text = sanitizeForTelegram(await buildEndOfDayDigest()) || "AZToDev | נועה | סוף-יום — אין מה לדווח.";
   const sent = await sendFounderTelegram(text);
   try {
     const prefs = readJson(path.join(OPS, "founder-prefs.json"), {});
     if (prefs?.channels?.emailDailyDigest?.enabled) {
       const { sendFounderEmail } = await import("./mail.mjs");
       await sendFounderEmail({
-        subject: `EMET | נורה | סוף-יום ${nowIso().slice(0, 10)}`,
+        subject: `AZToDev | נועה | סוף-יום ${nowIso().slice(0, 10)}`,
         text,
         to: prefs.channels.emailDailyDigest.to || undefined,
       });
@@ -72,7 +72,7 @@ export async function sendEndOfDayDigest() {
 }
 
 export async function sendMajorActionSummary(title, body) {
-  const text = `EMET | נורה | אחרי-פעולה
+  const text = `AZToDev | נועה | אחרי-פעולה
 ${title}
 
 ${body}

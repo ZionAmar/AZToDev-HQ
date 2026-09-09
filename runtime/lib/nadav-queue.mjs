@@ -117,3 +117,38 @@ export function finishNadavJob(jobId, status = "done") {
   journal("nadav_job_finished", { jobId: id, status: st });
   return true;
 }
+
+/**
+ * Finish Nadav queue + clear WIP + kick company queue (+ optional DELEGATE relay).
+ * Runs on the ChemiCloud desk.
+ */
+export async function completeNadavPcJob(
+  jobId,
+  status = "done",
+  resultText = ""
+) {
+  const ok = finishNadavJob(jobId, status);
+  if (!ok) return { ok: false, reason: "missing_job" };
+  const { finishQueuedPcByNadavId } = await import("./background-delegate.mjs");
+  finishQueuedPcByNadavId(jobId, status);
+  try {
+    const { onWorkFinished } = await import("./work-queue.mjs");
+    onWorkFinished();
+  } catch {
+    /* best-effort */
+  }
+  const text = String(resultText || "");
+  if (/DELEGATE:\s*/i.test(text)) {
+    try {
+      const { executeDelegateRelay } = await import("../../hq/lib/delegate-relay.mjs");
+      await executeDelegateRelay(text, {
+        background: true,
+        fromAgentId: "34-pc-ops",
+        founderText: text.slice(0, 1500),
+      });
+    } catch {
+      /* best-effort */
+    }
+  }
+  return { ok: true };
+}

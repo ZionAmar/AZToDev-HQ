@@ -304,3 +304,23 @@ export function startBackgroundDelegate({
 export function listBackgroundJobs(limit = 10) {
   return (readJobs().jobs || []).slice(0, limit);
 }
+
+/**
+ * Nadav finished on the PC — clear desk WIP so the company queue can advance.
+ */
+export function finishQueuedPcByNadavId(nadavJobId, status = "done") {
+  const id = String(nadavJobId || "");
+  if (!id) return { ok: false, cleared: 0 };
+  const jobs = readJobs();
+  let cleared = 0;
+  for (const row of jobs.jobs || []) {
+    if (row.status !== "queued_pc") continue;
+    if (row.nadavJobId !== id && row.id !== id) continue;
+    row.status = status === "error" ? "error" : "done";
+    row.finishedAt = nowIso();
+    cleared += 1;
+  }
+  if (cleared) writeJobs(jobs);
+  journal("nadav_pc_job_cleared", { nadavJobId: id, cleared, status });
+  return { ok: true, cleared };
+}
