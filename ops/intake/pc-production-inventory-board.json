@@ -109,34 +109,52 @@
       "phase": "P4",
       "titleHe": "מיפוי מלא — כל הריפואים תחת חשבון ZionAmar בגיטהאב (פרטי+ציבורי): שם, נראות, שפה, גודל, תאריך push אחרון, תיאור",
       "owner": "32-delivery-lead",
-      "status": "queued",
+      "status": "done",
       "priority": "P1",
       "dod": "טבלה מלאה של כל הריפואים + פתרון הפער בין הספירות הידועות (ראו knownDiscrepancy) — אם צריך רשימה אמיתית מהחשבון האישי המלא, לשרשר DELEGATE נוסף ל-34-pc-ops בתוך אותו outbox, לא לוח חדש",
-      "knownDiscrepancy": "ריצת Cloud זו רואה 18 ריפואים תחת ZionAmar דרך ה-GitHub App המחובר ל-Cursor (gh repo list ZionAmar, נבדק 2026-09-09T15:33Z — כולם public חוץ מ-AZToDev-HQ; kidnest/Work_clock/telemust חסרים מהרשימה הזו). ops/config/factory.json מציין cursorGithubRepoCount=49. שני המספרים לא זהים — כנראה ה-GitHub App מוגבל בהרשאות ולא רואה את כל הריפואים הפרטיים. אין לדווח מספר סופי לציון בלי ליישב את הפער מול מקור סמכות אחד (חשבון אישי מלא / PC).",
-      "linearIssue": null,
-      "linearNote": "אין כלי Linear זמין בריצת Cloud זו — לא הומצא מספר טיקט. להוסיף תחת אותו פרויקט קיים (לא לוח מקביל)."
+      "knownDiscrepancy": "יושב חלקית: 17 ציבוריים אושרו כמספר סופי דרך gh api users/ZionAmar.public_repos (זהה בדיוק ל-17 שנראו ב-gh repo list). הפער האמיתי הוא רק בצד הפרטי — kidnest/Work_clock/TelemustAddUsers מחזירים 404 בבדיקה ישירה (gh api repos/ZionAmar/<name>), FiTime מתויג פרטי ב-factory.json אבל בפועל ציבורי. 49 מול 18 עדיין לא מוסבר במלואו — DELEGATE ל-34-pc-ops (PCI-07c) פתוח לאישור אישי מהחשבון המלא.",
+      "linearIssue": "EMET-159",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-159/pci-07-מיפוי-מלא-18-ריפואים-מאומתים-תחת-zionamar-יישוב-חלקי-פער-1849",
+      "artifact": "agents/32-delivery-lead/outbox/2026-09-09_pci-07-08-github-relevance-report.md"
     },
     {
       "id": "PCI-07b",
       "phase": "P4",
       "titleHe": "קשת מאשר בחזרה: תוכנית ניווט הצוות שלו ל-PCI-07/08 (מי מהצוות שלו בפועל, אם בכלל, ומדוע) — לפני שנועה סוגרת עם ציון",
       "owner": "32-delivery-lead",
-      "status": "queued",
+      "status": "done",
       "priority": "P0",
       "dod": "פוסט קצר ב-outbox של קשת עם שמות סוכנים אמיתיים מהרוסטר (לא placeholder), או אישור שהוא מבצע לבד; ציון ביקש במפורש שלא נועה תנחש בשמו",
       "founderContext": "ציון: 'קשת אחראי על כל חברת אמת, אולי עדיף למסור לו ושהוא ינווט בין הצוות שלו... תבדקי איתו ואל תגיבי לי סתם ככה ישר'",
-      "linearIssue": null
+      "resolution": "קשת ביצע לבד — עבודת מטא-דאטה (gh CLI + gh api), לא build/PR, לא נדרש שום סוכן רוסטר נוסף.",
+      "linearIssue": "EMET-158",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-158/pci-07b-אישור-תוכנית-צוות-קשת-מבצע-לבד-בלי-צוות"
+    },
+    {
+      "id": "PCI-07c",
+      "phase": "P4",
+      "titleHe": "נדב — לאשר אישית קיום kidnest/Work_clock/TelemustAddUsers + ספירה מלאה מול factory.json=49",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P1",
+      "dod": "כניסה אישית ל-github.com/ZionAmar?tab=repositories (לא Cursor App), אישור/שלילה לכל אחד משלושת הריפואים הפרטיים החסרים, ספירה כוללת מול 49",
+      "blockedBy": null,
+      "linearIssue": "EMET-161",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-161/pci-07c-נדב-לפתוח-githubcomzionamar-אישית-ולאשר-קיום-kidnestwork"
     },
     {
       "id": "PCI-08",
       "phase": "P4",
       "titleHe": "סיווג רלוונטיות לכל ריפו — פעיל/לשמור, ישן-אך-בעל-ערך, מועמד לארכוב (test/demo/fork/כפילות), עם נימוק שורה אחת לכל אחד",
       "owner": "32-delivery-lead",
-      "status": "queued",
+      "status": "done",
       "priority": "P1",
       "dod": "טבלת סיווג לכל ריפו מ-PCI-07 + נימוק; אין ביצוע ארכוב/מחיקה/שינוי נראות בפועל — זו רק המלצה",
       "dependsOn": ["PCI-07"],
-      "linearIssue": null
+      "resultSummary": "Keep 7 · Defer 3 · Kill 7 מתוך 18 ריפואים מאומתים. אין ביצוע בפועל.",
+      "linearIssue": "EMET-160",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-160/pci-08-סיווג-keepdeferkill-לכל-ריפו-נימוק-שורה-אחת",
+      "artifact": "agents/32-delivery-lead/outbox/2026-09-09_pci-07-08-github-relevance-report.md"
     },
     {
       "id": "PCI-09",
@@ -147,6 +165,8 @@
       "priority": "P0",
       "dod": "הודעת טלגרם קצרה + קישור לקובץ הדוח המלא; כל Archive/Delete/שינוי נראות בפועל דורש אישור מפורש + PIN לכל ריפו",
       "dependsOn": ["PCI-08", "PCI-07b"],
+      "readyForPickup": true,
+      "artifact": "agents/32-delivery-lead/outbox/2026-09-09_pci-07-08-github-relevance-report.md",
       "linearIssue": null
     }
   ]
