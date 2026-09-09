@@ -54,6 +54,7 @@ export function startBackgroundDelegate({
   agentId,
   task,
   notifyFounder = true,
+  founderText = "",
 }) {
   const jobId = `job-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
   const name = readAgentName(agentId);
@@ -65,6 +66,7 @@ export function startBackgroundDelegate({
     agentId,
     agentName: name,
     task: String(task).slice(0, 2000),
+    founderText: String(founderText || "").slice(0, 1500),
     status: "running",
     startedAt: nowIso(),
   });
@@ -175,10 +177,17 @@ export function startBackgroundDelegate({
           await executeDelegateRelay(activated.cleaned || result, {
             background: true,
             fromAgentId: agentId,
-            founderText: "",
+            founderText: founderText || "",
           });
         } catch {
           /* nested relay is best-effort */
+        }
+
+        try {
+          const { onWorkFinished } = await import("./work-queue.mjs");
+          onWorkFinished();
+        } catch {
+          /* queue kick is best-effort */
         }
 
         if (notifyFounder) {
@@ -199,6 +208,12 @@ export function startBackgroundDelegate({
         }
         writeJobs(jobs);
         journal("delegate_background_error", { jobId, agentId, error: msg });
+        try {
+          const { onWorkFinished } = await import("./work-queue.mjs");
+          onWorkFinished();
+        } catch {
+          /* ignore */
+        }
         if (notifyFounder) {
           const errMsg = `עדכון · ${name} נתקע ברקע על המשימה.\n${msg}\nאפשר להמשיך לדבר איתי — הם לא חוסמים אותי.`;
           await sendFounderTelegram(errMsg, { silent: true }).catch(() => {});

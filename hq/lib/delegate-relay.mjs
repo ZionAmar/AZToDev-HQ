@@ -6,10 +6,11 @@ import { readAgentName } from "../../runtime/lib/router.mjs";
 import { usesHqOpsCloud, specialistUsesCloud, productCloudBlocked } from "../../runtime/lib/specialist-runtime.mjs";
 import { chatWithAgent } from "../../runtime/lib/agent-sessions.mjs";
 import { runCloudOpsWork, runCloudWork } from "./cloud-work.mjs";
-import { startBackgroundDelegate } from "../../runtime/lib/background-delegate.mjs";
 import { inferRequiredDelegate } from "../../runtime/lib/agent-memory.mjs";
 import { isFounderApprove } from "../../runtime/lib/task-pipeline.mjs";
 import { setWaitingFounder } from "../../runtime/lib/waiting-founder.mjs";
+import { filterJobsForFounderAsk } from "../../runtime/lib/work-intent.mjs";
+import { enqueueWork } from "../../runtime/lib/work-queue.mjs";
 
 const DELEGATE_LINE = /^DELEGATE:\s*([^\s|]+)\s*\|\s*(.+)$/i;
 
@@ -52,6 +53,8 @@ export async function executeDelegateRelay(
     }
   }
 
+  jobs = filterJobsForFounderAsk(jobs, founderText);
+
   if (
     fromAgentId === "00-ceo" &&
     founderText &&
@@ -69,27 +72,18 @@ export async function executeDelegateRelay(
   }
   const delegateResults = [];
 
+  if (jobs.length && background) {
+    enqueueWork(jobs, { founderText, fromAgentId });
+    for (const { agentId } of jobs) {
+      delegateResults.push(readAgentName(agentId));
+    }
+    return { cleanedText, delegateResults };
+  }
+
   for (const { agentId, task } of jobs) {
     if (!agentId || !task) continue;
     const name = readAgentName(agentId);
-
-    if (productCloudBlocked(agentId)) {
-      journal("delegate_blocked_standby", { agentId, task: task.slice(0, 200) });
-      continue;
-    }
-
-    if (background) {
-      const job = startBackgroundDelegate({
-        fromAgentId,
-        agentId,
-        task,
-        notifyFounder: fromAgentId === "00-ceo",
-      });
-      delegateResults.push(name);
-      journal("delegate_relay_background", { agentId, jobId: job.jobId });
-      continue;
-    }
-
+    if (productCloudBlocked(agentId)) continue;
     try {
       let out;
       if (specialistUsesCloud(agentId)) {

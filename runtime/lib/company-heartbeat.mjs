@@ -5,6 +5,7 @@ import { journal } from "./paths.mjs";
 import { sendFounderTelegram } from "./telegram.mjs";
 import { pinNagDue } from "./waiting-founder.mjs";
 import { dispatchNextInbox } from "./inbox-dispatcher.mjs";
+import { kickWorkQueue } from "./work-queue.mjs";
 
 let ticking = false;
 
@@ -17,6 +18,7 @@ export async function tickCompanyHeartbeat() {
       await sendFounderTelegram(nag, { silent: false }).catch(() => {});
       journal("pin_nag_sent", {});
     }
+    kickWorkQueue();
     const inbox = dispatchNextInbox();
     if (inbox.started) {
       journal("heartbeat_inbox", { agentId: inbox.agentId });

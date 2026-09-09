@@ -15,7 +15,7 @@ import {
   ensurePipelineBootstrapped,
 } from "./task-pipeline.mjs";
 import { takeWaitingFounder } from "./waiting-founder.mjs";
-import { startBackgroundDelegate } from "./background-delegate.mjs";
+import { enqueueWork } from "./work-queue.mjs";
 import { readPipeline, boardStatusHebrew } from "./task-board.mjs";
 import { isProductWorkEnabled } from "./company-state.mjs";
 import {
@@ -36,20 +36,13 @@ export { hqCloudOnly };
 
 export { shouldPushUnsolicited, extractFounderPush } from "./front-desk-push.mjs";
 
-function kickHeldJobs(jobs, { preferKeshet = false } = {}) {
+function kickHeldJobs(jobs, { preferKeshet = false, founderText = "" } = {}) {
   let list = (jobs || []).filter((j) => j?.agentId && j?.task);
   if (preferKeshet) {
     const keshet = list.filter((j) => j.agentId === "32-delivery-lead");
     if (keshet.length) list = keshet;
   }
-  for (const j of list) {
-    startBackgroundDelegate({
-      fromAgentId: "00-ceo",
-      agentId: j.agentId,
-      task: j.task,
-      notifyFounder: true,
-    });
-  }
+  enqueueWork(list, { founderText, fromAgentId: "00-ceo" });
   return list.length;
 }
 
@@ -261,7 +254,10 @@ export async function handleFounderTelegramMessage(input) {
       const jobs = pending.jobs?.length
         ? pending.jobs
         : [{ agentId: pending.agentId, task: pending.task }];
-      const n = kickHeldJobs(jobs, { preferKeshet: false });
+      const n = kickHeldJobs(jobs, {
+        preferKeshet: false,
+        founderText: pending.task || "",
+      });
       const reply =
         "הסיסמה אושרה. ממשיכים מיד באותה משימה — בלי שתחזור עליה.";
       await sendFounderTelegram(reply, { silent: false });
@@ -305,7 +301,10 @@ export async function handleFounderTelegramMessage(input) {
   if (isFounderApprove(raw)) {
     const pending = takeWaitingFounder("confirm");
     if (pending?.jobs?.length) {
-      const n = kickHeldJobs(pending.jobs, { preferKeshet: true });
+      const n = kickHeldJobs(pending.jobs, {
+        preferKeshet: true,
+        founderText: pending.task || "",
+      });
       const reply =
         "מאושר. קשת/הצוות ממשיכים לפי התוכנית. אעדכן בטיקטים ובטלגרם.";
       await sendFounderTelegram(reply, { silent: false });

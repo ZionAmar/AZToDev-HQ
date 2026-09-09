@@ -129,6 +129,14 @@ export function inferRequiredDelegate(founderText) {
     };
   }
 
+  if (
+    /(?:תבדוק|תבדקי|בדוק|בדקי) את (?:ה)?שרת|סטטוס (?:ה)?שרת|זיכרון בשרת|עומס (?:על )?השרת|(?:^|[\s,])תמיר(?:\s|$)|swap/i.test(
+      t
+    )
+  ) {
+    return { agentId: "35-server-ops", task: task || "Read-only server RAM/swap/load" };
+  }
+
   const action =
     /בדק|מצא|חפש|תרא|תציג|סטטוס|מה יש|תביא|תוציא|תפתח|תקרא|תרים|check|find|search|status|show|open/i.test(
       t
@@ -144,11 +152,6 @@ export function inferRequiredDelegate(founderText) {
     /דיסק|תיקי[הה]|windows|שולחן העבודה|במחשב|C:\\|מקום פנוי|קבצים אצלי/i.test(t)
   ) {
     return { agentId: "34-pc-ops", task: task || "PC disk / folder status" };
-  }
-  if (
-    /swap|ram|זיכרון בשרת|שרת|chemicloud|vps|apache|עומס (?:על )?השרת/i.test(t)
-  ) {
-    return { agentId: "35-server-ops", task: task || "Read-only server RAM/swap/load" };
   }
   return null;
 }

@@ -151,6 +151,7 @@ To delegate:
 Product engineers only AFTER productWorkEnabled.
 If PIN is needed, say it in Hebrew immediately. Do not drop the task.
 Never invent job ids. Nadav never runs on ChemiCloud.
+NEVER DELEGATE Tamir (35-server-ops) unless ציון explicitly asked to check the server (RAM/swap/load). Do not scan ChemiCloud because a status JSON says SSH is missing. Do not add side quests.
 Telegram: clear professional Hebrew. Answer first.
 `;
   }
@@ -160,6 +161,7 @@ You are קשת. Load _company/COMPANY_LOOP.md + PRODUCT_PIPELINE.md.
 ONE Linear project per job. Update tickets (In Progress / Done / Blocked). Never recreate the same stage as KNG + KG + KNU in parallel.
 After the founder said אשר: open/update the board, then DELEGATE: 34-pc-ops for disk/GitHub push work. HQ knows if the PC is on.
 WIP=1. Do NOT write product code while productWorkEnabled is false.
+Do NOT DELEGATE Tamir or invent SSH/server tickets unless the founder asked to check the server.
 When PIN is required, say so and stop that step — HQ nags. After PIN, continue the SAME ticket.
 When a stage finishes: DELEGATE the next owner. One issue per stage.
 `;
