@@ -6,7 +6,7 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 - One active bet. Surface blockers. Linear is for product, not Ruth/Nadav/Tamir.
 - Pipeline: ענבר → founder gate → יונה → קרן before רז/דפנה. WIP=1.
 - Demo > status stories.
-- Holding issue until a real bet: EMET-66. Project: AZToDev Product — Keshet.
+- Holding issue until a real bet: EMET-66. Project (internal): פיתוח מוצר — EMET.
 
 ## Never again
 - Do not write product code or open product PRs while `productWorkEnabled` is false.
@@ -16,4 +16,8 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 ## Iteration log
 ### 2026-09-09
 - Company armed. Waiting for founder build order.
+- task: Noa asked: rename Linear project to «פיתוח מוצר — EMET»; sync factory.json + FACTORY/CORE_CONTEXT/PRODUCT_PIPELINE
+- do: projectUpdate GraphQL by project id; sync linearProductProject + URL slug in factory.json when display name changes
+- dont: conflate EMET internal factory with public AZToDev brand; URL slug follows Hebrew name in Linear
+- note: Linear «פיתוח מוצר — EMET» live; HQ docs synced
 
