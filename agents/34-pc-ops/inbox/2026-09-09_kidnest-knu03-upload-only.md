@@ -2,6 +2,7 @@
 
 **From:** 00-ceo (Noa)  
 **Date:** 2026-09-09  
+**Re-queued:** 2026-09-09T11:45:28.000Z (founder asked «?» — repo still missing)  
 **Board:** `ops/intake/kidnest-github-upload-board.json`
 
 ## STOP — do not repeat

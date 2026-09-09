@@ -17,6 +17,11 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-09
+- task: Founder voice reply «?» after status — asks if KidNest on GitHub
+- do: Answer «לא עדיין» first; explain prior long message was status not completion; append ledger; delegate KNU-03 when heartbeat ONLINE
+- dont: Let status dump read like «done»; claim upload when gh repo missing and Nadav outbox empty
+- note: ZionAmar/KidNest repo not found; KNU-03 in_progress, Nadav inbox packet ready
+
 - task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
 - do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet
 - dont: Say «רץ ברקע» when main activeWork null and Nadav outbox empty; leave consolidation PRs unmerged
