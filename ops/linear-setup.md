@@ -57,3 +57,17 @@ Add to `.env` on machine (not Telegram):
 - [EMET-24](https://linear.app/my-company1460/issue/EMET-24/kn-023-statusmd-prod-health-blockers-last-deploy-regressions) — KN-023: STATUS.md — prod health, blockers, last deploy, regressions
 - [EMET-25](https://linear.app/my-company1460/issue/EMET-25/kn-024-runbook-local-pack-chemicloud-eas-post-deploy-db) — KN-024: Runbook — local, pack, ChemiCloud, EAS, post-deploy db:*
 - [EMET-26](https://linear.app/my-company1460/issue/EMET-26/kn-025-דוח-תובנות-לציון-מה-הפרויקט-עושה-המלצות-עדיפות) — KN-025: דוח תובנות לציון — מה הפרויקט עושה + המלצות עדיפות
+
+## KidNest GitHub upload publish
+- **At:** 2026-09-09T10:30:00.000Z
+- **Workspace:** https://linear.app/my-company1460
+- **Team:** EMET
+- **Project:** [KidNest — GitHub upload](https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80)
+- **Issues:** 4/4 (KNU-01..04)
+- **Holding:** EMET-66 canceled — superseded by this bet
+
+### Issue URLs
+- [EMET-143](https://linear.app/my-company1460/issue/EMET-143) — KNU-01: repo plan (done)
+- [EMET-144](https://linear.app/my-company1460/issue/EMET-144) — KNU-02: PC scan (Nadav)
+- [EMET-145](https://linear.app/my-company1460/issue/EMET-145) — KNU-03: create private repo (PIN)
+- [EMET-146](https://linear.app/my-company1460/issue/EMET-146) — KNU-04: push monorepo (PIN)
