@@ -101,6 +101,15 @@ export function stripFakeSpecialistClaims(text) {
     ""
   );
   t = t.replace(/הפעלתי את (?:רות|נדב|תמיר|קשת).{0,80}/gi, "");
+  // "שולחת כעת הודעה לקשת" / "פונה אליו עכשיו" style claims — the exact theater
+  // pattern that repeated on 2026-09-09 (15:40Z/15:55Z): prose that asserts a
+  // specialist was contacted with zero real DELEGATE in the same turn.
+  // Note: no trailing \b — Hebrew letters aren't \w in JS regex, so \b never
+  // matches between a Hebrew word and following punctuation/whitespace.
+  t = t.replace(
+    /(?:שולח(?:ת|ים|ה)?|פונ(?:ה|ים|ות)?|מפני(?:ה|ים)?|מעביר(?:ה|ים)?|מיידע(?:ת|ים)?)\s+(?:כעת\s+|עכשיו\s+|כבר\s+)?(?:הודעה\s+|בקשה\s+)?ל(?:רות|נדב|תמיר|קשת|נועה)(?![א-ת]).{0,120}/gi,
+    ""
+  );
   return t.replace(/\n{3,}/g, "\n\n").trim();
 }
 
@@ -122,7 +131,7 @@ export function inferRequiredDelegate(founderText) {
   }
 
   if (
-    /תבנו|תבנה|תפעיל(?:י|ו)?\s+(?:את\s+)?קשת|לבנות\s+(?:מוצר|אפליק)|לפתח\s+(?:מוצר|אפליק)|פיתוח מוצר|מוצר חדש|תפתח(?:ו|י)?\s+(?:מוצר|אפליק|סאאס|saas)|keshet|(?:^|\s)קשת(?:\s|$|[.,!?])/i.test(
+    /תבנו|תבנה|תפעיל(?:י|ו)?\s+(?:את\s+)?קשת|לבנות\s+(?:מוצר|אפליק)|לפתח\s+(?:מוצר|אפליק)|פיתוח מוצר|מוצר חדש|תפתח(?:ו|י)?\s+(?:מוצר|אפליק|סאאס|saas)|keshet|(?:^|[\s,.!?]|[לובשכמה])קשת(?![א-ת])/i.test(
       t
     )
   ) {

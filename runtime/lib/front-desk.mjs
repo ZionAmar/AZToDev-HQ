@@ -35,9 +35,10 @@ import { chatWithCloudCeo, cloudOpsConfigured } from "../../hq/lib/cloud-ceo.mjs
 import { hqCloudOnly } from "./specialist-runtime.mjs";
 import { classifyFounderSpeed } from "./models.mjs";
 import { llmChat, llmConfigured } from "./llm.mjs";
-import { appendLearning } from "./agent-memory.mjs";
+import { appendLearning, founderFacingText } from "./agent-memory.mjs";
 import { recordCompanyLesson } from "./company-lessons.mjs";
 import { liveStatusHebrew } from "./live-status.mjs";
+import { executeDelegateRelay } from "../../hq/lib/delegate-relay.mjs";
 
 export { hqCloudOnly };
 
@@ -82,7 +83,26 @@ async function fastNoaReply(founderText) {
       "LIVE STATUS למטה הוא האמת.",
     user: `LIVE STATUS:\n${status}\n\nTHREAD:\n${thread || "(none)"}\n\nFOUNDER:\n${founderText}`,
   });
-  return { ok: true, status: "fast_llm", text: String(out.text || "").trim() };
+  const rawText = String(out.text || "").trim();
+  // Same choke point Cloud Noa uses: real DELEGATE lines here become real jobs
+  // (previously the fast lane's DELEGATE lines were silently discarded — the
+  // exact "theater" root cause: text claimed a specialist was contacted but
+  // nothing was ever queued). Also runs the false-claim + forced-delegate
+  // safety net so a bare mention ("תפני לקשת") still starts real work instead
+  // of a promise.
+  const relay = await executeDelegateRelay(rawText, {
+    background: true,
+    fromAgentId: "00-ceo",
+    founderText,
+  });
+  let text = founderFacingText(relay.cleanedText);
+  const names = [...new Set(relay.delegateResults.filter(Boolean))];
+  if (names.length === 1) {
+    text = `${text}\n\n${names[0]} על זה ברקע. אעדכן כשיהיה תשובה.`.trim();
+  } else if (names.length > 1) {
+    text = `${text}\n\n${names.join(" ו")} על זה ברקע. אעדכן כשיהיה תשובה.`.trim();
+  }
+  return { ok: true, status: "fast_llm", text };
 }
 
 function learnFromTimeout(founderText) {

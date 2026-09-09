@@ -18,6 +18,13 @@ assert.equal(
 );
 assert.equal(inferRequiredDelegate("תפתח תיקייה במחשב")?.agentId, "34-pc-ops");
 assert.equal(inferRequiredDelegate("תבנו אפליקציה לניהול מלאי")?.agentId, "32-delivery-lead");
+// Regression: 2026-09-09 16:20Z real founder line. Fast-lane replies now run
+// through executeDelegateRelay, so this inference is what actually queues
+// real work when the LLM reply itself skips the DELEGATE: syntax.
+assert.equal(
+  inferRequiredDelegate("תפני לקשת, תדברי איתו ונשמע מה הוא הולך לעשות")?.agentId,
+  "32-delivery-lead"
+);
 assert.ok(isMutatingCompanyAsk("תעלו את קידנסט לגיטהב כריפו פרטי"));
 assert.ok(!isMutatingCompanyAsk("תבדקי מיילים"));
 assert.equal(inferRequiredDelegate("תבדוק את השרת")?.agentId, "35-server-ops");

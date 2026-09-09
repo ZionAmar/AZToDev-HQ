@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test": "node runtime/scripts/run-tests.mjs",
     "on": "node runtime/emet.mjs on",
     "off": "node runtime/emet.mjs off",
     "status": "node runtime/emet.mjs status",

@@ -28,6 +28,14 @@ assert.ok(stripLearningBlock(sample).includes("DELEGATE:"));
 
 assert.ok(!stripFakeSpecialistClaims("רות בדקה את המייל ומצאה הכל").includes("רות"));
 assert.ok(!stripFakeSpecialistClaims("הפעלתי את נדב על הדיסק").includes("הפעלתי"));
+// Regression: the exact 2026-09-09 15:40Z/15:55Z theater line — claimed contact
+// with zero real DELEGATE in the same turn. Must not survive to the founder.
+assert.ok(
+  !stripFakeSpecialistClaims("שולחת כעת הודעה לקשת. אעקוב על התקדמות.").includes(
+    "שולחת כעת הודעה"
+  )
+);
+assert.ok(!stripFakeSpecialistClaims("פונה עכשיו לנדב לבדוק את הדיסק").includes("פונה"));
 
 assert.equal(
   inferRequiredDelegate("תמצאי חשבונית כרמל האחרונה")?.agentId,
