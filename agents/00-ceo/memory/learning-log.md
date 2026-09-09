@@ -16,6 +16,11 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder asked «נו מה קורה? למה אין עדכונים?» on KidNest GitHub upload after PIN
+- do: Push milestone updates even mid-task (Linear draft, PC scan started, SSH probe fixed) — not only at finish line
+- dont: Say «ברקע» without DELEGATE lines in the same turn; dont wait for repo to speak once
+- note: No KidNest repo in factory.json yet; no Linear upload project; prior DELEGATEs had no artifacts — honest gap named; three DELEGATEs re-fired
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
