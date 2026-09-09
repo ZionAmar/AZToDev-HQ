@@ -1,0 +1,59 @@
+{
+  "updatedAt": "2026-09-09T13:50:00.000Z",
+  "initiative": "pc-repo-inventory-scan",
+  "project": "מיפוי פרויקטי המחשב שלא קיימים ב-GitHub",
+  "status": "in_progress",
+  "founderAsk": "ציון: לראות אילו פרויקטים משמעותיים (במיוחד production) קיימים רק על המחשב בשולחן העבודה ולא קיימים ב-GitHub. הוא יגיד אחר כך אם רוצים להעלות אותם.",
+  "owners": {
+    "pc": "34-pc-ops",
+    "report": "00-ceo"
+  },
+  "rule": "Read-only scan. Do NOT create repos or push code in this task — list only. Upload happens only after founder picks specific projects, one at a time (WIP=1), like KidNest (KNU-01..04).",
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "סריקת שולחן העבודה — כל תיקיות הפרויקטים",
+      "status": "in_progress"
+    },
+    {
+      "id": "P2",
+      "nameHe": "השוואה לרשימת הריפואים הקיימים ב-ops/config/factory.json → repos",
+      "status": "queued"
+    },
+    {
+      "id": "P3",
+      "nameHe": "דוח לציון — רשימת פרויקטים שלא על GitHub + סטטוס (פרודקשן / בפיתוח / ישן)",
+      "status": "queued"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "PRI-01",
+      "phase": "P1",
+      "titleHe": "סריקת C:\\Users\\amazi\\Desktop\\Projects (ותיקיות פרויקטים דומות) — שם תיקייה, האם יש .git, תאריך שינוי אחרון, האם יש סימן לפרודקשן (env פרוד, deploy scripts)",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "רשימת תיקיות + מטא-דאטה בסיסי, ללא פתיחת קבצי secrets",
+      "instructions": "Read-only. Do not ask for folder-location confirmation more than once — if the desktop Projects folder was already confirmed in a prior KidNest task, reuse that root path. Write the result to agents/34-pc-ops/outbox/ the moment the scan finishes."
+    },
+    {
+      "id": "PRI-02",
+      "phase": "P2",
+      "titleHe": "סמן כל פרויקט שנמצא: כבר ב-GitHub (לפי factory.json→repos) / לא ב-GitHub",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "טבלה: פרויקט | ב-GitHub? | פרודקשן? | הערה"
+    },
+    {
+      "id": "PRI-03",
+      "phase": "P3",
+      "titleHe": "דוח קצר לציון בעברית — רק פרויקטים שלא על GitHub, ממתין להחלטה שלו מה להעלות",
+      "owner": "00-ceo",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "הודעת טלגרם + קובץ דוח ב-ops/reports/"
+    }
+  ]
+}

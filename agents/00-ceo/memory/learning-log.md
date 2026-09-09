@@ -32,6 +32,11 @@ HQ appends after each turn. You read this before answering ציון.
 - dont: Rely on gitignored `ops/runtime/telegram-thread.jsonl` as source of truth for Cloud runs.
 - note: Implemented founder-channel.mjs + wired background-delegate + cloud-ceo thread limit 24.
 
+- task: Founder — «יש הרבה הנתקות/טיימאוט, תרשמו בבעיות שלכם, תלמדו, יש לכם מנגנונים — תשתמשו בהם» + «מי יותר טוב, אנחנו או תום?» + next task: scan desktop for projects not on GitHub.
+- do: Turn a founder complaint into a real file same turn — PROB entry + concrete rule appended to `failure-handling.md`/`COMPANY_LOOP.md` (persist-before-turn-ends, read-before-ask, 3-strikes on loop-backs), not just a verbal apology. Answer comparison questions honestly with no fabricated numbers when no real benchmark exists. Execute a founder ORDER (PC scan) immediately without waiting for a separate «אשר» — the order itself is the confirmation.
+- dont: Let a mechanism (ledger/board) exist in git but sit unused while the same loop repeats; don't invent a comparison verdict against "תום" with no data.
+- note: PROB-2026-09-09-1788961972584 written; failure-handling.md + COMPANY_LOOP.md updated with anti-loop rule; activeWork moved to pc-repo-inventory-scan; DELEGATE 34-pc-ops (PRI-01/02) opened; ledger appended through 13:51.
+
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
