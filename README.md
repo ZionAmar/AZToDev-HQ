@@ -11,6 +11,7 @@
 
 # ספר החברה
 - מפעל: [`_company/FACTORY.md`](_company/FACTORY.md)  
+- מייסד: [`_company/FOUNDER.md`](_company/FOUNDER.md) · מסמך היכרות: [`_company/FOUNDER_BRIEF.md`](_company/FOUNDER_BRIEF.md)  
 - צוות: [`_company/ROSTER.md`](_company/ROSTER.md) · [`_company/TEAM_DIRECTORY.md`](_company/TEAM_DIRECTORY.md)  
 - חיבורים (כבר ב-`.env`): [`_company/WHAT_I_NEED_FROM_YOU.md`](_company/WHAT_I_NEED_FROM_YOU.md)  
 - כללים: [`_company/RULES.md`](_company/RULES.md)

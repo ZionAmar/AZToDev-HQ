@@ -19,7 +19,8 @@ Single source of truth for how EMET runs — GitLab/Stripe handbook spirit, lean
 | [../WHAT_I_NEED_FROM_YOU.md](../WHAT_I_NEED_FROM_YOU.md) | Secrets / accounts still needed |
 | [telegram-front-desk.md](./telegram-front-desk.md) | Nura ↔ founder only |
 | [external-task-board.md](./external-task-board.md) | Linear remote tasks/daily |
-| [../FOUNDER.md](../FOUNDER.md) | Who the founder is |
+| [../FOUNDER.md](../FOUNDER.md) | Who the founder is (agents) |
+| [../FOUNDER_BRIEF.md](../FOUNDER_BRIEF.md) | Public-ready intro — portfolio under aztodev.com |
 | [founder-comms.md](./founder-comms.md) | **How to communicate with the founder** |
 | [../FOUNDER_ESCALATION.md](../FOUNDER_ESCALATION.md) | When to interrupt / DND |
 | [../PRIVATE_CHANNELS.md](../PRIVATE_CHANNELS.md) | Who may DM + private reply rules |
