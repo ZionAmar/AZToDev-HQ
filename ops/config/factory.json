@@ -18,12 +18,20 @@
     "status": "in_progress",
     "finishedAt": null,
     "founderRepeatedAskAt": "2026-09-09T14:56:20.000Z",
-    "nudge": {
-      "at": "2026-09-09T14:57:00.000Z",
-      "by": "00-ceo",
-      "reason": "Founder repeated the identical in_production/Baytor/Worklock/KidNest ask. Same task, not reopened as new. Nadav PC heartbeat online (A_Z, 14:56:15Z), no outbox report yet.",
-      "action": "Appended nudge note to existing agents/34-pc-ops/inbox packet + re-sent DELEGATE. No new board or Linear ticket."
-    }
+    "nudges": [
+      {
+        "at": "2026-09-09T14:50:00.000Z",
+        "by": "00-ceo",
+        "reason": "64 min with no outbox report; PC heartbeat confirmed Nadav just came online (14:44:44Z).",
+        "action": "Re-delegated 34-pc-ops instead of assuming a hidden failure."
+      },
+      {
+        "at": "2026-09-09T14:57:00.000Z",
+        "by": "00-ceo",
+        "reason": "Founder repeated the identical in_production/Baytor/Worklock/KidNest ask a second time. Same task, not reopened as new. Still no outbox report.",
+        "action": "Appended nudge note to existing agents/34-pc-ops/inbox packet + re-sent DELEGATE. No new board or Linear ticket."
+      }
+    ]
   },
   "priorWork": {
     "slug": "kidnest-github-upload",

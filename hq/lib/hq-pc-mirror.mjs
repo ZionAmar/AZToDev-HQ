@@ -55,7 +55,9 @@ function collectFiles() {
         addIf(path.join("agents", id, box, name));
       }
     }
+    addIf(path.join("agents", id, "memory", "learning-log.md"));
   }
+  addIf("ops/company-lessons.md");
   return files;
 }
 
