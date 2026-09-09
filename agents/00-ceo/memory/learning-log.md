@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder said Nadav scan report arrived dozens of times — we kept asking for scan
+- do: Close KNU-02 on founder confirmation; advance to KNU-03; persist activeWork + board in git before status reply
+- dont: Re-delegate scan or stake-confirm when founder already has the report; claim «רשמתי» while activeWork null
+- note: Scan was Telegram-only theater; registered kidnest-github-upload-board + inbox packets, PR cursor/kidnest-upload-state-fix-9070
+
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
