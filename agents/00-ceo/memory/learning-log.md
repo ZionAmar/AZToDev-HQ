@@ -19,3 +19,8 @@ HQ appends after each turn. You read this before answering ציון.
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
+### 2026-09-09
+- task: founder «אז סידרת?» after EMET-as-dev-arm proposal
+- do: Say no until explicit yes; distinguish concept agreed vs Linear/docs rename not done
+- dont: Claim Keshet updated board when only recommendation + «מתאים?» was sent
+- note: Founder expected rename after «אולי EMET»; awaiting firm confirm before delegate
