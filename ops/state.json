@@ -3,8 +3,15 @@
   "motto": "Build truth. Ship value. Scale leverage.",
   "updatedAt": "2026-09-07T20:53:20.782Z",
   "founderAttention": {
-    "waiting": [],
-    "note": "WIP: inventory-deck (Rakza). KidNest audit closed — eng follow-ups in Linear only."
+    "waiting": [
+      {
+        "id": "KNU-03",
+        "ask": "PIN + PC on → Nadav pushes KidNest to private GitHub",
+        "owner": "34-pc-ops",
+        "since": "2026-09-09"
+      }
+    ],
+    "note": "WIP: KidNest GitHub upload (KNU-03 handoff done; execute needs PIN+PC). Audit closed."
   },
   "founderPrefsRef": "ops/founder-prefs.json",
   "today": {
