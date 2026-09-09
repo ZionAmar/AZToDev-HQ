@@ -1,0 +1,58 @@
+{
+  "publishedAt": "2026-09-09T09:24:59.086Z",
+  "source": "ops/intake/kidnest-github-board.json",
+  "initiative": "KIDNEST-GITHUB-MIGRATION",
+  "projectName": "KidNest — GitHub Migration",
+  "projectUrl": "https://linear.app/my-company1460/project/kidnest-github-migration-c64b279d4f80",
+  "workspaceUrl": "https://linear.app/my-company1460",
+  "teamName": "EMET",
+  "teamId": "fced5adc-3d17-442d-9c75-3c3989049895",
+  "issueCount": 4,
+  "holdingIssueCanceled": {
+    "identifier": "EMET-66",
+    "url": "https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order",
+    "canceled": true
+  },
+  "issues": [
+    {
+      "localId": "KNG-01",
+      "identifier": "EMET-129",
+      "title": "KNG-01: תכנית מבנה ריפו — monorepo, .gitignore, factory.json",
+      "url": "https://linear.app/my-company1460/issue/EMET-129/kng-01-תכנית-מבנה-ריפו-monorepo-gitignore-factoryjson",
+      "phase": "P1",
+      "owner": "32-delivery-lead",
+      "label": "build",
+      "status": "done"
+    },
+    {
+      "localId": "KNG-02",
+      "identifier": "EMET-130",
+      "title": "KNG-02: הכנת PC — מלאי תיקייה, git status, scrub סודות",
+      "url": "https://linear.app/my-company1460/issue/EMET-130/kng-02-הכנת-pc-מלאי-תיקייה-git-status-scrub-סודות",
+      "phase": "P2",
+      "owner": "34-pc-ops",
+      "label": "plan",
+      "status": "todo"
+    },
+    {
+      "localId": "KNG-03",
+      "identifier": "EMET-131",
+      "title": "KNG-03: יצירת ריפו פרטי ZionAmar/KidNest",
+      "url": "https://linear.app/my-company1460/issue/EMET-131/kng-03-יצירת-ריפו-פרטי-zionamarkidnest",
+      "phase": "P3",
+      "owner": "32-delivery-lead",
+      "label": "waiting-founder",
+      "status": "todo"
+    },
+    {
+      "localId": "KNG-04",
+      "identifier": "EMET-132",
+      "title": "KNG-04: Push ראשון — monorepo נקי, בלי סודות",
+      "url": "https://linear.app/my-company1460/issue/EMET-132/kng-04-push-ראשון-monorepo-נקי-בלי-סודות",
+      "phase": "P4",
+      "owner": "34-pc-ops",
+      "label": "waiting-founder",
+      "status": "todo"
+    }
+  ]
+}

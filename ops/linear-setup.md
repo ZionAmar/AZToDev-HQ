@@ -57,3 +57,17 @@ Add to `.env` on machine (not Telegram):
 - [EMET-24](https://linear.app/my-company1460/issue/EMET-24/kn-023-statusmd-prod-health-blockers-last-deploy-regressions) — KN-023: STATUS.md — prod health, blockers, last deploy, regressions
 - [EMET-25](https://linear.app/my-company1460/issue/EMET-25/kn-024-runbook-local-pack-chemicloud-eas-post-deploy-db) — KN-024: Runbook — local, pack, ChemiCloud, EAS, post-deploy db:*
 - [EMET-26](https://linear.app/my-company1460/issue/EMET-26/kn-025-דוח-תובנות-לציון-מה-הפרויקט-עושה-המלצות-עדיפות) — KN-025: דוח תובנות לציון — מה הפרויקט עושה + המלצות עדיפות
+
+## KidNest GitHub migration publish
+- **At:** 2026-09-09T09:24:59.086Z
+- **Workspace:** https://linear.app/my-company1460
+- **Team:** EMET
+- **Project:** KidNest — GitHub Migration
+- **Issues:** 4/4
+- **EMET-66 canceled:** [EMET-66](https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order)
+
+### Issue URLs
+- [EMET-129](https://linear.app/my-company1460/issue/EMET-129/kng-01-תכנית-מבנה-ריפו-monorepo-gitignore-factoryjson) — KNG-01: תכנית מבנה ריפו — monorepo, .gitignore, factory.json
+- [EMET-130](https://linear.app/my-company1460/issue/EMET-130/kng-02-הכנת-pc-מלאי-תיקייה-git-status-scrub-סודות) — KNG-02: הכנת PC — מלאי תיקייה, git status, scrub סודות
+- [EMET-131](https://linear.app/my-company1460/issue/EMET-131/kng-03-יצירת-ריפו-פרטי-zionamarkidnest) — KNG-03: יצירת ריפו פרטי ZionAmar/KidNest
+- [EMET-132](https://linear.app/my-company1460/issue/EMET-132/kng-04-push-ראשון-monorepo-נקי-בלי-סודות) — KNG-04: Push ראשון — monorepo נקי, בלי סודות
