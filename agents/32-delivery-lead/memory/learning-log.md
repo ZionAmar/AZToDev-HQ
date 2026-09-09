@@ -16,4 +16,9 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 ## Iteration log
 ### 2026-09-09
 - Company armed. Waiting for founder build order.
+### 2026-09-09
+- task: Track KNU-03 repo upload — update Linear when repo link confirmed
+- do: gh repo view verify before Linear state change; comment on EMET-150 for blocker visibility
+- dont: mark KNU-04 done before repo exists; dont reopen KNU-02
+- note: ZionAmar/KidNest not found; EMET-149 done handoff; EMET-150 blocked PC+PIN; monitor doc + board mirror in memory/
 
