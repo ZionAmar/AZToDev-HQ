@@ -1,0 +1,57 @@
+{
+  "publishedAt": "2026-09-09T10:03:23.680Z",
+  "source": "ops/intake/kidnest-github-upload-board.json",
+  "initiative": "IDEA-2026-09-09-kidnest-github-upload",
+  "projectName": "KidNest — GitHub upload",
+  "projectUrl": "https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80",
+  "workspaceUrl": "https://linear.app/my-company1460",
+  "teamName": "EMET",
+  "teamId": "fced5adc-3d17-442d-9c75-3c3989049895",
+  "issueCount": 4,
+  "issues": [
+    {
+      "localId": "KNU-01",
+      "identifier": "EMET-139",
+      "title": "KNU-01: פרויקט Linear + תכנית מבנה ריפו",
+      "url": "https://linear.app/my-company1460/issue/EMET-139/knu-01-פרויקט-linear-תכנית-מבנה-ריפו",
+      "phase": "P1",
+      "owner": "32-delivery-lead",
+      "label": "build",
+      "status": "done",
+      "existing": false
+    },
+    {
+      "localId": "KNU-02",
+      "identifier": "EMET-140",
+      "title": "KNU-02: סריקת תיקיית kidnest במחשב — מה להעלות / מה לא",
+      "url": "https://linear.app/my-company1460/issue/EMET-140/knu-02-סריקת-תיקיית-kidnest-במחשב-מה-להעלות-מה-לא",
+      "phase": "P2",
+      "owner": "34-pc-ops",
+      "label": "plan",
+      "status": "pending",
+      "existing": false
+    },
+    {
+      "localId": "KNU-03",
+      "identifier": "EMET-141",
+      "title": "KNU-03: יצירת ריפו פרטי KidNest ב-GitHub + push ראשון",
+      "url": "https://linear.app/my-company1460/issue/EMET-141/knu-03-יצירת-ריפו-פרטי-kidnest-ב-github-push-ראשון",
+      "phase": "P3",
+      "owner": "34-pc-ops",
+      "label": "waiting-founder",
+      "status": "pending",
+      "existing": false
+    },
+    {
+      "localId": "KNU-04",
+      "identifier": "EMET-142",
+      "title": "KNU-04: רישום הריפו ב-factory.json + סגירת initiative",
+      "url": "https://linear.app/my-company1460/issue/EMET-142/knu-04-רישום-הריפו-ב-factoryjson-סגירת-initiative",
+      "phase": "P4",
+      "owner": "32-delivery-lead",
+      "label": "plan",
+      "status": "pending",
+      "existing": false
+    }
+  ]
+}

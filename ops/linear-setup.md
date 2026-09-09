@@ -57,3 +57,16 @@ Add to `.env` on machine (not Telegram):
 - [EMET-24](https://linear.app/my-company1460/issue/EMET-24/kn-023-statusmd-prod-health-blockers-last-deploy-regressions) — KN-023: STATUS.md — prod health, blockers, last deploy, regressions
 - [EMET-25](https://linear.app/my-company1460/issue/EMET-25/kn-024-runbook-local-pack-chemicloud-eas-post-deploy-db) — KN-024: Runbook — local, pack, ChemiCloud, EAS, post-deploy db:*
 - [EMET-26](https://linear.app/my-company1460/issue/EMET-26/kn-025-דוח-תובנות-לציון-מה-הפרויקט-עושה-המלצות-עדיפות) — KN-025: דוח תובנות לציון — מה הפרויקט עושה + המלצות עדיפות
+## KidNest GitHub upload (KNU) publish
+- **At:** 2026-09-09T10:03:23.680Z
+- **Workspace:** https://linear.app/my-company1460
+- **Team:** EMET
+- **Project:** KidNest — GitHub upload
+- **Project URL:** https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80
+- **Issues:** 4/4
+
+### Issue URLs
+- [EMET-139](https://linear.app/my-company1460/issue/EMET-139/knu-01-פרויקט-linear-תכנית-מבנה-ריפו) — KNU-01: פרויקט Linear + תכנית מבנה ריפו
+- [EMET-140](https://linear.app/my-company1460/issue/EMET-140/knu-02-סריקת-תיקיית-kidnest-במחשב-מה-להעלות-מה-לא) — KNU-02: סריקת תיקיית kidnest במחשב — מה להעלות / מה לא
+- [EMET-141](https://linear.app/my-company1460/issue/EMET-141/knu-03-יצירת-ריפו-פרטי-kidnest-ב-github-push-ראשון) — KNU-03: יצירת ריפו פרטי KidNest ב-GitHub + push ראשון
+- [EMET-142](https://linear.app/my-company1460/issue/EMET-142/knu-04-רישום-הריפו-ב-factoryjson-סגירת-initiative) — KNU-04: רישום הריפו ב-factory.json + סגירת initiative

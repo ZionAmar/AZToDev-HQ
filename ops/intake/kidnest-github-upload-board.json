@@ -1,0 +1,111 @@
+{
+  "updatedAt": "2026-09-09T10:03:23.681Z",
+  "initiative": "IDEA-2026-09-09-kidnest-github-upload",
+  "project": "KidNest — GitHub upload",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "founderAsk": "קח את קידניסט ותעלה אותו בצורה מסודרת לגיטהאב שלי — ריפו פרטי, מבנה נקי, בלי סודות",
+  "status": "in_progress",
+  "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80",
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "orchestrator": "32-delivery-lead",
+  "owners": {
+    "orchestrator": "32-delivery-lead",
+    "pcPrep": "34-pc-ops",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תכנון + Linear — מסלול גלוי מהטלפון",
+      "owner": "32-delivery-lead",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "nameHe": "הכנת תיקייה במחשב — סריקה, סינון סודות",
+      "owner": "34-pc-ops",
+      "status": "pending"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו + העלאה ל-GitHub",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "dependsOn": [
+        "P1",
+        "P2"
+      ]
+    },
+    {
+      "id": "P4",
+      "nameHe": "אימות + רישום ברשימת הריפואים",
+      "owner": "32-delivery-lead",
+      "status": "pending",
+      "dependsOn": [
+        "P3"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KNU-01",
+      "phase": "P1",
+      "titleHe": "פרויקט Linear + תכנית מבנה ריפו",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "פרויקט Linear נפרד מ-audit + KNU-01-repo-plan.md + linearProjectUrl ב-board",
+      "artifact": "ops/meetings/kidnest-github-upload/KNU-01-repo-plan.md",
+      "artifactGit": "agents/32-delivery-lead/memory/KNU-01-repo-plan.md",
+      "linearIssue": "EMET-139",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-139/knu-01-פרויקט-linear-תכנית-מבנה-ריפו"
+    },
+    {
+      "id": "KNU-02",
+      "phase": "P2",
+      "titleHe": "סריקת תיקיית kidnest במחשב — מה להעלות / מה לא",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "priority": "P0",
+      "dod": "רשימת קבצים + סודות שיוצאים + גודל",
+      "artifact": "ops/meetings/kidnest-github-upload/KNU-02-pc-inventory.md",
+      "linearIssue": "EMET-140",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-140/knu-02-סריקת-תיקיית-kidnest-במחשב-מה-להעלות-מה-לא"
+    },
+    {
+      "id": "KNU-03",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי KidNest ב-GitHub + push ראשון",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "priority": "P0",
+      "dod": "URL ריפו + commit ראשון מסודר",
+      "artifact": null,
+      "requiresPin": true,
+      "linearIssue": "EMET-141",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-141/knu-03-יצירת-ריפו-פרטי-kidnest-ב-github-push-ראשון"
+    },
+    {
+      "id": "KNU-04",
+      "phase": "P4",
+      "titleHe": "רישום הריפו ב-factory.json + סגירת initiative",
+      "owner": "32-delivery-lead",
+      "status": "pending",
+      "priority": "P1",
+      "dod": "repos.kidnest ב-factory.json + status completed",
+      "artifact": "ops/config/factory.json",
+      "linearIssue": "EMET-142",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-142/knu-04-רישום-הריפו-ב-factoryjson-סגירת-initiative"
+    }
+  ],
+  "updatePolicy": {
+    "founderMidTask": true,
+    "notifyOn": [
+      "phase_complete",
+      "blocker",
+      "first_artifact"
+    ],
+    "nextExpected": "KNU-02 — סריקת תיקייה (נדב, PC דולק)"
+  }
+}
