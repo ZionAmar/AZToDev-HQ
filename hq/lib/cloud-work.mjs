@@ -10,6 +10,7 @@ import { isProductWorkEnabled, readFactory } from "../../runtime/lib/company-sta
 import { readAgentName } from "../../runtime/lib/router.mjs";
 import { usesHqOpsCloud } from "../../runtime/lib/specialist-runtime.mjs";
 import { memoryPromptBlock, recordAgentTurn, stripLearningBlock } from "../../runtime/lib/agent-memory.mjs";
+import { runtimeFactsBlock } from "../../runtime/lib/runtime-facts.mjs";
 
 export function cloudRepoUrl() {
   return (process.env.GITHUB_REPO || "").trim();
@@ -139,28 +140,28 @@ Read-only SSH only. No restart, no deploy, no ChemiCloud HQ.
   if (agentId === "00-ceo") {
     return `
 You run on Cursor Cloud. Telegram desk is a thin process on ChemiCloud (aztodev-desk only — no Cursor there).
-To delegate specialist work, include one line per handoff (HQ relay executes it):
+Load _company/COMPANY_LOOP.md. First Telegram reply: what you understood + the plan. Wait for אשר. Then DELEGATE.
+Never ask if the PC is on — HQ heartbeat is in the prompt.
+Linear: one project per job. Update existing issues. Never open parallel KNG/KG/KNU clones.
+To delegate:
   DELEGATE: 33-household-ops | <task>
-  DELEGATE: 34-pc-ops | <task>   (queued for founder PC; runs when the PC is on)
+  DELEGATE: 34-pc-ops | <task>
   DELEGATE: 35-server-ops | <task>
-  DELEGATE: 32-delivery-lead | <bet>   (קשת — product company. Planning on HQ. No code until PIN + build order.)
-Product engineers (ענבר, יונה, קרן, רז, דפנה…): only AFTER productWorkEnabled. Until then route ALL product/app/build ideas to Keshet, not to engineers.
-If the founder clearly said to BUILD and the PIN window is open, Keshet may emit:
-  ACTIVATE_PRODUCT: <slug> | <one-line bet>
-You do not emit ACTIVATE_PRODUCT yourself unless he already confirmed Keep + PIN.
-Never invent job ids or artifact paths. Nadav (34) never runs on ChemiCloud.
-Telegram replies: clear professional Hebrew. Answer first. Short paragraphs. No jargon in the visible text.
+  DELEGATE: 32-delivery-lead | <bet>
+Product engineers only AFTER productWorkEnabled.
+If PIN is needed, say it in Hebrew immediately. Do not drop the task.
+Never invent job ids. Nadav never runs on ChemiCloud.
+Telegram: clear professional Hebrew. Answer first.
 `;
   }
   if (agentId === "32-delivery-lead") {
     return `
-You are קשת. Product company is ARMED (productCompanyReady) but productWorkEnabled may still be false.
-NOW: plan only. Linear project "AZToDev Product — Keshet". Issue EMET-66 until a real bet exists.
-Pipeline: _company/PRODUCT_PIPELINE.md. WIP=1. Consult ענבר → ציון gate → יונה → קרן before רז/דפנה.
-Do NOT write product code. Do NOT open product PRs. Do NOT deploy.
-When he ordered a build AND HQ says PIN is unlocked, you may emit:
-  ACTIVATE_PRODUCT: <slug> | <one-line bet>
-Then DELEGATE the next pipeline owner. Linear issue per stage.
+You are קשת. Load _company/COMPANY_LOOP.md + PRODUCT_PIPELINE.md.
+ONE Linear project per job. Update tickets (In Progress / Done / Blocked). Never recreate the same stage as KNG + KG + KNU in parallel.
+After the founder said אשר: open/update the board, then DELEGATE: 34-pc-ops for disk/GitHub push work. HQ knows if the PC is on.
+WIP=1. Do NOT write product code while productWorkEnabled is false.
+When PIN is required, say so and stop that step — HQ nags. After PIN, continue the SAME ticket.
+When a stage finishes: DELEGATE the next owner. One issue per stage.
 `;
   }
   return "";
@@ -192,11 +193,13 @@ export async function runCloudOpsWork({
   const role = specialistPromptSlice(agentId);
   const secrets = cloudOpsSecretsBlock(agentId);
   const memory = memoryPromptBlock(agentId);
+  const facts = runtimeFactsBlock();
   const prompt = `[AZToDev · ${name}${agentId ? ` · ${agentId}` : ""} · CLOUD OPS]
 Founder: ציון עמר. Hebrew with founder. Code/PRs: Technical English.
-Source of truth: _company/FACTORY.md + DELEGATION_POLICY.md + agents/${agentId || "?"}/.
+Source of truth: _company/FACTORY.md + DELEGATION_POLICY.md + COMPANY_LOOP.md + agents/${agentId || "?"}/.
 You run on Cursor Cloud — not on the founder PC, not on ChemiCloud customer sites.
 Your home between runs is agents/${agentId || "?"}/ on GitHub HQ (this clone). Read it. Do not pretend you are a standing chat URL.
+${facts}
 ${secrets}
 ${role ? `Role snapshot:\n${role}\n` : ""}
 ${memory}

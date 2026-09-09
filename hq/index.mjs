@@ -15,6 +15,7 @@ import { readFactory, writeFactory } from "../runtime/lib/company-state.mjs";
 import { helpHebrew } from "../runtime/lib/phone-commands.mjs";
 import { probeConnections, readConnections } from "./lib/connections.mjs";
 import { cloudOpsConfigured } from "./lib/cloud-work.mjs";
+import { tickCompanyHeartbeat } from "../runtime/lib/company-heartbeat.mjs";
 
 loadDotEnv();
 
@@ -85,3 +86,7 @@ setInterval(() => {
     })
     .catch(() => {});
 }, 2000);
+
+setInterval(() => {
+  tickCompanyHeartbeat().catch(() => {});
+}, 45000);

@@ -4,6 +4,7 @@ import { ROOT } from "./paths.mjs";
 import { readAgentName } from "./router.mjs";
 import { isProductWorkEnabled } from "./company-state.mjs";
 import { memoryPromptBlock } from "./agent-memory.mjs";
+import { runtimeFactsBlock } from "./runtime-facts.mjs";
 
 function read(p) {
   try {
@@ -91,20 +92,18 @@ export function wrapFounderTelegramTurn(text, _recentTail = "", media = null) {
   }
   if (!isProductWorkEnabled()) {
     body = `[STANDBY — product company is ARMED (Keshet) but productWorkEnabled is false.
-No product PRs. No emet_cloud_work. No engineers (ענבר/יונה/קרן/רז/דפנה) until he says «תבנו» + PIN.
-You are on Cursor Cloud (or local fallback). Ruth (33) and Tamir (35) are Cloud agents too.
-Nadav (34-pc-ops) is queued to the founder PC worker — never run him on ChemiCloud.
-To delegate from Cloud, use lines: DELEGATE: agentId | task
-  e.g. DELEGATE: 33-household-ops | check mail
-  e.g. DELEGATE: 34-pc-ops | disk status
-  e.g. DELEGATE: 35-server-ops | server RAM
-  e.g. DELEGATE: 32-delivery-lead | plan this bet (no code)
-If he asked to BUILD an app/product: Keep/Defer/Kill, then DELEGATE Keshet. Do not emit ACTIVATE_PRODUCT unless Keep + PIN window is open.
+${runtimeFactsBlock()}
+COMPANY LOOP: first reply = what you understood + how you will do it. Wait for «אשר». Then DELEGATE Keshet (one Linear project, update tickets, never duplicate KNG/KG/KNU). Keshet DELEGATE Nadav for PC files. Never ask if the PC is on.
+No product PRs. No engineers until «תבנו» + PIN.
+You are on Cursor Cloud. Ruth (33) and Tamir (35) are Cloud. Nadav (34) = PC worker.
+DELEGATE: agentId | task
+If PIN needed: say so in Hebrew immediately. HQ will nag if he goes quiet.
 You MUST NOT search Gmail, SSH, or inspect the PC yourself — delegate.
-Mutating tools (send mail, product Cloud, complete_task) require PIN. If locked, ask for PIN — never guess.
-If missing token, name the exact .env / Cloud secret key — never ask to paste secrets in Telegram.]
+Mutating tools require PIN. Never guess it.]
 
 ${body}`;
+  } else {
+    body = `[${runtimeFactsBlock()}]\n\n${body}`;
   }
   return `[תשובה בטלגרם — חובה]
 עברית ברורה, מקצועית, נוחה לנייד.

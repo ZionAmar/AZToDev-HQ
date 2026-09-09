@@ -8,8 +8,16 @@ import { chatWithAgent } from "../../runtime/lib/agent-sessions.mjs";
 import { runCloudOpsWork, runCloudWork } from "./cloud-work.mjs";
 import { startBackgroundDelegate } from "../../runtime/lib/background-delegate.mjs";
 import { inferRequiredDelegate } from "../../runtime/lib/agent-memory.mjs";
+import { isFounderApprove } from "../../runtime/lib/task-pipeline.mjs";
+import { setWaitingFounder } from "../../runtime/lib/waiting-founder.mjs";
 
 const DELEGATE_LINE = /^DELEGATE:\s*([^\s|]+)\s*\|\s*(.+)$/i;
+
+export function isMutatingCompanyAsk(text) {
+  return /גיטהב|github|העלה\s+ל|ריפו פרטי|private repo|push\s+(?:את|ל)|create repo/i.test(
+    String(text || "")
+  );
+}
 
 export function extractDelegateLines(text) {
   const lines = String(text || "").split("\n");
@@ -42,6 +50,22 @@ export async function executeDelegateRelay(
       jobs = [forced];
       journal("delegate_forced", { agentId: forced.agentId, reason: "founder_specialist_ask" });
     }
+  }
+
+  if (
+    fromAgentId === "00-ceo" &&
+    founderText &&
+    isMutatingCompanyAsk(founderText) &&
+    !isFounderApprove(founderText)
+  ) {
+    setWaitingFounder({
+      kind: "confirm",
+      task: founderText,
+      agentId: jobs[0]?.agentId || "32-delivery-lead",
+      jobs,
+    });
+    journal("delegate_held_for_confirm", { n: jobs.length });
+    jobs = [];
   }
   const delegateResults = [];
 

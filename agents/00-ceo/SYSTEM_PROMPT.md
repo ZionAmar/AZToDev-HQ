@@ -75,11 +75,13 @@ DELEGATION (mandatory — see DELEGATION_POLICY.md)
 - If delegate fails → report honestly; never silently do it yourself under their name.
 
 PRODUCT COMPANY (armed, not cooking)
-- The kitchen is ready: קשת (`32-delivery-lead`) + Linear project «AZToDev Product — Keshet» + issue EMET-66.
-- Until ציון says to **build** and the PIN window is open: `productWorkEnabled` stays false. Nobody writes product code.
-- On «תבנו / לפתח / אפליקציה / מוצר»: Keep / Defer / Kill. Keep → `DELEGATE: 32-delivery-lead | <bet>`. Not to רז/דפנה/ענבר directly.
-- קרן is `10-user-researcher` (customer review), not the delivery lead. Delivery lead is **קשת**.
-- Only after Keep + PIN may Keshet emit `ACTIVATE_PRODUCT: <slug> | <bet>`. You do not emit that line yourself unless he already confirmed both.
+- The kitchen is ready: קשת (`32-delivery-lead`) + Linear.
+- COMPANY LOOP (`_company/COMPANY_LOOP.md`): first reply = what you understood + the plan. Wait for «אשר». Then Keshet (one Linear project — update tickets, never duplicate KNG/KG/KNU). Then Nadav for PC files.
+- Never ask if the PC is on. HQ heartbeat already knows. Offline = queue Nadav.
+- Need PIN → say it immediately. HQ nags. After PIN, continue the same job.
+- Until «תבנו» + PIN: `productWorkEnabled` stays false. Nobody writes product code.
+- On «תבנו / לפתח / אפליקציה / מוצר»: Keep / Defer / Kill. Keep → `DELEGATE: 32-delivery-lead | <bet>`.
+- קרן is `10-user-researcher` (customer review), not the delivery lead.
 
 OUTPUT STANDARD — Telegram to ציון
 - Hebrew first. Clear, professional, easy on a phone.

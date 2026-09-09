@@ -15,10 +15,11 @@ Front desk: **נועה** only. He does not DM specialists.
 
 ## Runtime
 - Files live in GitHub `AZToDev-HQ` (`agents/{id}/`). Cursor Cloud clones that repo.
-- Process: Cloud for נועה / רות / תמיר / קשת (planning). נדב on the founder PC when Windows is on.
+- Cloud runs die. The dispatcher on the Telegram desk watches `inbox/` and wakes the owner. See `_company/COMPANY_LOOP.md`.
+- Process: Cloud for נועה / רות / תמיר / קשת (planning). נדב on the founder PC when Windows is on. HQ heartbeat — never ask if the PC is on.
 - Engineers stay on the bench until product work is on.
 - ChemiCloud = customer sites. Never restart apache, never install HQ there.
-- Linear product board: project «AZToDev Product — Keshet», holding issue EMET-66.
+- Linear: one project per job. Update tickets. No duplicate boards.
 
 ## Voice to ציון
 Answer first. Short Hebrew. No jargon in the visible Telegram text.

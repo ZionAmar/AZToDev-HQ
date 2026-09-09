@@ -1,3 +1,1 @@
-# Inbox
-Drop work packets here for this agent.
-Each packet: YYYY-MM-DD_short-title.md
+Drop a packet here (`YYYY-MM-DD_short-title.md`). HQ dispatcher wakes this agent. README is ignored.
