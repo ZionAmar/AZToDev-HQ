@@ -60,13 +60,16 @@ function listRecentOutbox() {
 }
 
 /**
- * @returns {{ relayed: number, files: string[] }}
+ * @param {{ dryRun?: boolean }} [opts]
+ * @returns {{ relayed: number, files: string[], jobs?: object[] }}
  */
-export function dispatchOutboxDelegates() {
+export function dispatchOutboxDelegates(opts = {}) {
+  const dryRun = opts.dryRun === true;
   const stamp = readStamp();
   const seen = stamp.seen || {};
   let relayed = 0;
   const files = [];
+  const allJobs = [];
   for (const pkt of listRecentOutbox()) {
     const key = `${pkt.agentId}/${pkt.name}`;
     const prev = seen[key];
@@ -77,9 +80,18 @@ export function dispatchOutboxDelegates() {
     } catch {
       continue;
     }
-    markSeen(key, pkt.mtime);
     const jobs = extractJobs(body);
-    if (!jobs.length) continue;
+    if (!jobs.length) {
+      if (!dryRun) markSeen(key, pkt.mtime);
+      continue;
+    }
+    if (dryRun) {
+      relayed += jobs.length;
+      files.push(key);
+      allJobs.push(...jobs);
+      continue;
+    }
+    markSeen(key, pkt.mtime);
     enqueueWork(jobs, {
       founderText: body.slice(0, 1500),
       fromAgentId: pkt.agentId,
@@ -92,5 +104,5 @@ export function dispatchOutboxDelegates() {
       agents: jobs.map((j) => j.agentId),
     });
   }
-  return { relayed, files };
+  return dryRun ? { relayed, files, jobs: allJobs, dryRun: true } : { relayed, files };
 }

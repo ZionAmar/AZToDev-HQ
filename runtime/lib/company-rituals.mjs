@@ -1,18 +1,20 @@
 /**
- * Jerusalem morning/evening company rituals — one Noa voice, not 33 agents.
- * Beats Tom Even "alive feeling" without theater processes.
+ * Jerusalem rituals — full company roll-call (names, not 33 processes).
+ * Catch-up once/day if morning window was missed — so "alive" is proven, not theoretical.
  */
 import fs from "fs";
 import path from "path";
-import { OPS, RUNTIME_DIR, nowIso, readJson, writeJson, journal } from "./paths.mjs";
+import { OPS, RUNTIME_DIR, ROOT, nowIso, readJson, writeJson, journal } from "./paths.mjs";
 import { liveStatusHebrew } from "./live-status.mjs";
 import { sendFounderTelegram } from "./telegram.mjs";
 import { readFactory } from "./company-state.mjs";
 import { listInboxSnapshot } from "./inbox-dispatcher.mjs";
 import { nadavHeartbeatSnapshot } from "./nadav-queue.mjs";
 import { listLiveRuns } from "./live-runs.mjs";
+import { LIVE_AGENT_IDS } from "./agent-memory.mjs";
 
 const STAMP = path.join(RUNTIME_DIR, "company-rituals.json");
+const PEOPLE = path.join(ROOT, "ops", "config", "people.json");
 
 export function jerusalemParts(now = new Date()) {
   try {
@@ -30,10 +32,7 @@ export function jerusalemParts(now = new Date()) {
     }).format(now);
     return { hour, date };
   } catch {
-    return {
-      hour: now.getHours(),
-      date: nowIso().slice(0, 10),
-    };
+    return { hour: now.getHours(), date: nowIso().slice(0, 10) };
   }
 }
 
@@ -52,6 +51,30 @@ function already(kind, date) {
   return readStamp()[kind] === date;
 }
 
+function loadPeople() {
+  try {
+    return readJson(PEOPLE, { people: [] }).people || [];
+  } catch {
+    return [];
+  }
+}
+
+function rosterBlock() {
+  const people = loadPeople();
+  const live = new Set(LIVE_AGENT_IDS);
+  const liveNames = people
+    .filter((p) => live.has(p.id))
+    .map((p) => `${p.he} (${p.role})`);
+  const bench = people
+    .filter((p) => !live.has(p.id))
+    .map((p) => p.he);
+  return [
+    `ערים עכשיו (${liveNames.length}): ${liveNames.join(" · ")}`,
+    `ספסל מוכן (${bench.length}) — נקראים למשימה כתובה, לא רצים סתם:`,
+    bench.join(" · "),
+  ].join("\n");
+}
+
 function companyPulseBlock() {
   const factory = readFactory();
   const nadav = nadavHeartbeatSnapshot();
@@ -65,11 +88,12 @@ function companyPulseBlock() {
       : `${open.bet || open.slug} · ${open.waitingFor || open.phase || "רץ"}`;
   return [
     `מפעל: ${openLine}`,
-    `מוצר: ${productOn ? "דולק" : "כבוי עד «תבנו» + סיסמה"}`,
+    `מוצר: ${productOn ? "דולק" : "כבוי עד «תבנו» + סיסמה (יתרון משמעת — לא חולשה)"}`,
     `מחשב (נדב): ${nadav.online ? "דולק" : "כבוי / בלי דופק"}`,
     `Cloud רץ עכשיו: ${live.length ? live.map((r) => r.name || r.specialistId).join(" · ") : "אף אחד"}`,
     `תיבות: פתוחות ${inbox.open.length} · מוחזקות ${inbox.held.length}`,
-    "ליבה חיה: נועה · קשת · רות · נדב · תמיר · ספסל מוכן למשימה כתובה",
+    "",
+    rosterBlock(),
   ].join("\n");
 }
 
@@ -78,13 +102,13 @@ export function buildMorningRitual() {
     "נועה · בוקר טוב · Daily",
     jerusalemParts().date,
     "",
-    "החברה ערה. לא 33 חלונות — חמישה חיים + ספסל ממושמע.",
+    "החברה ערה. כל הכובעים נוכחים בשם — רק הליבה רצה בפועל. זה יותר חזק מתיאטרון.",
     "",
     companyPulseBlock(),
     "",
     liveStatusHebrew(),
     "",
-    "מה ממך היום: כתוב משימה, «סטטוס», או «תבנו» כשמוכנים לבשל מוצר.",
+    "מה ממך היום: משימה, «סטטוס», או «תבנו» כשמוכנים לבשל מוצר.",
   ].join("\n");
 }
 
@@ -101,6 +125,19 @@ export function buildEveningRitual() {
   ].join("\n");
 }
 
+export function buildCatchupRitual() {
+  return [
+    "נועה · דופק יומי (השלמה)",
+    jerusalemParts().date,
+    "",
+    "החברה לא נרדמה באמצע היום. זה הדופק שהיה חסר מול תום — ועכשיו הוא חי.",
+    "",
+    companyPulseBlock(),
+    "",
+    liveStatusHebrew(),
+  ].join("\n");
+}
+
 function saveReport(kind, text) {
   const dir = path.join(OPS, "reports");
   fs.mkdirSync(dir, { recursive: true });
@@ -109,35 +146,53 @@ function saveReport(kind, text) {
   return file;
 }
 
+async function sendRitual(kind, text) {
+  const report = saveReport(kind, text);
+  const telegram = await sendFounderTelegram(text, { silent: false }).catch((err) => ({
+    ok: false,
+    error: String(err?.message || err).slice(0, 160),
+  }));
+  mark(kind, jerusalemParts().date);
+  journal(`ritual_${kind}`, { date: jerusalemParts().date, report });
+  return { telegram, report };
+}
+
 /**
- * Call from desk heartbeat. At most one morning + one evening per Jerusalem day.
+ * Force one ritual now (founder proof / catch-up). Still once per kind per day.
+ */
+export async function sendRitualNow(kind = "catchup") {
+  const { date } = jerusalemParts();
+  if (already(kind, date)) {
+    return { ok: true, skipped: true, reason: "already_today", kind };
+  }
+  const builders = {
+    morning: buildMorningRitual,
+    evening: buildEveningRitual,
+    catchup: buildCatchupRitual,
+  };
+  const build = builders[kind] || buildCatchupRitual;
+  const out = await sendRitual(kind === "catchup" ? "catchup" : kind, build());
+  return { ok: true, kind, ...out };
+}
+
+/**
+ * Heartbeat: morning / evening windows + one midday catch-up if morning was missed.
  */
 export async function tickCompanyRituals() {
   const { hour, date } = jerusalemParts();
-  const out = { morning: null, evening: null };
+  const out = { morning: null, evening: null, catchup: null };
 
-  // Morning window 08:00–10:00 Jerusalem
   if (hour >= 8 && hour <= 10 && !already("morning", date)) {
-    const text = buildMorningRitual();
-    saveReport("morning", text);
-    out.morning = await sendFounderTelegram(text, { silent: false }).catch((err) => ({
-      ok: false,
-      error: String(err?.message || err).slice(0, 160),
-    }));
-    mark("morning", date);
-    journal("ritual_morning", { date });
+    out.morning = await sendRitual("morning", buildMorningRitual());
   }
 
-  // Evening window 19:00–21:00 Jerusalem
+  // If morning never fired today and we're past 10 — one catch-up (beats silent days)
+  if (hour >= 11 && hour <= 18 && !already("morning", date) && !already("catchup", date)) {
+    out.catchup = await sendRitual("catchup", buildCatchupRitual());
+  }
+
   if (hour >= 19 && hour <= 21 && !already("evening", date)) {
-    const text = buildEveningRitual();
-    saveReport("evening", text);
-    out.evening = await sendFounderTelegram(text, { silent: false }).catch((err) => ({
-      ok: false,
-      error: String(err?.message || err).slice(0, 160),
-    }));
-    mark("evening", date);
-    journal("ritual_evening", { date });
+    out.evening = await sendRitual("evening", buildEveningRitual());
   }
 
   return out;
