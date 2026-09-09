@@ -17,6 +17,11 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-09
+- task: Founder — «מה הסיבה שעד עכשיו הוא לא העלה? נראה לי שיש שגיאה»
+- do: Explain root cause (loops + stake-confirm + no HQ persistence), not invented Nadav quotes; verify repo missing via gh; delegate KNU-03 upload-only
+- dont: Blame a single Git error when evidence shows process loops; claim Nadav reported X when ledger has no nadav entry
+- note: KidNest repo absent on GitHub; KNU-03 open, Nadav online, outbox empty
+
 - task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
 - do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet
 - dont: Say «רץ ברקע» when main activeWork null and Nadav outbox empty; leave consolidation PRs unmerged
