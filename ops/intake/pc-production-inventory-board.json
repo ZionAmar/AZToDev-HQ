@@ -178,6 +178,13 @@
       "reason": "Heartbeat flipped to Nadav ONLINE for the first time since 14:56Z (5 straight prior status-recheck turns found PC offline and correctly left PCI-01/02/04/10 queued without asking ציון).",
       "action": "Emitted DELEGATE: 34-pc-ops for PCI-01+02, PCI-04, PCI-10 (all already-filed inbox tickets, read-only, no PIN) — see agents/32-delivery-lead/outbox/2026-09-09_status-recheck-4-pc-online-delegate-nudge.md",
       "note": "PCI-07/08/09 (github relevance review, the actual task re-asked) reconfirmed unchanged/done this same turn — no new classification table written."
+    },
+    {
+      "at": "2026-09-09T20:25:29.676Z",
+      "by": "32-delivery-lead",
+      "reason": "Heartbeat still ONLINE (~68 min since the 19:17:17Z nudge) but agents/34-pc-ops/outbox/ still has zero output for PCI-01/02/04/10. Relay this turn also had empty template placeholders (no real founder content) — see ops/company-lessons.md#empty_template_placeholder_relay.",
+      "action": "Re-nudged DELEGATE: 34-pc-ops on the same 3 inbox tickets; did not guess a new task from the empty relay. See agents/32-delivery-lead/outbox/2026-09-09_status-recheck-5-empty-template-relay.md",
+      "note": "PCI-07/08/09 reconfirmed unchanged/done again (18 repos, live gh check identical)."
     }
   ]
 }
