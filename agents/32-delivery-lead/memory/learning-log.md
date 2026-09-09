@@ -16,4 +16,9 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 ## Iteration log
 ### 2026-09-09
 - Company armed. Waiting for founder build order.
+### 2026-09-09
+- task: KidNest → GitHub migration plan (planning only until PIN)
+- do: artifact in outbox/; preserve 5-app monorepo; orphan first commit if secrets in history; factory key `kidnest` → ZionAmar/KidNest private
+- dont: create repo, push, product PR, or ChemiCloud deploy during planning; dont split monorepo v1
+- note: plan at outbox/2026-09-09_kidnest-github-migration-plan.md; WIP still inventory-deck — execution queued after PIN
 
