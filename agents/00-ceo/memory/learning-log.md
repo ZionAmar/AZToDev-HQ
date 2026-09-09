@@ -19,3 +19,9 @@ HQ appends after each turn. You read this before answering ציון.
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
+
+### 2026-09-09
+- task: Founder asked to explain all of Nadav's Telegram replies in plain Hebrew
+- do: Summarize only what founder relayed + confirmed thread facts; explain slow copy + Google sync overlap in human terms; say what's still queued (projects list, pause confirmation)
+- dont: Invent Nadav quotes, folder names, or «pause done» without PC worker artifact
+- note: Cloud HQ has no Nadav transcript; explained Google-sync finding and pending tasks from conversation evidence
