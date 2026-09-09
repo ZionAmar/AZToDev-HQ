@@ -94,12 +94,19 @@
       "dependsOn": ["INV-01"],
       "inputs": [
         "agents/32-delivery-lead/outbox/2026-09-09_inventory-deck-v2-revision-brief.md",
+        "agents/32-delivery-lead/outbox/2026-09-09_inv-04-screenshot-badge-correction.md — CORRECTION, read before building",
         "ops/intake/inventory-audit/screen-catalog.md",
         "ops/intake/inventory-audit/screenshots/ (27 קיימות — אין צורך בצילום מסכים חדש)"
       ],
       "excludeAssets": [
-        "screenshots/60-sa-companies.png — מציג שם דייר לדוגמה 'איציק סיטונאות' על המסך עצמו; לא לכלול בכלל ב-v2"
+        "screenshots/60-sa-companies.png — מציג שם דייר לדוגמה 'איציק סיטונאות' בטבלה עצמה; לא לכלול בכלל ב-v2 (וגם לא ברשימת ציון)"
       ],
+      "cropRequiredAssets": {
+        "note": "תיקון ל-INV-04: הבדיקה הקודמת (שסימנה רק screenshot 60 כ'מזוהם') לא פתחה את התמונות בפועל. בפועל, כל screenshot מתפקיד admin/agent/warehouse-manager מציג תג-דייר קבוע 'איציק סיטונאות' בפינה הימנית-עליונה של הסרגל הכהה — כולל 10 מתוך 10 שקפי המסך שנבחרו ל-v2 (מלבד שקף 11, שקף הנהג, שאין בו סרגל כלל). ראה agents/32-delivery-lead/outbox/2026-09-09_inv-04-screenshot-badge-correction.md לראיה המדויקת (קואורדינטות פיקסלים, נמדד עם PIL על כל 24 screenshots הרלוונטיות).",
+        "cropSpec": "לפני הכנסה לשקף: crop כל screenshot מתפקיד admin/agent/warehouse-manager ל-x:0–1217 (מתוך רוחב מקורי 1440px, גובה 900px נשאר מלא) — מסיר את כל הסרגל הכהה (223px) שבו נמצא התג. שקף הנהג (50-driver-deliveries.png) לא צריך crop — אין בו סרגל.",
+        "affectedScreens": ["10","11","12","13","14","17","18","19","20","30","40","41"],
+        "unaffectedScreens": ["50-driver-deliveries.png — נבדק, אין תג/סרגל, אין צורך ב-crop"]
+      },
       "blockedNote": "בניית ה-PPTX בפועל היא עבודת 22-content-marketing (לא 32-delivery-lead). מיקום הקובץ הסופי בתיקיית שולחן העבודה של ציון (`ניהול מלאי`) ורענון/מחיקת ה-v1 הישן שם דורשים DELEGATE נפרד ל-34-pc-ops (כתיבת דיסק PC). שליחת מייל עם הקובץ (אם רוצים) דורשת PIN לפי מדיניות."
     }
   ],
