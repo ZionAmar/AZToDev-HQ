@@ -6,6 +6,7 @@ import { sendFounderTelegram } from "./telegram.mjs";
 import { pinNagDue } from "./waiting-founder.mjs";
 import { dispatchNextInbox } from "./inbox-dispatcher.mjs";
 import { kickWorkQueue } from "./work-queue.mjs";
+import { liveStatusHebrew } from "./live-status.mjs";
 
 let ticking = false;
 
@@ -15,7 +16,9 @@ export async function tickCompanyHeartbeat() {
   try {
     const nag = pinNagDue();
     if (nag) {
-      await sendFounderTelegram(nag, { silent: false }).catch(() => {});
+      await sendFounderTelegram(`${nag}\n\n${liveStatusHebrew()}`, { silent: false }).catch(
+        () => {}
+      );
       journal("pin_nag_sent", {});
     }
     kickWorkQueue();

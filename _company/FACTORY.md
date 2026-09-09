@@ -33,6 +33,7 @@
 - אין PR למוצר, אין deploy, אין נגיעה באתרים חיים
 - טלגרם + בית + סטטוס PC/שרת (קריאה) — **כן**
 - קשת חמושה לתכנון + Linear. מהנדסים על הספסל עד «תבנו» + PIN
+- «סטטוס» = זרימה חיה: מי רץ (קישור Cloud) · למה מחכים בדיוק · מה הבא. נועה מטריאז'ת כל עדכון מומחה — תקלה / צריך ציון / שלב הבא.
 - לוח HQ: Linear [EMET-65](https://linear.app/my-company1460/issue/EMET-65)
 - לוח מוצר: [AZToDev Product — Keshet](https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd) · [EMET-66](https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order)
 

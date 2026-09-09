@@ -11,6 +11,7 @@ import { readAgentName } from "../../runtime/lib/router.mjs";
 import { usesHqOpsCloud } from "../../runtime/lib/specialist-runtime.mjs";
 import { memoryPromptBlock, recordAgentTurn, stripLearningBlock } from "../../runtime/lib/agent-memory.mjs";
 import { runtimeFactsBlock } from "../../runtime/lib/runtime-facts.mjs";
+import { upsertLiveRun, clearLiveRun } from "../../runtime/lib/live-runs.mjs";
 
 export function cloudRepoUrl() {
   return (process.env.GITHUB_REPO || "").trim();
@@ -83,7 +84,23 @@ function hqRef() {
   return (process.env.GITHUB_HQ_REF || process.env.GITHUB_REF || "main").trim();
 }
 
-async function launchCloudRun(prompt, { apiKey, modelId, repoUrl, ref, autoCreatePR }) {
+async function emitLiveStart(onStart, info) {
+  if (typeof onStart !== "function") return;
+  try {
+    await onStart(info);
+  } catch {
+    /* live-status must never fail the run */
+  }
+}
+
+async function launchCloudRun(prompt, {
+  apiKey,
+  modelId,
+  repoUrl,
+  ref,
+  autoCreatePR,
+  onStart,
+}) {
   const sdk = await import("@cursor/sdk");
   const Agent = sdk.Agent;
   const cloud = {
@@ -92,30 +109,40 @@ async function launchCloudRun(prompt, { apiKey, modelId, repoUrl, ref, autoCreat
     skipReviewerRequest: true,
   };
   const opts = { apiKey, model: { id: modelId }, cloud };
+  let agent;
   try {
-    const agent = await Agent.create(opts);
-    try {
-      const run = await agent.send(prompt);
-      const result = await run.wait();
-      return {
-        result,
-        cloudAgentId: agent.agentId || run.agentId || null,
-        runId: run.id || result?.id || null,
-      };
-    } finally {
-      if (typeof agent[Symbol.asyncDispose] === "function") {
-        await agent[Symbol.asyncDispose]();
-      } else if (typeof agent.close === "function") {
-        agent.close();
-      }
-    }
+    agent = await Agent.create(opts);
   } catch {
     const result = await Agent.prompt(prompt, opts);
+    const cloudAgentId = result?.agentId || null;
+    await emitLiveStart(onStart, { cloudAgentId, runId: result?.id || null });
     return {
       result,
-      cloudAgentId: result?.agentId || null,
+      cloudAgentId,
       runId: result?.id || null,
     };
+  }
+  const startedId = agent.agentId || agent.id || null;
+  await emitLiveStart(onStart, { cloudAgentId: startedId, runId: null });
+  try {
+    const run = await agent.send(prompt);
+    const liveId = agent.agentId || run.agentId || startedId;
+    await emitLiveStart(onStart, {
+      cloudAgentId: liveId,
+      runId: run.id || null,
+    });
+    const result = await run.wait();
+    return {
+      result,
+      cloudAgentId: liveId || result?.agentId || null,
+      runId: run.id || result?.id || null,
+    };
+  } finally {
+    if (typeof agent[Symbol.asyncDispose] === "function") {
+      await agent[Symbol.asyncDispose]();
+    } else if (typeof agent.close === "function") {
+      agent.close();
+    }
   }
 }
 
@@ -143,6 +170,7 @@ You run on Cursor Cloud. Telegram desk is a thin process on ChemiCloud (aztodev-
 Load _company/COMPANY_LOOP.md. First Telegram reply: what you understood + the plan. Wait for אשר. Then DELEGATE.
 Never ask if the PC is on — HQ heartbeat is in the prompt.
 Linear: one project per job. Update existing issues. Never open parallel KNG/KG/KNU clones.
+LIVE FLOW is in the prompt. Status = now / waiting-for-exactly / next / Cloud agent URL. Never invent standing chats.
 To delegate:
   DELEGATE: 33-household-ops | <task>
   DELEGATE: 34-pc-ops | <task>
@@ -152,7 +180,7 @@ Product engineers only AFTER productWorkEnabled.
 If PIN is needed, say it in Hebrew immediately. Do not drop the task.
 Never invent job ids. Nadav never runs on ChemiCloud.
 NEVER DELEGATE Tamir (35-server-ops) unless ציון explicitly asked to check the server (RAM/swap/load). Do not scan ChemiCloud because a status JSON says SSH is missing. Do not add side quests.
-Telegram: clear professional Hebrew. Answer first.
+Telegram: clear professional Hebrew. Answer first. If a specialist hit a problem, you own routing it — fix, tell ציון only if he must act, or move the next stage.
 `;
   }
   if (agentId === "32-delivery-lead") {
@@ -179,6 +207,7 @@ export async function runCloudOpsWork({
   agentLabel = "AZToDev ops",
   autoCreatePR = false,
   fromAgentId = "",
+  onLiveStart,
 }) {
   const apiKey = (process.env.CURSOR_API_KEY || "").trim();
   const url = resolveAgentRepo(agentId, "hq");
@@ -210,13 +239,29 @@ Task:
 ${task}
 `;
 
-  const launched = await launchCloudRun(prompt, {
-    apiKey,
-    modelId: cursorModelId(agentId || undefined),
-    repoUrl: url,
-    ref: hqRef(),
-    autoCreatePR,
-  });
+  let launched;
+  try {
+    launched = await launchCloudRun(prompt, {
+      apiKey,
+      modelId: cursorModelId(agentId || undefined),
+      repoUrl: url,
+      ref: hqRef(),
+      autoCreatePR,
+      onStart: async (info) => {
+        if (agentId) {
+          upsertLiveRun({
+            specialistId: agentId,
+            name,
+            task,
+            cloudAgentId: info.cloudAgentId,
+          });
+        }
+        if (typeof onLiveStart === "function") await onLiveStart(info);
+      },
+    });
+  } finally {
+    if (agentId) clearLiveRun(agentId);
+  }
   const result = launched.result;
 
   journal("cloud_ops_finished", {
@@ -267,6 +312,7 @@ export async function runCloudWork({
   agentLabel = "AZToDev specialist",
   repo = "",
   autoCreatePR = true,
+  onLiveStart,
 }) {
   if (!isProductWorkEnabled()) {
     return { ok: false, error: "standby_no_product" };
@@ -285,8 +331,6 @@ export async function runCloudWork({
   const name = agentId ? readAgentName(agentId) : agentLabel;
   const role = specialistPromptSlice(agentId);
   const memory = agentId ? memoryPromptBlock(agentId) : "";
-  const sdk = await import("@cursor/sdk");
-  const Agent = sdk.Agent;
   const prompt = `[AZToDev · ${name}${agentId ? ` · ${agentId}` : ""}]
 Founder: ציון עמר. Hebrew with founder. Code/PRs: Technical English.
 Source of truth: company FACTORY + PRODUCT_PIPELINE.
@@ -300,27 +344,37 @@ Task:
 ${task}
 `;
 
-  const result = await Agent.prompt(prompt, {
-    apiKey,
-    model: { id: cursorModelId(agentId || undefined) },
-    cloud: {
-      repos: [
-        {
-          url,
-          startingRef: (process.env.GITHUB_REF || "main").trim(),
-        },
-      ],
+  let launched;
+  try {
+    launched = await launchCloudRun(prompt, {
+      apiKey,
+      modelId: cursorModelId(agentId || undefined),
+      repoUrl: url,
+      ref: (process.env.GITHUB_REF || "main").trim(),
       autoCreatePR,
-      skipReviewerRequest: true,
-    },
-  });
+      onStart: async (info) => {
+        if (agentId) {
+          upsertLiveRun({
+            specialistId: agentId,
+            name,
+            task,
+            cloudAgentId: info.cloudAgentId,
+          });
+        }
+        if (typeof onLiveStart === "function") await onLiveStart(info);
+      },
+    });
+  } finally {
+    if (agentId) clearLiveRun(agentId);
+  }
+  const result = launched.result;
 
   journal("cloud_work_finished", {
     url,
     status: result?.status,
     agentLabel: name,
     specialistId: agentId || null,
-    cloudAgentId: result?.agentId || null,
+    cloudAgentId: launched.cloudAgentId || result?.agentId || null,
   });
 
   const text =
@@ -332,7 +386,7 @@ ${task}
     ok: result?.status !== "error",
     status: result?.status,
     text: String(text).slice(0, 8000),
-    agentId: result?.agentId,
+    agentId: launched.cloudAgentId || result?.agentId,
     repo: url,
     specialistId: agentId || null,
   };

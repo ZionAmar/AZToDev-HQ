@@ -1,7 +1,8 @@
 import path from "path";
 import { OPS, readJson } from "./paths.mjs";
-import { companyMode, isProductWorkEnabled, readFactory } from "./company-state.mjs";
+import { isProductWorkEnabled, readFactory } from "./company-state.mjs";
 import { nadavHeartbeatSnapshot } from "./nadav-queue.mjs";
+import { liveStatusHebrew } from "./live-status.mjs";
 
 export function matchPhoneCommand(raw) {
   const t = String(raw || "").trim();
@@ -45,7 +46,7 @@ export function helpHebrew() {
     "מהנייד:",
     "• טקסט או הקלטה — מגיע אליי. הקלטה = תמלול + תשובה בכתב.",
     "• הוראה שמשנה משהו (מייל יוצא, קוד, PR) — קודם סיסמה, אחר כך ההוראה.",
-    "• «סטטוס» — מי מחובר, מה מוכן",
+    "• «סטטוס» — מי רץ עכשיו, למה מחכים, קישור לאייג'נט, השלב הבא",
     "• «עזרה» — ההודעה הזו",
     "• «שיחה חדשה» — מתחילים שיחה נקייה",
     "",
@@ -61,41 +62,21 @@ function mark(ok) {
   return ok ? "מחובר" : "חסר";
 }
 
-export function companyStatusHebrew() {
+function accountsHebrew() {
   const factory = readFactory();
   const conn = readJson(path.join(OPS, "runtime", "connections.json"), {});
   const c = conn.accounts || {};
   const nadav = nadavHeartbeatSnapshot();
-  const lines = [
-    "AZToDev — מצב החברה",
-    `מצב: ${companyMode() === "standby" ? "הקמה / מוכנה" : companyMode()}`,
-    "דלפק: נועה בטלגרם על ChemiCloud (תיקייה נפרדת, בלי Cursor)",
-    `נדב (מחשב): ${nadav.online ? "דולק" : "כבוי / ממתין לפתיחת המחשב"}`,
-    `עבודת מוצר (Cloud/PR): ${isProductWorkEnabled() ? "דולקת" : "כבויה (בכוונה)"}`,
-    `חברת קשת: ${factory.productCompanyReady ? "מוכנה — ממתינה ל«תבנו»" : "לא חמושה"}`,
-    "",
-    "חשבונות:",
-    `• Cursor: ${mark(c.cursor?.ok)}`,
-    `• GitHub דרך Cursor: ${mark(c.github?.ok)}${
-      c.github?.count != null ? ` (${c.github.count} ריפואים)` : ""
-    }`,
-    `• טלגרם: ${mark(c.telegram?.ok)}`,
-    `• Linear: ${mark(c.linear?.ok)}`,
-    `• OpenAI: ${mark(c.openai?.ok)}`,
-    `• Gemini: ${mark(c.gemini?.ok)}`,
-    `• Gmail שליחה: ${mark(c.gmail?.ok)}`,
-    `• Gmail קריאה (IMAP): ${mark(c.gmailRead?.ok)}`,
-    `• שרת SSH: ${mark(c.ssh?.ok)}`,
-    `• פייסבוק פרסום: ${mark(c.facebookPublish?.ok)}`,
-    `• יוטיוב העלאה: ${mark(c.youtubeUpload?.ok)}`,
-    "",
-    factory.linearProductIssue
-      ? `לוח מוצר: ${factory.linearProductIssue}`
-      : factory.linearHqIssue
-      ? `לוח: ${factory.linearHqIssue}`
-      : "לוח: Linear (צוות EMET)",
-    "",
-    "פקודות: סטטוס · עזרה · שיחה חדשה",
-  ];
-  return lines.join("\n");
+  return [
+    `נדב: ${nadav.online ? "דולק" : "כבוי"} · מוצר: ${
+      isProductWorkEnabled() ? "דולק" : "כבוי"
+    } · קשת: ${factory.productCompanyReady ? "חמושה" : "לא"}`,
+    `חיבורים: Cursor ${mark(c.cursor?.ok)} · GitHub ${mark(c.github?.ok)} · טלגרם ${mark(
+      c.telegram?.ok
+    )} · Linear ${mark(c.linear?.ok)}`,
+  ].join("\n");
+}
+
+export function companyStatusHebrew() {
+  return [liveStatusHebrew(), "", accountsHebrew()].join("\n");
 }

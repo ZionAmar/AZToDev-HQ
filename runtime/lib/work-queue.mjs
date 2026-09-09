@@ -6,6 +6,9 @@ import { RUNTIME_DIR, readJson, writeJson, nowIso, journal } from "./paths.mjs";
 import { filterJobsForFounderAsk } from "./work-intent.mjs";
 import { listBackgroundJobs, startBackgroundDelegate } from "./background-delegate.mjs";
 import { productCloudBlocked } from "./specialist-runtime.mjs";
+import { sendFounderTelegram } from "./telegram.mjs";
+import { liveStatusHebrew } from "./live-status.mjs";
+import { readAgentName } from "./router.mjs";
 
 const PATH = path.join(RUNTIME_DIR, "work-queue.json");
 
@@ -40,6 +43,8 @@ export function enqueueWork(jobs, { founderText = "", fromAgentId = "00-ceo" } =
   const filtered = filterJobsForFounderAsk(jobs, founderText);
   const store = readQueue();
   store.items = Array.isArray(store.items) ? store.items : [];
+  let added = 0;
+  const addedNames = [];
   for (const j of filtered) {
     if (productCloudBlocked(j.agentId)) continue;
     if (recentlySame(j.agentId, j.task)) {
@@ -65,10 +70,23 @@ export function enqueueWork(jobs, { founderText = "", fromAgentId = "00-ceo" } =
       status: "queued",
       createdAt: nowIso(),
     });
+    added += 1;
+    addedNames.push(readAgentName(j.agentId) || j.agentId);
   }
   writeQueue(store);
   journal("work_queue_enqueued", { n: filtered.length });
-  return kickWorkQueue();
+  const kicked = kickWorkQueue();
+  if (!kicked.started && kicked.reason === "busy" && added) {
+    sendFounderTelegram(
+      [
+        "נועה · בתור",
+        `${addedNames.join(" · ")} מחכים שמי שרץ עכשיו יסיים.`,
+        liveStatusHebrew(),
+      ].join("\n"),
+      { silent: true }
+    ).catch(() => {});
+  }
+  return kicked;
 }
 
 export function kickWorkQueue(depth = 0) {

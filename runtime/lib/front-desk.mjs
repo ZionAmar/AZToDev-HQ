@@ -61,51 +61,14 @@ function isStatusAsk(raw) {
 
 /** Instant founder-facing snapshot — no Cursor agent (never silent). */
 export function buildFounderStatusBrief() {
-  const core = companyStatusHebrew();
-  if (!isProductWorkEnabled()) return core;
-
-  const pipe = readPipeline();
-  const jobs = readJson(path.join(OPS, "runtime", "background-jobs.json"), {
-    jobs: [],
-  });
-  const running = (jobs.jobs || []).filter((j) => j.status === "running");
-  const recent = (jobs.jobs || [])
-    .filter((j) => j.status === "done" || j.status === "error")
-    .slice(0, 3);
-  const lines = [core, "", "צינור משימות:"];
-  lines.push(
-    `לוח: ${pipe.lastCompletedId ? `אחרונה שהושלמה ${pipe.lastCompletedId}` : "אין"} · ${
-      pipe.waitingFounder ? "ממתינים לאישורך להמשיך" : pipe.currentTaskId
-        ? `בעבודה: ${pipe.currentTaskId}`
-        : "אין משימה פעילה בצינור"
-    }`
-  );
-  if (running.length) {
-    lines.push("עובדים עכשיו ברקע:");
-    for (const j of running.slice(0, 5)) {
-      lines.push(`• ${j.agentName || j.agentId} (${j.id})`);
-    }
-  } else {
-    lines.push("אין סוכנים ברקע כרגע.");
-  }
-  if (recent.length) {
-    lines.push("אחרונים שסיימו:");
-    for (const j of recent) {
-      lines.push(
-        `• ${j.agentName || j.agentId}: ${j.status}${j.finishedAt ? ` · ${j.finishedAt.slice(11, 16)}` : ""}`
-      );
-    }
-  }
+  const lines = [companyStatusHebrew()];
   try {
     const brief = boardStatusHebrew();
-    if (brief) lines.push("", brief.slice(0, 900));
+    if (brief) lines.push("", brief.slice(0, 600));
   } catch {
     /* ignore */
   }
-  lines.push(
-    "",
-    "פקודות: «סטטוס» · «עזרה» · «שיחה חדשה»."
-  );
+  lines.push("", "פקודות: «סטטוס» · «עזרה» · «שיחה חדשה».");
   return lines.join("\n");
 }
 

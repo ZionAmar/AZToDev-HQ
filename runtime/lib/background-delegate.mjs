@@ -22,6 +22,9 @@ import { enqueueNadavJob, shouldNotifyPcOffline } from "./nadav-queue.mjs";
 import { isActionUnlocked } from "./action-pin.mjs";
 import { applyActivateProduct } from "./product-activate.mjs";
 import { setWaitingFounder } from "./waiting-founder.mjs";
+import { upsertLiveRun, clearLiveRun, cloudAgentUrl } from "./live-runs.mjs";
+import { liveStatusHebrew } from "./live-status.mjs";
+import { triageSpecialistResult, formatNoaUpdate } from "./noa-triage.mjs";
 import fs from "fs";
 
 const JOBS_PATH = path.join(OPS, "runtime", "background-jobs.json");
@@ -32,6 +35,15 @@ function readJobs() {
 
 function writeJobs(data) {
   writeJson(JOBS_PATH, { ...data, updatedAt: nowIso() });
+}
+
+function patchJob(jobId, fields) {
+  const jobs = readJobs();
+  const row = (jobs.jobs || []).find((j) => j.id === jobId);
+  if (!row) return null;
+  Object.assign(row, fields);
+  writeJobs(jobs);
+  return row;
 }
 
 function writeBusHandoff(from, to, body) {
@@ -113,7 +125,11 @@ export function startBackgroundDelegate({
       (async () => {
         if (!notifyFounder || !shouldNotifyPcOffline()) return;
         await sendFounderTelegram(
-          "נדב בתור. ייפתח על המחשב כשהוא דולק — בלי Cursor על השרת.",
+          [
+            "נועה · זרימה",
+            `נדב בתור על המחשב — «${String(task).slice(0, 80)}»`,
+            liveStatusHebrew(),
+          ].join("\n"),
           { silent: true }
         ).catch(() => {});
       })();
@@ -128,6 +144,31 @@ export function startBackgroundDelegate({
 
   setImmediate(() => {
     (async () => {
+      upsertLiveRun({ specialistId: agentId, name, task, jobId });
+      let startNotified = false;
+      const onLiveStart = async ({ cloudAgentId } = {}) => {
+        const id = String(cloudAgentId || "").trim();
+        upsertLiveRun({
+          specialistId: agentId,
+          name,
+          task,
+          cloudAgentId: id,
+          jobId,
+        });
+        if (id) patchJob(jobId, { cloudAgentId: id });
+        if (!notifyFounder || startNotified || !id) return;
+        startNotified = true;
+        const url = cloudAgentUrl(id);
+        await sendFounderTelegram(
+          [
+            "נועה · רץ עכשיו",
+            `${name} — ${String(task).replace(/\s+/g, " ").slice(0, 120)}`,
+            url,
+            "«סטטוס» לכל הזרימה",
+          ].join("\n"),
+          { silent: true }
+        ).catch(() => {});
+      };
       try {
         const out = specialistUsesCloud(agentId)
           ? usesHqOpsCloud(agentId)
@@ -136,11 +177,13 @@ export function startBackgroundDelegate({
                 agentId,
                 agentLabel: name,
                 fromAgentId,
+                onLiveStart,
               })
             : await runCloudWork({
                 task: `${readAgentName(fromAgentId || "00-ceo")} asked you:\n\n${task}`,
                 agentId,
                 agentLabel: name,
+                onLiveStart,
               })
           : await chatWithAgent(agentId, task, {
               asDelegation: true,
@@ -160,8 +203,10 @@ export function startBackgroundDelegate({
           row.status = out.ok ? "done" : "error";
           row.finishedAt = nowIso();
           row.resultPreview = activated.cleaned.slice(0, 500);
+          if (out.agentId) row.cloudAgentId = out.agentId;
         }
         writeJobs(jobs);
+        clearLiveRun(agentId);
         journal("delegate_background_done", {
           jobId,
           agentId,
@@ -191,10 +236,23 @@ export function startBackgroundDelegate({
         }
 
         if (notifyFounder) {
-          const clean = sanitizeForTelegram(activated.cleaned).slice(0, 1200);
+          const triage = triageSpecialistResult({
+            agentId,
+            name,
+            text: activated.cleaned,
+            ok: out.ok,
+          });
           const extra = activated.message ? `\n\n${activated.message}` : "";
-          const msg = `עדכון מרקע · ${name} (${agentId})\nמשימה הסתיימה.\n\n${clean || "(בלי טקסט)"}${extra}\n\nאפשר לשאול אותי מה המשמעות / מה הצעד הבא.`;
-          await sendFounderTelegram(msg, { silent: false });
+          const msg =
+            formatNoaUpdate({
+              name,
+              triage,
+              liveLine: liveStatusHebrew(),
+              preview: activated.cleaned,
+            }) + extra;
+          await sendFounderTelegram(sanitizeForTelegram(msg).slice(0, 3500), {
+            silent: false,
+          });
           appendTelegramThread(agentId, msg, { source: "background_delegate" });
         }
       } catch (err) {
@@ -207,6 +265,7 @@ export function startBackgroundDelegate({
           row.error = msg;
         }
         writeJobs(jobs);
+        clearLiveRun(agentId);
         journal("delegate_background_error", { jobId, agentId, error: msg });
         try {
           const { onWorkFinished } = await import("./work-queue.mjs");
@@ -215,8 +274,19 @@ export function startBackgroundDelegate({
           /* ignore */
         }
         if (notifyFounder) {
-          const errMsg = `עדכון · ${name} נתקע ברקע על המשימה.\n${msg}\nאפשר להמשיך לדבר איתי — הם לא חוסמים אותי.`;
-          await sendFounderTelegram(errMsg, { silent: true }).catch(() => {});
+          const triage = triageSpecialistResult({
+            agentId,
+            name,
+            text: msg,
+            ok: false,
+          });
+          const errMsg = formatNoaUpdate({
+            name,
+            triage,
+            liveLine: liveStatusHebrew(),
+            preview: msg,
+          });
+          await sendFounderTelegram(errMsg, { silent: false }).catch(() => {});
           appendTelegramThread(agentId, errMsg, { source: "background_delegate_error" });
         }
       }
