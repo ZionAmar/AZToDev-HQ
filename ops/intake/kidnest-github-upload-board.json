@@ -1,0 +1,116 @@
+{
+  "updatedAt": "2026-09-09T10:30:00.000Z",
+  "initiative": "IDEA-kidnest-github-upload",
+  "project": "KidNest — GitHub upload",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "targetRepo": {
+    "owner": "ZionAmar",
+    "name": "KidNest",
+    "url": "https://github.com/ZionAmar/KidNest",
+    "visibility": "private"
+  },
+  "founderAsk": "העלה את KidNest ל-GitHub פרטי — מונורפו אחד, בלי סודות",
+  "status": "in_progress",
+  "linearProjectUrl": null,
+  "linearPublishNote": "Run runtime/scripts/kidnest-github-upload-linear-publish.mjs when LINEAR_API_KEY available",
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "owners": {
+    "lead": "32-delivery-lead",
+    "pcExecute": "34-pc-ops",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תכנון ריפו + מבנה מונורפו",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "nameHe": "סריקת PC — גודל, git, סודות",
+      "status": "done"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו פרטי + push ראשון",
+      "status": "ready"
+    },
+    {
+      "id": "P4",
+      "nameHe": "אימות — URL, branches, ללא סודות",
+      "status": "todo"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KNU-01",
+      "phase": "P1",
+      "titleHe": "תוכנית ריפו — מונורפו, .gitignore, מה לא נכנס",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "KNU-01-repo-plan.md — שם ריפו, מבנה, gitignore, pre-push checklist",
+      "statusHe": "הושלמה",
+      "artifact": "agents/32-delivery-lead/memory/kidnest-github-upload/KNU-01-repo-plan.md",
+      "completedAt": "2026-09-09T10:00:00.000Z"
+    },
+    {
+      "id": "KNU-02",
+      "phase": "P2",
+      "titleHe": "סריקת PC — נתיב, גודל, git status, קבצי סוד",
+      "owner": "34-pc-ops",
+      "status": "done",
+      "priority": "P0",
+      "dod": "scan summary — path exists, size, .git state, secrets list",
+      "statusHe": "סגור — לא לפתוח מחדש",
+      "artifact": "agents/32-delivery-lead/memory/kidnest-github-upload/KNU-02-scan-summary.md",
+      "resultHe": "נתיב מאומת מ-audit; מונורפו 5 אפליקציות; סריקה סגורה",
+      "completedAt": "2026-09-09T09:00:00.000Z",
+      "doNotReopen": true
+    },
+    {
+      "id": "KNU-03",
+      "phase": "P3",
+      "titleHe": "handoff לנדב — יצירת ריפו פרטי + push",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "packet ב-inbox נדב + outbox קשת; board ready; PIN required for execute",
+      "statusHe": "handoff מוכן — ממתין ל-PC + PIN",
+      "dependsOn": ["KNU-01", "KNU-02"],
+      "artifact": "agents/34-pc-ops/inbox/2026-09-09_KNU-03-repo-create-push.md",
+      "handoffOutbox": "agents/32-delivery-lead/outbox/2026-09-09_KNU-03-nadav-handoff.md",
+      "delegateTo": "34-pc-ops",
+      "completedAt": "2026-09-09T10:30:00.000Z"
+    },
+    {
+      "id": "KNU-04",
+      "phase": "P4",
+      "titleHe": "אימות push — repo URL, main branch, אין סודות ב-git",
+      "owner": "34-pc-ops",
+      "status": "ready",
+      "priority": "P0",
+      "dod": "repo URL + git ls-files check + screenshot/gh repo view JSON",
+      "statusHe": "מוכנה — אחרי KNU-03 execute",
+      "dependsOn": ["KNU-03"],
+      "artifact": null,
+      "executeRequires": ["PIN", "Windows on", "gh auth"]
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "todo": 0,
+    "ready": 1,
+    "in_progress": 0,
+    "waiting_founder": 0,
+    "done": 3,
+    "blocked": 0
+  },
+  "workflow": {
+    "mode": "sequential",
+    "language": "he",
+    "waitFounderBetweenTasks": false,
+    "pinRequiredFor": ["KNU-03 execute", "KNU-04"]
+  }
+}
