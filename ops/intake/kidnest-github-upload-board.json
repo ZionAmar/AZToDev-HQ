@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T10:30:00.000Z",
+  "updatedAt": "2026-09-09T11:16:16.425Z",
   "initiative": "kidnest-github-upload",
   "project": "KidNest — העלאה ל-GitHub",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
@@ -43,7 +43,9 @@
       "status": "done",
       "priority": "P0",
       "dod": "תכנית העלאה + 4 שלבים בלינאר",
-      "completedAt": "2026-09-09T08:00:00.000Z"
+      "completedAt": "2026-09-09T08:00:00.000Z",
+      "linearIssue": "EMET-151",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-151/knu-01-תכנית-מבנה-ריפו-פרויקט-מעקב"
     },
     {
       "id": "KNU-02",
@@ -55,7 +57,9 @@
       "dod": "דוח: גודל, תיקיות, node_modules, .env, מה לא עולה",
       "completedAt": "2026-09-09T10:30:00.000Z",
       "resultHe": "דוח נמסר לציון בטלגרם (מספר פעמים). נסגר לפי אישור מייסד — לא לסרוק שוב.",
-      "artifact": "ops/reports/kidnest-upload/2026-09-09_scan-founder-confirmed.md"
+      "artifact": "ops/reports/kidnest-upload/2026-09-09_scan-founder-confirmed.md",
+      "linearIssue": "EMET-152",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-152/knu-02-סריקת-תיקיית-kidnest-מה-מעלים-מה-לא"
     },
     {
       "id": "KNU-03",
@@ -66,7 +70,9 @@
       "priority": "P0",
       "dod": "ריפו ZionAmar/KidNest (private) עם .gitignore נכון, ללא secrets",
       "blockedBy": null,
-      "instructions": "Use existing scan from PC session. Do NOT re-run stake-confirm or location approval. Create repo + push."
+      "instructions": "Use existing scan from PC session. Do NOT re-run stake-confirm or location approval. Create repo + push.",
+      "linearIssue": "EMET-153",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-153/knu-03-יצירת-ריפו-פרטי-והעלאת-קוד"
     },
     {
       "id": "KNU-04",
@@ -75,7 +81,9 @@
       "owner": "00-ceo",
       "status": "pending",
       "priority": "P0",
-      "dod": "קישור GitHub + סיכום מה עלה"
+      "dod": "קישור GitHub + סיכום מה עלה",
+      "linearIssue": "EMET-154",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-154/knu-04-אימות-קישור-לריפו-לציון"
     }
   ]
 }

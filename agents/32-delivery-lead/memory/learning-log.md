@@ -16,4 +16,9 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 ## Iteration log
 ### 2026-09-09
 - Company armed. Waiting for founder build order.
+### 2026-09-09
+- task: Merge kidnest-consolidate-status-0d6b; sync Keshet Linear only
+- do: Fast-forward merge consolidate branch; publish KNU to Keshet project by projectId; cancel EMET-66 when bet lands
+- dont: Touch KidNest — GitHub upload duplicate project (EMET-139..150); dont mark KNU-04 done before repo exists
+- note: main merged; Keshet EMET-151..154 live; KNU-03 In Progress → delegate Nadav
 
