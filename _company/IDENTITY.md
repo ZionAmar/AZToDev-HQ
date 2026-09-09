@@ -23,7 +23,9 @@ English: Software development, apps, and websites — for personal projects or b
 
 הגישה: מהשטח לקוד. לא רק שורות — פתרונות שעובדים ושורדים.
 
-פירוט: [`FOUNDER.md`](./FOUNDER.md)
+התיק הציבורי כולו תחת **AZToDev** / [aztodev.com](https://aztodev.com) — פיתוח, יזמות והוראה באותו בית. לא להציג רשימת מוצרים בלי האתר.
+
+פירוט פנימי: [`FOUNDER.md`](./FOUNDER.md) · מסמך היכרות להצגה: [`FOUNDER_BRIEF.md`](./FOUNDER_BRIEF.md)
 
 ## הבטחה
 לא דמו שמתפרק. מוצרים שאפשר לסמוך עליהם ולשלם עליהם.

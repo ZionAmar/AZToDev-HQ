@@ -97,7 +97,8 @@
 | [`STACK.md`](./STACK.md) | כלים |
 | [`PERMISSIONS.md`](./PERMISSIONS.md) | מה באמת מחובר |
 | [`DELEGATION_POLICY.md`](./DELEGATION_POLICY.md) | נועה מנתבת, לא מבצעת |
-| [`FOUNDER.md`](./FOUNDER.md) | מי ציון |
+| [`FOUNDER.md`](./FOUNDER.md) | מי ציון (סוכנים) · תיק תחת [aztodev.com](https://aztodev.com) |
+| [`FOUNDER_BRIEF.md`](./FOUNDER_BRIEF.md) | מסמך היכרות רשמי להצגה |
 | [`COMPANY_LOOP.md`](./COMPANY_LOOP.md) | איך משימה זזה: אשר → Linear → נדב → PIN → המשך |
 | `ops/config/factory.json` | מצב + WIP |
 | [`../AGENTS.md`](../AGENTS.md) | הוראות לכל סוכן Cursor |

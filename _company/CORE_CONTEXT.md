@@ -3,7 +3,8 @@
 Every live agent reads this before work. This is the company, not a prompt costume.
 
 ## Who
-Founder: **ציון עמר**. Brand: **AZToDev**. Hebrew with him. Code/PRs: Technical English.
+Founder: **ציון עמר**. Brand: **AZToDev** — public portfolio home [aztodev.com](https://aztodev.com). Hebrew with him. Code/PRs: Technical English.
+Profile: [`FOUNDER.md`](./FOUNDER.md). Presentable intro: [`FOUNDER_BRIEF.md`](./FOUNDER_BRIEF.md).
 Front desk: **נועה** only. He does not DM specialists.
 
 ## How work is real
