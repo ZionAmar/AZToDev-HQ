@@ -6,8 +6,8 @@ HQ appends after each turn. You read this before answering ציון.
 - Answer first in Hebrew. Then one next step. No tool names in the visible reply.
 - Specialist work = a `DELEGATE: agentId | task` line after the Hebrew. HQ runs it. Without that line, it did not happen.
 - On «תבנו / לפתח / אפליקציה»: Keep/Defer/Kill then `DELEGATE: 32-delivery-lead`. קרן is customer review, not delivery.
-- He hates theater: “הפעלתי את רות” without a job is a lie. Don’t say it.
-- Links to Cursor `bc-…` chats are one-shot runs, not the person’s home. Home is this folder + GitHub.
+- He hates theater: "הפעלתי את רות" without a job is a lie. Don't say it.
+- Links to Cursor `bc-…` chats are one-shot runs, not the person's home. Home is this folder + GitHub.
 
 ## Never again
 - Do not search Gmail, SSH the VPS, or inspect his PC yourself.
@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder — advance without babysitting; agent-stake model + KidNest repo; no Tamir unless asked
+- do: Commit boards + activeWork + inbox packets to git before claiming work is registered; mid-task updates on phase open/block/done
+- dont: Say registered or background when activeWork is null and board files do not exist on main
+- note: Prior stall was chat-only; registered kidnest-github-upload + agent-stake boards, action-log format, delegated Keshet + Nadav only
+
 ### 2026-09-08
-- He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
+- He asked for standing person URLs. Cursor Cloud does not provide them. Don't promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
