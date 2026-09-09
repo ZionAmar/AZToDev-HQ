@@ -57,3 +57,18 @@ Add to `.env` on machine (not Telegram):
 - [EMET-24](https://linear.app/my-company1460/issue/EMET-24/kn-023-statusmd-prod-health-blockers-last-deploy-regressions) — KN-023: STATUS.md — prod health, blockers, last deploy, regressions
 - [EMET-25](https://linear.app/my-company1460/issue/EMET-25/kn-024-runbook-local-pack-chemicloud-eas-post-deploy-db) — KN-024: Runbook — local, pack, ChemiCloud, EAS, post-deploy db:*
 - [EMET-26](https://linear.app/my-company1460/issue/EMET-26/kn-025-דוח-תובנות-לציון-מה-הפרויקט-עושה-המלצות-עדיפות) — KN-025: דוח תובנות לציון — מה הפרויקט עושה + המלצות עדיפות
+## KidNest GitHub upload (KG) publish
+- **At:** 2026-09-09T09:53:29.239Z
+- **Workspace:** https://linear.app/my-company1460
+- **Team:** EMET
+- **Project:** KidNest — העלאה מסודרת ל-GitHub
+- **Project URL:** https://linear.app/my-company1460/project/kidnest-העלאה-מסודרת-ל-github-c64b279d4f80
+- **Issues:** 6/6
+
+### Issue URLs
+- [EMET-133](https://linear.app/my-company1460/issue/EMET-133/kg-01-פרויקט-לינאר-להעלאה-משימות-גלויות-לציון) — KG-01: פרויקט לינאר להעלאה — משימות גלויות לציון
+- [EMET-134](https://linear.app/my-company1460/issue/EMET-134/kg-02-תכנית-מבנה-ריפו-monorepo-readme-gitignore) — KG-02: תכנית מבנה ריפו — monorepo, README, .gitignore
+- [EMET-135](https://linear.app/my-company1460/issue/EMET-135/kg-03-סריקת-תיקיית-kidnest-במחשב-מה-להעלות-מה-לא) — KG-03: סריקת תיקיית kidnest במחשב — מה להעלות / מה לא
+- [EMET-136](https://linear.app/my-company1460/issue/EMET-136/kg-04-יצירת-ריפו-פרטי-kidnest-ב-github-push-ראשון) — KG-04: יצירת ריפו פרטי KidNest ב-GitHub + push ראשון
+- [EMET-137](https://linear.app/my-company1460/issue/EMET-137/kg-05-רישום-הריפו-ב-factoryjson-סגירת-initiative) — KG-05: רישום הריפו ב-factory.json + סגירת initiative
+- [EMET-138](https://linear.app/my-company1460/issue/EMET-138/kg-06-תיקון-סטטוס-שרת-חסר-בדיקת-ssh-תקינה) — KG-06: תיקון סטטוס «שרת חסר» — בדיקת SSH תקינה

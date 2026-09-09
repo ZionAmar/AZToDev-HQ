@@ -15,5 +15,10 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 
 ## Iteration log
 ### 2026-09-09
+- task: Noa asked you: KidNest GitHub upload — execute KG-01+KG-02 from kidnest-github-upload-board.json
+- do: Publish script for upload board; plan at ops/meetings/kidnest-github-upload/plan.md; linearProjectUrl on board; idempotent skip when linearIssue set
+- dont: Create repo/push during plan-only; dont duplicate when re-publishing
+- note: Linear «KidNest — העלאה מסודרת ל-GitHub» live EMET-133..138; KG-01+KG-02 done; next KG-03 Nadav PC
+### 2026-09-09
 - Company armed. Waiting for founder build order.
 

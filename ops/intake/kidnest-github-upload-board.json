@@ -1,0 +1,129 @@
+{
+  "updatedAt": "2026-09-09T09:55:00.000Z",
+  "initiative": "IDEA-2026-09-09-kidnest-github-upload",
+  "project": "KidNest — העלאה מסודרת ל-GitHub",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "founderAsk": "קח את קידניסט ותעלה אותו בצורה מסודרת לגיטהאב שלי — ריפו פרטי, מבנה נקי, בלי סודות",
+  "status": "in_progress",
+  "pinReceived": true,
+  "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-העלאה-מסודרת-ל-github-c64b279d4f80",
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "orchestrator": "32-delivery-lead",
+  "owners": {
+    "orchestrator": "32-delivery-lead",
+    "pcPrep": "34-pc-ops",
+    "serverStatus": "35-server-ops",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תכנון + לינאר — מסלול גלוי מהטלפון",
+      "owner": "32-delivery-lead",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "nameHe": "הכנת תיקייה במחשב — סריקה, סינון סודות",
+      "owner": "34-pc-ops",
+      "status": "pending"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו + העלאה ל-GitHub",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "dependsOn": ["P1", "P2"]
+    },
+    {
+      "id": "P4",
+      "nameHe": "אימות + רישום ברשימת הריפואים",
+      "owner": "32-delivery-lead",
+      "status": "pending",
+      "dependsOn": ["P3"]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KG-01",
+      "phase": "P1",
+      "titleHe": "פרויקט לינאר להעלאה — משימות גלויות לציון",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "פרויקט חדש בלינאר עם 4 שלבים + קישור שנשלח לציון",
+      "artifact": "ops/intake/kidnest-github-upload-board.json",
+      "linearIssue": "EMET-133",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-133/kg-01-פרויקט-לינאר-להעלאה-משימות-גלויות-לציון",
+      "completedAt": "2026-09-09T09:55:00.000Z"
+    },
+    {
+      "id": "KG-02",
+      "phase": "P1",
+      "titleHe": "תכנית מבנה ריפו — monorepo, README, .gitignore",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "מסמך תכנית ב-ops/meetings/kidnest-github-upload/plan.md",
+      "artifact": "agents/32-delivery-lead/memory/kidnest-github-upload-plan.md",
+      "linearIssue": "EMET-134",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-134/kg-02-תכנית-מבנה-ריפו-monorepo-readme-gitignore",
+      "completedAt": "2026-09-09T09:55:00.000Z"
+    },
+    {
+      "id": "KG-03",
+      "phase": "P2",
+      "titleHe": "סריקת תיקיית kidnest במחשב — מה להעלות / מה לא",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "priority": "P0",
+      "dod": "רשימת קבצים + סודות שיוצאים + גודל",
+      "artifact": "ops/meetings/kidnest-github-upload/pc-inventory.md",
+      "linearIssue": "EMET-135",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-135/kg-03-סריקת-תיקיית-kidnest-במחשב-מה-להעלות-מה-לא"
+    },
+    {
+      "id": "KG-04",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי KidNest ב-GitHub + push ראשון",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "priority": "P0",
+      "dod": "URL ריפו + commit ראשון מסודר",
+      "artifact": null,
+      "requiresPin": true,
+      "linearIssue": "EMET-136",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-136/kg-04-יצירת-ריפו-פרטי-kidnest-ב-github-push-ראשון"
+    },
+    {
+      "id": "KG-05",
+      "phase": "P4",
+      "titleHe": "רישום הריפו ב-factory.json + סגירת initiative",
+      "owner": "32-delivery-lead",
+      "status": "pending",
+      "priority": "P1",
+      "dod": "repos.kidnest ב-factory.json + status completed",
+      "artifact": "ops/config/factory.json",
+      "linearIssue": "EMET-137",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-137/kg-05-רישום-הריפו-ב-factoryjson-סגירת-initiative"
+    },
+    {
+      "id": "KG-06",
+      "phase": "P1",
+      "titleHe": "תיקון סטטוס «שרת חסר» — בדיקת SSH תקינה",
+      "owner": "35-server-ops",
+      "status": "pending",
+      "priority": "P2",
+      "dod": "capabilitiesArmed.serverSshRead=true + הסבר אם הבדיקה נכשלה",
+      "artifact": "ops/reports/server-ssh-probe-fix.md",
+      "linearIssue": "EMET-138",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-138/kg-06-תיקון-סטטוס-שרת-חסר-בדיקת-ssh-תקינה"
+    }
+  ],
+  "updatePolicy": {
+    "founderMidTask": true,
+    "notifyOn": ["phase_complete", "blocker", "first_artifact"],
+    "nextExpected": "KG-03 — סריקת תיקייה (נדב, PC דולק)"
+  }
+}

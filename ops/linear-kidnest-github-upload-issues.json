@@ -1,0 +1,79 @@
+{
+  "publishedAt": "2026-09-09T09:53:29.239Z",
+  "source": "ops/intake/kidnest-github-upload-board.json",
+  "initiative": "IDEA-2026-09-09-kidnest-github-upload",
+  "projectName": "KidNest — העלאה מסודרת ל-GitHub",
+  "projectUrl": "https://linear.app/my-company1460/project/kidnest-העלאה-מסודרת-ל-github-c64b279d4f80",
+  "workspaceUrl": "https://linear.app/my-company1460",
+  "teamName": "EMET",
+  "teamId": "fced5adc-3d17-442d-9c75-3c3989049895",
+  "issueCount": 6,
+  "issues": [
+    {
+      "localId": "KG-01",
+      "identifier": "EMET-133",
+      "title": "KG-01: פרויקט לינאר להעלאה — משימות גלויות לציון",
+      "url": "https://linear.app/my-company1460/issue/EMET-133/kg-01-פרויקט-לינאר-להעלאה-משימות-גלויות-לציון",
+      "phase": "P1",
+      "owner": "32-delivery-lead",
+      "label": "build",
+      "status": "done",
+      "existing": true
+    },
+    {
+      "localId": "KG-02",
+      "identifier": "EMET-134",
+      "title": "KG-02: תכנית מבנה ריפו — monorepo, README, .gitignore",
+      "url": "https://linear.app/my-company1460/issue/EMET-134/kg-02-תכנית-מבנה-ריפו-monorepo-readme-gitignore",
+      "phase": "P1",
+      "owner": "32-delivery-lead",
+      "label": "build",
+      "status": "done",
+      "existing": true
+    },
+    {
+      "localId": "KG-03",
+      "identifier": "EMET-135",
+      "title": "KG-03: סריקת תיקיית kidnest במחשב — מה להעלות / מה לא",
+      "url": "https://linear.app/my-company1460/issue/EMET-135/kg-03-סריקת-תיקיית-kidnest-במחשב-מה-להעלות-מה-לא",
+      "phase": "P2",
+      "owner": "34-pc-ops",
+      "label": "plan",
+      "status": "pending",
+      "existing": true
+    },
+    {
+      "localId": "KG-04",
+      "identifier": "EMET-136",
+      "title": "KG-04: יצירת ריפו פרטי KidNest ב-GitHub + push ראשון",
+      "url": "https://linear.app/my-company1460/issue/EMET-136/kg-04-יצירת-ריפו-פרטי-kidnest-ב-github-push-ראשון",
+      "phase": "P3",
+      "owner": "34-pc-ops",
+      "label": "waiting-founder",
+      "status": "pending",
+      "existing": true
+    },
+    {
+      "localId": "KG-05",
+      "identifier": "EMET-137",
+      "title": "KG-05: רישום הריפו ב-factory.json + סגירת initiative",
+      "url": "https://linear.app/my-company1460/issue/EMET-137/kg-05-רישום-הריפו-ב-factoryjson-סגירת-initiative",
+      "phase": "P4",
+      "owner": "32-delivery-lead",
+      "label": "plan",
+      "status": "pending",
+      "existing": true
+    },
+    {
+      "localId": "KG-06",
+      "identifier": "EMET-138",
+      "title": "KG-06: תיקון סטטוס «שרת חסר» — בדיקת SSH תקינה",
+      "url": "https://linear.app/my-company1460/issue/EMET-138/kg-06-תיקון-סטטוס-שרת-חסר-בדיקת-ssh-תקינה",
+      "phase": "P1",
+      "owner": "35-server-ops",
+      "label": "plan",
+      "status": "pending",
+      "existing": true
+    }
+  ]
+}

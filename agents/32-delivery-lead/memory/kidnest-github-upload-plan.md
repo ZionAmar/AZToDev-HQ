@@ -1,0 +1,195 @@
+# KidNest → Private GitHub — Upload Plan
+
+**Author:** Keshet (`32-delivery-lead`)  
+**Date:** 2026-09-09  
+**Status:** Plan-only — no repo create/push until founder PIN on KG-04  
+**Board:** `ops/intake/kidnest-github-upload-board.json`  
+**PC path:** `C:\Users\amazi\Desktop\Projects\in_production\kidnest`  
+**Production:** https://nestube.aztodev.com  
+**Target repo:** `https://github.com/ZionAmar/KidNest` (private, to be created)
+
+---
+
+## One-line bet
+
+Move KidNest monorepo from founder PC to private GitHub so Cloud agents can work on it with evidence (PR), without ChemiCloud or local CMD theater.
+
+---
+
+## Decision: preserve monorepo (v1)
+
+Do **not** split into multiple repos in v1. KidNest is a working monorepo with cross-app imports (mobile ↔ tv-home ↔ tv). Splitting adds migration risk with no immediate leverage.
+
+| App | Stack | Notes |
+|-----|-------|-------|
+| `api/` | Node + Fastify | Backend, MySQL, JWT, YouTube feeds |
+| `admin/` | React | Parent dashboard |
+| `mobile/` | Expo / RN | Child app — **not** in root workspaces |
+| `tv/` | Expo / RN | TV app — standalone install |
+| `tv-home/` | Expo / RN | TV home shell — cross-app imports to `tv/` |
+
+Root `package.json` uses npm workspaces for `api` + `admin` only. `mobile`, `tv`, `tv-home` require separate `npm install` (documented in KN-002 audit).
+
+---
+
+## Target repo structure
+
+```
+KidNest/                          # repo root (= current monorepo root)
+├── README.md                     # project overview + quick start pointer
+├── .gitignore                    # unified — see policy below
+├── .env.example                  # all env keys, no values
+├── package.json                  # workspaces: api, admin
+├── package-lock.json
+│
+├── api/                          # Fastify backend
+│   ├── src/
+│   ├── migrations/
+│   ├── seeds/
+│   └── .env.example
+│
+├── admin/                        # React admin (parent UI)
+│   ├── src/
+│   │   ├── components/
+│   │   └── pages/
+│   └── .env.example
+│
+├── mobile/                       # Expo — standalone node_modules
+│   ├── app/
+│   └── .env.example
+│
+├── tv/                           # Expo TV — standalone
+│   └── .env.example
+│
+├── tv-home/                      # Expo TV home — imports from tv/
+│   └── .env.example
+│
+├── docs/                         # deploy runbooks (from audit KN-019/KN-024)
+│   ├── DEPLOY-CHEMICLOUD.md
+│   ├── local-dev.md              # distilled from KN-002 dev-setup
+│   └── STATUS.md                 # prod health snapshot
+│
+├── scripts/                      # pack:deploy, db helpers (if present locally)
+└── dist-deploy/                  # gitignored — build output only
+```
+
+**Do not commit:** `node_modules/`, `.env`, `dist-deploy/`, Expo `.expo/`, Android/iOS build artifacts, XAMPP data, Redis dumps, APK/IPA binaries (link from releases or ChemiCloud instead).
+
+---
+
+## `.gitignore` policy (minimum)
+
+```gitignore
+# secrets & local env
+.env
+.env.*
+!.env.example
+
+# dependencies & builds
+node_modules/
+dist/
+dist-deploy/
+build/
+.expo/
+.expo-shared/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# mobile native (regenerated)
+mobile/android/
+mobile/ios/
+tv/android/
+tv/ios/
+tv-home/android/
+tv-home/ios/
+
+# uploads / runtime data
+uploads/
+tmp/
+*.sql.gz
+```
+
+Audit locally before first push: `git grep -iE '(password|secret|api_key|lin_api|jwt|smtp)' -- ':!*.example' ':!docs/*'`.
+
+---
+
+## Secrets scrub checklist (Nadav — KG-03)
+
+| Check | Action |
+|-------|--------|
+| Root `.env` | Never commit; copy keys to `.env.example` with empty values |
+| `api/.env`, `admin/.env`, app `.env` | Same |
+| Hardcoded credentials in source | Search + replace with env vars |
+| YouTube / Google OAuth JSON | Keep on server/PC only; document var names in `.env.example` |
+| JWT secret, SMTP pass | Rotate if ever committed to local git history |
+| `CHEMICLOUD.md` / deploy docs | Redact host/user if pasted inline |
+| Git history | If secrets were ever committed locally, run `git filter-repo` **before** push or start fresh repo with clean tree |
+
+**Gate:** KG-04 (create repo + push) requires founder PIN.
+
+---
+
+## `factory.json` registration (KG-05 — after repo exists)
+
+Add under `repos`:
+
+```json
+"kidnest": {
+  "github": "https://github.com/ZionAmar/KidNest",
+  "private": true,
+  "notes": "NesTube / KidNest monorepo — api + admin + mobile + tv + tv-home. Cloud agents after productWorkEnabled."
+}
+```
+
+Set `activeWork` / WIP slot only when founder orders build and PIN unlocks product work.
+
+---
+
+## Linear — 4 phases, 6 tasks (EMET team)
+
+**Project:** KidNest — העלאה מסודרת ל-GitHub (see board `linearProjectUrl`)
+
+| Phase | Task | Owner | Gate |
+|-------|------|-------|------|
+| P1 | KG-01 — Linear project visible from phone | `32-delivery-lead` | None |
+| P1 | KG-02 — Repo structure plan (this doc) | `32-delivery-lead` | None |
+| P2 | KG-03 — PC folder scan + secrets filter | `34-pc-ops` (Nadav) | PC on |
+| P3 | KG-04 — Create private repo + first push | `34-pc-ops` | PIN |
+| P4 | KG-05 — Register in factory.json + close initiative | `32-delivery-lead` | After KG-04 |
+| P1 | KG-06 — Fix «server missing» SSH status | `35-server-ops` | P2 optional |
+
+WIP=1. Sequential through P3→P4 for repo mutations.
+
+---
+
+## Risks
+
+| Risk | Mitigation |
+|------|------------|
+| Secrets in history | Scrub checklist + grep before push; consider orphan branch |
+| Large binary/APK in tree | `.gitignore` + move to release assets |
+| Expo apps break without separate install | Document in README; CI later (post-migration) |
+| WIP collision | WIP=1 — KidNest GitHub is the active bet until done or deferred |
+
+---
+
+## Out of scope (this initiative)
+
+- ChemiCloud deploy changes (פז / DevOps gate)
+- Splitting monorepo
+- Enabling GitHub Actions CI (follow-up after first push)
+- Product feature work
+
+---
+
+## Evidence
+
+- This file: `ops/meetings/kidnest-github-upload/plan.md`
+- Board: `ops/intake/kidnest-github-upload-board.json`
+- Manifest: `ops/linear-kidnest-github-upload-issues.json`
+- Publish script: `runtime/scripts/kidnest-github-upload-linear-publish.mjs`
