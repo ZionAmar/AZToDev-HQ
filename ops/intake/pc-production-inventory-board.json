@@ -27,7 +27,8 @@
   "phases": [
     { "id": "P1", "nameHe": "סריקת in_production + אימות חוזר kidnest", "status": "in_progress" },
     { "id": "P2", "nameHe": "דוח לציון + החלטת Keep/Defer לכל פרויקט", "status": "waiting_founder" },
-    { "id": "P3", "nameHe": "Keep ישיר של ציון לשני פרויקטים ספציפיים (תהילים, תהורה) — איתור + ריפו פרטי + push", "status": "in_progress" }
+    { "id": "P3", "nameHe": "Keep ישיר של ציון לשני פרויקטים ספציפיים (תהילים, תהורה) — איתור + ריפו פרטי + push", "status": "in_progress" },
+    { "id": "P4", "nameHe": "סקירת כל הריפואים הקיימים בגיטהאב (פרטי+ציבורי) — מיפוי + סיווג רלוונטיות + דוח", "status": "in_progress" }
   ],
   "tasks": [
     {
@@ -102,6 +103,40 @@
       "blockedBy": ["PCI-04", "founder_pin"],
       "linearIssue": null,
       "linearUrl": null
+    },
+    {
+      "id": "PCI-07",
+      "phase": "P4",
+      "titleHe": "מיפוי מלא — כל הריפואים תחת חשבון ZionAmar בגיטהאב (פרטי+ציבורי): שם, נראות, שפה, גודל, תאריך push אחרון, תיאור",
+      "owner": "32-delivery-lead",
+      "status": "queued",
+      "priority": "P1",
+      "dod": "טבלה מלאה של כל הריפואים + פתרון הפער בין הספירות הידועות (ראו knownDiscrepancy) — אם צריך רשימה אמיתית מהחשבון האישי המלא, לשרשר DELEGATE נוסף ל-34-pc-ops בתוך אותו outbox, לא לוח חדש",
+      "knownDiscrepancy": "ריצת Cloud זו רואה 18 ריפואים תחת ZionAmar דרך ה-GitHub App המחובר ל-Cursor (gh repo list ZionAmar, נבדק 2026-09-09T15:33Z — כולם public חוץ מ-AZToDev-HQ; kidnest/Work_clock/telemust חסרים מהרשימה הזו). ops/config/factory.json מציין cursorGithubRepoCount=49. שני המספרים לא זהים — כנראה ה-GitHub App מוגבל בהרשאות ולא רואה את כל הריפואים הפרטיים. אין לדווח מספר סופי לציון בלי ליישב את הפער מול מקור סמכות אחד (חשבון אישי מלא / PC).",
+      "linearIssue": null,
+      "linearNote": "אין כלי Linear זמין בריצת Cloud זו — לא הומצא מספר טיקט. להוסיף תחת אותו פרויקט קיים (לא לוח מקביל)."
+    },
+    {
+      "id": "PCI-08",
+      "phase": "P4",
+      "titleHe": "סיווג רלוונטיות לכל ריפו — פעיל/לשמור, ישן-אך-בעל-ערך, מועמד לארכוב (test/demo/fork/כפילות), עם נימוק שורה אחת לכל אחד",
+      "owner": "32-delivery-lead",
+      "status": "queued",
+      "priority": "P1",
+      "dod": "טבלת סיווג לכל ריפו מ-PCI-07 + נימוק; אין ביצוע ארכוב/מחיקה/שינוי נראות בפועל — זו רק המלצה",
+      "dependsOn": ["PCI-07"],
+      "linearIssue": null
+    },
+    {
+      "id": "PCI-09",
+      "phase": "P4",
+      "titleHe": "דוח לציון (עברית, קצר, לנייד) — רשימת ריפואים + המלצת Keep/Review/Archive לכל אחד, ממתין להחלטתו לפני כל פעולה מוטטיבית",
+      "owner": "00-ceo",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "הודעת טלגרם קצרה + קישור לקובץ הדוח המלא; כל Archive/Delete/שינוי נראות בפועל דורש אישור מפורש + PIN לכל ריפו",
+      "dependsOn": ["PCI-08"],
+      "linearIssue": null
     }
   ]
 }
