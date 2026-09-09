@@ -17,6 +17,7 @@ import { runCloudWork, runCloudOpsWork } from "../../hq/lib/cloud-work.mjs";
 import { enqueueNadavJob, shouldNotifyPcOffline } from "./nadav-queue.mjs";
 import { isActionUnlocked } from "./action-pin.mjs";
 import { applyActivateProduct } from "./product-activate.mjs";
+import { setWaitingFounder } from "./waiting-founder.mjs";
 import fs from "fs";
 
 const JOBS_PATH = path.join(OPS, "runtime", "background-jobs.json");
@@ -160,6 +161,21 @@ export function startBackgroundDelegate({
           agentId,
           ok: out.ok,
         });
+
+        if (/LOCKED: founder must send the action PIN/i.test(activated.cleaned)) {
+          setWaitingFounder({ kind: "pin", task, agentId });
+        }
+
+        try {
+          const { executeDelegateRelay } = await import("../../hq/lib/delegate-relay.mjs");
+          await executeDelegateRelay(activated.cleaned || result, {
+            background: true,
+            fromAgentId: agentId,
+            founderText: "",
+          });
+        } catch {
+          /* nested relay is best-effort */
+        }
 
         if (notifyFounder) {
           const clean = sanitizeForTelegram(activated.cleaned).slice(0, 1200);

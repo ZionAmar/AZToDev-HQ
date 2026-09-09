@@ -110,6 +110,15 @@ export function inferRequiredDelegate(founderText) {
   const task = t.replace(/\[STANDBY[\s\S]*?\]\s*/g, "").slice(0, 500).trim();
 
   if (
+    /גיטהב|github|העלה\s+ל|ריפו פרטי/i.test(t)
+  ) {
+    return {
+      agentId: "32-delivery-lead",
+      task: task || "Plan GitHub upload — wait for founder אשר before Nadav/push",
+    };
+  }
+
+  if (
     /תבנו|תבנה|תפעיל(?:י|ו)?\s+(?:את\s+)?קשת|לבנות\s+(?:מוצר|אפליק)|לפתח\s+(?:מוצר|אפליק)|פיתוח מוצר|מוצר חדש|תפתח(?:ו|י)?\s+(?:מוצר|אפליק|סאאס|saas)|keshet|(?:^|\s)קשת(?:\s|$|[.,!?])/i.test(
       t
     )

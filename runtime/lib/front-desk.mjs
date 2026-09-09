@@ -14,6 +14,8 @@ import {
   approveAndStartNext,
   ensurePipelineBootstrapped,
 } from "./task-pipeline.mjs";
+import { takeWaitingFounder } from "./waiting-founder.mjs";
+import { startBackgroundDelegate } from "./background-delegate.mjs";
 import { readPipeline, boardStatusHebrew } from "./task-board.mjs";
 import { isProductWorkEnabled } from "./company-state.mjs";
 import {
@@ -33,6 +35,23 @@ import { hqCloudOnly } from "./specialist-runtime.mjs";
 export { hqCloudOnly };
 
 export { shouldPushUnsolicited, extractFounderPush } from "./front-desk-push.mjs";
+
+function kickHeldJobs(jobs, { preferKeshet = false } = {}) {
+  let list = (jobs || []).filter((j) => j?.agentId && j?.task);
+  if (preferKeshet) {
+    const keshet = list.filter((j) => j.agentId === "32-delivery-lead");
+    if (keshet.length) list = keshet;
+  }
+  for (const j of list) {
+    startBackgroundDelegate({
+      fromAgentId: "00-ceo",
+      agentId: j.agentId,
+      task: j.task,
+      notifyFounder: true,
+    });
+  }
+  return list.length;
+}
 
 const AGENT_TIMEOUT_MS = Number(process.env.EMET_TELEGRAM_AGENT_TIMEOUT_MS || 300000);
 const ACK_AFTER_MS = Number(process.env.EMET_TELEGRAM_ACK_MS || 2500);
@@ -237,6 +256,19 @@ export async function handleFounderTelegramMessage(input) {
 
   if (actionPinConfigured() && looksLikePinAttempt(raw) && pinMatches(raw)) {
     unlockActionPin();
+    const pending = takeWaitingFounder("pin");
+    if (pending?.jobs?.length || pending?.agentId) {
+      const jobs = pending.jobs?.length
+        ? pending.jobs
+        : [{ agentId: pending.agentId, task: pending.task }];
+      const n = kickHeldJobs(jobs, { preferKeshet: false });
+      const reply =
+        "הסיסמה אושרה. ממשיכים מיד באותה משימה — בלי שתחזור עליה.";
+      await sendFounderTelegram(reply, { silent: false });
+      appendTelegramThread("system", "[founder sent action PIN — redacted]");
+      journal("front_desk_action_pin_resume", { n });
+      return { intent: "ACTION_PIN_RESUME", reply };
+    }
     const reply =
       "הסיסמה אושרה ל־10 דקות.\nפעולות שמשנות משהו — מותרות בחלון הזה, ורק אם תגיד במפורש מה לעשות.\nבדיקות (זיכרון, סטטוס, מייל לקריאה) בלי סיסמה.";
     await sendFounderTelegram(reply, { silent: false });
@@ -269,6 +301,19 @@ export async function handleFounderTelegramMessage(input) {
   }
 
   appendTelegramThread("founder", raw);
+
+  if (isFounderApprove(raw)) {
+    const pending = takeWaitingFounder("confirm");
+    if (pending?.jobs?.length) {
+      const n = kickHeldJobs(pending.jobs, { preferKeshet: true });
+      const reply =
+        "מאושר. קשת/הצוות ממשיכים לפי התוכנית. אעדכן בטיקטים ובטלגרם.";
+      await sendFounderTelegram(reply, { silent: false });
+      appendTelegramThread("noa", reply);
+      journal("front_desk_confirm_resume", { n });
+      return { intent: "CONFIRM_RESUME", reply };
+    }
+  }
 
   const phone = matchPhoneCommand(raw);
   if (phone === "help") {

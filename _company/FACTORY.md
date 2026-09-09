@@ -91,7 +91,7 @@
 | [`PERMISSIONS.md`](./PERMISSIONS.md) | מה באמת מחובר |
 | [`DELEGATION_POLICY.md`](./DELEGATION_POLICY.md) | נועה מנתבת, לא מבצעת |
 | [`FOUNDER.md`](./FOUNDER.md) | מי ציון |
-| [`CORE_CONTEXT.md`](./CORE_CONTEXT.md) | מוח משותף — כל סוכן חי קורא לפני עבודה |
+| [`COMPANY_LOOP.md`](./COMPANY_LOOP.md) | איך משימה זזה: אשר → Linear → נדב → PIN → המשך |
 | `ops/config/factory.json` | מצב + WIP |
 | [`../AGENTS.md`](../AGENTS.md) | הוראות לכל סוכן Cursor |
 
