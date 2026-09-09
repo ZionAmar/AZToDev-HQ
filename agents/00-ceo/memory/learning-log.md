@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09 (later)
+- task: Founder — «מי יותר טוב, אנחנו או תום?» + new ask: scan in_production for other PC-only projects not on GitHub + Keep/Defer per project.
+- do: Answer the new ask first (per rule: don't reopen closed KidNest gate unless he asks). Verify ground truth with `gh repo list ZionAmar` before answering any comparison/status claim — found kidnest repo genuinely absent (18 repos, no kidnest/Work_clock/TelemustAddUsers) despite KNU-03/EMET-153 marked done. Folded that re-verify into the new PCI-02 task instead of relitigating the old gate in Telegram.
+- dont: Trust board/state "done" JSON as proof without a live check when a founder decision depends on it; don't claim Parity+ with Tom Even when the checklist in `_company/TOM_EVEN_PARITY.md` still has every box unchecked.
+- note: Opened `pc-production-inventory` (WIP=1, replaces finished kidnest slug in `ops/config/factory.json`, old claim preserved under `priorWork` with `liveVerification`). New Linear project + EMET-155/156/157. Inbox packet to 34-pc-ops: read-only scan of `Desktop\Projects\in_production` + quick kidnest remote/push check, no stake-confirm loop.
+
 ### 2026-09-09
 - task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
 - do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet

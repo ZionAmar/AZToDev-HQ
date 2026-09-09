@@ -6,18 +6,32 @@
   "chemiCloudHqDeploy": true,
   "wipLimit": 1,
   "activeWork": {
+    "slug": "pc-production-inventory",
+    "bet": "PC — סריקת in_production, פרויקטים לא בגיטהאב",
+    "phase": "P1",
+    "owner": "34-pc-ops",
+    "board": "ops/intake/pc-production-inventory-board.json",
+    "startedAt": "2026-09-09T13:40:00.000Z",
+    "gate": "scan",
+    "waitingFor": "נדב על המחשב — PCI-01 סריקת in_production + PCI-02 אימות חוזר kidnest",
+    "next": "PCI-03 — דוח לציון, ממתין להחלטת Keep/Defer לכל פרויקט",
+    "status": "in_progress",
+    "finishedAt": null
+  },
+  "priorWork": {
     "slug": "kidnest-github-upload",
-    "bet": "KidNest private GitHub upload — done",
-    "phase": "done",
-    "owner": "32-delivery-lead",
+    "bet": "KidNest private GitHub upload",
     "board": "ops/intake/kidnest-github-upload-board.json",
-    "startedAt": "2026-09-09T10:30:00.000Z",
-    "gate": "done",
-    "waitingFor": "",
-    "next": "",
-    "status": "done",
-    "repoUrl": "https://github.com/ZionAmar/kidnest",
-    "finishedAt": "2026-09-09T12:19:45.010Z"
+    "statusClaimed": "done",
+    "finishedAtClaimed": "2026-09-09T12:19:45.010Z",
+    "repoUrlClaimed": "https://github.com/ZionAmar/kidnest",
+    "liveVerification": {
+      "checkedAt": "2026-09-09T13:38:00.000Z",
+      "checkedBy": "00-ceo",
+      "method": "gh repo list ZionAmar / gh repo view / gh api search — this Cloud session",
+      "result": "ZionAmar/kidnest not found (18 repos visible under ZionAmar, none named kidnest)",
+      "action": "Not reopened as a separate founder gate. Re-verify folded into PCI-02 of the new pc-production-inventory work (same PC session as the broader scan)."
+    }
   },
   "githubOwner": "ZionAmar",
   "cursorGithubConnected": true,
@@ -89,7 +103,9 @@
       "private": true,
       "source": "C:/Users/amazi/Desktop/Projects/in_production/kidnest",
       "pushedAt": "2026-09-09T12:19:45.010Z",
-      "task": "KNU-03"
+      "task": "KNU-03",
+      "verifiedOnGithub": false,
+      "verifiedNote": "Live gh check 2026-09-09T13:38Z found no ZionAmar/kidnest repo. Re-verify queued as PCI-02."
     }
   },
   "coreAgents": [
@@ -128,5 +144,5 @@
     ]
   },
   "updatedAt": "2026-09-09",
-  "lastHqHelloAt": "2026-09-09T12:20:00.000Z"
+  "lastHqHelloAt": "2026-09-09T13:40:00.000Z"
 }

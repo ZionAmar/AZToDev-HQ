@@ -1,0 +1,69 @@
+{
+  "updatedAt": "2026-09-09T13:40:00.000Z",
+  "initiative": "pc-production-inventory",
+  "project": "PC — סריקת in_production (פרויקטים לא בגיטהאב)",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production",
+  "founderAsk": "לסרוק את תיקיית in_production על שולחן העבודה, לראות אילו פרויקטים משמעותיים נוספים (מעבר לקידניסט) קיימים רק על המחשב ולא בגיטהאב, לדווח לציון כדי שיחליט אם להעלות אותם.",
+  "status": "in_progress",
+  "linearProjectUrl": "https://linear.app/my-company1460/project/pc-סריקת-in-production-פרויקטים-לא-בגיטהאב-0dd92a68b4f5",
+  "owners": {
+    "pc": "34-pc-ops",
+    "report": "00-ceo"
+  },
+  "note": "Read-only inventory ONLY. No repo creation, no push, no stake-confirm loop, no re-asking to approve the folder path. Founder already named the path.",
+  "githubGroundTruth": {
+    "owner": "ZionAmar",
+    "verifiedAt": "2026-09-09T13:38:00.000Z",
+    "method": "gh repo list ZionAmar + gh api search/repositories (live check, this session)",
+    "repoCount": 18,
+    "repos": [
+      "AZToDev-HQ", "FiTime", "ZionAmar-workclock-expo-app", "expo-app", "chrome-test",
+      "todo", "ci-test", "ci-pipeline-test", "costumes_store", "mytrip_flutter_app",
+      "my_tasks_app", "SmartIrrigation", "FinalProjectNodeJS", "Arduino-game", "news",
+      "coffee_and_cake_App_DB", "E.2.E-Project", "NewsAPI"
+    ],
+    "discrepancyFlag": "ops/config/factory.json repos.kidnest / repos.work_clock / repos.telemust list URLs that do NOT appear in this live list (kidnest, Work_clock, TelemustAddUsers all absent) despite kidnest being marked done (KNU-03/EMET-153) with a repoUrl. Not reopening as a separate gate — folded into PCI-02 as a quick re-verify inside this same PC session."
+  },
+  "phases": [
+    { "id": "P1", "nameHe": "סריקת in_production + אימות חוזר kidnest", "status": "in_progress" },
+    { "id": "P2", "nameHe": "דוח לציון + החלטת Keep/Defer לכל פרויקט", "status": "waiting_founder" }
+  ],
+  "tasks": [
+    {
+      "id": "PCI-01",
+      "phase": "P1",
+      "titleHe": "סריקת קריאה — כל תיקיית פרויקט תחת in_production: גודל, עדכון אחרון, .git, remote",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "רשימת תיקיות + לכל אחת: גודל משוער, git status, remote URL (אם יש)",
+      "linearIssue": "EMET-155",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-155/pci-01-סריקת-קריאה-desktopprojectsin-production-כל-תיקיה-גודל-git"
+    },
+    {
+      "id": "PCI-02",
+      "phase": "P1",
+      "titleHe": "אימות חוזר קצר — תיקיית kidnest המקומית: remote, האם push הצליח בפועל",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "git remote -v + git log של קידניסט מקומי; אישור/שלילה שקיים push מוצלח ל-ZionAmar/kidnest",
+      "blockedBy": null,
+      "instructions": "Quick check inside the same PC session as PCI-01. Not a new gate — one paragraph in the same report.",
+      "linearIssue": "EMET-156",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-156/pci-02-אימות-חוזר-קצר-zionamarkidnest-push-בדיקת-gh-חיה-לא-מוצאת-ריפו"
+    },
+    {
+      "id": "PCI-03",
+      "phase": "P2",
+      "titleHe": "דוח לציון (עברית, טלגרם) — רשימת פרויקטים לא בגיטהאב + kidnest",
+      "owner": "00-ceo",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "הודעת טלגרם קצרה עם הרשימה; ממתין להחלטת Keep/Defer של ציון לכל פרויקט לפני כל upload",
+      "dependsOn": ["PCI-01", "PCI-02"],
+      "linearIssue": "EMET-157",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-157/pci-03-דוח-לציון-רשימת-פרויקטים-לא-בגיטהאב-ממתין-ל-keepdefer-לכל-אחד"
+    }
+  ]
+}
