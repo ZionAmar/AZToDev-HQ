@@ -63,13 +63,32 @@ function safeName(name, fallback) {
   return base || fallback;
 }
 
-function replyContext(msg) {
+async function replyContext(msg, dir) {
   const r = msg.reply_to_message;
   if (!r) return null;
   const bits = [];
   if (r.text) bits.push(r.text);
   if (r.caption) bits.push(r.caption);
-  if (r.voice) bits.push("[הודעה קולית שענית עליה]");
+  if (r.voice || r.audio) {
+    // Root cause of the repeated "תעשי את מה שאמרתי בהקלטה" loop: previously
+    // this inserted a static placeholder instead of the real transcript, so
+    // no agent could ever see what the founder actually said in the quoted
+    // voice note. Download + transcribe it the same way we do for the
+    // current message's own voice.
+    const src = r.voice || r.audio;
+    try {
+      const dest = path.join(dir, "reply-voice.ogg");
+      const saved = await downloadFile(src.file_id, dest);
+      const transcript = await transcribeVoice(saved.path);
+      bits.push(
+        transcript
+          ? `[תמלול ההקלטה שענית עליה]: ${transcript}`
+          : "[הקלטה קולית שענית עליה — התמלול נכשל. כתוב בטקסט מה נאמר שם.]"
+      );
+    } catch (err) {
+      bits.push(`[הקלטה קולית שענית עליה — לא נשמרה: ${String(err.message)}]`);
+    }
+  }
   if (r.photo) bits.push("[תמונה שענית עליה]");
   if (r.document) bits.push(`[מסמך: ${r.document.file_name || "file"}]`);
   return {
@@ -87,7 +106,7 @@ export async function normalizeFounderTelegramMessage(msg) {
   const attachments = [];
   const lines = [];
   const caption = (msg.caption || "").trim();
-  const reply = replyContext(msg);
+  const reply = await replyContext(msg, dir);
   let wasVoice = Boolean(msg.voice || msg.audio);
 
   if (reply) {
