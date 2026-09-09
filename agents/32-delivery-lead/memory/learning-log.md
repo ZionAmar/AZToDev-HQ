@@ -15,5 +15,11 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 
 ## Iteration log
 ### 2026-09-09
+- task: KidNest GitHub upload — Linear project + repo structure plan
+- do: Board at ops/intake/kidnest-github-board.json; plan at outbox/; publish via kidnest-github-linear-publish.mjs; cancel EMET-66 when bet lands
+- dont: Create repo/push during plan-only; dont split monorepo v1
+- note: Linear «KidNest — GitHub Migration» live — EMET-129..132; EMET-66 canceled
+
+### 2026-09-09 (earlier)
 - Company armed. Waiting for founder build order.
 
