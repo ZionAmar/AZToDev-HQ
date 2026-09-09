@@ -1,23 +1,30 @@
 {
   "company": "AZTODEV",
   "motto": "Build truth. Ship value. Scale leverage.",
-  "updatedAt": "2026-09-07T20:53:20.782Z",
+  "updatedAt": "2026-09-09T10:00:00.000Z",
   "founderAttention": {
-    "waiting": [],
-    "note": "WIP: inventory-deck (Rakza). KidNest audit closed — eng follow-ups in Linear only."
+    "waiting": [
+      {
+        "id": "KNU-01",
+        "what": "פרויקט לינאר להעלאת KidNest לגיטהאב",
+        "owner": "32-delivery-lead",
+        "since": "2026-09-09"
+      }
+    ],
+    "note": "WIP: KidNest GitHub upload. Audit closed. Inventory deck deferred."
   },
   "founderPrefsRef": "ops/founder-prefs.json",
   "today": {
-    "date": "2026-09-07",
+    "date": "2026-09-09",
     "focus": [
-      "OPS-HYGIENE — state truth sync",
-      "Inventory deck (Rakza) — phase 2 after hygiene",
+      "KidNest — GitHub upload (plan → PC prep → repo → verify)",
+      "Linear project for founder visibility",
       "Limit WIP — single active initiative"
     ],
     "notDoing": [
       "Landing pages — killed by founder",
-      "No new builds without Intake → Shape",
-      "No Rakza deck until hygiene complete"
+      "No new product code (productWorkEnabled false)",
+      "Inventory deck deferred until KidNest upload phase 1 done"
     ],
     "dayPlanOwner": "07-product-manager",
     "facilitator": "32-delivery-lead"
@@ -25,27 +32,27 @@
   "agentsNow": [
     {
       "id": "00-ceo",
-      "name": "Nura",
+      "name": "Noa",
       "status": "active",
-      "doing": "Inventory deck (Rakza) — phase 2 prep"
-    },
-    {
-      "id": "07-product-manager",
-      "name": "Amit",
-      "status": "idle",
-      "doing": "Standby for INV deck screen audit"
+      "doing": "KidNest GitHub upload — orchestration + founder updates"
     },
     {
       "id": "32-delivery-lead",
       "name": "Keshet",
       "status": "active",
-      "doing": "OPS-HYGIENE — state sync complete"
+      "doing": "KNU-01 — Linear project + repo plan"
     },
     {
-      "id": "11-tech-lead",
-      "name": "Ilan",
-      "status": "idle",
-      "doing": "No active build"
+      "id": "34-pc-ops",
+      "name": "Nadav",
+      "status": "queued",
+      "doing": "KNU-02 — folder scan (PC worker, when Windows on)"
+    },
+    {
+      "id": "35-server-ops",
+      "name": "Tamir",
+      "status": "queued",
+      "doing": "KNU-05 — server status probe fix"
     }
   ],
   "initiatives": [
@@ -120,11 +127,24 @@
       "sourceFile": "ops/intake/ideas/IDEA-2026-09-07-kidnest-audit.md"
     },
     {
+      "id": "IDEA-2026-09-09-kidnest-github-upload",
+      "title": "KidNest — GitHub upload",
+      "stage": "execution",
+      "status": "active",
+      "todayGoal": "KNU-01 Linear + repo plan; then PC prep",
+      "owners": [
+        "00-ceo",
+        "32-delivery-lead",
+        "34-pc-ops"
+      ],
+      "sourceFile": "ops/intake/ideas/IDEA-2026-09-09-kidnest-github-upload.md"
+    },
+    {
       "id": "IDEA-2026-09-07-inventory-deck",
       "title": "IDEA-2026-09-07-inventory-deck",
       "stage": "intake",
-      "status": "active",
-      "todayGoal": "Phase 2 — screen audit + deck (post hygiene)",
+      "status": "deferred",
+      "todayGoal": "Deferred — KidNest upload is WIP",
       "owners": [
         "00-ceo",
         "04-cpo",

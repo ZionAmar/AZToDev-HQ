@@ -16,6 +16,16 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: founder «שוב יש לי הרגשה שנעצרתם» — exact KidNest GitHub upload status
+- do: Register board + activeWork in git before saying «תיקנתי»; mid-task updates when phase opens
+- dont: Claim automation ran when kidnest-github-upload-board.json did not exist on main
+- note: Created board + activeWork; three DELEGATE lines; PR cursor/kidnest-github-upload-pipeline-d1b4
+### 2026-09-09
+- task: founder challenged agent memory + background work theater
+- do: Name honest gap (no repo, no Linear upload project, no PC scan); DELEGATE same turn
+- dont: Say «ברקע» without DELEGATE line and eventual artifact
+- note: Specialist learning logs had no KidNest upload entries until this orchestration
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.

@@ -5,7 +5,12 @@
   "productCompanyReady": true,
   "chemiCloudHqDeploy": true,
   "wipLimit": 1,
-  "activeWork": null,
+  "activeWork": {
+    "initiative": "IDEA-2026-09-09-kidnest-github-upload",
+    "board": "ops/intake/kidnest-github-upload-board.json",
+    "phase": "KNU-01",
+    "startedAt": "2026-09-09T10:00:00.000Z"
+  },
   "githubOwner": "ZionAmar",
   "cursorGithubConnected": true,
   "cursorGithubRepoCount": 49,

@@ -1,0 +1,105 @@
+{
+  "updatedAt": "2026-09-09T10:00:00.000Z",
+  "initiative": "IDEA-2026-09-09-kidnest-github-upload",
+  "project": "KidNest — העלאה לגיטהאב",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "githubOwner": "ZionAmar",
+  "founderAsk": "ליצור ריפו בגיטהאב ולהעלות את הקוד הקיים בצורה מסודרת",
+  "status": "active",
+  "linearProjectUrl": null,
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "owners": {
+    "orchestrator": "00-ceo",
+    "plan": "32-delivery-lead",
+    "pcPrep": "34-pc-ops",
+    "serverStatus": "35-server-ops"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תכנון + לינאר",
+      "status": "in_progress",
+      "owner": "32-delivery-lead"
+    },
+    {
+      "id": "P2",
+      "nameHe": "הכנת תיקייה במחשב",
+      "status": "todo",
+      "owner": "34-pc-ops"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו + העלאה",
+      "status": "todo",
+      "owner": "32-delivery-lead",
+      "requiresPin": true
+    },
+    {
+      "id": "P4",
+      "nameHe": "אימות — ריפו מסודר + README",
+      "status": "todo",
+      "owner": "32-delivery-lead"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KNU-01",
+      "phase": "P1",
+      "titleHe": "פרויקט לינאר להעלאה + תכנית ריפו (מונורפו, .gitignore, README)",
+      "owner": "32-delivery-lead",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "linearProjectUrl set; plan doc in ops/meetings/kidnest-github-upload/KNU-01-repo-plan.md",
+      "artifact": null,
+      "linearUrl": null
+    },
+    {
+      "id": "KNU-02",
+      "phase": "P2",
+      "titleHe": "סריקת תיקיית KidNest במחשב — מה להעלות / מה להוציא",
+      "owner": "34-pc-ops",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "Folder inventory + exclude list (node_modules, .env, build artifacts)",
+      "artifact": null
+    },
+    {
+      "id": "KNU-03",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי ב-GitHub + push ראשוני",
+      "owner": "32-delivery-lead",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "Private repo exists under ZionAmar; initial commit pushed",
+      "artifact": null,
+      "requiresPin": true
+    },
+    {
+      "id": "KNU-04",
+      "phase": "P4",
+      "titleHe": "אימות מבנה — README, branches, no secrets in git",
+      "owner": "32-delivery-lead",
+      "status": "todo",
+      "priority": "P1",
+      "dod": "Founder can open repo URL; verification note in ops/reports/",
+      "artifact": null
+    },
+    {
+      "id": "KNU-05",
+      "phase": "P1",
+      "titleHe": "תיקון סטטוס «שרת חסר» בדוח החברה",
+      "owner": "35-server-ops",
+      "status": "todo",
+      "priority": "P2",
+      "dod": "SSH read probe succeeds or honest blocker documented",
+      "artifact": null
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "done": 0,
+    "todo": 4,
+    "in_progress": 1,
+    "blocked": 0
+  }
+}
