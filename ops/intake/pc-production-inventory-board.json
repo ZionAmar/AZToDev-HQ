@@ -163,7 +163,9 @@
       "priority": "P2",
       "dod": "רשימה מלאה מ-github.com מחובר כ-ZionAmar (או gh CLI מחובר כמשתמש האמיתי על ה-PC) — מספר סופי + אישור אם קידניסט/Work_clock/TelemustAddUsers קיימים בפועל",
       "blockedBy": null,
-      "linearIssue": null
+      "linearIssue": null,
+      "reVerifiedAt": "2026-09-09T18:41:46Z",
+      "reVerifiedNote": "Noa relayed founder ask 'the email arrived, continue the second thing'. Live re-run of `gh repo list ZionAmar` + `gh api /installation/repositories` this turn: still 18 repos, installation still `repository_selection` scoped to exactly 1 repo (AZToDev-HQ). No GitHub access expansion reached this Cloud session — whatever email arrived did not change the App scope. PCI-10 stays queued to Nadav's own PC-side GitHub session; not unblockable from Cloud."
     }
   ]
 }
