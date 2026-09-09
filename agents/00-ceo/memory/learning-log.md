@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09 (later, +2)
+- task: Founder — «יש הרבה התקלויות/שגיאות טיימאוט, תבדקו ותרשמו בבעיות שלכם שזה לא יקרה, תלמדו מזה.»
+- do: When a founder complaint is a *pattern* ("this keeps happening"), write it to `ops/intake/problems/` with the real root causes traced across today's commits — not just answer him in Telegram and move on.
+- dont: Re-open a second competing initiative for the same status question a parallel run already answered (checked `origin/main` first — pc-production-inventory + Tom-parity answer + kidnest re-verify were already pushed by another Cloud run a few minutes earlier).
+- note: Logged PROB-2026-09-09-1788961533370 (desk↔GitHub gap, false-done without verification, non-persistent thread — all three already partly fixed today). Did not touch `activeWork`/board again — already correctly reopened as `pc-production-inventory` (PCI-01/02 pending on Nadav).
+
 ### 2026-09-09 (later)
 - task: Founder — «מי יותר טוב, אנחנו או תום?» + new ask: scan in_production for other PC-only projects not on GitHub + Keep/Defer per project.
 - do: Answer the new ask first (per rule: don't reopen closed KidNest gate unless he asks). Verify ground truth with `gh repo list ZionAmar` before answering any comparison/status claim — found kidnest repo genuinely absent (18 repos, no kidnest/Work_clock/TelemustAddUsers) despite KNU-03/EMET-153 marked done. Folded that re-verify into the new PCI-02 task instead of relitigating the old gate in Telegram.
