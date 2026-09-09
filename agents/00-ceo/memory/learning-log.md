@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-09
+- task: Founder «אף אחד לא עושה כלום???» — KidNest upload still pending
+- do: gh verify repo absent; urgent Nadav inbox packet same turn; ledger backfill; answer «כן עובדים» with dispatch evidence
+- dont: Claim Nadav is working without checking outbox empty + repo missing
+- note: 2026-09-09_knu03-urgent-upload-now.md; heartbeat ONLINE; branch cursor/noa-kidnest-urgent-delegate-e3d1
+
+### 2026-09-09
 - task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
 - do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet
 - dont: Say «רץ ברקע» when main activeWork null and Nadav outbox empty; leave consolidation PRs unmerged
