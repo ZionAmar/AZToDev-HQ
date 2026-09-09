@@ -15,5 +15,10 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 
 ## Iteration log
 ### 2026-09-09
+- task: Noa asked you: KidNest GitHub upload — create Linear project «KidNest — העלאה לגיטהאב» with 4 staged issues; commit plan to ops/intake/ideas/IDEA-kidnest-github-upload.md
+- do: Rename existing Linear project via updateProject; idempotent publish script skips EMET-129..132; plan artifact in ops/intake/ideas/
+- dont: Create duplicate issues when canonical EMET-129..132 already live; dont create repo/push during plan-only
+- note: Linear «KidNest — העלאה לגיטהאב» live EMET-129..132; EMET-66 already canceled; plan at ops/intake/ideas/IDEA-kidnest-github-upload.md
+### 2026-09-09
 - Company armed. Waiting for founder build order.
 

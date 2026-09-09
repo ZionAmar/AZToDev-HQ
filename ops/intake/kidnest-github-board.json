@@ -1,0 +1,107 @@
+{
+  "updatedAt": "2026-09-09T09:48:00.000Z",
+  "initiative": "IDEA-kidnest-github-upload",
+  "project": "KidNest — העלאה לגיטהאב",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "targetRepo": "https://github.com/ZionAmar/KidNest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "founderAsk": "העלאת KidNest ל-GitHub פרטי — תכנון + שלבים ב-Linear",
+  "status": "active",
+  "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-העלאה-לגיטהאב",
+  "replacesHoldingIssue": "EMET-66",
+  "holdingIssueCanceledAt": "2026-09-09T09:24:59.086Z",
+  "owners": {
+    "lead": "32-delivery-lead",
+    "pcPrep": "34-pc-ops",
+    "review": "19-security-engineer"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תכנון מבנה ריפו",
+      "status": "done"
+    },
+    {
+      "id": "P2",
+      "nameHe": "הכנת PC — מלאי + ניקוי סודות",
+      "status": "todo"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו פרטי ב-GitHub",
+      "status": "todo"
+    },
+    {
+      "id": "P4",
+      "nameHe": "Push ראשון + אימות",
+      "status": "todo"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KNG-01",
+      "phase": "P1",
+      "titleHe": "תכנית מבנה ריפו — monorepo, .gitignore, factory.json",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "Artifact at ops/intake/ideas/IDEA-kidnest-github-upload.md",
+      "artifact": "ops/intake/ideas/IDEA-kidnest-github-upload.md",
+      "linearIssue": "EMET-129",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-129/kng-01-תכנית-מבנה-ריפו-monorepo-gitignore-factoryjson",
+      "completedAt": "2026-09-09T09:48:00.000Z"
+    },
+    {
+      "id": "KNG-02",
+      "phase": "P2",
+      "titleHe": "הכנת PC — מלאי תיקייה, git status, scrub סודות",
+      "owner": "34-pc-ops",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "Inventory report: folder size, existing .git?, grep secrets, .env.example gaps; checklist signed off",
+      "blockedBy": "PC must be on (Nadav worker)",
+      "pinRequired": false,
+      "linearIssue": "EMET-130",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-130/kng-02-הכנת-pc-מלאי-תיקייה-git-status-scrub-סודות"
+    },
+    {
+      "id": "KNG-03",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי ZionAmar/KidNest",
+      "owner": "32-delivery-lead",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "Empty private repo with README stub + .gitignore from plan; factory.json key kidnest registered in HQ PR",
+      "pinRequired": true,
+      "founderGate": "new_product",
+      "linearIssue": "EMET-131",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-131/kng-03-יצירת-ריפו-פרטי-zionamarkidnest"
+    },
+    {
+      "id": "KNG-04",
+      "phase": "P4",
+      "titleHe": "Push ראשון — monorepo נקי, בלי סודות",
+      "owner": "34-pc-ops",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "main branch pushed; git grep clean; repo URL in factory.json; EMET-66 canceled",
+      "pinRequired": true,
+      "founderGate": "secrets",
+      "dependsOn": ["KNG-02", "KNG-03"],
+      "linearIssue": "EMET-132",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-132/kng-04-push-ראשון-monorepo-נקי-בלי-סודות"
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "todo": 3,
+    "done": 1,
+    "in_progress": 0,
+    "blocked": 0
+  },
+  "workflow": {
+    "mode": "sequential",
+    "language": "he",
+    "wipLimit": 1
+  }
+}
