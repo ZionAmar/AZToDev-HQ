@@ -80,12 +80,33 @@
       "dependsOn": ["INV-02"],
       "blocker": "LINEAR_API_KEY / MCP",
       "noteHe": "מייל למייסד נשלח ב-INV-02; Linear עדיין חסום"
+    },
+    {
+      "id": "INV-04",
+      "phase": "P4",
+      "titleHe": "מצגת v2 — לפי הערות ציון (לא אהב את v1, בלי איציק, סט מסכים חדש)",
+      "owner": "22-content-marketing",
+      "status": "ready",
+      "priority": "P0",
+      "founderFeedbackAt": "2026-09-09T21:34:00.000Z",
+      "founderFeedbackHe": "לא אהבתי את המצגת. לא צריך שיהיה כתוב שם שזה קשור לאיציק. שיראה: דשבורד ראשי, מסך הזמנות + איך נראית הזמנה, מסך מוצרים + איך נראה מוצר, מסך מחסן + איך נראה כשנכנסים למדף מסוים, מסך ניהול צוות, איך סוכן עושה הזמנה, איך מלקטים ומעדכנים, איך זה משתבץ לנהג ואיך הוא רואה את זה. דגשים/סימונים קטנים בשקפים מסוימים, טיפה שצריך — לא הרבה.",
+      "dod": "PPTX v2 חדש (RTL), 10 שקפי מסך לפי הרשימה של ציון + שער, אפס אזכור של איציק/שם לקוח בכל שקף/תמונה/טקסט, callout קטן רק בשקפים שסומנו בבריף",
+      "dependsOn": ["INV-01"],
+      "inputs": [
+        "agents/32-delivery-lead/outbox/2026-09-09_inventory-deck-v2-revision-brief.md",
+        "ops/intake/inventory-audit/screen-catalog.md",
+        "ops/intake/inventory-audit/screenshots/ (27 קיימות — אין צורך בצילום מסכים חדש)"
+      ],
+      "excludeAssets": [
+        "screenshots/60-sa-companies.png — מציג שם דייר לדוגמה 'איציק סיטונאות' על המסך עצמו; לא לכלול בכלל ב-v2"
+      ],
+      "blockedNote": "בניית ה-PPTX בפועל היא עבודת 22-content-marketing (לא 32-delivery-lead). מיקום הקובץ הסופי בתיקיית שולחן העבודה של ציון (`ניהול מלאי`) ורענון/מחיקת ה-v1 הישן שם דורשים DELEGATE נפרד ל-34-pc-ops (כתיבת דיסק PC). שליחת מייל עם הקובץ (אם רוצים) דורשת PIN לפי מדיניות."
     }
   ],
   "summary": {
-    "total": 3,
+    "total": 4,
     "done": 2,
-    "ready": 0,
+    "ready": 1,
     "todo": 0,
     "in_progress": 0,
     "blocked": 1
