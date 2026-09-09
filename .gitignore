@@ -16,4 +16,6 @@ deploy/*.tgz
 *.pem
 *.nopass
 *.key
+agents/*/inbox/_claimed/
+agents/*/inbox/_held/
 

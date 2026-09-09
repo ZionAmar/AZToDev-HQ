@@ -1,9 +1,9 @@
 {
-  "updatedAt": "2026-09-09T11:16:16.425Z",
+  "updatedAt": "2026-09-09T12:19:45.010Z",
   "initiative": "kidnest-github-upload",
   "project": "KidNest — העלאה ל-GitHub",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
-  "status": "in_progress",
+  "status": "done",
   "linearProjectUrl": "https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd",
   "owners": {
     "lead": "32-delivery-lead",
@@ -26,12 +26,12 @@
     {
       "id": "P3",
       "nameHe": "יצירת ריפו והעלאה",
-      "status": "in_progress"
+      "status": "done"
     },
     {
       "id": "P4",
       "nameHe": "אימות — קישור לריפו",
-      "status": "pending"
+      "status": "done"
     }
   ],
   "tasks": [
@@ -66,24 +66,29 @@
       "phase": "P3",
       "titleHe": "יצירת ריפו פרטי והעלאת קוד",
       "owner": "34-pc-ops",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "dod": "ריפו ZionAmar/KidNest (private) עם .gitignore נכון, ללא secrets",
       "blockedBy": null,
       "instructions": "Use existing scan from PC session. Do NOT re-run stake-confirm or location approval. Create repo + push.",
       "linearIssue": "EMET-153",
-      "linearUrl": "https://linear.app/my-company1460/issue/EMET-153/knu-03-יצירת-ריפו-פרטי-והעלאת-קוד"
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-153/knu-03-יצירת-ריפו-פרטי-והעלאת-קוד",
+      "completedAt": "2026-09-09T12:19:45.010Z",
+      "artifact": "agents/34-pc-ops/outbox/2026-09-09_knu03-repo-url.md",
+      "repo_url": "https://github.com/ZionAmar/kidnest"
     },
     {
       "id": "KNU-04",
       "phase": "P4",
       "titleHe": "אימות — קישור לריפו לציון",
       "owner": "00-ceo",
-      "status": "pending",
+      "status": "done",
       "priority": "P0",
       "dod": "קישור GitHub + סיכום מה עלה",
       "linearIssue": "EMET-154",
-      "linearUrl": "https://linear.app/my-company1460/issue/EMET-154/knu-04-אימות-קישור-לריפו-לציון"
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-154/knu-04-אימות-קישור-לריפו-לציון",
+      "completedAt": "2026-09-09T12:19:45.010Z",
+      "resultHe": "ריפו פרטי: https://github.com/ZionAmar/kidnest"
     }
   ]
 }

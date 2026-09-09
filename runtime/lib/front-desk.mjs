@@ -16,8 +16,9 @@ import {
 } from "./task-pipeline.mjs";
 import { takeWaitingFounder } from "./waiting-founder.mjs";
 import { enqueueWork } from "./work-queue.mjs";
+import { dispatchNextInbox, releaseHeldInbox } from "./inbox-dispatcher.mjs";
 import { readPipeline, boardStatusHebrew } from "./task-board.mjs";
-import { isProductWorkEnabled } from "./company-state.mjs";
+import { isProductWorkEnabled, readFactory, writeFactory } from "./company-state.mjs";
 import {
   matchPhoneCommand,
   helpHebrew,
@@ -263,6 +264,18 @@ export async function handleFounderTelegramMessage(input) {
 
   if (isFounderApprove(raw)) {
     const pending = takeWaitingFounder("confirm");
+    releaseHeldInbox();
+    const factory = readFactory();
+    if (factory.activeWork?.gate === "confirm") {
+      writeFactory({
+        activeWork: {
+          ...factory.activeWork,
+          gate: "pin",
+          waitingFor: `סיסמה כדי להמשיך «${factory.activeWork.bet || factory.activeWork.slug}»`,
+          next: factory.activeWork.next || "המומחה הבא רץ — נדב על דיסק אם צריך GitHub",
+        },
+      });
+    }
     if (pending?.jobs?.length) {
       const n = kickHeldJobs(pending.jobs, {
         preferKeshet: true,
@@ -275,6 +288,13 @@ export async function handleFounderTelegramMessage(input) {
       journal("front_desk_confirm_resume", { n });
       return { intent: "CONFIRM_RESUME", reply };
     }
+    dispatchNextInbox();
+    const reply =
+      "מאושר. מעירים את מי שחיכה בתיבה — אחד בכל פעם. אעדכן כשצריך סיסמה או כשזה זז.";
+    await sendFounderTelegram(reply, { silent: false });
+    appendTelegramThread("noa", reply);
+    journal("front_desk_confirm_inbox_release", {});
+    return { intent: "CONFIRM_INBOX", reply };
   }
 
   const phone = matchPhoneCommand(raw);

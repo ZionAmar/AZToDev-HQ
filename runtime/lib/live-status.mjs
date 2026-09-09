@@ -1,13 +1,15 @@
 /**
  * Founder-facing live flow: now / waiting / next / links.
  */
+import fs from "fs";
 import { readFactory } from "./company-state.mjs";
 import { nadavHeartbeatSnapshot } from "./nadav-queue.mjs";
 import { peekWaitingFounder } from "./waiting-founder.mjs";
 import { listLiveRuns, cloudAgentUrl } from "./live-runs.mjs";
-import { readJson, RUNTIME_DIR, OPS } from "./paths.mjs";
+import { readJson, RUNTIME_DIR, OPS, ROOT } from "./paths.mjs";
 import path from "path";
 import { readAgentName } from "./router.mjs";
+import { LIVE_AGENT_IDS } from "./agent-memory.mjs";
 
 function peekQueue() {
   const q = readJson(path.join(RUNTIME_DIR, "work-queue.json"), { items: [] });
@@ -21,13 +23,38 @@ function listJobs() {
   return store.jobs || [];
 }
 
+function openActiveWork() {
+  const w = readFactory().activeWork;
+  if (!w?.slug && !w?.bet) return null;
+  if (w.gate === "done" || w.status === "done") return null;
+  return w;
+}
+
 function flowLine() {
-  const factory = readFactory();
-  const w = factory.activeWork;
-  if (!w?.slug && !w?.bet) return "זרימה: אין משימה פתוחה במפעל";
+  const w = openActiveWork();
+  if (!w) return "זרימה: אין משימה פתוחה במפעל";
   const owner = readAgentName(w.owner) || w.owner || "?";
   const phase = w.phase ? ` · שלב ${w.phase}` : "";
   return `זרימה: ${w.bet || w.slug}${phase} · בעלים ${owner}`;
+}
+
+function inboxHint() {
+  for (const agentId of LIVE_AGENT_IDS) {
+    const held = path.join(ROOT, "agents", agentId, "inbox", "_held");
+    const open = path.join(ROOT, "agents", agentId, "inbox");
+    const who = readAgentName(agentId) || agentId;
+    if (fs.existsSync(held)) {
+      const files = fs.readdirSync(held).filter((f) => f.endsWith(".md"));
+      if (files[0]) return `מחכה ל: «אשר» — תיק מוחזק אצל ${who} (${files[0]})`;
+    }
+    if (fs.existsSync(open)) {
+      const files = fs
+        .readdirSync(open)
+        .filter((f) => f.endsWith(".md") && f !== "README.md" && !f.startsWith("_"));
+      if (files[0]) return `מחכה ל: דיספצ'ר — ${who} · ${files[0]}`;
+    }
+  }
+  return "";
 }
 
 function waitingLine() {
@@ -39,6 +66,12 @@ function waitingLine() {
   if (confirm) {
     return `מחכה ל: «אשר» על התוכנית — «${String(confirm.task).slice(0, 80)}»`;
   }
+  const open = openActiveWork();
+  if (open?.waitingFor) {
+    return `מחכה ל: ${open.waitingFor}`;
+  }
+  const inbox = inboxHint();
+  if (inbox) return inbox;
   const jobs = listJobs();
   const pc = jobs.find((j) => j.status === "queued_pc");
   if (pc) {
@@ -90,9 +123,10 @@ function nextLine() {
   }
   if (peekWaitingFounder("confirm")) return "הבא: אחרי «אשר» — קשת פותחת/מעדכנת לינאר ואז נדב";
   if (peekWaitingFounder("pin")) return "הבא: אחרי סיסמה — ממשיכים את אותה משימה מיד";
-  const factory = readFactory();
-  if (factory.activeWork?.phase) {
-    return `הבא: לפי הלוח — אחרי ${factory.activeWork.phase}`;
+  const open = openActiveWork();
+  if (open?.next) return `הבא: ${open.next}`;
+  if (open?.phase) {
+    return `הבא: לפי הלוח — אחרי ${open.phase}`;
   }
   return "הבא: אין תור. כתוב מה לעשות או «סטטוס»";
 }

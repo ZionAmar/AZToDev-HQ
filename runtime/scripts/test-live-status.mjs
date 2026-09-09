@@ -5,6 +5,7 @@ import assert from "assert";
 import { triageSpecialistResult, formatNoaUpdate } from "../lib/noa-triage.mjs";
 import { cloudAgentUrl } from "../lib/live-runs.mjs";
 import { liveStatusHebrew } from "../lib/live-status.mjs";
+import { unfinishedActiveWork } from "../lib/active-work-watch.mjs";
 
 assert.equal(cloudAgentUrl("bc-abc"), "https://cursor.com/agents/bc-abc");
 assert.equal(cloudAgentUrl(""), "");
@@ -35,4 +36,5 @@ assert.match(live, /סטטוס חי/);
 assert.match(live, /עכשיו:/);
 assert.match(live, /מחכה ל:/);
 assert.match(live, /הבא:/);
+assert.equal(unfinishedActiveWork(), null);
 console.log("ok live-status");

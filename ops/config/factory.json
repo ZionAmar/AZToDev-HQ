@@ -7,11 +7,17 @@
   "wipLimit": 1,
   "activeWork": {
     "slug": "kidnest-github-upload",
-    "bet": "Upload KidNest monorepo from PC to private GitHub — KNU-03 in progress",
-    "phase": "KNU-03",
+    "bet": "KidNest private GitHub upload — done",
+    "phase": "done",
     "owner": "32-delivery-lead",
     "board": "ops/intake/kidnest-github-upload-board.json",
-    "startedAt": "2026-09-09T10:30:00.000Z"
+    "startedAt": "2026-09-09T10:30:00.000Z",
+    "gate": "done",
+    "waitingFor": "",
+    "next": "",
+    "status": "done",
+    "repoUrl": "https://github.com/ZionAmar/kidnest",
+    "finishedAt": "2026-09-09T12:19:45.010Z"
   },
   "githubOwner": "ZionAmar",
   "cursorGithubConnected": true,
@@ -77,6 +83,13 @@
     "telemust": {
       "github": "https://github.com/ZionAmar/TelemustAddUsers",
       "private": true
+    },
+    "kidnest": {
+      "github": "https://github.com/ZionAmar/kidnest",
+      "private": true,
+      "source": "C:/Users/amazi/Desktop/Projects/in_production/kidnest",
+      "pushedAt": "2026-09-09T12:19:45.010Z",
+      "task": "KNU-03"
     }
   },
   "coreAgents": [
@@ -115,5 +128,5 @@
     ]
   },
   "updatedAt": "2026-09-09",
-  "lastHqHelloAt": "2026-09-08T12:02:41.526Z"
+  "lastHqHelloAt": "2026-09-09T12:20:00.000Z"
 }
