@@ -32,6 +32,11 @@ HQ appends after each turn. You read this before answering ציון.
 - dont: Rely on gitignored `ops/runtime/telegram-thread.jsonl` as source of truth for Cloud runs.
 - note: Implemented founder-channel.mjs + wired background-delegate + cloud-ceo thread limit 24.
 
+- task: Founder «מה המשמעות» after brief daily summary
+- do: Answer practical meaning — wait for repo link, no action needed now; explain «עצרנו» = logging gap not stopped work
+- dont: Ask if PC is on when heartbeat ONLINE; repeat status bullets when he asks for meaning
+- note: Ledger appended thread turns; KNU-03 in_progress, Nadav delegated upload-only
+
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
