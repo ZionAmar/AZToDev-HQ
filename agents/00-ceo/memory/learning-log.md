@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09 — «מה עכשיו?»
+- task: Founder asks current state after Nadav loop complaints
+- do: Verify main has activeWork before replying; merge kidnest-merge-and-progress-501f if main still null
+- dont: Say «רץ ברקע» without outbox artifact or board phase change on main
+- note: main was null; merged via cursor/kidnest-main-merge-3e03; KNU-02 open, Nadav outbox still empty
+
 ### 2026-09-09 (continued)
 - task: Founder demands continuous progress — no stopping, no loops
 - do: Merge consolidate branch to main first; mark KNU-02 in_progress; delegate Nadav scan-only packet; mid-task updates on phase change
