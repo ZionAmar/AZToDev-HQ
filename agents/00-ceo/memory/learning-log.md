@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder sees Nadav repeating location confirm — KidNest stuck, tasks reopening
+- do: Merge best branch to main before claiming progress; one inbox packet per open task; evidence-based status
+- dont: Parallel branches without merge; Nadav stake confirm instead of KNU-02 scan
+- note: ~15 unmerged kidnest branches, main had null activeWork; consolidating from 9dbf (KNU-01 done, Linear live, no GitHub repo yet)
+
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
