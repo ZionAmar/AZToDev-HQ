@@ -46,3 +46,9 @@ HQ appends after each turn. You read this before answering ציון.
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
+
+### 2026-09-09
+- task: Founder repeated the exact same ask (Desktop → Projects → in_production → Baytor / Worklock / KidNest → any other significant project not on GitHub) minutes after it was already opened as `pc-production-inventory` (PCI-01/02/03, EMET-155/156/157).
+- do: Recognize a repeated ask as the *same* open work, not a new one. Backfill the founder-channel ledger with the turns that happened between Cloud sessions (fast-lane replies aren't git-tracked automatically) before answering. Append a nudge to the existing `agents/34-pc-ops/inbox` packet instead of opening a new board/ticket, and re-send the DELEGATE line now that the PC heartbeat is online.
+- dont: Open a duplicate board/Linear project for a request that's already `activeWork`. Don't let a fast-lane reply skip reading `ops/config/factory.json` first — the 14:05 reply gave a stale generic status and the founder caught it.
+- note: No `agents/34-pc-ops/outbox/2026-09-09_pci-inventory-report.md` exists yet — Nadav hasn't produced a result. Told the founder honestly (queued + online, no output yet) instead of inventing progress.

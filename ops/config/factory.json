@@ -16,7 +16,14 @@
     "waitingFor": "נדב על המחשב — PCI-01 סריקת in_production + PCI-02 אימות חוזר kidnest",
     "next": "PCI-03 — דוח לציון, ממתין להחלטת Keep/Defer לכל פרויקט",
     "status": "in_progress",
-    "finishedAt": null
+    "finishedAt": null,
+    "founderRepeatedAskAt": "2026-09-09T14:56:20.000Z",
+    "nudge": {
+      "at": "2026-09-09T14:57:00.000Z",
+      "by": "00-ceo",
+      "reason": "Founder repeated the identical in_production/Baytor/Worklock/KidNest ask. Same task, not reopened as new. Nadav PC heartbeat online (A_Z, 14:56:15Z), no outbox report yet.",
+      "action": "Appended nudge note to existing agents/34-pc-ops/inbox packet + re-sent DELEGATE. No new board or Linear ticket."
+    }
   },
   "priorWork": {
     "slug": "kidnest-github-upload",
