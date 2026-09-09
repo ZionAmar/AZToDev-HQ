@@ -15,6 +15,7 @@ Single source of truth for how EMET runs — GitLab/Stripe handbook spirit, lean
 | [../RULES.md](../RULES.md) | **Super-short rules: idea/problem → day → meetings** |
 | [../OPERATING_MODEL.md](../OPERATING_MODEL.md) | **Local agents + Telegram Nura + Linear phone** |
 | [../TOM_EVEN_PARITY.md](../TOM_EVEN_PARITY.md) | **Tom Even bar or better — definition of done** |
+| [../BEAT_TOM.md](../BEAT_TOM.md) | **Lead Tom carefully — how we win every row** |
 | [../WHAT_I_NEED_FROM_YOU.md](../WHAT_I_NEED_FROM_YOU.md) | Secrets / accounts still needed |
 | [telegram-front-desk.md](./telegram-front-desk.md) | Nura ↔ founder only |
 | [external-task-board.md](./external-task-board.md) | Linear remote tasks/daily |

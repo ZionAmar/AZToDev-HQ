@@ -27,8 +27,12 @@
 - [x] דלפק מקבל קבצי HQ גם בלי git על השרת — נדב על ה-PC מושך מ-GitHub ודוחף inbox/outbox לדלפק (`hq/lib/hq-pc-mirror.mjs`)
 - [ ] דלפק = git clone מלא (אופציונלי) — `ops/scripts/bootstrap-desk-git.sh` אם יש אימות GitHub על ה-VPS
 - [x] נדב ב-Startup של Windows — `ops/scripts/install-nadav-startup.ps1`
+- [x] ישיבת Daily קצרה על הדלפק — בוקר + ערב מנועה (שעון ירושלים), בלי swarm של 33
+- [x] Presence pulse כשהזרימה זזה (עם מרווח, בלי ספאם)
 - [ ] `productWorkEnabled` אחרי «תבנו» + PIN (מכוון כבוי)
-- [ ] ישיבת Daily מלאה עם LLM על הדלפק (בריף ערב כן; swarm אופציונלי)
+- [ ] דלפק = git clone מלא (אופציונלי) — יש מראה מנדב; bootstrap אם יש אימות על ה-VPS
+
+מפת ניצחון מול תום: [`BEAT_TOM.md`](./BEAT_TOM.md)
 
 ## מה חייב להיות **יותר טוב** מתום
 
