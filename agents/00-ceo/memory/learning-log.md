@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09 (later, +4)
+- task: Founder — «משהו נראה מאוד מבולבל אצליכם תבדקי טוב מה הבלאגן שנהיה בחברה, אני מרגיש לא בטוח» after a thread where Noa twice (15:40Z, 15:55Z) told him she was "sending to Keshet" / "he'll answer" without ever emitting a real DELEGATE line, so nothing actually ran — the PCI-07b packet sat untouched in `agents/32-delivery-lead/inbox/` since 15:34Z.
+- do: When a founder says a reply "feels off/confused," diff what was *said* against what actually ran (grep for a real DELEGATE line / inbox→outbox roundtrip in git), name the exact theater turn out loud to him, and fix it in the same reply with a real DELEGATE — don't just reassure him verbally.
+- dont: Say "שולחת הודעה" / "אני עוקבת" as if a specialist turn is in flight when no DELEGATE line exists in that same reply. Two turns did this in a row for the same task and it is exactly why he felt the company was "stuck."
+- note: Ownership decision itself (Keshet owns PCI-07/08/09) was correct and did not need re-litigating — the actual bug was zero execution behind two "I'm handling it" claims. Sent the real DELEGATE this turn. Reconciled ledger + factory.json nudges with the missed theater turns.
+
 ### 2026-09-09 (later, +3)
 - task: Founder — «פתאום את מגיבה מהר, לא נראה שאת חושבת, נראה שהכל מת» after Noa told him earlier in the same thread "אין משימות פתוחות, אף אחד לא רץ" while `ops/config/factory.json` (git, current) actually shows `activeWork=pc-production-inventory`, `status=in_progress`, waiting on Nadav since 13:40Z with no result 64 minutes later.
 - do: Always `git fetch`/`pull` and re-read the git-tracked state files (factory.json, board, ledger, outbox) before repeating any "status" claim in a live thread — never trust in-context memory of an earlier reply in the same conversation as ground truth, since different turns can boot from different (possibly stale) checkouts and genuinely disagree.

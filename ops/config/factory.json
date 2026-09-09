@@ -13,7 +13,7 @@
     "board": "ops/intake/pc-production-inventory-board.json",
     "startedAt": "2026-09-09T13:40:00.000Z",
     "gate": "locate_and_pin",
-    "waitingFor": "נדב — PCI-04 איתור תיקיות 'תהילים' + 'תהורה' תחת in_production (קריאה בלבד, כבר נשלח) | ציון — PIN ליצירת 2 ריפואים פרטיים ב-GitHub + push | קשת — PCI-07b: תוכנית ניווט הצוות שלו (שמות אמיתיים מהרוסטר, לא placeholder) לפני שנועה סוגרת עם ציון, ואז PCI-07 מיפוי + PCI-08 סיווג רלוונטיות",
+    "waitingFor": "נדב — PCI-04 איתור תיקיות 'תהילים' + 'תהורה' תחת in_production (קריאה בלבד, כבר נשלח) | ציון — PIN ליצירת 2 ריפואים פרטיים ב-GitHub + push | קשת — PCI-07b: תוכנית ניווט הצוות שלו (שמות אמיתיים מהרוסטר, לא placeholder), הפעם עם DELEGATE אמיתי שנשלח ב-16:15Z (לא רק פנייה מוצהרת) — ואז PCI-07 מיפוי + PCI-08 סיווג רלוונטיות",
     "next": "אחרי איתור+PIN: PCI-05/06 — נדב יוצר ריפו פרטי נפרד לכל פרויקט תחת ZionAmar ומעלה את הקוד, אחד בכל פעם (WIP=1). במקביל: אחרי שקשת מאשר תוכנית צוות אמיתית (PCI-07b) — PCI-09: דוח מסודר לציון עם המלצות Keep/Review/Archive לכל ריפו קיים, בלי לבצע כלום בפועל בלי אישור+PIN",
     "status": "in_progress",
     "finishedAt": null,
@@ -50,6 +50,12 @@
         "by": "00-ceo",
         "reason": "A visible Telegram turn gave the founder a DevOps+Code-Review+PM breakdown with an invented placeholder role (\"code-review-id\") instead of real roster IDs — split-brain vs. the git-tracked reality that a parallel turn had already assigned PCI-07/08/09 to 32-delivery-lead at 15:34Z. Founder caught the placeholder, said Keshet already runs the whole dev/SaaS pipeline so he should navigate his own team, and explicitly told Noa to check with Keshet first instead of answering him straight away.",
         "action": "Confirmed to founder that ownership is already Keshet (matches git state, not a new decision). Added PCI-07b checkpoint: Keshet must post his own real team plan (roster IDs only) to his outbox before Noa closes the loop with the founder — PCI-09 now depends on PCI-07b too. No new board/Linear project opened."
+      },
+      {
+        "at": "2026-09-09T16:15:00.000Z",
+        "by": "00-ceo",
+        "reason": "Founder said the whole flow feels confused ('בלאגן') and he no longer feels confident in status reports. Root-cause check (files, not memory): the PCI-07b packet has sat in agents/32-delivery-lead/inbox since 15:34Z with zero real Cloud execution — two prior Telegram turns (15:40, 15:55) claimed Keshet was being contacted/would report without ever emitting a DELEGATE line, so nothing actually ran. That is the real 'stuck' founder is seeing, not a broken ownership decision (ownership was already correct: Keshet).",
+        "action": "Emitted a real DELEGATE: 32-delivery-lead this turn for PCI-07b (post real team plan) + PCI-07/08 (repo inventory + relevance classification, reconcile 18-vs-49 count, no repo mutation). Told founder plainly what was theater vs real, and that this turn actually starts it."
       }
     ]
   },
