@@ -109,10 +109,11 @@
       "phase": "P4",
       "titleHe": "מיפוי מלא — כל הריפואים תחת חשבון ZionAmar בגיטהאב (פרטי+ציבורי): שם, נראות, שפה, גודל, תאריך push אחרון, תיאור",
       "owner": "32-delivery-lead",
-      "status": "queued",
+      "status": "done",
       "priority": "P1",
       "dod": "טבלה מלאה של כל הריפואים + פתרון הפער בין הספירות הידועות (ראו knownDiscrepancy) — אם צריך רשימה אמיתית מהחשבון האישי המלא, לשרשר DELEGATE נוסף ל-34-pc-ops בתוך אותו outbox, לא לוח חדש",
-      "knownDiscrepancy": "ריצת Cloud זו רואה 18 ריפואים תחת ZionAmar דרך ה-GitHub App המחובר ל-Cursor (gh repo list ZionAmar, נבדק 2026-09-09T15:33Z — כולם public חוץ מ-AZToDev-HQ; kidnest/Work_clock/telemust חסרים מהרשימה הזו). ops/config/factory.json מציין cursorGithubRepoCount=49. שני המספרים לא זהים — כנראה ה-GitHub App מוגבל בהרשאות ולא רואה את כל הריפואים הפרטיים. אין לדווח מספר סופי לציון בלי ליישב את הפער מול מקור סמכות אחד (חשבון אישי מלא / PC).",
+      "knownDiscrepancy": "ריצת Cloud זו רואה 18 ריפואים תחת ZionAmar דרך ה-GitHub App המחובר ל-Cursor (gh repo list ZionAmar, נבדק שוב 2026-09-09T18:00Z — זהה לבדיקות הקודמות מ-13:38Z ו-15:33Z; כולם public חוץ מ-AZToDev-HQ; kidnest/Work_clock/telemust חסרים מהרשימה הזו). ops/config/factory.json מציין cursorGithubRepoCount=49. שני המספרים לא זהים — 49 אין לו מקור מאומת בריצה הזו. לא נפתר לגמרי; PCI-10 נפתח ל-34-pc-ops לבדוק חשבון אמיתי.",
+      "artifact": "agents/32-delivery-lead/outbox/2026-09-09_pci-07-08-github-relevance-review.md",
       "linearIssue": null,
       "linearNote": "אין כלי Linear זמין בריצת Cloud זו — לא הומצא מספר טיקט. להוסיף תחת אותו פרויקט קיים (לא לוח מקביל)."
     },
@@ -121,10 +122,12 @@
       "phase": "P4",
       "titleHe": "קשת מאשר בחזרה: תוכנית ניווט הצוות שלו ל-PCI-07/08 (מי מהצוות שלו בפועל, אם בכלל, ומדוע) — לפני שנועה סוגרת עם ציון",
       "owner": "32-delivery-lead",
-      "status": "queued",
+      "status": "done",
       "priority": "P0",
       "dod": "פוסט קצר ב-outbox של קשת עם שמות סוכנים אמיתיים מהרוסטר (לא placeholder), או אישור שהוא מבצע לבד; ציון ביקש במפורש שלא נועה תנחש בשמו",
       "founderContext": "ציון: 'קשת אחראי על כל חברת אמת, אולי עדיף למסור לו ושהוא ינווט בין הצוות שלו... תבדקי איתו ואל תגיבי לי סתם ככה ישר'",
+      "resolution": "קשת אישר בעצמו ב-outbox: לא נדרש צוות נוסף, כל המשימה בוצעה ישירות מנתוני gh — לא נדרש PR/קוד, לא חוצה שער תבנו.",
+      "artifact": "agents/32-delivery-lead/outbox/2026-09-09_pci-07-08-github-relevance-review.md",
       "linearIssue": null
     },
     {
@@ -132,10 +135,11 @@
       "phase": "P4",
       "titleHe": "סיווג רלוונטיות לכל ריפו — פעיל/לשמור, ישן-אך-בעל-ערך, מועמד לארכוב (test/demo/fork/כפילות), עם נימוק שורה אחת לכל אחד",
       "owner": "32-delivery-lead",
-      "status": "queued",
+      "status": "done",
       "priority": "P1",
       "dod": "טבלת סיווג לכל ריפו מ-PCI-07 + נימוק; אין ביצוע ארכוב/מחיקה/שינוי נראות בפועל — זו רק המלצה",
       "dependsOn": ["PCI-07"],
+      "artifact": "agents/32-delivery-lead/outbox/2026-09-09_pci-07-08-github-relevance-review.md",
       "linearIssue": null
     },
     {
@@ -143,10 +147,22 @@
       "phase": "P4",
       "titleHe": "דוח לציון (עברית, קצר, לנייד) — רשימת ריפואים + המלצת Keep/Review/Archive לכל אחד, ממתין להחלטתו לפני כל פעולה מוטטיבית",
       "owner": "00-ceo",
-      "status": "queued",
+      "status": "done",
       "priority": "P0",
       "dod": "הודעת טלגרם קצרה + קישור לקובץ הדוח המלא; כל Archive/Delete/שינוי נראות בפועל דורש אישור מפורש + PIN לכל ריפו",
       "dependsOn": ["PCI-08", "PCI-07b"],
+      "note": "נשלח לציון בטלגרם ב-2026-09-09T18:00Z, ממתין להחלטת Keep/Review/Archive שלו לכל ריפו.",
+      "linearIssue": null
+    },
+    {
+      "id": "PCI-10",
+      "phase": "P4",
+      "titleHe": "בדיקת ספירת ריפואים אמיתית מהחשבון האישי המלא (לא מה-GitHub App המוגבל) — אישור/שלילת 49, בדיקת קידניסט/Work_clock/telemust",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P2",
+      "dod": "רשימה מלאה מ-github.com מחובר כ-ZionAmar (או gh CLI מחובר כמשתמש האמיתי על ה-PC) — מספר סופי + אישור אם קידניסט/Work_clock/TelemustAddUsers קיימים בפועל",
+      "blockedBy": null,
       "linearIssue": null
     }
   ]
