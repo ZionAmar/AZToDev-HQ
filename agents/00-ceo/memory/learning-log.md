@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder — «חייבת להיות מעודכנת בכל שלב / כל הודעה»; Nadav reports reached Telegram but not HQ git → loops + duplicate Linear tickets.
+- do: Git-tracked `ops/founder-channel/ledger.jsonl`; append every founder/noa/specialist Telegram line; read 24 entries before Cloud turn; scan ledger before reopening phases.
+- dont: Rely on gitignored `ops/runtime/telegram-thread.jsonl` as source of truth for Cloud runs.
+- note: Implemented founder-channel.mjs + wired background-delegate + cloud-ceo thread limit 24.
+
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.

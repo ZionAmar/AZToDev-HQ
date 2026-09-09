@@ -4,7 +4,11 @@
  */
 import { journal, nowIso, writeJson, readJson, OPS } from "./paths.mjs";
 import path from "path";
-import { chatWithAgent, sanitizeForTelegram } from "./agent-sessions.mjs";
+import {
+  chatWithAgent,
+  sanitizeForTelegram,
+  appendTelegramThread,
+} from "./agent-sessions.mjs";
 import { sendFounderTelegram } from "./telegram.mjs";
 import { readAgentName } from "./router.mjs";
 import {
@@ -164,10 +168,9 @@ export function startBackgroundDelegate({
         if (notifyFounder) {
           const clean = sanitizeForTelegram(activated.cleaned).slice(0, 1200);
           const extra = activated.message ? `\n\n${activated.message}` : "";
-          await sendFounderTelegram(
-            `עדכון מרקע · ${name} (${agentId})\nמשימה הסתיימה.\n\n${clean || "(בלי טקסט)"}${extra}\n\nאפשר לשאול אותי מה המשמעות / מה הצעד הבא.`,
-            { silent: false }
-          );
+          const msg = `עדכון מרקע · ${name} (${agentId})\nמשימה הסתיימה.\n\n${clean || "(בלי טקסט)"}${extra}\n\nאפשר לשאול אותי מה המשמעות / מה הצעד הבא.`;
+          await sendFounderTelegram(msg, { silent: false });
+          appendTelegramThread(agentId, msg, { source: "background_delegate" });
         }
       } catch (err) {
         const msg = String(err?.message || err).slice(0, 300);
@@ -181,10 +184,9 @@ export function startBackgroundDelegate({
         writeJobs(jobs);
         journal("delegate_background_error", { jobId, agentId, error: msg });
         if (notifyFounder) {
-          await sendFounderTelegram(
-            `עדכון · ${name} נתקע ברקע על המשימה.\n${msg}\nאפשר להמשיך לדבר איתי — הם לא חוסמים אותי.`,
-            { silent: true }
-          ).catch(() => {});
+          const errMsg = `עדכון · ${name} נתקע ברקע על המשימה.\n${msg}\nאפשר להמשיך לדבר איתי — הם לא חוסמים אותי.`;
+          await sendFounderTelegram(errMsg, { silent: true }).catch(() => {});
+          appendTelegramThread(agentId, errMsg, { source: "background_delegate_error" });
         }
       }
     })();
