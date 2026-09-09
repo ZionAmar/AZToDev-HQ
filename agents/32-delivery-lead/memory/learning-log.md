@@ -14,6 +14,11 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 - Do not skip to engineers. Do not confuse קרן (customer review) with this role.
 
 ## Iteration log
+### 2026-09-09 (pilot complete)
+- task: Noa — KidNest GitHub upload pilot + agent-stake spec (MANDATE-2026-09-09)
+- do: inbox packet + agent-stake-board.json + stake log append; verify Linear idempotent
+- dont: Duplicate Linear issues; dont repo/push during plan-only
+- note: Linear https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80 live; handoff KNU-02 → Nadav
 ### 2026-09-09
 - task: Noa — agent-stake spec + KidNest GitHub upload Linear (4 phases) + factory activeWork
 - do: Board JSON + idempotent intake-board-linear-publish + agent-stake-spec; cancel EMET-66 when bet lands

@@ -1,0 +1,115 @@
+{
+  "updatedAt": "2026-09-09T10:12:00.000Z",
+  "initiative": "agent-stake-automation",
+  "mandate": "MANDATE-2026-09-09",
+  "project": "Agent-stake — accountability trail",
+  "status": "plan",
+  "mode": "plan-only",
+  "linearProjectUrl": null,
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "owners": {
+    "lead": "32-delivery-lead",
+    "runtime": "18-devops-platform",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "AS-P1",
+      "nameHe": "מפרט — packet + action-log schema",
+      "status": "done"
+    },
+    {
+      "id": "AS-P2",
+      "nameHe": "פיילוט KidNest — board + Linear + activeWork",
+      "status": "done"
+    },
+    {
+      "id": "AS-P3",
+      "nameHe": "Runtime writer — agent-stake-log.jsonl",
+      "status": "blocked"
+    },
+    {
+      "id": "AS-P4",
+      "nameHe": "packet-registry.json + anti-theater checks",
+      "status": "blocked"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "AS-01",
+      "phase": "AS-P1",
+      "titleHe": "מפרט agent-stake — packet format, action-log schema, trigger rules",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "agent-stake-spec.md: packet frontmatter, 3 log layers, 10 triggers, integration map",
+      "statusHe": "הושלמה",
+      "completedAt": "2026-09-09T10:12:00.000Z",
+      "resultHe": "Spec committed — packet format, stake log schema, trigger rules T1–T10",
+      "artifact": "agents/32-delivery-lead/memory/agent-stake-spec.md",
+      "pinRequired": false
+    },
+    {
+      "id": "AS-02",
+      "phase": "AS-P2",
+      "titleHe": "פיילוט KidNest — board JSON + Linear 4 phases + factory activeWork",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "priority": "P0",
+      "dod": "kidnest-github-upload-board.json live; linearProjectUrl; EMET-143..146; EMET-66 canceled; activeWork registered",
+      "statusHe": "הושלמה",
+      "dependsOn": ["AS-01"],
+      "completedAt": "2026-09-09T10:12:00.000Z",
+      "resultHe": "KidNest upload Linear live; KNU-01 done; WIP=1 activeWork kidnest-github-upload",
+      "artifact": "ops/intake/kidnest-github-upload-board.json",
+      "pinRequired": false,
+      "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80"
+    },
+    {
+      "id": "AS-03",
+      "phase": "AS-P3",
+      "titleHe": "Runtime hook — append agent-stake-log.jsonl on stake transitions",
+      "owner": "18-devops-platform",
+      "status": "blocked",
+      "priority": "P1",
+      "dod": "runtime/lib/agent-stake.mjs writes stake_assigned/released/blocked on board/factory updates",
+      "statusHe": "חסומה — PIN + build phase",
+      "dependsOn": ["AS-02"],
+      "blockedReason": "plan-only: runtime mutation deferred until productWorkEnabled + PIN",
+      "pinRequired": true
+    },
+    {
+      "id": "AS-04",
+      "phase": "AS-P4",
+      "titleHe": "packet-registry.json — inbox/outbox state machine",
+      "owner": "18-devops-platform",
+      "status": "blocked",
+      "priority": "P2",
+      "dod": "ops/runtime/packet-registry.json tracks inbox→active→outbox per agent",
+      "statusHe": "חסומה — PIN + build phase",
+      "dependsOn": ["AS-03"],
+      "blockedReason": "plan-only: defer until AS-03 runtime writer lands",
+      "pinRequired": true
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "todo": 0,
+    "ready": 0,
+    "in_progress": 0,
+    "waiting_founder": 0,
+    "done": 2,
+    "blocked": 2
+  },
+  "workflow": {
+    "mode": "gated_sequential",
+    "language": "he",
+    "waitFounderBetweenTasks": false,
+    "pinGates": ["AS-03", "AS-04"]
+  },
+  "constraints": [
+    "Plan-only until PIN — no runtime code changes now",
+    "Stake log manual append OK for pilot; auto-writer in AS-03",
+    "Anti-theater: no stake without people-ledger or artifact path"
+  ]
+}

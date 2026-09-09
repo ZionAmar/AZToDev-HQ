@@ -1,6 +1,6 @@
 # Agent-stake automation — spec (plan-only)
 
-> **Source:** Noa delegation 2026-09-09 · intake `ops/intake/ideas/2026-09-09_agent-stake-automation.md` (referenced; file not yet in HQ clone — spec derived from runtime + handbook).
+> **Source:** Noa delegation 2026-09-09 · MANDATE-2026-09-09 · intake `ops/intake/ideas/2026-09-09_agent-stake-automation.md`
 > **Owner:** Keshet (`32-delivery-lead`) · **Mode:** plan + Linear only until PIN.
 
 ## Problem
@@ -221,9 +221,9 @@ When `productWorkEnabled` flips true via `ACTIVATE_PRODUCT`, merge `slug` + `bet
 ## 5. Rollout (plan-only now)
 
 1. ✅ This spec committed under `agents/32-delivery-lead/memory/`
-2. ✅ KidNest GitHub upload board + Linear (4 phases)
+2. ✅ KidNest GitHub upload board + Linear (4 phases) — [project](https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80)
 3. ✅ `factory.json` `activeWork` registered
-4. ⏳ Runtime writer for `agent-stake-log.jsonl` — defer until PIN window (build phase)
-5. ⏳ `packet-registry.json` — defer
+4. ✅ Pilot stake log manual append (`ops/runtime/agent-stake-log.jsonl`) — auto-writer AS-03 deferred
+5. ⏳ `packet-registry.json` — defer (AS-04)
 
 **Do not** create GitHub repo or push KidNest until founder PIN + explicit «תבנו»/approve on KNU-03/KNU-04.
