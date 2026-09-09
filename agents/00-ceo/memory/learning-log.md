@@ -17,6 +17,11 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-09
+- task: Founder — «הנה הוא שלח משו. מה הוא אומר?» (Nadav Telegram not in ledger)
+- do: Merge consolidate branch before reply; explain scan vs stake-loop vs repo stage without inventing Nadav quotes; ask first sentence if text missing from ledger
+- dont: Pretend HQ saw Nadav message when ledger has no nadav role entry
+- note: Merged kidnest-consolidate-status-0d6b to cursor/nadav-message-explain-1b4c; explained from KNU-02 baseline
+
 - task: Founder — «מישהו עובד עכשיו? או ששוב נעצרתם?» after ledger fix PR still unmerged on main
 - do: Merge kidnest state + founder ledger to main before status reply; append ledger every turn; delegate KNU-03 with no-stake-confirm packet
 - dont: Say «רץ ברקע» when main activeWork null and Nadav outbox empty; leave consolidation PRs unmerged
