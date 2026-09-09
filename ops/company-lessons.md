@@ -32,6 +32,11 @@ Failures that must not repeat. Injected into every live agent run.
 - dont: Keep re-emitting the same DELEGATE line turn after turn while the founder watches the outbox stay empty — that is indistinguishable from the theater it's supposed to fix.
 - note: PCI-07/07b/08 had a real DELEGATE recorded at 16:15Z but the outbox was still README-only when the founder said "תעשי את זה" ~1h45m later. Executed directly with `gh repo list ZionAmar` (already available, read-only) and wrote the artifact in the same turn instead of sending a sixth promise.
 
+### 2026-09-09 · closed_task_repeated_relay
+- do: Before queuing any specialist Cloud run with a "start X" framing, check that task's own board file (`ops/intake/*-board.json`) and `ops/founder-channel/ledger.jsonl` for an existing `status: done` + sent-to-founder record first. If found, answer from the existing artifact at the dispatcher/Noa layer directly — do not spend a Cloud run + WIP slot re-confirming closed work.
+- dont: Relay the founder's original phrasing of a task as if it were new just because he repeated it in a fresh message — a founder re-saying the same sentence does not mean the task reopened; check `status` before dispatching.
+- note: The GitHub-repo relevance review (PCI-07/07b/08/09) was closed with a real artifact + founder Telegram report at 18:00:30Z. It was then relayed back to `32-delivery-lead` as a "new" task 8 more times across one session-chain (6 outbox re-confirmations + 2 direct DELEGATEs to `00-ceo` about the relay pattern itself), none of which stopped a further relay. Recorded here as a standing lesson because per-run outbox notes alone were not enough to fix it.
+
 ### 2026-09-09 · quoted_cloud_link_check_lessons_first
 - do: When the founder quotes a real `cursor.com/agents/bc-...` link as evidence a specialist is/was running, check `ops/company-lessons.md` and the ledger for a matching incident before replying "no such agent exists" — some of these links are real past runs, not hallucinations.
 - dont: Imply a founder-provided Cloud link is fake/unverifiable without first searching this repo's own incident log for that exact id.

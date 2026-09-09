@@ -152,6 +152,9 @@
       "dod": "הודעת טלגרם קצרה + קישור לקובץ הדוח המלא; כל Archive/Delete/שינוי נראות בפועל דורש אישור מפורש + PIN לכל ריפו",
       "dependsOn": ["PCI-08", "PCI-07b"],
       "note": "נשלח לציון בטלגרם ב-2026-09-09T18:00Z, ממתין להחלטת Keep/Review/Archive שלו לכל ריפו.",
+      "relayedAgainCount": 4,
+      "lastRelayedAt": "2026-09-09T19:15:43.898Z",
+      "relayFlag": "Same closed task re-sent to 32-delivery-lead as if new, 4 times since close (see ops/company-lessons.md#closed_task_repeated_relay). Content unchanged each time on live re-check.",
       "linearIssue": null
     },
     {
