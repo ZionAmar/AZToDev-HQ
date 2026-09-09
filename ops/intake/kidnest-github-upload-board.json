@@ -1,0 +1,97 @@
+{
+  "updatedAt": "2026-09-09T10:15:00.000Z",
+  "initiative": "kidnest-github-upload",
+  "project": "KidNest — העלאה לגיטהאב",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "founderAsk": "פתח ריפו בגיטהאב לקידניסט — סיסמה התקבלה, המחשב דלוק",
+  "status": "active",
+  "linearProjectUrl": null,
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "githubOwner": "ZionAmar",
+  "githubRepoTarget": "KidNest",
+  "owners": {
+    "lead": "32-delivery-lead",
+    "pc": "34-pc-ops",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "KU-P1",
+      "nameHe": "תכנון + פרויקט בלינאר",
+      "status": "in_progress",
+      "owner": "32-delivery-lead"
+    },
+    {
+      "id": "KU-P2",
+      "nameHe": "סריקת תיקייה במחשב — מה מעלים",
+      "status": "ready",
+      "owner": "34-pc-ops"
+    },
+    {
+      "id": "KU-P3",
+      "nameHe": "יצירת ריפו + העלאה ראשונית",
+      "status": "blocked",
+      "owner": "32-delivery-lead",
+      "blockedBy": "KU-P2"
+    },
+    {
+      "id": "KU-P4",
+      "nameHe": "אימות — ריפו קיים, ציון יכול לפתוח",
+      "status": "todo",
+      "owner": "32-delivery-lead"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KU-01",
+      "phase": "KU-P1",
+      "titleHe": "פתיחת פרויקט Linear — העלאת KidNest (4 שלבים)",
+      "owner": "32-delivery-lead",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "linearProjectUrl מלא + משימות מסונכרנות ללוח",
+      "artifact": null
+    },
+    {
+      "id": "KU-02",
+      "phase": "KU-P1",
+      "titleHe": "תכנית ריפו — מה נכנס, מה נשאר מקומי, .gitignore",
+      "owner": "32-delivery-lead",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "ops/meetings/kidnest-github-upload-plan.md",
+      "artifact": null
+    },
+    {
+      "id": "KU-03",
+      "phase": "KU-P2",
+      "titleHe": "סריקת תיקיית kidnest במחשב — רשימת קבצים + גודל",
+      "owner": "34-pc-ops",
+      "status": "ready",
+      "priority": "P0",
+      "dod": "agents/34-pc-ops/outbox/kidnest-folder-inventory.md",
+      "artifact": null
+    },
+    {
+      "id": "KU-04",
+      "phase": "KU-P3",
+      "titleHe": "יצירת ריפו KidNest ב-GitHub + push ראשון",
+      "owner": "32-delivery-lead",
+      "status": "blocked",
+      "priority": "P0",
+      "dod": "https://github.com/ZionAmar/KidNest קיים עם קוד",
+      "blockedBy": "KU-03",
+      "artifact": null
+    },
+    {
+      "id": "KU-05",
+      "phase": "KU-P4",
+      "titleHe": "אימות + דוח סיום לציון",
+      "owner": "32-delivery-lead",
+      "status": "todo",
+      "priority": "P1",
+      "dod": "קישור ריפו + Linear done + הודעה לציון",
+      "artifact": null
+    }
+  ]
+}

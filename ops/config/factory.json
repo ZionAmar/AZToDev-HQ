@@ -5,7 +5,20 @@
   "productCompanyReady": true,
   "chemiCloudHqDeploy": true,
   "wipLimit": 1,
-  "activeWork": null,
+  "activeWork": {
+    "id": "kidnest-github-upload",
+    "titleHe": "KidNest — העלאה לגיטהאב",
+    "board": "ops/intake/kidnest-github-upload-board.json",
+    "linkedInitiative": "MANDATE-2026-09-09-agent-stake-model",
+    "linkedBoard": "ops/intake/agent-stake-board.json",
+    "status": "active",
+    "phase": "KU-P1",
+    "startedAt": "2026-09-09T10:15:00.000Z",
+    "owners": {
+      "lead": "32-delivery-lead",
+      "pc": "34-pc-ops"
+    }
+  },
   "githubOwner": "ZionAmar",
   "cursorGithubConnected": true,
   "cursorGithubRepoCount": 49,
@@ -107,6 +120,6 @@
       "/start"
     ]
   },
-  "updatedAt": "2026-09-09",
+  "updatedAt": "2026-09-09T10:15:00.000Z",
   "lastHqHelloAt": "2026-09-08T12:02:41.526Z"
 }

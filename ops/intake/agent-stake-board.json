@@ -1,0 +1,72 @@
+{
+  "updatedAt": "2026-09-09T10:15:00.000Z",
+  "initiative": "MANDATE-2026-09-09-agent-stake-model",
+  "project": "Agent stake model — Cloud listens to GitHub folder",
+  "founderAsk": "כל אייג'נט עם תקיעה בגיטהאב, מנוע בענן שמאזין לשינויים, יומן פעולות, עדכון אוטומטי לציון ולינאר",
+  "status": "active",
+  "pilot": "kidnest-github-upload",
+  "linearProjectUrl": null,
+  "owners": {
+    "lead": "32-delivery-lead",
+    "frontDesk": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "AS-P1",
+      "nameHe": "מפרט — מה כל תיקיית סוכן חייבת להכיל",
+      "status": "in_progress",
+      "owner": "32-delivery-lead"
+    },
+    {
+      "id": "AS-P2",
+      "nameHe": "יומן פעולות — פורמט action-log + טריגרים",
+      "status": "todo",
+      "owner": "32-delivery-lead"
+    },
+    {
+      "id": "AS-P3",
+      "nameHe": "פיילוט — העלאת KidNest מוכיח שהמודל עובד",
+      "status": "todo",
+      "owner": "32-delivery-lead",
+      "linkedBoard": "ops/intake/kidnest-github-upload-board.json"
+    },
+    {
+      "id": "AS-P4",
+      "nameHe": "סגירה — דוח לציון + Linear מסונכרן",
+      "status": "todo",
+      "owner": "32-delivery-lead"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "AS-01",
+      "phase": "AS-P1",
+      "titleHe": "כתיבת מפרט agent-stake (ROLE, inbox, outbox, action-log, triggers)",
+      "owner": "32-delivery-lead",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "קובץ spec ב-ops/meetings/ + כל סוכן חי רואה action-log template",
+      "artifact": null
+    },
+    {
+      "id": "AS-02",
+      "phase": "AS-P2",
+      "titleHe": "הגדרת action-log.jsonl — קלט/פלט/תאריך/פרויקט",
+      "owner": "32-delivery-lead",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "agents/_shared/ACTION_LOG_FORMAT.md + דוגמה בכל סוכן חי",
+      "artifact": null
+    },
+    {
+      "id": "AS-03",
+      "phase": "AS-P3",
+      "titleHe": "הרצת פיילוט KidNest upload לפי המפרט",
+      "owner": "32-delivery-lead",
+      "status": "todo",
+      "priority": "P0",
+      "dod": "kidnest-github-upload-board.json כל השלבים done",
+      "artifact": "ops/intake/kidnest-github-upload-board.json"
+    }
+  ]
+}
