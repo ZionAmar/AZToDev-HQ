@@ -7,6 +7,7 @@ import path from "path";
 import { ROOT, OPS, RUNTIME_DIR, nowIso, journal, ensureRuntimeDirs } from "./paths.mjs";
 import { readAgentName } from "./router.mjs";
 import { stripActivateProduct } from "./product-activate.mjs";
+import { companyLessonsPromptBlock } from "./company-lessons.mjs";
 
 export const LIVE_AGENT_IDS = [
   "00-ceo",
@@ -51,10 +52,12 @@ export function memoryPromptBlock(agentId) {
   const log = readLearningLog(agentId);
   const tail = log.length > LOG_MAX_CHARS ? log.slice(-LOG_MAX_CHARS) : log;
   const name = agentId ? readAgentName(agentId) : "agent";
+  const lessons = companyLessonsPromptBlock();
   return `
 === SHARED BRAIN (_company/CORE_CONTEXT.md) ===
 ${core || "(missing CORE_CONTEXT.md)"}
 
+${lessons ? lessons + "\n" : ""}
 === YOUR LEARNING LOG (agents/${agentId || "?"}/memory/learning-log.md) — you have done this before ===
 ${tail || "(empty — first real day in this folder)"}
 

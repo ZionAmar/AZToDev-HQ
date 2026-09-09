@@ -4,6 +4,7 @@ import {
   appendTelegramThread,
   resetAgentSession,
   sanitizeForTelegram,
+  recentTelegramThread,
 } from "./agent-sessions.mjs";
 import { sendFounderTelegram, sendFounderTelegramVoice } from "./telegram.mjs";
 import { synthesizeSpeechChunks, ttsConfigured } from "./telegram-tts.mjs";
@@ -32,6 +33,11 @@ import {
 } from "./action-pin.mjs";
 import { chatWithCloudCeo, cloudOpsConfigured } from "../../hq/lib/cloud-ceo.mjs";
 import { hqCloudOnly } from "./specialist-runtime.mjs";
+import { classifyFounderSpeed } from "./models.mjs";
+import { llmChat, llmConfigured } from "./llm.mjs";
+import { appendLearning } from "./agent-memory.mjs";
+import { recordCompanyLesson } from "./company-lessons.mjs";
+import { liveStatusHebrew } from "./live-status.mjs";
 
 export { hqCloudOnly };
 
@@ -47,9 +53,52 @@ function kickHeldJobs(jobs, { preferKeshet = false, founderText = "" } = {}) {
   return list.length;
 }
 
-const AGENT_TIMEOUT_MS = Number(process.env.EMET_TELEGRAM_AGENT_TIMEOUT_MS || 300000);
+const AGENT_TIMEOUT_MS = Number(process.env.EMET_TELEGRAM_AGENT_TIMEOUT_MS || 420000);
 const ACK_AFTER_MS = Number(process.env.EMET_TELEGRAM_ACK_MS || 2500);
 const PROGRESS_EVERY_MS = Number(process.env.EMET_TELEGRAM_PROGRESS_MS || 90000);
+
+async function fastNoaReply(founderText) {
+  const status = liveStatusHebrew();
+  const thread = recentTelegramThread(8);
+  if (!llmConfigured()) {
+    return {
+      ok: true,
+      status: "fast_local",
+      text: [
+        "קיבלתי. תשובה קצרה בלי Cloud (כדי לא ליפול על timeout):",
+        "",
+        status,
+        "",
+        "אם צריך ביצוע עמוק — כתוב במפורש מה לעשות (מיילים / מחשב / «תבנו»).",
+      ].join("\n"),
+    };
+  }
+  const out = await llmChat({
+    prefer: "fast",
+    maxTokens: 700,
+    system:
+      "את נועה, דלפק AZToDev. עברית קצרה ומקצועית. עני קודם. אל תמציאי שרצים/PR. " +
+      "אם צריך מומחה — צייני DELEGATE: id | task בשורה נפרדת. אל תגידי שהפעלת מישהו בלי DELEGATE. " +
+      "LIVE STATUS למטה הוא האמת.",
+    user: `LIVE STATUS:\n${status}\n\nTHREAD:\n${thread || "(none)"}\n\nFOUNDER:\n${founderText}`,
+  });
+  return { ok: true, status: "fast_llm", text: String(out.text || "").trim() };
+}
+
+function learnFromTimeout(founderText) {
+  appendLearning("00-ceo", {
+    task: String(founderText || "").slice(0, 200),
+    do: "For chat/status/compare questions use fast desk reply; reserve Cloud for real execute work",
+    dont: "Spin a full Cursor Cloud Noa turn for every Telegram line — that hits the 5–7m timeout",
+    note: "Front-desk timeout — recorded so next run improves",
+  });
+  recordCompanyLesson({
+    kind: "noa_timeout",
+    do: "Route short/chat founder asks to fast LLM; Cloud only for execute",
+    dont: "Block the founder on a 5–7 minute Cloud turn for a status/compare question",
+    note: "Telegram Noa timed out — lesson persisted to company-lessons.md",
+  });
+}
 
 function isStatusAsk(raw) {
   const t = String(raw || "").trim().toLowerCase();
@@ -167,6 +216,12 @@ function withTimeout(promise, ms, label) {
 }
 
 async function runNoaTurn(prompt, founderText = "") {
+  const speed = classifyFounderSpeed(founderText, recentTelegramThread(6));
+  if (speed.lane === "chat") {
+    journal("front_desk_fast_lane", { reason: speed.reason });
+    return fastNoaReply(founderText);
+  }
+
   if (hqCloudOnly()) {
     if (!cloudOpsConfigured()) {
       return {
@@ -178,23 +233,57 @@ async function runNoaTurn(prompt, founderText = "") {
           "בינתיים: «סטטוס» · «עזרה» · «שיחה חדשה».",
       };
     }
-    const out = await withTimeout(
-      chatWithCloudCeo(prompt, { founderText }),
-      AGENT_TIMEOUT_MS,
-      "Noa Cloud"
-    );
-    if (!out.ok) throw new Error(out.error || "cloud_ceo_failed");
-    return { ok: true, text: out.text, status: "cloud" };
+    try {
+      const out = await withTimeout(
+        chatWithCloudCeo(prompt, { founderText }),
+        AGENT_TIMEOUT_MS,
+        "Noa Cloud"
+      );
+      if (!out.ok) throw new Error(out.error || "cloud_ceo_failed");
+      return { ok: true, text: out.text, status: "cloud" };
+    } catch (err) {
+      if (/timed out/i.test(String(err?.message || err))) {
+        learnFromTimeout(founderText);
+        const fast = await fastNoaReply(founderText).catch(() => null);
+        if (fast?.text) {
+          return {
+            ok: true,
+            status: "cloud_timeout_fast_fallback",
+            text:
+              "Cloud נעצר על זמן — עונה מהר מהדלפק (למדנו מזה):\n\n" +
+              fast.text,
+          };
+        }
+      }
+      throw err;
+    }
   }
 
   if (cloudOpsConfigured()) {
-    const out = await withTimeout(
-      chatWithCloudCeo(prompt, { founderText }),
-      AGENT_TIMEOUT_MS,
-      "Noa Cloud"
-    );
-    if (out.ok) return { ok: true, text: out.text, status: "cloud" };
-    if (!out.fallback) throw new Error(out.error || "cloud_ceo_failed");
+    try {
+      const out = await withTimeout(
+        chatWithCloudCeo(prompt, { founderText }),
+        AGENT_TIMEOUT_MS,
+        "Noa Cloud"
+      );
+      if (out.ok) return { ok: true, text: out.text, status: "cloud" };
+      if (!out.fallback) throw new Error(out.error || "cloud_ceo_failed");
+    } catch (err) {
+      if (/timed out/i.test(String(err?.message || err))) {
+        learnFromTimeout(founderText);
+        const fast = await fastNoaReply(founderText).catch(() => null);
+        if (fast?.text) {
+          return {
+            ok: true,
+            status: "cloud_timeout_fast_fallback",
+            text:
+              "Cloud נעצר על זמן — עונה מהר מהדלפק (למדנו מזה):\n\n" +
+              fast.text,
+          };
+        }
+      }
+      throw err;
+    }
   }
 
   return withTimeout(chatWithAgent("00-ceo", prompt), AGENT_TIMEOUT_MS, "Noa");
@@ -422,10 +511,18 @@ export async function handleFounderTelegramMessage(input) {
         { silent: true }
       );
     } else if (/timed out/i.test(errText)) {
+      learnFromTimeout(raw);
+      let recovery = "";
+      try {
+        const fast = await fastNoaReply(raw);
+        recovery = fast?.text ? `\n\n${fast.text}` : "";
+      } catch {
+        /* ignore */
+      }
       await sendFounderTelegram(
-        "נעצרתי על timeout (~5 דק׳) — לא סיימתי לתת תשובה מלאה.\n" +
-          "העבודה ברקע אולי המשיכה / אולי לא. כתוב «סטטוס» לראות מי עשה מה, או שלח שוב / «שיחה חדשה».\n" +
-          "סליחה על השקט — זה באג שאנחנו סוגרים.",
+        "נעצרתי על timeout — רשמתי שיעור לחברה ולנועה, ולא אחזור על אותו דפוס.\n" +
+          "שאלות קצרות/סטטוס רצות עכשיו במסלול מהיר; Cloud רק לביצוע." +
+          recovery,
         { silent: false }
       );
     } else {

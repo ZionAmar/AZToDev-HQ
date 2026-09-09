@@ -52,3 +52,8 @@ HQ appends after each turn. You read this before answering ציון.
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
+### 2026-09-09
+- task: Founder: timeout again + agents not learning
+- do: Use fast lane for chat; record company lessons on every timeout/stall
+- dont: Apologize for timeout without writing LEARNING + company-lessons
+- note: System fixed: fast lane + lessons file + learning-log mirror
