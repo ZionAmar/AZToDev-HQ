@@ -13,8 +13,8 @@
     "board": "ops/intake/pc-production-inventory-board.json",
     "startedAt": "2026-09-09T13:40:00.000Z",
     "gate": "locate_and_pin",
-    "waitingFor": "נדב — PCI-04 איתור תיקיות 'תהילים' + 'תהורה' תחת in_production (קריאה בלבד, כבר נשלח) | ציון — PIN ליצירת 2 ריפואים פרטיים ב-GitHub + push | קשת — PCI-07 מיפוי כל הריפואים הקיימים בגיטהאב + PCI-08 סיווג רלוונטיות",
-    "next": "אחרי איתור+PIN: PCI-05/06 — נדב יוצר ריפו פרטי נפרד לכל פרויקט תחת ZionAmar ומעלה את הקוד, אחד בכל פעם (WIP=1). במקביל: PCI-09 — דוח מסודר לציון עם המלצות Keep/Review/Archive לכל ריפו קיים, בלי לבצע כלום בפועל בלי אישור+PIN",
+    "waitingFor": "נדב — PCI-04 איתור תיקיות 'תהילים' + 'תהורה' תחת in_production (קריאה בלבד, כבר נשלח) | ציון — PIN ליצירת 2 ריפואים פרטיים ב-GitHub + push | קשת — PCI-07b: תוכנית ניווט הצוות שלו (שמות אמיתיים מהרוסטר, לא placeholder) לפני שנועה סוגרת עם ציון, ואז PCI-07 מיפוי + PCI-08 סיווג רלוונטיות",
+    "next": "אחרי איתור+PIN: PCI-05/06 — נדב יוצר ריפו פרטי נפרד לכל פרויקט תחת ZionAmar ומעלה את הקוד, אחד בכל פעם (WIP=1). במקביל: אחרי שקשת מאשר תוכנית צוות אמיתית (PCI-07b) — PCI-09: דוח מסודר לציון עם המלצות Keep/Review/Archive לכל ריפו קיים, בלי לבצע כלום בפועל בלי אישור+PIN",
     "status": "in_progress",
     "finishedAt": null,
     "addedPhaseAt": "2026-09-09T15:33:00.000Z",
@@ -44,6 +44,12 @@
         "by": "00-ceo",
         "reason": "Founder skipped ahead of the PCI-03 Keep/Defer report and named two specific projects (תהילים, תהורה) to upload as private repos now.",
         "action": "Opened P3 in the same board (no new Linear project). Delegated locate-only task to 34-pc-ops immediately (no PIN needed for read-only locate). Asked founder for PIN in the same reply — repo creation + push are mutations and wait for it."
+      },
+      {
+        "at": "2026-09-09T15:43:00.000Z",
+        "by": "00-ceo",
+        "reason": "A visible Telegram turn gave the founder a DevOps+Code-Review+PM breakdown with an invented placeholder role (\"code-review-id\") instead of real roster IDs — split-brain vs. the git-tracked reality that a parallel turn had already assigned PCI-07/08/09 to 32-delivery-lead at 15:34Z. Founder caught the placeholder, said Keshet already runs the whole dev/SaaS pipeline so he should navigate his own team, and explicitly told Noa to check with Keshet first instead of answering him straight away.",
+        "action": "Confirmed to founder that ownership is already Keshet (matches git state, not a new decision). Added PCI-07b checkpoint: Keshet must post his own real team plan (roster IDs only) to his outbox before Noa closes the loop with the founder — PCI-09 now depends on PCI-07b too. No new board/Linear project opened."
       }
     ]
   },
