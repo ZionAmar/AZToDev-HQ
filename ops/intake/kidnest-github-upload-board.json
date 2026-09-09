@@ -1,5 +1,17 @@
 {
-  "updatedAt": "2026-09-09T10:30:00.000Z",
+  "updatedAt": "2026-09-09T10:39:58.584Z",
+  "monitor": {
+    "lastCheckAt": "2026-09-09T10:45:00.000Z",
+    "checkedBy": "32-delivery-lead",
+    "activeTask": "KNU-03 execute (34-pc-ops)",
+    "nadavOutbox": null,
+    "repoExistsOnGitHub": false,
+    "blocker": "PC off or PIN not unlocked",
+    "blockerAgeSince": "2026-09-09T10:30:00.000Z",
+    "unblockArtifact": "agents/32-delivery-lead/memory/kidnest-github-upload/KNU-03-unblock-decisions.md",
+    "linearIssues": "EMET-147..150",
+    "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80"
+  },
   "initiative": "IDEA-kidnest-github-upload",
   "project": "KidNest — GitHub upload",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
@@ -12,7 +24,7 @@
   },
   "founderAsk": "העלה את KidNest ל-GitHub פרטי — מונורפו אחד, בלי סודות",
   "status": "in_progress",
-  "linearProjectUrl": null,
+  "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80",
   "linearPublishNote": "Run runtime/scripts/kidnest-github-upload-linear-publish.mjs when LINEAR_API_KEY available",
   "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
   "owners": {
@@ -53,7 +65,9 @@
       "dod": "KNU-01-repo-plan.md — שם ריפו, מבנה, gitignore, pre-push checklist",
       "statusHe": "הושלמה",
       "artifact": "agents/32-delivery-lead/memory/kidnest-github-upload/KNU-01-repo-plan.md",
-      "completedAt": "2026-09-09T10:00:00.000Z"
+      "completedAt": "2026-09-09T10:00:00.000Z",
+      "linearId": "EMET-147",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-147/knu-01-תוכנית-ריפו-מונורפו-gitignore-מה-לא-נכנס"
     },
     {
       "id": "KNU-02",
@@ -67,7 +81,9 @@
       "artifact": "agents/32-delivery-lead/memory/kidnest-github-upload/KNU-02-scan-summary.md",
       "resultHe": "נתיב מאומת מ-audit; מונורפו 5 אפליקציות; סריקה סגורה",
       "completedAt": "2026-09-09T09:00:00.000Z",
-      "doNotReopen": true
+      "doNotReopen": true,
+      "linearId": "EMET-148",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-148/knu-02-סריקת-pc-נתיב-גודל-git-status-קבצי-סוד"
     },
     {
       "id": "KNU-03",
@@ -78,11 +94,17 @@
       "priority": "P0",
       "dod": "packet ב-inbox נדב + outbox קשת; board ready; PIN required for execute",
       "statusHe": "handoff מוכן — ממתין ל-PC + PIN",
-      "dependsOn": ["KNU-01", "KNU-02"],
+      "dependsOn": [
+        "KNU-01",
+        "KNU-02"
+      ],
       "artifact": "agents/34-pc-ops/inbox/2026-09-09_KNU-03-repo-create-push.md",
       "handoffOutbox": "agents/32-delivery-lead/outbox/2026-09-09_KNU-03-nadav-handoff.md",
       "delegateTo": "34-pc-ops",
-      "completedAt": "2026-09-09T10:30:00.000Z"
+      "completedAt": "2026-09-09T10:30:00.000Z",
+      "monitorNote": "2026-09-09: handoff on main; no Nadav outbox yet; unblock doc ready",
+      "linearId": "EMET-149",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-149/knu-03-handoff-לנדב-יצירת-ריפו-פרטי-push"
     },
     {
       "id": "KNU-04",
@@ -93,9 +115,17 @@
       "priority": "P0",
       "dod": "repo URL + git ls-files check + screenshot/gh repo view JSON",
       "statusHe": "מוכנה — אחרי KNU-03 execute",
-      "dependsOn": ["KNU-03"],
+      "dependsOn": [
+        "KNU-03"
+      ],
       "artifact": null,
-      "executeRequires": ["PIN", "Windows on", "gh auth"]
+      "executeRequires": [
+        "PIN",
+        "Windows on",
+        "gh auth"
+      ],
+      "linearId": "EMET-150",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-150/knu-04-אימות-push-repo-url-main-branch-אין-סודות-ב-git"
     }
   ],
   "summary": {
@@ -111,6 +141,9 @@
     "mode": "sequential",
     "language": "he",
     "waitFounderBetweenTasks": false,
-    "pinRequiredFor": ["KNU-03 execute", "KNU-04"]
+    "pinRequiredFor": [
+      "KNU-03 execute",
+      "KNU-04"
+    ]
   }
 }

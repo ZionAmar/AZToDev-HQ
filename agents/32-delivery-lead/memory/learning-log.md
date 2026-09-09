@@ -14,6 +14,11 @@ Product company is armed. You plan and keep Linear honest. You do not cook until
 - Do not skip to engineers. Do not confuse קרן (customer review) with this role.
 
 ## Iteration log
+### 2026-09-09 (monitor)
+- task: Monitor KNU-03; unblock naming/.gitignore if Nadav stalls; update board when outbox lands
+- do: Merge handoff to main; KNU-03-unblock-decisions.md; board monitor block; verify repo not on GitHub yet
+- dont: Reopen KNU-02; push repo in plan-only; mark KNU-04 done before Nadav outbox
+- note: No Nadav outbox; blocker PC+PIN; KidNest naming+gitignore pre-decided
 ### 2026-09-09
 - task: Noa asked KNU-03 — prepare Nadav handoff for KidNest private repo create+push; KNU-02 closed — do not reopen scan
 - do: Board JSON + memory mirror (ops/meetings gitignored) + inbox packet for 34-pc-ops + outbox DELEGATE line; mark KNU-02 doNotReopen

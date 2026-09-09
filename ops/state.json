@@ -11,7 +11,7 @@
         "since": "2026-09-09"
       }
     ],
-    "note": "WIP: KidNest GitHub upload (KNU-03 handoff done; execute needs PIN+PC). Audit closed."
+    "note": "WIP: KidNest GitHub upload — KNU-03 handoff on main; no Nadav outbox; execute needs PIN+PC."
   },
   "founderPrefsRef": "ops/founder-prefs.json",
   "today": {

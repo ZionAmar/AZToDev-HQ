@@ -30,6 +30,7 @@ Create private GitHub repo `ZionAmar/KidNest` and push the local monorepo — no
 |-----|------|
 | Repo plan | `agents/32-delivery-lead/memory/kidnest-github-upload/KNU-01-repo-plan.md` (pull HQ or read from Noa's brief) |
 | Scan baseline | `agents/32-delivery-lead/memory/kidnest-github-upload/KNU-02-scan-summary.md` |
+| **Unblock decisions** | `agents/32-delivery-lead/memory/kidnest-github-upload/KNU-03-unblock-decisions.md` — naming + gitignore pre-approved |
 | Board | `ops/intake/kidnest-github-upload-board.json` |
 
 ---

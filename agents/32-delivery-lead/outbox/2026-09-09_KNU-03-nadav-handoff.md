@@ -39,8 +39,10 @@ KidNest מוכן להעלאה ל-GitHub פרטי. כשהמחשב דולק — ת
 
 | Blocker | Age | Owner |
 |---------|-----|-------|
-| PC off / no PIN | until founder | ציון |
-| Linear publish | API key missing in Cloud | Keshet (non-blocking for handoff) |
+| PC off / no PIN | since 2026-09-09 | ציון |
+| Nadav outbox | none yet | 34-pc-ops |
+
+**Monitor 2026-09-09:** Unblock doc ready (`KNU-03-unblock-decisions.md`). Linear live EMET-147..150.
 
 Demo > status fiction: evidence = repo URL + `git ls-files` clean.
 
