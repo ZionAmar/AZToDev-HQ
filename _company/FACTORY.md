@@ -35,6 +35,8 @@
 - קשת חמושה לתכנון + Linear. מהנדסים על הספסל עד «תבנו» + PIN
 - «סטטוס» = זרימה חיה: מי רץ (קישור Cloud) · למה מחכים בדיוק · מה הבא. נועה מטריאז'ת כל עדכון מומחה — תקלה / צריך ציון / שלב הבא.
 - משימה פתוחה ב-`activeWork` בלי סיום: נועה מטרידה כל ~8 דקות עם התקלה באמצע. אסור שקט.
+- Outbox עם `DELEGATE:` מעיר את השלב הבא. נדב שמסיים מנקה WIP וממשיך את התור.
+- מודלים לפי תפקיד: `ops/config/agent-models.json` (נועה/קשת = Claude Sonnet · הנדסה עמוקה = Opus · נדב = Composer · רות/תמיר = Gemini Flash).
 - KidNest: ריפו פרטי [ZionAmar/kidnest](https://github.com/ZionAmar/kidnest) הועלה (KNU-03/04 Done).
 - לוח HQ: Linear [EMET-65](https://linear.app/my-company1460/issue/EMET-65)
 - לוח מוצר: [AZToDev Product — Keshet](https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd) · [EMET-66](https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order)

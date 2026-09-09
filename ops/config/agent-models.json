@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "notes": "Cursor Cloud model ids from Cursor.models.list(). Override with EMET_CURSOR_MODEL_<AGENT_ID> (hyphens→underscores). Fast lane uses composer-2.5 + params.fast=true when supported.",
+  "presets": {
+    "judgment": "claude-sonnet-5",
+    "orchestration": "claude-sonnet-5",
+    "deepTech": "claude-opus-5",
+    "codeDefault": "composer-2.5",
+    "codeFast": "composer-2.5",
+    "triageFast": "gemini-3.8-flash",
+    "research": "gpt-5.6-sol"
+  },
+  "agents": {
+    "00-ceo": { "preset": "judgment", "why": "Hebrew judgment, routing, Keep/Defer/Kill" },
+    "32-delivery-lead": { "preset": "orchestration", "why": "WIP=1, Linear, handoffs" },
+    "33-household-ops": { "preset": "triageFast", "why": "Mail/news triage — speed over depth" },
+    "34-pc-ops": { "preset": "codeDefault", "why": "Disk/git/tools on founder PC" },
+    "35-server-ops": { "preset": "triageFast", "why": "Read-only SSH diagnostics" },
+    "04-cpo": { "preset": "judgment" },
+    "07-product-manager": { "preset": "orchestration" },
+    "03-cto": { "preset": "deepTech" },
+    "11-tech-lead": { "preset": "deepTech" },
+    "12-software-architect": { "preset": "deepTech" },
+    "13-backend-engineer": { "preset": "codeDefault" },
+    "14-frontend-engineer": { "preset": "codeDefault" },
+    "15-mobile-engineer": { "preset": "codeDefault" },
+    "16-data-engineer": { "preset": "codeDefault" },
+    "19-security-engineer": { "preset": "deepTech" },
+    "18-devops-platform": { "preset": "codeDefault" },
+    "20-qa-sdet": { "preset": "codeDefault" },
+    "08-product-designer-ux": { "preset": "research" },
+    "09-ui-designer": { "preset": "research" },
+    "10-user-researcher": { "preset": "judgment" },
+    "05-cmo": { "preset": "judgment" },
+    "02-cfo": { "preset": "judgment" }
+  }
+}

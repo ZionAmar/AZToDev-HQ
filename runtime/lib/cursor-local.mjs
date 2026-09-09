@@ -1,5 +1,9 @@
 import { ROOT } from "./paths.mjs";
-import { MODEL_PRESETS, cursorModelForAgent } from "./models.mjs";
+import {
+  MODEL_PRESETS,
+  cursorModelForAgent,
+  cursorModelSelection,
+} from "./models.mjs";
 
 /**
  * Local Cursor agent options so EMET runs inherit ambient settings when needed.
@@ -27,4 +31,10 @@ export function cursorLocalOptions(extra = {}) {
 export function cursorModelId(agentId = null) {
   if (agentId) return cursorModelForAgent(agentId);
   return process.env.EMET_CURSOR_MODEL || MODEL_PRESETS.cursorDefault;
+}
+
+/** Full SDK model selection (id + optional params). */
+export function cursorModelForRun(agentId = null) {
+  if (agentId) return cursorModelSelection(agentId);
+  return { id: cursorModelId(null) };
 }
