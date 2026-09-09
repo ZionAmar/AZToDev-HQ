@@ -16,7 +16,9 @@
     "waitingFor": "נדב על המחשב — PCI-01 סריקת in_production + PCI-02 אימות חוזר kidnest",
     "next": "PCI-03 — דוח לציון, ממתין להחלטת Keep/Defer לכל פרויקט",
     "status": "in_progress",
-    "finishedAt": null
+    "finishedAt": null,
+    "renudgedAt": "2026-09-09T14:50:00.000Z",
+    "renudgeNote": "64 min with no outbox report; PC heartbeat confirms Nadav just came online (14:44:44Z) — re-delegated instead of assuming a hidden failure."
   },
   "priorWork": {
     "slug": "kidnest-github-upload",

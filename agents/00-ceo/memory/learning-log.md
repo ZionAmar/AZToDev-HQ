@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09 (later, +3)
+- task: Founder — «פתאום את מגיבה מהר, לא נראה שאת חושבת, נראה שהכל מת» after Noa told him earlier in the same thread "אין משימות פתוחות, אף אחד לא רץ" while `ops/config/factory.json` (git, current) actually shows `activeWork=pc-production-inventory`, `status=in_progress`, waiting on Nadav since 13:40Z with no result 64 minutes later.
+- do: Always `git fetch`/`pull` and re-read the git-tracked state files (factory.json, board, ledger, outbox) before repeating any "status" claim in a live thread — never trust in-context memory of an earlier reply in the same conversation as ground truth, since different turns can boot from different (possibly stale) checkouts and genuinely disagree.
+- dont: Accept "no open tasks" as true just because a prior Noa turn said it; when the founder flags a direct contradiction ("you said X, now Y"), re-verify from files before answering, don't just apologize and repeat a status line.
+- note: Confirmed via live pull that PCI-01/02 is real and still unfinished; also confirmed via heartbeat that Nadav's PC only just came back online (14:44:44Z), which is the honest explanation for an hour of silence — not a hidden system failure. Re-delegated 34-pc-ops now that he's online. Logged `stale_snapshot_status_contradiction` to `ops/company-lessons.md`.
+
 ### 2026-09-09 (later, +2)
 - task: Founder — «יש הרבה התקלויות/שגיאות טיימאוט, תבדקו ותרשמו בבעיות שלכם שזה לא יקרה, תלמדו מזה.»
 - do: When a founder complaint is a *pattern* ("this keeps happening"), write it to `ops/intake/problems/` with the real root causes traced across today's commits — not just answer him in Telegram and move on.
