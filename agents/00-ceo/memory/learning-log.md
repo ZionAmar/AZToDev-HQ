@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder asked status after PIN — read ledger + unmerged branches before reply
+- do: Merge kidnest consolidate + ledger to main before any status reply; append every Telegram turn to ledger
+- dont: Claim KNU-03 in progress when main activeWork is null; invent Nadav quotes not in ledger
+- note: Consolidated cursor/kidnest-consolidate-status-0d6b → cursor/noa-kidnest-status-reply-5117; KNU-03 open, Nadav queued
+
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
