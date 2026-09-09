@@ -1,0 +1,115 @@
+{
+  "updatedAt": "2026-09-09T09:55:00.000Z",
+  "initiative": "IDEA-2026-09-09-kidnest-github-upload",
+  "project": "KidNest — העלאה מסודרת ל-GitHub",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "founderAsk": "קח את קידניסט ותעלה אותו בצורה מסודרת לגיטהאב שלי — ריפו פרטי, מבנה נקי, בלי סודות",
+  "status": "in_progress",
+  "pinReceived": true,
+  "linearProjectUrl": null,
+  "linearTeamUrl": "https://linear.app/my-company1460/team/EMET/active",
+  "orchestrator": "32-delivery-lead",
+  "owners": {
+    "orchestrator": "32-delivery-lead",
+    "pcPrep": "34-pc-ops",
+    "serverStatus": "35-server-ops",
+    "report": "00-ceo"
+  },
+  "phases": [
+    {
+      "id": "P1",
+      "nameHe": "תכנון + לינאר — מסלול גלוי מהטלפון",
+      "owner": "32-delivery-lead",
+      "status": "in_progress"
+    },
+    {
+      "id": "P2",
+      "nameHe": "הכנת תיקייה במחשב — סריקה, סינון סודות",
+      "owner": "34-pc-ops",
+      "status": "pending"
+    },
+    {
+      "id": "P3",
+      "nameHe": "יצירת ריפו + העלאה ל-GitHub",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "dependsOn": ["P1", "P2"]
+    },
+    {
+      "id": "P4",
+      "nameHe": "אימות + רישום ברשימת הריפואים",
+      "owner": "32-delivery-lead",
+      "status": "pending",
+      "dependsOn": ["P3"]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "KG-01",
+      "phase": "P1",
+      "titleHe": "פרויקט לינאר להעלאה — משימות גלויות לציון",
+      "owner": "32-delivery-lead",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "פרויקט חדש בלינאר עם 4 שלבים + קישור שנשלח לציון",
+      "artifact": "ops/intake/kidnest-github-upload-board.json"
+    },
+    {
+      "id": "KG-02",
+      "phase": "P1",
+      "titleHe": "תכנית מבנה ריפו — monorepo, README, .gitignore",
+      "owner": "32-delivery-lead",
+      "status": "pending",
+      "priority": "P0",
+      "dod": "מסמך תכנית ב-ops/meetings/kidnest-github-upload/plan.md",
+      "artifact": null
+    },
+    {
+      "id": "KG-03",
+      "phase": "P2",
+      "titleHe": "סריקת תיקיית kidnest במחשב — מה להעלות / מה לא",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "priority": "P0",
+      "dod": "רשימת קבצים + סודות שיוצאים + גודל",
+      "artifact": "ops/meetings/kidnest-github-upload/pc-inventory.md"
+    },
+    {
+      "id": "KG-04",
+      "phase": "P3",
+      "titleHe": "יצירת ריפו פרטי KidNest ב-GitHub + push ראשון",
+      "owner": "34-pc-ops",
+      "status": "pending",
+      "priority": "P0",
+      "dod": "URL ריפו + commit ראשון מסודר",
+      "artifact": null,
+      "requiresPin": true
+    },
+    {
+      "id": "KG-05",
+      "phase": "P4",
+      "titleHe": "רישום הריפו ב-factory.json + סגירת initiative",
+      "owner": "32-delivery-lead",
+      "status": "pending",
+      "priority": "P1",
+      "dod": "repos.kidnest ב-factory.json + status completed",
+      "artifact": "ops/config/factory.json"
+    },
+    {
+      "id": "KG-06",
+      "phase": "P1",
+      "titleHe": "תיקון סטטוס «שרת חסר» — בדיקת SSH תקינה",
+      "owner": "35-server-ops",
+      "status": "pending",
+      "priority": "P2",
+      "dod": "capabilitiesArmed.serverSshRead=true + הסבר אם הבדיקה נכשלה",
+      "artifact": "ops/reports/server-ssh-probe-fix.md"
+    }
+  ],
+  "updatePolicy": {
+    "founderMidTask": true,
+    "notifyOn": ["phase_complete", "blocker", "first_artifact"],
+    "nextExpected": "KG-01 — פרויקט לינאר"
+  }
+}

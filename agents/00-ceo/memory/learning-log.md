@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-09
+- task: Founder asked why KidNest GitHub upload doesn't auto-run after he set path + PIN
+- do: Register initiative board + activeWork before delegating; explain architecture gap honestly; mid-task updates not only at end
+- dont: Say «ברקע» without DELEGATE lines + registered packet; dont conflate audit-complete with upload-in-progress
+- note: Created kidnest-github-upload-board.json; activeWork set; three DELEGATE lines for Keshet/Nadav/Tamir
+
 ### 2026-09-08
 - He asked for standing person URLs. Cursor Cloud does not provide them. Don’t promise a permanent `cursor.com/agents` room per name.
 - He correctly suspected one model wearing hats. Treat DELEGATE as the only proof of a second run.
