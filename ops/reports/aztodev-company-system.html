@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AZToDev — מפת מערכת החברה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Heebo:wght@700;800&family=Outfit:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #c9a227;
+      --gold-dim: #a8841e;
+      --gold-bright: #e8c040;
+      --bg: #060606;
+      --surface: #0c0c0c;
+      --surface-2: #111111;
+      --border: rgba(255, 255, 255, 0.06);
+      --text: #ececec;
+      --muted: #9a9a9a;
+      --dim: #6e6e6e;
+      --cloud: #4da3ff;
+      --desk: #7c6cf0;
+      --pc: #5fd4a4;
+      --danger: #e85d5d;
+      --radius: 14px;
+      --font: 'Assistant', sans-serif;
+      --display: 'Heebo', 'Outfit', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    .bg-glow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% -10%, rgba(201, 162, 39, 0.12), transparent),
+        radial-gradient(ellipse 40% 30% at 90% 60%, rgba(77, 163, 255, 0.06), transparent);
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: clamp(2rem, 6vw, 3.5rem) 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid rgba(201, 162, 39, 0.35);
+      border-radius: 999px;
+      padding: 0.35rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .motto {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .motto-en {
+      font-family: var(--display);
+      font-size: 0.85rem;
+      color: var(--dim);
+      letter-spacing: 0.04em;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .pill {
+      font-size: 0.82rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .pill strong { color: var(--text); }
+
+    /* Nav */
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    nav.toc a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    nav.toc a:hover {
+      color: var(--gold);
+      border-color: rgba(201, 162, 39, 0.4);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    section h2 {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    section h2 .num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--gold);
+      background: rgba(201, 162, 39, 0.12);
+      border-radius: 6px;
+      padding: 0.2rem 0.5rem;
+    }
+
+    .section-lead {
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+      max-width: 62ch;
+    }
+
+    /* Cards grid */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.35rem;
+    }
+
+    .card h3 {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .where {
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      display: inline-block;
+      padding: 0.2rem 0.55rem;
+      border-radius: 6px;
+    }
+
+    .where-desk { background: rgba(124, 108, 240, 0.15); color: #a99bff; }
+    .where-cloud { background: rgba(77, 163, 255, 0.15); color: #7dbfff; }
+    .where-pc { background: rgba(95, 212, 164, 0.15); color: #7ee8c0; }
+
+    .card p, .card li {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .card ul { padding-right: 1.1rem; margin-top: 0.5rem; }
+    .card li { margin-bottom: 0.3rem; }
+
+    /* Layer stack visual */
+    .layer-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin: 1.25rem 0;
+    }
+
+    .layer {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    @media (max-width: 600px) {
+      .layer { grid-template-columns: 1fr; gap: 0.4rem; }
+    }
+
+    .layer-tag {
+      font-family: var(--display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .layer-1 .layer-tag { color: #a99bff; }
+    .layer-2 .layer-tag { color: var(--gold); }
+    .layer-3 .layer-tag { color: #7dbfff; }
+
+    .layer-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .layer-desc { font-size: 0.88rem; color: var(--muted); }
+
+    .layer-runtime {
+      font-size: 0.78rem;
+      color: var(--dim);
+      white-space: nowrap;
+    }
+
+    .arrow-down {
+      text-align: center;
+      color: var(--dim);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* TTS split */
+    .tts-split {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 1rem;
+      align-items: stretch;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .tts-split { grid-template-columns: 1fr; }
+      .tts-arrow { transform: rotate(90deg); text-align: center; }
+    }
+
+    .tts-box {
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+    }
+
+    .tts-thin {
+      background: linear-gradient(135deg, rgba(124, 108, 240, 0.08), var(--surface));
+      border-color: rgba(124, 108, 240, 0.25);
+    }
+
+    .tts-heavy {
+      background: linear-gradient(135deg, rgba(77, 163, 255, 0.08), var(--surface));
+      border-color: rgba(77, 163, 255, 0.25);
+    }
+
+    .tts-box h3 {
+      font-family: var(--display);
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .flow-steps {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.75rem;
+    }
+
+    .step {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      border-radius: 8px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+    }
+
+    .step-arrow { color: var(--dim); font-size: 0.85rem; }
+
+    .tts-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--gold);
+    }
+
+    /* Message lanes */
+    .lanes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .lane {
+      border-radius: var(--radius);
+      padding: 1.15rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .lane-id {
+      font-family: 'Outfit', monospace;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .lane-consult .lane-id { color: #a99bff; }
+    .lane-execute .lane-id { color: var(--gold-bright); }
+    .lane-status .lane-id { color: #7ee8c0; }
+
+    .lane h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+    }
+
+    .lane p, .lane li {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .lane ul { padding-right: 1rem; margin-top: 0.4rem; }
+
+    .wip-box {
+      margin-top: 1.25rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      border: 1px dashed rgba(201, 162, 39, 0.35);
+      background: rgba(201, 162, 39, 0.05);
+    }
+
+    .wip-box h4 {
+      font-size: 0.9rem;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+
+    .wip-box p { font-size: 0.86rem; color: var(--muted); }
+
+    /* Files table */
+    .files-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 1rem;
+    }
+
+    .files-table th,
+    .files-table td {
+      text-align: right;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .files-table th {
+      color: var(--gold);
+      font-weight: 700;
+      background: var(--surface);
+    }
+
+    .files-table td:first-child {
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: #b8d4ff;
+      white-space: nowrap;
+    }
+
+    .files-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Roster */
+    .roster-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 700px) {
+      .roster-grid { grid-template-columns: 1fr; }
+    }
+
+    .roster-col h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .roster-col.core h3 { color: var(--gold); }
+    .roster-col.bench h3 { color: var(--dim); }
+
+    .agent-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      font-size: 0.86rem;
+    }
+
+    .agent-row .name { font-weight: 600; color: var(--text); }
+    .agent-row .role { color: var(--muted); font-size: 0.8rem; }
+    .agent-row .id { font-family: monospace; font-size: 0.72rem; color: var(--dim); }
+
+    .keshet-banner {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      background: linear-gradient(90deg, rgba(201,162,39,0.1), transparent);
+      border: 1px solid rgba(201,162,39,0.25);
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .keshet-banner strong { color: var(--gold); }
+
+    /* Flow diagram */
+    .diagram {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+
+    .diagram pre {
+      font-family: 'Courier New', monospace;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: var(--muted);
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.82rem;
+      color: var(--dim);
+      text-align: center;
+    }
+
+    footer a { color: var(--gold-dim); }
+
+    code {
+      font-family: monospace;
+      font-size: 0.85em;
+      background: var(--surface-2);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      color: #b8d4ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="wrap">
+
+    <header class="hero">
+      <div class="hero-badge">AZToDev HQ · מפת מערכת</div>
+      <h1><span>AZToDev</span> — איך החברה עובדת</h1>
+      <p class="motto">בונים אמת. משיטים ערך. מרחיבים מינוף.</p>
+      <p class="motto-en">Build truth. Ship value. Scale leverage.</p>
+      <div class="hero-meta">
+        <span class="pill"><strong>דלפק:</strong> נועה</span>
+        <span class="pill"><strong>WIP:</strong> 1</span>
+        <span class="pill"><strong>מוח:</strong> Cursor Cloud</span>
+        <span class="pill"><strong>טלגרם:</strong> דלק דק על ChemiCloud</span>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="תוכן עניינים">
+      <a href="#layers">שלוש שכבות</a>
+      <a href="#tts">TTS דק / מוח כבד</a>
+      <a href="#telegram">זרימת טלגרם</a>
+      <a href="#files">קבצים ומקורות</a>
+      <a href="#roster">קשת + ליבה / ספסל</a>
+      <a href="#flow">תרשים זרימה</a>
+    </nav>
+
+    <!-- 1. Three layers -->
+    <section id="layers">
+      <h2><span class="num">01</span> שלוש שכבות</h2>
+      <p class="section-lead">
+        ציון מדבר בטלגרם. הדלפק דק על ChemiCloud מקבל הודעות. המוח — נועה והמומחים — רץ על Cursor Cloud.
+        נדב על המחשב האישי רק כש-Windows דולק.
+      </p>
+
+      <div class="layer-stack">
+        <div class="layer layer-1">
+          <span class="layer-tag">שכבה 1</span>
+          <div>
+            <div class="layer-name">דלפק טלגרם</div>
+            <div class="layer-desc">ChemiCloud · <code>aztodev-desk</code> — קבלת הודעות, PIN, TTS, תור לנדב, סטטוס מיידי</div>
+          </div>
+          <span class="layer-runtime">רץ גם כש-PC כבוי</span>
+        </div>
+        <div class="arrow-down" aria-hidden="true">↓</div>
+        <div class="layer layer-2">
+          <span class="layer-tag">שכבה 2</span>
+          <div>
+            <div class="layer-name">נועה — יועצת + מנתבת</div>
+            <div class="layer-desc">Keep / Defer / Kill · מטריאז' · שערים · לא מבצעת עבודת מומחה</div>
+          </div>
+          <span class="layer-runtime">Cursor Cloud</span>
+        </div>
+        <div class="arrow-down" aria-hidden="true">↓</div>
+        <div class="layer layer-3">
+          <span class="layer-tag">שכבה 3</span>
+          <div>
+            <div class="layer-name">מומחים</div>
+            <div class="layer-desc">רות · תמיר · קשת + צינור מוצר · דפנה · רז · אורי… — קוד, PR, מיילים, SSH קריאה</div>
+          </div>
+          <span class="layer-runtime">Cloud + PC (נדב)</span>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top:1.25rem">
+        <article class="card">
+          <span class="where where-desk">ChemiCloud</span>
+          <h3>דלק דק</h3>
+          <p>טלגרם, TTS, PIN, IMAP push, SSH read-only trigger. <strong>לא</strong> HQ מלא, לא Cursor, לא Docker.</p>
+        </article>
+        <article class="card">
+          <span class="where where-cloud">Cursor Cloud</span>
+          <h3>מוח החברה</h3>
+          <p>נועה, רות, תמיר, קשת, מהנדסים — ריצות קצרות, מתות בסיום. הבית = GitHub HQ.</p>
+        </article>
+        <article class="card">
+          <span class="where where-pc">PC · Windows</span>
+          <h3>נדב</h3>
+          <p>דיסק, git push/pull, heartbeat. כש-PC כבוי — בתור, בלי לשאול את ציון «המחשב דולק?»</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2. TTS -->
+    <section id="tts">
+      <h2><span class="num">02</span> TTS — דק על ChemiCloud, מוח כבד על Cloud</h2>
+      <p class="section-lead">
+        הדלפק לא «חושב» — הוא ממיר טקסט לקול ושולח. הייעוץ, הניתוב והביצוע קורים ב-Cursor Cloud.
+      </p>
+
+      <div class="tts-split">
+        <div class="tts-box tts-thin">
+          <h3>🎙️ דלק דק — ChemiCloud / PC</h3>
+          <p>שכבת TTS רזה: API → קובץ שמע → Telegram <code>sendVoice</code></p>
+          <div class="flow-steps">
+            <span class="step">טקסט תשובה</span>
+            <span class="step-arrow">→</span>
+            <span class="step">OpenAI TTS / Gemini</span>
+            <span class="step-arrow">→</span>
+            <span class="step">MP3 / OGG</span>
+            <span class="step-arrow">→</span>
+            <span class="step">Telegram</span>
+          </div>
+          <ul style="margin-top:0.75rem;padding-right:1.1rem;font-size:0.86rem;color:var(--muted)">
+            <li>Mirror: קול נכנס → תשובה קולית</li>
+            <li>Chunking לפי משפטים (~460 תווים)</li>
+            <li>לא תלוי ב-<code>HQ_CLOUD_ONLY</code> — רק API keys</li>
+          </ul>
+        </div>
+
+        <div class="tts-arrow" aria-hidden="true">⟷</div>
+
+        <div class="tts-box tts-heavy">
+          <h3>🧠 מוח כבד — Cursor Cloud</h3>
+          <p>LLM + Cloud Agents: ייעוץ, DELEGATE, קוד, PR, Linear</p>
+          <div class="flow-steps">
+            <span class="step">הודעת ציון</span>
+            <span class="step-arrow">→</span>
+            <span class="step">classify lane</span>
+            <span class="step-arrow">→</span>
+            <span class="step">נועה / מומחה</span>
+            <span class="step-arrow">→</span>
+            <span class="step">artifact</span>
+          </div>
+          <ul style="margin-top:0.75rem;padding-right:1.1rem;font-size:0.86rem;color:var(--muted)">
+            <li>Fast desk LLM לשיחה קצרה</li>
+            <li>Cloud Agent לביצוע אמיתי</li>
+            <li>Evidence = קובץ / PR — לא «שאלתי»</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Telegram flow -->
+    <section id="telegram">
+      <h2><span class="num">03</span> זרימת הודעות טלגרם</h2>
+      <p class="section-lead">
+        כל הודעה מסווגת לנתיב: <strong>consult</strong> (שיחה), <strong>execute</strong> (ביצוע), או <strong>status</strong> (סטטוס חי).
+        WIP=1 — משימה אחת פתוחה; החברה זוכרת בקשות חוזרות.
+      </p>
+
+      <div class="lanes">
+        <article class="lane lane-consult">
+          <div class="lane-id">consult · chat</div>
+          <h3>ייעוץ / שיחה</h3>
+          <p>שאלות קצרות, «מה דעתך», רק לחשוב בקול — <strong>לא ביצוע</strong>.</p>
+          <ul>
+            <li>Fast desk LLM (GPT mini)</li>
+            <li>Keep / Defer / Kill</li>
+            <li>תשובה מיידית, בלי Cloud timeout</li>
+          </ul>
+        </article>
+
+        <article class="lane lane-execute">
+          <div class="lane-id">execute · action</div>
+          <h3>ביצוע</h3>
+          <p>פועלי פעולה: תבני, שלחי, בדקי, לינק, מייל, «תבנו».</p>
+          <ul>
+            <li><code>DELEGATE: id | task</code></li>
+            <li>Cloud Agent על GitHub</li>
+            <li>מוטציה → PIN (10 דק')</li>
+          </ul>
+        </article>
+
+        <article class="lane lane-status">
+          <div class="lane-id">status · live</div>
+          <h3>סטטוס חי</h3>
+          <p>«סטטוס», «מה קורה», <code>/status</code> — תשובה מיידית.</p>
+          <ul>
+            <li>זרימה · עכשיו · מחכה ל · הבא</li>
+            <li>קישור <code>cursor.com/agents/…</code></li>
+            <li>לוח Linear</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="wip-box">
+        <h4>WIP = 1 + Remembered asks</h4>
+        <p>
+          <code>ops/config/factory.json</code> → <code>activeWork</code> שומר משימה פתוחה, שלב, בעלים, <code>waitingFor</code>, <code>next</code>.
+          בקשות חוזרות של ציון (<code>founderRepeatedAskAt</code>, <code>founderNamedProjects</code>) לא נפתחות כטיקט חדש — אותה זרימה.
+          <code>runtime/waiting-founder.json</code> זוכר PIN / «אשר» עם nag כל ~8 דקות — אסור שקט.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. Files -->
+    <section id="files">
+      <h2><span class="num">04</span> קבצים — איפה האמת חיה</h2>
+      <p class="section-lead">סגנון תום אבן: inbox מעיר, outbox מסיים, learning-log זוכר בין ריצות.</p>
+
+      <table class="files-table">
+        <thead>
+          <tr>
+            <th>נתיב</th>
+            <th>תפקיד</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>agents/{id}/inbox/</td>
+            <td>מטלה שנשפכה — הדיספצ'ר מעיר את המומחה</td>
+          </tr>
+          <tr>
+            <td>agents/{id}/outbox/</td>
+            <td>תוצאה + ראיות + אופציונלי <code>DELEGATE: id | task</code></td>
+          </tr>
+          <tr>
+            <td>agents/{id}/memory/learning-log.md</td>
+            <td>לקחים בין ריצות Cloud — ישות, לא כובע</td>
+          </tr>
+          <tr>
+            <td>ops/config/factory.json</td>
+            <td>מצב מפעל: WIP, activeWork, productWorkEnabled, gates</td>
+          </tr>
+          <tr>
+            <td>GitHub product repos</td>
+            <td>קוד חי — PR, לא dump ל-HQ (KidNest, Work_clock…)</td>
+          </tr>
+          <tr>
+            <td>Linear</td>
+            <td>HQ: EMET-65 · מוצר: Keshet / EMET-66 — ציון רואה מהנייד</td>
+          </tr>
+          <tr>
+            <td>remembered-asks</td>
+            <td><code>activeWork.founderRepeatedAskAt</code> · <code>waiting-founder.json</code> · nudges ב-factory</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 5. Roster -->
+    <section id="roster">
+      <h2><span class="num">05</span> קשת + ליבה מול ספסל</h2>
+      <p class="section-lead">
+        קשת (<code>32-delivery-lead</code>) חמושה לתכנון + Linear. מהנדסים על הספסל עד «תבנו» + PIN.
+      </p>
+
+      <div class="keshet-banner">
+        <strong>קשת (Keshet)</strong> — WIP=1, Daily, חסימות, Linear.
+        צינור מוצר: ענבר → יונה → קרן → שני → רז → דפנה+בועז → אורי → פז (אחרי שער פרוד).
+        <br />לוח: <a href="https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd">AZToDev Product — Keshet</a>
+      </div>
+
+      <div class="roster-grid">
+        <div class="roster-col core">
+          <h3>ליבה — חיים עכשיו</h3>
+          <div class="agent-row"><span class="name">נועה</span><span class="role">דלפק + ניתוב</span><span class="id">00-ceo</span></div>
+          <div class="agent-row"><span class="name">רות</span><span class="role">מיילים / בית</span><span class="id">33-household-ops</span></div>
+          <div class="agent-row"><span class="name">נדב</span><span class="role">PC worker</span><span class="id">34-pc-ops</span></div>
+          <div class="agent-row"><span class="name">תמיר</span><span class="role">SSH read-only</span><span class="id">35-server-ops</span></div>
+          <div class="agent-row"><span class="name">קשת</span><span class="role">WIP + Linear</span><span class="id">32-delivery-lead</span></div>
+          <div class="agent-row"><span class="name">ענבר</span><span class="role">יזמות</span><span class="id">04-cpo</span></div>
+          <div class="agent-row"><span class="name">עמית</span><span class="role">PRD / AC</span><span class="id">07-product-manager</span></div>
+          <div class="agent-row"><span class="name">יונה</span><span class="role">ארכיטקט</span><span class="id">12-software-architect</span></div>
+          <div class="agent-row"><span class="name">שני</span><span class="role">DB</span><span class="id">16-data-engineer</span></div>
+          <div class="agent-row"><span class="name">רז</span><span class="role">Backend</span><span class="id">13-backend-engineer</span></div>
+          <div class="agent-row"><span class="name">דפנה</span><span class="role">Frontend</span><span class="id">14-frontend-engineer</span></div>
+          <div class="agent-row"><span class="name">אורי</span><span class="role">QA</span><span class="id">20-qa-sdet</span></div>
+          <div class="agent-row"><span class="name">פז</span><span class="role">DevOps · שער</span><span class="id">18-devops-platform</span></div>
+          <div class="agent-row"><span class="name">ליב</span><span class="role">Security</span><span class="id">19-security-engineer</span></div>
+          <div class="agent-row"><span class="name">אילן</span><span class="role">Tech Lead</span><span class="id">11-tech-lead</span></div>
+        </div>
+
+        <div class="roster-col bench">
+          <h3>ספסל — נקראים למשימה</h3>
+          <div class="agent-row"><span class="name">קרן</span><span class="role">סקירת «לקוח»</span><span class="id">10-user-researcher</span></div>
+          <div class="agent-row"><span class="name">בועז</span><span class="role">UI / tokens</span><span class="id">09-ui-designer</span></div>
+          <div class="agent-row"><span class="name">ארז</span><span class="role">Mobile / Expo</span><span class="id">15-mobile-engineer</span></div>
+          <div class="agent-row"><span class="name">אלון</span><span class="role">שיווק · שער</span><span class="id">05-cmo</span></div>
+          <div class="agent-row"><span class="name">גילה</span><span class="role">CFO</span><span class="id">02-cfo</span></div>
+          <div class="agent-row"><span class="name">UX, SEO, Legal…</span><span class="role">שאר agents/*</span><span class="id">on-demand</span></div>
+          <p style="margin-top:1rem;font-size:0.84rem;color:var(--dim)">
+            ספסל = לא רץ 24/7. נועה מפעילה עם brief + DELEGATE. אין theater.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Flow diagram -->
+    <section id="flow">
+      <h2><span class="num">06</span> תרשים זרימה</h2>
+      <p class="section-lead">מקור: <code>_company/FACTORY.md</code> + <code>COMPANY_LOOP.md</code></p>
+
+      <div class="diagram">
+        <pre>
+ציון (טלפון / קול / טקסט)
+    │
+    ▼
+┌─────────────────────────────────────────────────────────┐
+│  דלפק ChemiCloud — TTS · PIN · queue · status instant   │
+└───────────────────────────┬─────────────────────────────┘
+                            │
+              ┌─────────────┼─────────────┐
+              │ consult     │ execute     │ status
+              ▼             ▼             ▼
+         fast LLM      Cloud Noa      liveStatusHebrew()
+              │             │             │
+              └─────────────┼─────────────┘
+                            ▼
+                    נועה: ייעוץ + Keep/Defer/Kill
+                            │
+         ┌──────────────────┼──────────────────┐
+         ▼                  ▼                  ▼
+      רות (mail)      נדב (PC)          תמיר (SSH read)
+         │                  │                  │
+         └──────────────────┼──────────────────┘
+                            ▼
+              מוצר (אחרי «תבנו» + PIN + productWorkEnabled)
+                            │
+                            ▼
+                    קשת — WIP=1 · Linear
+                            │
+         ענבר → יונה → קרן → שני → רז → דפנה → אורי → פז
+                            │
+                            ▼
+              outbox + DELEGATE → דיספצ'ר → הבא בתור
+                            │
+                            ▼
+              Evidence: file path · PR · לא «שאלתי»
+        </pre>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        נוצר על ידי דפנה · <code>ops/reports/aztodev-company-system.html</code>
+        · מקור: <code>_company/FACTORY.md</code>
+        · <a href="https://linear.app/my-company1460/issue/EMET-66/armed-wait-for-founder-build-order">EMET-66</a>
+      </p>
+      <p style="margin-top:0.5rem">AZToDev · aztodev.com · Wire the empty state.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
