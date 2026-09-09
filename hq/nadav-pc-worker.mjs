@@ -14,6 +14,7 @@ import { chatWithAgent, sanitizeForTelegram } from "../runtime/lib/agent-session
 import { sendFounderTelegram } from "../runtime/lib/telegram.mjs";
 import { readFactory } from "../runtime/lib/company-state.mjs";
 import { sshKeyPath } from "../runtime/lib/ssh-chemicloud.mjs";
+import { mirrorHqToDesk } from "./lib/hq-pc-mirror.mjs";
 
 loadDotEnv();
 
@@ -28,6 +29,7 @@ const BACKOFF_MS = 30000;
 const SSH_EXE = process.env.SSH_EXE || "C:\\Windows\\System32\\OpenSSH\\ssh.exe";
 const REMOTE_NODE = "/opt/alt/alt-nodejs22/root/usr/bin/node";
 const REMOTE_DIR = "/home/aztodevc/aztodev-desk";
+let mirrorEvery = 0;
 
 function alreadyRunning() {
   try {
@@ -141,6 +143,15 @@ async function runJob(job) {
 }
 
 async function tick() {
+  mirrorEvery += 1;
+  if (mirrorEvery === 1 || mirrorEvery % 5 === 0) {
+    try {
+      const mirrored = mirrorHqToDesk();
+      if (mirrored.sent) journal("nadav_mirror_tick", { sent: mirrored.sent });
+    } catch (err) {
+      journal("nadav_mirror_error", { error: String(err?.message || err).slice(0, 160) });
+    }
+  }
   const host = os.hostname().replace(/[^a-zA-Z0-9._-]/g, "").slice(0, 60) || "pc";
   const beat = await sshRun(`heartbeat ${host}`);
   if (!beat.ok) return { ok: false, error: beat.error || "heartbeat_fail" };

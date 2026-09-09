@@ -24,8 +24,9 @@
 - [x] משימה פתוחה במפעל מטרידה כל ~8 דק׳
 - [x] מודלים לפי תפקיד (Claude / Composer / Gemini / GPT דרך Cursor SDK)
 - [x] בריף מייסד (טלגרם; מייל עם סיסמה / force)
-- [ ] דלפק = git clone של HQ (סנכרון אוטומטי) — הרץ `ops/scripts/bootstrap-desk-git.sh` פעם אחת
-- [ ] נדב ב-Startup של Windows — `ops/scripts/install-nadav-startup.ps1`
+- [x] דלפק מקבל קבצי HQ גם בלי git על השרת — נדב על ה-PC מושך מ-GitHub ודוחף inbox/outbox לדלפק (`hq/lib/hq-pc-mirror.mjs`)
+- [ ] דלפק = git clone מלא (אופציונלי) — `ops/scripts/bootstrap-desk-git.sh` אם יש אימות GitHub על ה-VPS
+- [x] נדב ב-Startup של Windows — `ops/scripts/install-nadav-startup.ps1`
 - [ ] `productWorkEnabled` אחרי «תבנו» + PIN (מכוון כבוי)
 - [ ] ישיבת Daily מלאה עם LLM על הדלפק (בריף ערב כן; swarm אופציונלי)
 
