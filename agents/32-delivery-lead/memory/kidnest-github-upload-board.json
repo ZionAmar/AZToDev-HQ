@@ -1,0 +1,63 @@
+{
+  "updatedAt": "2026-09-09T10:50:00.000Z",
+  "initiative": "IDEA-kidnest-github-upload",
+  "project": "KidNest — GitHub upload",
+  "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production\\kidnest",
+  "productionUrl": "https://nestube.aztodev.com",
+  "targetRepo": "https://github.com/ZionAmar/KidNest",
+  "targetRepoConfirmed": false,
+  "linearProjectUrl": "https://linear.app/my-company1460/project/kidnest-github-upload-c64b279d4f80",
+  "monitor": {
+    "lastCheckedAt": "2026-09-09T10:50:00.000Z",
+    "checkedBy": "32-delivery-lead",
+    "blocker": "PC+PIN — repo not created on GitHub",
+    "blockerAge": "since KNU-03 handoff (EMET-149 done)"
+  },
+  "phases": [
+    { "id": "P1", "nameHe": "תכנון ריפו", "status": "done" },
+    { "id": "P2", "nameHe": "סריקת PC", "status": "done" },
+    { "id": "P3", "nameHe": "handoff + יצירת ריפו", "status": "done_handoff" },
+    { "id": "P4", "nameHe": "אימות push", "status": "blocked" }
+  ],
+  "tasks": [
+    {
+      "id": "KNU-01",
+      "title": "תוכנית ריפו — monorepo, .gitignore, secrets",
+      "phase": "P1",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "linearIssue": "EMET-147",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-147"
+    },
+    {
+      "id": "KNU-02",
+      "title": "סריקת PC — נתיב, גודל, git status, קבצי סוד",
+      "phase": "P2",
+      "owner": "34-pc-ops",
+      "status": "done",
+      "doNotReopen": true,
+      "linearIssue": "EMET-148",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-148"
+    },
+    {
+      "id": "KNU-03",
+      "title": "handoff לנדב — יצירת ריפו פרטי + push",
+      "phase": "P3",
+      "owner": "32-delivery-lead",
+      "status": "done",
+      "note": "Handoff complete; execution pending Nadav outbox",
+      "linearIssue": "EMET-149",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-149"
+    },
+    {
+      "id": "KNU-04",
+      "title": "אימות push — repo URL, main branch, אין סודות ב-git",
+      "phase": "P4",
+      "owner": "34-pc-ops",
+      "status": "blocked",
+      "blocker": "PC+PIN; repo ZionAmar/KidNest not found on GitHub",
+      "linearIssue": "EMET-150",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-150"
+    }
+  ]
+}
