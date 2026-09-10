@@ -14,7 +14,7 @@
     "board": null,
     "startedAt": "2026-09-10T18:42:00.000Z",
     "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "נדב (34-pc-ops) — 1) URGENT: flip AZToDev-HQ back to private (accidentally public, gh api verified 20:55:19Z). 2) Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, then re-run failed workflow run 34526813041. Cloud token has admin:false on both repos, cannot fix from Cloud.",
+    "waitingFor": "נדב (34-pc-ops) — item 1 (AZToDev-HQ→private) CONFIRMED DONE live-verified 2026-09-10T21:4xZ (gh api → private:true, visibility:private) — no PC action needed, checklist row was stale. Remaining: Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, then re-run failed workflow run 34526813041. Cloud token has admin:false, cannot fix from Cloud. PC heartbeat OFFLINE as of this run — task QUEUED, will run when Windows is back online, not actively nudged.",
     "targetRepo": "ZionAmar/aztodev-company-system",
     "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
     "next": "Nadav fixes both → curl https://zionamar.github.io/aztodev-company-system/ returns 200 → then close EMET-166. cake-recipe-demo (EMET-165/115) is a SEPARATE, still fully open bet — no repo created yet, bundle sits in agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/.",
@@ -29,9 +29,9 @@
       "foundBy": "32-delivery-lead",
       "finding": "gh api repos/ZionAmar/AZToDev-HQ shows visibility:public, private:false, updated_at 2026-09-10T20:55:19Z. Likely accidental side-effect of Nadav flipping aztodev-company-system to public in the same window (20:52-20:55Z). No raw secrets found in git history (.env never tracked). Cloud token admin:false on this repo -- cannot revert from Cloud.",
       "action": "DELEGATE 34-pc-ops to flip back to private ASAP; DELEGATE 00-ceo to relay to founder with urgency.",
-      "status": "open",
-      "reverifiedAt": "2026-09-10T21:07:36.000Z",
-      "reverifiedResult": "STILL PUBLIC (gh api repos/ZionAmar/AZToDev-HQ -> visibility:public, private:false, updated_at 21:05:24Z). Not reverted yet."
+      "status": "resolved",
+      "reverifiedAt": "2026-09-10T21:4xZ",
+      "reverifiedResult": "CONFIRMED PRIVATE (gh api repos/ZionAmar/AZToDev-HQ -> visibility:private, private:true). Reverted (by Nadav or founder, not this run) between the 21:07Z check and now. Pages-on-aztodev-company-system item remains open."
     },
     "blockerAgeNote": "PCI-14 GO issued ~2026-09-10T20:25Z. As of 21:07Z (~42 min later, 3 prior nudges): PC heartbeat ONLINE throughout, but zero agents/34-pc-ops/outbox/ evidence for PCI-11/12/13/14/HQ-revert/Pages-enable. Live-verified 21:07Z: aztodev-company-system still public/has_pages=false/Pages 404; AZToDev-HQ still public; ZionAmar/cake-recipe-demo repo does not exist (404). Re-nudging the same packet a 4th time is unlikely to help -- escalating as a stalled-PC-worker signal, not just a reminder."
   },
@@ -230,12 +230,12 @@
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",
       "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",
-      "status": "blocked_on_repo_creation",
+      "status": "queued_pc_offline",
       "linearIssue": "EMET-165 / EMET-115 / EMET-116",
-      "phase": "architect-done + frontend-done + devops-staged, waiting on PCI-14 (repo create) before Pages/QA",
-      "note": "Planning done (EMET-165 Done). Architect spec pack done (12-software-architect, ops/pipeline/cake-recipe-demo/02-06 + diagrams — was stranded on unmerged branch cursor/cake-recipe-architect-spec-9845, merged into main 2026-09-10T21:1xZ by 32-delivery-lead). Frontend RTL page done (14-frontend-engineer, agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/ — was on unmerged branch cursor/cake-recipe-demo-rtl-58ef, merged same time). Devops staging (18-devops-platform) staged in parallel this run: ops/staging/cake-recipe-demo/ (Dockerfile + pages.yml), same pattern already proven for aztodev-company-system. UNRELATED to aztodev-company-system despite todays PCI-14 threads conflating the two names. gh api repos/ZionAmar/cake-recipe-demo verified 404 (2026-09-10T21:07Z) -- Nadav has NOT uploaded anything for this bet yet, contrary to a task briefing this turn that assumed upload was done. Real next step: Nadav (34-pc-ops) creates+pushes repo (PCI-14b), copies ops/staging/cake-recipe-demo/* in the same push, flips public, enables Pages once. Then QA (20-qa-sdet/Uri) verifies live URL."
+      "phase": "architect-done + frontend-done + devops-staged-and-merged, unified PCI-17 packet ready for Nadav — PC OFFLINE, queued not nudged",
+      "note": "Planning done (EMET-165 Done). Architect spec done (12-software-architect). Frontend RTL bundle done (14-frontend-engineer). DevOps staging done (18-devops-platform, Paz) — ops/staging/cake-recipe-demo/{Dockerfile,.dockerignore,.github/workflows/pages.yml,PAGES_SETUP.md} — this was itself stranded on an unmerged branch (cursor/cake-recipe-docker-pages-stage-18eb) plus 4 more overlapping/duplicate branches from parallel runs responding to the same delegation (WIP-fragmentation recurrence, same bug class as the 21:15Z fix) — all merged into main 2026-09-10T21:4xZ by 32-delivery-lead, zero conflicts of substance. gh api repos/ZionAmar/cake-recipe-demo re-verified 404 just now — repo still does not exist. Nadav's founder-PC shell is broken (0xC0000142, discovered by Paz's helper run) and PC heartbeat is OFFLINE this run — task is QUEUED (runs automatically when Windows/shell comes back), not actively waiting for a reply. Unified single-file ask written: agents/34-pc-ops/inbox/2026-09-10_pci-17b-unified-cake-recipe-repo-devops-pages.md (supersedes PCI-16 item 3 + standalone PCI-17 — one push: repo create + bundle + devops files + Pages toggle, with full verbatim copy-paste fallback in case git fetch still fails once his shell returns). Next after Nadav: QA (20-qa-sdet/Uri) verifies live Pages URL, then close EMET-165 build phase."
     }
   },
-  "orphanedBranchesMergedAt": "2026-09-10T21:15:00.000Z",
-  "orphanedBranchesMergedNote": "Found + merged 3 specialist branches into main that had never been merged (WIP-fragmentation bug): cursor/cake-recipe-architect-spec-9845, cursor/cake-recipe-demo-rtl-58ef, cursor/dafna-company-system-docker-pages-ba44. Each held real, already-finished specialist work invisible to main as source of truth. Fixed by 32-delivery-lead this run via clean git merges (no conflicts except one factory.json section, resolved in favor of the more current live-verified state)."
+  "orphanedBranchesMergedAt": "2026-09-10T21:4xZ",
+  "orphanedBranchesMergedNote": "Recurrence of the WIP-fragmentation bug found+fixed at 21:15Z: this time 5 more branches (cursor/cake-recipe-docker-pages-stage-18eb, cursor/pci-16-cake-recipe-verbatim-13fd, cursor/pci-16-helper-report-4e78, cursor/cake-recipe-demo-bundle-pci16-d25c, cursor/pci16-cake-bundle-inline-reply-7a0d) held real devops-staging + verbatim-fallback + verification work from what looks like multiple parallel Cloud runs answering the same delegation, all invisible to main. Merged into main 2026-09-10T21:4xZ by 32-delivery-lead (6 sequential merges, only learning-log.md needed manual conflict resolution twice, resolved by keeping all chronological entries). Root cause not fixed here (still likely to recur) — flagged in this run's outbox as a systemic issue, not just a one-off cleanup."
 }

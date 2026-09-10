@@ -1,3 +1,5 @@
+> **SUPERSEDED 2026-09-10T21:4xZ (32-delivery-lead):** read `2026-09-10_pci-17b-unified-cake-recipe-repo-devops-pages.md` instead — same task, now includes a verbatim copy-paste fallback for the broken-PC-shell case and a note that this is QUEUED (PC offline) not an active nudge. Keeping this file for evidence trail only.
+
 # PCI-17 — cake-recipe-demo: create repo + bundle + DevOps in one push
 
 **Date:** 2026-09-10  

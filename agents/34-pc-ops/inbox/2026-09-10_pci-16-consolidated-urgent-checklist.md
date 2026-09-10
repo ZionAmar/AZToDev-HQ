@@ -1,3 +1,5 @@
+> **UPDATE 2026-09-10T21:4xZ (32-delivery-lead):** Item 1 (HQ→private) is **CONFIRMED DONE** — live-verified `private:true`, no action needed, the "still exposed" row below is stale. Item 3 (cake-recipe-demo) is now **superseded** by `2026-09-10_pci-17b-unified-cake-recipe-repo-devops-pages.md` — Paz's DevOps files finished staging and are merged to `main`, so that one file now has everything (repo create + bundle + devops + Pages) in one place, plus a verbatim fallback if your shell is still broken. **Item 2 (aztodev-company-system Pages) is still open and still needs you** — read it below.
+
 # PCI-16 — CONSOLIDATED checklist (supersedes scattered nudges in PCI-14)
 
 **Date:** 2026-09-10T21:1xZ · **Owner:** 34-pc-ops (נדב) · **From:** 32-delivery-lead (קשת)
