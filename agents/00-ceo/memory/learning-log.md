@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder sent Pages URL aztodev-company-system after «תהפכו לפאבליק ודוקר»
+- do: Extract repo name from github.io URL; verify with curl/gh; spell public+Docker plan; hold delegation until «אשר»
+- dont: Keep cake-recipe-demo name when founder points to different Pages URL; delegate before plan approval
+- note: Pages 404; PCI-14 retargeted; waiting founder אשר
+
+### 2026-09-10
 - task: Founder — «מה הסטטוס? ומה התכנון?» after «תבנו»+PIN on cake page
 - do: Verify Keshet bc-cac9ce1b RUNNING before status; spell plan in plain Hebrew steps; attach only real specialist bc- URL
 - dont: Overstate progress when no PR/outbox yet; mix cake bet with separate GitHub «אשר» thread in the lead
