@@ -7,7 +7,7 @@
   "chemiCloudHqDeploy": true,
   "wipLimit": 1,
   "activeWork": {
-    "slug": "cake-recipe-demo",
+    "slug": "hq-exposure-and-company-system-pages",
     "bet": "Dafna company-system-map — public + Docker + Pages (aztodev-company-system) — SEPARATE from cake-recipe-demo",
     "phase": "pages-enable-needed",
     "owner": "34-pc-ops (נדב) → 18-devops-platform (פז)",
@@ -29,8 +29,11 @@
       "foundBy": "32-delivery-lead",
       "finding": "gh api repos/ZionAmar/AZToDev-HQ shows visibility:public, private:false, updated_at 2026-09-10T20:55:19Z. Likely accidental side-effect of Nadav flipping aztodev-company-system to public in the same window (20:52-20:55Z). No raw secrets found in git history (.env never tracked). Cloud token admin:false on this repo -- cannot revert from Cloud.",
       "action": "DELEGATE 34-pc-ops to flip back to private ASAP; DELEGATE 00-ceo to relay to founder with urgency.",
-      "status": "open"
-    }
+      "status": "open",
+      "reverifiedAt": "2026-09-10T21:07:36.000Z",
+      "reverifiedResult": "STILL PUBLIC (gh api repos/ZionAmar/AZToDev-HQ -> visibility:public, private:false, updated_at 21:05:24Z). Not reverted yet."
+    },
+    "blockerAgeNote": "PCI-14 GO issued ~2026-09-10T20:25Z. As of 21:07Z (~42 min later, 3 prior nudges): PC heartbeat ONLINE throughout, but zero agents/34-pc-ops/outbox/ evidence for PCI-11/12/13/14/HQ-revert/Pages-enable. Live-verified 21:07Z: aztodev-company-system still public/has_pages=false/Pages 404; AZToDev-HQ still public; ZionAmar/cake-recipe-demo repo does not exist (404). Re-nudging the same packet a 4th time is unlikely to help -- escalating as a stalled-PC-worker signal, not just a reminder."
   },
   "pausedWork": {
     "slug": "pc-production-inventory",
@@ -227,9 +230,12 @@
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",
       "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",
-      "status": "ready_not_started",
-      "linearIssue": "EMET-165 / EMET-115",
-      "note": "Planning done (EMET-165 Done), architect stage Todo (EMET-115). Bundle built by 14-frontend-engineer (agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/). No repo created/pushed yet -- this is UNRELATED to aztodev-company-system, despite todays PCI-14 threads conflating the two. Resume once activeWork (HQ exposure + Pages fix) clears, per WIP=1."
+      "status": "blocked_on_repo_creation",
+      "linearIssue": "EMET-165 / EMET-115 / EMET-116",
+      "phase": "architect-done + frontend-done + devops-staged, waiting on PCI-14 (repo create) before Pages/QA",
+      "note": "Planning done (EMET-165 Done). Architect spec pack done (12-software-architect, ops/pipeline/cake-recipe-demo/02-06 + diagrams — was stranded on unmerged branch cursor/cake-recipe-architect-spec-9845, merged into main 2026-09-10T21:1xZ by 32-delivery-lead). Frontend RTL page done (14-frontend-engineer, agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/ — was on unmerged branch cursor/cake-recipe-demo-rtl-58ef, merged same time). Devops staging (18-devops-platform) staged in parallel this run: ops/staging/cake-recipe-demo/ (Dockerfile + pages.yml), same pattern already proven for aztodev-company-system. UNRELATED to aztodev-company-system despite todays PCI-14 threads conflating the two names. gh api repos/ZionAmar/cake-recipe-demo verified 404 (2026-09-10T21:07Z) -- Nadav has NOT uploaded anything for this bet yet, contrary to a task briefing this turn that assumed upload was done. Real next step: Nadav (34-pc-ops) creates+pushes repo (PCI-14b), copies ops/staging/cake-recipe-demo/* in the same push, flips public, enables Pages once. Then QA (20-qa-sdet/Uri) verifies live URL."
     }
-  }
+  },
+  "orphanedBranchesMergedAt": "2026-09-10T21:15:00.000Z",
+  "orphanedBranchesMergedNote": "Found + merged 3 specialist branches into main that had never been merged (WIP-fragmentation bug): cursor/cake-recipe-architect-spec-9845, cursor/cake-recipe-demo-rtl-58ef, cursor/dafna-company-system-docker-pages-ba44. Each held real, already-finished specialist work invisible to main as source of truth. Fixed by 32-delivery-lead this run via clean git merges (no conflicts except one factory.json section, resolved in favor of the more current live-verified state)."
 }
