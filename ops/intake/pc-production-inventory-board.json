@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T15:03:30.000Z",
+  "updatedAt": "2026-09-10T08:22:00.000Z",
   "initiative": "pc-production-inventory",
   "project": "PC — סריקת in_production (פרויקטים לא בגיטהאב)",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production",
@@ -169,6 +169,33 @@
       "linearIssue": null,
       "reVerifiedAt": "2026-09-09T18:41:46Z",
       "reVerifiedNote": "Noa relayed founder ask 'the email arrived, continue the second thing'. Live re-run of `gh repo list ZionAmar` + `gh api /installation/repositories` this turn: still 18 repos, installation still `repository_selection` scoped to exactly 1 repo (AZToDev-HQ). No GitHub access expansion reached this Cloud session — whatever email arrived did not change the App scope. PCI-10 stays queued to Nadav's own PC-side GitHub session; not unblockable from Cloud."
+    },
+    {
+      "id": "PCI-11",
+      "phase": "P4",
+      "titleHe": "שינוי נראות PUBLIC→PRIVATE — 7 ריפואים (expo-app, chrome-test, todo, ci-test, ci-pipeline-test, news, coffee_and_cake_App_DB)",
+      "owner": "34-pc-ops",
+      "status": "done_pending_audit",
+      "priority": "P0",
+      "dod": "כל 7 פרטיים + outbox עם טבלת לפני/אחרי; מי ביצע ומתי",
+      "founderApprovedAt": "2026-09-10",
+      "note": "Live Cloud check 2026-09-10T08:11Z: all 7 no longer public (404 from Cloud API). Executor unattributed — no Nadav outbox. Audit delegated separately.",
+      "linearIssue": null
+    },
+    {
+      "id": "PCI-12",
+      "phase": "P4",
+      "titleHe": "שינוי נראות PUBLIC→PRIVATE — FinalProjectNodeJS + ZionAmar-workclock-expo-app",
+      "owner": "34-pc-ops",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "שני הריפואים פרטיים + outbox עם טבלת לפני/אחרי",
+      "founderApprovedAt": "2026-09-10T08:20Z",
+      "blockedBy": null,
+      "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-12-visibility-two-repos.md",
+      "liveCheckAt": "2026-09-10T08:22Z",
+      "liveCheckNote": "Both still PUBLIC from Cloud read. Cloud PATCH returns 403 (App scoped to AZToDev-HQ only, no settings write).",
+      "linearIssue": null
     }
   ],
   "pcOnlineDelegateNudges": [
