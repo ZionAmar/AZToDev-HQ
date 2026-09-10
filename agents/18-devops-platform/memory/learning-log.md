@@ -14,3 +14,8 @@
 - do: When PC shell is broken, embed FULL raw file contents in outbox so 34-pc-ops can Write locally without git fetch
 - dont: Tell Nadav to pull HQ branches when his shell returns 0xC0000142 — give copy-paste payloads instead
 - note: PCI-16 cake-recipe DevOps files extracted from cursor/cake-recipe-docker-pages-stage-18eb into verbatim outbox for PC ops
+
+### 2026-09-10 · pci-16-helper-bundle-and-api-check
+- do: Read-verify repo state before PATCH; report stale checklist rows when live API differs (HQ already private)
+- dont: Claim Cloud can flip personal-repo visibility or enable Pages — integration token is AZToDev-HQ scoped only (403)
+- note: Bundle confirmed on rtl-58ef + docker-pages-stage-18eb; item 1 (HQ private) already satisfied; items 2–3 (Pages toggle, cake-recipe-demo repo) remain blocked on PC
