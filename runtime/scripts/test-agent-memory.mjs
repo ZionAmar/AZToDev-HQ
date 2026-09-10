@@ -51,6 +51,10 @@ assert.equal(
   "34-pc-ops"
 );
 assert.equal(
+  inferRequiredDelegate("תבדקי לי חדשות על איי-איי")?.agentId,
+  "33-household-ops"
+);
+assert.equal(
   inferRequiredDelegate("לפתח מוצר חדש ללקוחות")?.agentId,
   "32-delivery-lead"
 );

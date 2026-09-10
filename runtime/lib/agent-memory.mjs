@@ -152,6 +152,14 @@ export function inferRequiredDelegate(founderText) {
     return { agentId: "33-household-ops", task: task || "Check household mail / invoices" };
   }
   if (
+    /חדשות|news|בינה\s*מלאכותית|איי.?איי|\bai\b|artificial intelligence/i.test(t)
+  ) {
+    return {
+      agentId: "33-household-ops",
+      task: task || "Summarize today's AI-related news for the founder",
+    };
+  }
+  if (
     /דיסק|תיקי[הה]|windows|שולחן העבודה|במחשב|C:\\|מקום פנוי|קבצים אצלי/i.test(t)
   ) {
     return { agentId: "34-pc-ops", task: task || "PC disk / folder status" };

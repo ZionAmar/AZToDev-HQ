@@ -197,3 +197,9 @@ LEARNING:
 - do: Accept founder attribution for PCI-11; live-verify each repo batch separately; close PCI-11 done; keep PCI-12 open if 2 still PUBLIC
 - dont: Mark entire multi-batch ask done when only first batch verified private
 - note: 7 PRIVATE + 2 still PUBLIC at 08:23Z; founder credits Nadav; PCI-12 delegated for close-out + retroactive outbox
+
+### 2026-09-10 (news routing fix)
+- task: Founder — «שוב ועכשיו» AI news; angry about contradictory «יש ריצה» vs «אין ריצה»
+- do: On «שוב ועכשיו» verify specialist actually ran before blocking; patch work-intent + inferRequiredDelegate for חדשות/AI keywords
+- dont: Say «יש תוצאה טרייה» or «ריצה כפולה» when Ruth never started — routing silently dropped her on non-mail asks
+- note: Fixed isExplicitNewsAsk + Ruth inbox; delegated fresh AI news run
