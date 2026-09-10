@@ -256,3 +256,9 @@ LEARNING:
 - do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew
 - dont: Use cake-recipe-demo after founder named aztodev-company-system; claim prior Nadav run succeeded without outbox
 - note: Repo name locked; Pages 404; Nadav re-nudged 20:52Z; PC online
+
+### 2026-09-10
+- task: Founder — «יאללה אז תפעילו כבר אתר פעיל לזה»
+- do: Live-verify HQ private + Pages 404; create missing PCI-17b GO packet; DELEGATE Nadav same turn with priority A (company-system Pages) then B (cake repo)
+- dont: Say «מתחילה» when LIVE FLOW references PCI-17b but file absent from repo; claim site live without curl 200
+- note: Founder GO 22:37Z; PCI-17b created; Nadav delegated; both URLs still 404 pending PC outbox
