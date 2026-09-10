@@ -151,7 +151,8 @@
   "repos": {
     "hq": {
       "github": "https://github.com/ZionAmar/AZToDev-HQ",
-      "private": true,
+      "private": false,
+      "visibilityAlert": "LIVE 2026-09-10T21:06Z: PUBLIC by mistake during visibility batch — PCI-15 queued, blocked on founder אשר+PIN",
       "notes": "Private HQ mirror — Cloud Noa / Ruth / Tamir. Cursor GitHub App must include this repo."
     },
     "work_clock": {
