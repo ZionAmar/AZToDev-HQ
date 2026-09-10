@@ -14,7 +14,7 @@
     "board": null,
     "startedAt": "2026-09-10T18:42:00.000Z",
     "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "נדב (34-pc-ops) — PCI-14: aztodev-company-system push bundle + public + Pages (founder «אשר» 2026-09-10T20:39Z; nudged 20:46Z after founder «עוד לא סיים?»; PC online; Pages still 404).",
+    "waitingFor": "נדב (34-pc-ops) — PCI-14 mandatory 6-step checklist (founder «תוודאי ב100%» 2026-09-10T20:49Z; «אשר»+PIN on record; nudged 20:46Z+20:49Z; PC online; Pages still 404; no Nadav outbox yet).",
     "next": "נדב PCI-14 → פז Docker + live link → אורי QA → close EMET-165.",
     "status": "in_progress",
     "finishedAt": null,

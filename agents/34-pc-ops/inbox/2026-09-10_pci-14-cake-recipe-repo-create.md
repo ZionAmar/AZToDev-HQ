@@ -50,3 +50,20 @@ Founder: «נו. עוד לא סיים?» (~7 min after «אשר» GO).
 Live check: `zionamar.github.io/aztodev-company-system/` still HTTP 404. No `agents/34-pc-ops/outbox/` report for PCI-14 yet.  
 PC heartbeat: **ONLINE** (A_Z · 2026-09-10T20:45:06Z). PIN window from founder «אשר» still valid.  
 **Execute now — priority #1.** Write outbox when done.
+
+## Nudge — 2026-09-10T20:49Z (00-ceo — founder «תוודאי ב100 אחוז»)
+
+Founder: «תוודאי ב100 אחוז שנדב עושה את כל מה שהוא צריך לעשות»  
+Live check: Pages still HTTP 404. Still no outbox report. PC **ONLINE** (A_Z · 2026-09-10T20:49:22Z).  
+**Do not skip any step below.** Outbox must tick every checkbox or explain failure.
+
+## Mandatory checklist (all required — founder verified 2026-09-10)
+
+- [ ] **1. Repo exists** — `gh repo view ZionAmar/aztodev-company-system` succeeds (create if missing)
+- [ ] **2. Bundle pushed** — `index.html`, `styles.css`, `README.md` from `agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/` on `main`
+- [ ] **3. Public** — `gh repo edit ZionAmar/aztodev-company-system --visibility public` (PIN window open)
+- [ ] **4. Pages enabled** — GitHub Pages from `main` / root (or `docs/` if you use that layout)
+- [ ] **5. Live URL works** — `https://zionamar.github.io/aztodev-company-system/` returns **200** (not 404), Hebrew RTL cake page visible
+- [ ] **6. Outbox evidence** — write `agents/34-pc-ops/outbox/2026-09-10_pci-14-cake-recipe-repo-create.md` with: repo URL, commit SHA, visibility=public, Pages URL, curl status code
+
+If any step fails — report which step + exact error in outbox. Do not mark done without step 5 passing.
