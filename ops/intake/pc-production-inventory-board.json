@@ -158,6 +158,21 @@
       "linearIssue": null
     },
     {
+      "id": "PCI-11",
+      "phase": "P4",
+      "titleHe": "שינוי נראות — 7 ריפואים מציבורי לפרטי (אישור+PIN מציון)",
+      "owner": "34-pc-ops",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "כל 7 הריפואים PRIVATE מאומתים ב-gh; outbox עם טבלת לפני/אחרי",
+      "repos": ["expo-app", "chrome-test", "todo", "ci-test", "ci-pipeline-test", "news", "coffee_and_cake_App_DB"],
+      "founderApprovedAt": "2026-09-10",
+      "blockedBy": null,
+      "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-11-github-visibility-private.md",
+      "liveCheckAt": "2026-09-10T07:50Z",
+      "liveCheckNote": "All 7 still PUBLIC — not executed yet despite prior routing claim"
+    },
+    {
       "id": "PCI-10",
       "phase": "P4",
       "titleHe": "בדיקת ספירת ריפואים אמיתית מהחשבון האישי המלא (לא מה-GitHub App המוגבל) — אישור/שלילת 49, בדיקת קידניסט/Work_clock/telemust",
