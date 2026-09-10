@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder — «אז מה קורה? מה העניינים?» after FiTime/FeeTime/expo-app visibility confusion
+- do: Live-check every named repo before status; separate PCI-13 done (expo public) from PCI-14 pending (FiTime) from PCI-15 queued (expo private again)
+- dont: Say FiTime is done or expo is private when API still returns 200/public=false; dont reuse wrong-direction PIN ack («לציבורי» when target is private)
+- note: 8 repos PRIVATE; expo-app PUBLIC (PCI-13 done); FiTime PUBLIC (PCI-14 delegated); PCI-15 needs fresh PIN
+
+### 2026-09-10
 - task: Founder — «נורא קורא» (readability on visibility thread replies)
 - do: Short Hebrew, one fact per line, admit when a prior reply was wrong; separate «9 private done» from «1 public test pending»
 - dont: Say «8 repos private» when founder approved expo-app → public test; no API/Cursor/shell jargon in Telegram
