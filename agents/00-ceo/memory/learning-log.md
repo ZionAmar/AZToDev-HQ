@@ -203,3 +203,9 @@ LEARNING:
 - do: Accept founder attribution for PCI-11; live-verify each repo batch separately; close PCI-11 done; keep PCI-12 open if 2 still PUBLIC
 - dont: Mark entire multi-batch ask done when only first batch verified private
 - note: 7 PRIVATE + 2 still PUBLIC at 08:23Z; founder credits Nadav; PCI-12 delegated for close-out + retroactive outbox
+
+### 2026-09-10
+- task: Founder — «אבל כבר מוגדר שם כל הריפוזיטוריס»
+- do: Live-check installation scope when founder claims all-repos already set; explain Installed Apps vs Authorized OAuth screens
+- dont: Re-send full setup plan without acknowledging wrong-screen possibility
+- note: Cloud still selected/1 repo + 403 PATCH; offered re-auth + אשר for verify
