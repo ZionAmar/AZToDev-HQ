@@ -3,19 +3,19 @@
 **Date:** 2026-09-10  
 **Owner:** 34-pc-ops (נדב)  
 **Priority:** High — blocks cake-recipe-demo live link (EMET-165)  
-**Gate:** Founder «תבנו»+PIN + «תהפכו לפאבליק»; **hold until Noa receives «אשר» on public+Docker plan** (2026-09-10T20:34Z)
+**Gate:** Founder «תבנו»+PIN + «תהפכו לפאבליק» + **«אשר» received 2026-09-10T20:39Z** — GO
 
 ## GO — 2026-09-10T20:25Z (PC online)
 
 Founder: «טוב, פתחתי את המחשב, יאללה, רוץ על זה.»  
 PC heartbeat: **ONLINE** (A_Z). Prior «אשר» + PIN on record for build.
 
-## HOLD — repo name + public flip (2026-09-10T20:34Z)
+## GO — founder «אשר» (2026-09-10T20:39Z)
 
 Founder clarified repo via Pages URL: https://zionamar.github.io/aztodev-company-system/  
-Noa owes plan; **do not execute public flip until founder says «אשר» / «קדימה»** on that plan.
+Founder approved public+Docker plan + PIN on record. **Execute now.**
 
-## Task (after אשר)
+## Task
 
 1. Create or locate GitHub repo **`ZionAmar/aztodev-company-system`** via PC `gh` session (owner auth).
 2. Push static RTL cake recipe bundle from HQ (עוגת שוקולד רכה):
