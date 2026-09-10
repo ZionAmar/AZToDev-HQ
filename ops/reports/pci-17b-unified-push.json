@@ -1,0 +1,51 @@
+{
+  "at": "2026-09-10T22:11:44.905Z",
+  "task": "PCI-17b",
+  "repo": "ZionAmar/cake-recipe-demo",
+  "exportDir": "/workspace/ops/exports/cake-recipe-demo",
+  "bundle": {
+    "required": 7,
+    "present": [
+      "index.html",
+      "styles.css",
+      "README.md",
+      "Dockerfile",
+      ".dockerignore",
+      "PAGES_SETUP.md",
+      ".github/workflows/pages.yml"
+    ],
+    "missing": []
+  },
+  "auth": {
+    "gitCredentialFill": "failed",
+    "gitCredentialDetail": "fatal: could not read Username for 'https://github.com': No such device or address",
+    "ghTokenAvailable": true,
+    "ghAccount": "cursor",
+    "apiSource": "gh",
+    "apiOk": true
+  },
+  "repoCreate": {
+    "ok": false,
+    "existed": null,
+    "url": null,
+    "error": "create_failed_403",
+    "status": 403,
+    "preCheck": {
+      "status": 404,
+      "private": null,
+      "message": "Not Found"
+    }
+  },
+  "push": null,
+  "commitSha": null,
+  "repoPrivate": null,
+  "pagesEnable": null,
+  "workflowRun": null,
+  "curl": {
+    "ok": true,
+    "status": 404,
+    "url": "https://zionamar.github.io/cake-recipe-demo/"
+  },
+  "ok": false,
+  "blockedReason": "repo_create_failed"
+}

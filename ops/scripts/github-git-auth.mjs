@@ -11,12 +11,22 @@ export function readGithubHttpsCreds() {
     windowsHide: true,
     timeout: 20000,
   });
-  if (r.status !== 0) return { ok: false, error: "credential_fill_failed" };
   const out = String(r.stdout || "");
   const username = (out.match(/^username=(.*)$/m) || [])[1]?.trim() || "";
   const password = (out.match(/^password=(.*)$/m) || [])[1]?.trim() || "";
-  if (!username || !password) return { ok: false, error: "credential_empty" };
-  return { ok: true, username, password };
+  if (r.status === 0 && username && password) {
+    return { ok: true, username, password, source: "git-credential" };
+  }
+  const gh = spawnSync("gh", ["auth", "token"], {
+    encoding: "utf8",
+    windowsHide: true,
+    timeout: 10000,
+  });
+  const token = String(gh.stdout || "").trim();
+  if (gh.status === 0 && token) {
+    return { ok: true, username: "x-access-token", password: token, source: "gh" };
+  }
+  return { ok: false, error: "credential_empty" };
 }
 
 export async function githubApi(method, urlPath, body) {
