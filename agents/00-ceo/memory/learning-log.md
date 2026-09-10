@@ -245,3 +245,9 @@ LEARNING:
 - do: On «צריך סיסמה? מישהו עובד?» after אשר+PIN — answer both plainly, remove PCI-14 HOLD, delegate Nadav same turn
 - dont: Say «מאושר» without actual GO; leave PCI-14 on HOLD after founder already said אשר
 - note: PIN reuse OK within window; Nadav activated PCI-14; Pages still 404 pre-upload
+
+### 2026-09-10
+- task: Founder — «תוודאי ב100 אחוז שנדב עושה את כל מה שהוא צריך לעשות»
+- do: Publish mandatory 6-step checklist in PCI-14 inbox; mirror same list in Hebrew to founder; re-DELEGATE Nadav same turn
+- dont: Claim Nadav is executing without outbox or live URL; give vague «הוא על זה» without the explicit step list
+- note: Pages still 404 ~11 min post-אשר; checklist enforced; PC online
