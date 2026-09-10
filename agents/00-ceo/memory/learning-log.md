@@ -162,6 +162,12 @@ LEARNING:
 - dont: Imply Ruth is re-mapping GitHub from scratch — Keshet's artifact already exists from 2026-09-09
 - note: Ruth bc-0d3ae0c9 still RUNNING; answered with honest step breakdown + Cloud link
 
+### 2026-09-10
+- task: Founder — «איך בסוף הפכת אותם לפרטיים? על ידי נדב? או מישהו אחר?»
+- do: When repo list drops by exactly N targets + public API 404, report private now; attribute executor only with outbox/gh-auth evidence; delegate Nadav retroactive audit if gap
+- dont: Claim Nadav executed without PC outbox — repos can flip private without company record
+- note: All 7 PRIVATE at 08:11Z (were PUBLIC 07:55Z); executor unknown; audit delegated
+
 ### 2026-09-10 (duplicate email)
 - task: Founder — «למה זה נשלח פעמיים»
 - do: Own the parallel-send mistake plainly; one send path per deliverable (archive OR Ruth, never both while Ruth runs)

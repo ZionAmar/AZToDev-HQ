@@ -175,7 +175,7 @@
       "phase": "P4",
       "titleHe": "שינוי נראות — 7 ריפואים מציבורי לפרטי (אישור+PIN מציון)",
       "owner": "34-pc-ops",
-      "status": "in_progress",
+      "status": "done_pending_audit",
       "priority": "P0",
       "dod": "כל 7 הריפואים PRIVATE מאומתים ב-gh; outbox עם טבלת הצלחה/כישלון לכל ריפו",
       "repos": ["expo-app", "chrome-test", "todo", "ci-test", "ci-pipeline-test", "news", "coffee_and_cake_App_DB"],
@@ -183,8 +183,9 @@
       "pinReceived": true,
       "blockedBy": null,
       "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-11-seven-repos-private.md",
-      "liveVerifiedAt": "2026-09-10T07:55:28Z",
-      "liveVerifiedNote": "All 7 still PUBLIC. PATCH from Cloud → 403 (Cursor App scoped to AZToDev-HQ only). Prior delegate zero outbox — founder retry.",
+      "liveVerifiedAt": "2026-09-10T08:11:00Z",
+      "liveVerifiedNote": "All 7 now PRIVATE (public API 404 each; dropped from Cloud public repo list 18→11). Executor unattributed — no Nadav outbox. Between 07:55Z (still PUBLIC) and 08:11Z (PRIVATE). Nadav audit delegated for retroactive verify + attribution.",
+      "status": "done_pending_audit",
       "linearIssue": null,
       "instructions": "One repo at a time. Cloud GitHub App cannot perform this — Nadav PC gh session only."
     }
