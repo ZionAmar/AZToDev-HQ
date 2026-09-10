@@ -158,21 +158,6 @@
       "linearIssue": null
     },
     {
-      "id": "PCI-11",
-      "phase": "P4",
-      "titleHe": "שינוי נראות — 7 ריפואים מציבורי לפרטי (אישור+PIN מציון)",
-      "owner": "34-pc-ops",
-      "status": "in_progress",
-      "priority": "P0",
-      "dod": "כל 7 הריפואים PRIVATE מאומתים ב-gh; outbox עם טבלת לפני/אחרי",
-      "repos": ["expo-app", "chrome-test", "todo", "ci-test", "ci-pipeline-test", "news", "coffee_and_cake_App_DB"],
-      "founderApprovedAt": "2026-09-10",
-      "blockedBy": null,
-      "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-11-github-visibility-private.md",
-      "liveCheckAt": "2026-09-10T07:50Z",
-      "liveCheckNote": "All 7 still PUBLIC — not executed yet despite prior routing claim"
-    },
-    {
       "id": "PCI-10",
       "phase": "P4",
       "titleHe": "בדיקת ספירת ריפואים אמיתית מהחשבון האישי המלא (לא מה-GitHub App המוגבל) — אישור/שלילת 49, בדיקת קידניסט/Work_clock/telemust",
@@ -188,14 +173,18 @@
     {
       "id": "PCI-11",
       "phase": "P4",
-      "titleHe": "שינוי נראות — 7 ריפואים מציבורי לפרטי (אישור+PIN של ציון)",
+      "titleHe": "שינוי נראות — 7 ריפואים מציבורי לפרטי (אישור+PIN מציון)",
       "owner": "34-pc-ops",
       "status": "in_progress",
       "priority": "P0",
-      "dod": "כל 7 הריפואים מציגים visibility=private ב-gh repo view מסשן PC אמיתי; דוח outbox לכל ריפו",
+      "dod": "כל 7 הריפואים PRIVATE מאומתים ב-gh; outbox עם טבלת הצלחה/כישלון לכל ריפו",
       "repos": ["expo-app", "chrome-test", "todo", "ci-test", "ci-pipeline-test", "news", "coffee_and_cake_App_DB"],
-      "founderApprovedAt": "2026-09-10T07:40:00.000Z",
+      "founderApprovedAt": "2026-09-10",
+      "pinReceived": true,
       "blockedBy": null,
+      "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-11-seven-repos-private.md",
+      "liveVerifiedAt": "2026-09-10T07:55:28Z",
+      "liveVerifiedNote": "All 7 still PUBLIC. PATCH from Cloud → 403 (Cursor App scoped to AZToDev-HQ only). Prior delegate zero outbox — founder retry.",
       "linearIssue": null,
       "instructions": "One repo at a time. Cloud GitHub App cannot perform this — Nadav PC gh session only."
     }
