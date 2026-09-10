@@ -1,5 +1,7 @@
 {
   "accounts": ["aztodev", "amzion", "zion"],
-  "newsChannels": [],
+  "newsChannels": [
+    "https://t.me/hamivzakk"
+  ],
   "notesHe": "ציון מוסיף כאן שמות ערוצי טלגרם / RSS לסיכום חדשות. רות קוראת רק מה שמוגדר."
 }
