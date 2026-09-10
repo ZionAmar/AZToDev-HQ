@@ -9,13 +9,13 @@
   "activeWork": {
     "slug": "cake-recipe-demo",
     "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות, ריפו+Docker+GitHub Pages",
-    "phase": "planning-done-handoff-architect",
-    "owner": "32-delivery-lead → 12-software-architect",
+    "phase": "github-upload",
+    "owner": "34-pc-ops (נדב) → 18-devops-platform (פז)",
     "board": null,
     "startedAt": "2026-09-10T18:42:00.000Z",
     "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "יונה (12-software-architect) — spec/screens brief in agents/12-software-architect/inbox/2026-09-10_cake-recipe-spec-brief.md",
-    "next": "יונה picks recipe/spec → DELEGATE בועז (design) + דפנה (frontend) → פז (Docker + GitHub Pages link) → אורי (QA) → close EMET-165, notify founder via Noa.",
+    "waitingFor": "נדב (34-pc-ops) — PCI-14: create ZionAmar/cake-recipe-demo + push bundle from agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/ (founder opened PC 2026-09-10T20:25Z)",
+    "next": "נדב finishes PCI-14 → פז Docker + GitHub Pages live link → אורי QA → close EMET-165, notify founder via Noa.",
     "status": "in_progress",
     "finishedAt": null,
     "linearIssue": "EMET-165",
@@ -211,6 +211,6 @@
       "/start"
     ]
   },
-  "updatedAt": "2026-09-09",
+  "updatedAt": "2026-09-10",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z"
 }
