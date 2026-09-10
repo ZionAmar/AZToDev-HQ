@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder — «מה נשמע» (human check-in)
+- do: Warm short reply first; one gentle next-step line only; real bc- URL in outbox not Telegram unless specialist ran
+- dont: Pivot to AI news or factory status dump on greeting; fake cursor.com homepage links
+- note: Idle factory; EMET-66 still waiting «אשר»; Noa bc-b9d05503
+
+### 2026-09-10
 - task: Founder — «נורא קורא» (readability on visibility thread replies)
 - do: Short Hebrew, one fact per line, admit when a prior reply was wrong; separate «9 private done» from «1 public test pending»
 - dont: Say «8 repos private» when founder approved expo-app → public test; no API/Cursor/shell jargon in Telegram
