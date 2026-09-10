@@ -19,3 +19,8 @@
 - do: Read-verify repo state before PATCH; report stale checklist rows when live API differs (HQ already private)
 - dont: Claim Cloud can flip personal-repo visibility or enable Pages — integration token is AZToDev-HQ scoped only (403)
 - note: Bundle confirmed on rtl-58ef + docker-pages-stage-18eb; item 1 (HQ private) already satisfied; items 2–3 (Pages toggle, cake-recipe-demo repo) remain blocked on PC
+
+### 2026-09-10 · pci-17b-cloud-push-attempt
+- do: Consolidate 7 files under `ops/exports/cake-recipe-demo/` + run `pci-17b-cake-recipe-push.sh` for honest JSON before delegating to PC
+- dont: Claim push/commit SHA when `gh repo create` returns `Resource not accessible by integration (createRepository)`
+- note: Bundle 7/7 staged in HQ git; Cloud account `cursor` cannot create `ZionAmar/cake-recipe-demo`; repo still 404; Nadav queued with ps1
