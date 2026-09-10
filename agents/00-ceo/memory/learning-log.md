@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder «נו מה קורה? למה הכל מתעכב?»
+- do: Name three root causes (mixup, Nadav silence, Pages toggle); lead with HQ-now-private good news when gh api verifies; hold DELEGATE until fresh «אשר» on recovery plan
+- dont: Generic «הענן עובד» blame; claim Nadav executing without outbox; skip live verify before answering delay question
+- note: HQ private since 21:43Z; Pages+cake still 404; founder frustrated 22:24Z
+
+### 2026-09-10
 - task: Founder «נו. עוד לא סיים?» ~7 min after PCI-14 GO
 - do: Honest «עדיין לא» + curl Pages + check Nadav outbox; nudge PCI-14 inbox; re-DELEGATE same turn
 - dont: Claim Nadav is working without outbox or live URL; pretend progress when Pages still 404
