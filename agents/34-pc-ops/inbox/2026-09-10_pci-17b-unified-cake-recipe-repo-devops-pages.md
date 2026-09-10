@@ -10,6 +10,26 @@
 
 Your founder-PC shell was reported broken (`exit 0xC0000142`) — if `git fetch`/`git pull` still fails when you pick this up, skip straight to the **verbatim fallback** section below and use file **Write**, not git.
 
+## Update 2026-09-10T22:4xZ — run it OUTSIDE Cursor entirely (new, added this turn)
+
+A later attempt at this same task still hit `0xC0000142` running a `node` command even after the PC heartbeat showed ONLINE. That points at **Cursor's own embedded terminal/runtime on your machine**, not at this packet's instructions (which only ever needed plain `git`/`gh`, never Cursor or `node`).
+
+A new script was added this turn that does the whole thing (create repo, copy the 7 files, commit, push, enable Pages, check the workflow run, `curl` the live URL, write the outbox result) in one shot using only PowerShell + `git` + `gh` — **no Cursor, no `node`**:
+
+```
+ops\scripts\pci-17b-cake-recipe-push.ps1
+```
+
+Run it from a **plain Windows Terminal / PowerShell window** (Start menu → Windows PowerShell — not Cursor's built-in terminal), or wire it into Task Scheduler / a Startup shortcut the same way `NADAV-PC.vbs` + `ops\scripts\install-nadav-startup.ps1` already do for the desk worker:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File ops\scripts\pci-17b-cake-recipe-push.ps1
+```
+
+It writes+pushes `agents/34-pc-ops/outbox/...pci-17b-cake-recipe-unified-result.md` itself, so one successful run closes this ticket's evidence loop without touching Cursor at all. If a step fails it still writes the outbox file with the exact error, and the manual steps below remain a valid fallback.
+
+**Correction on file locations (an unrelated task mentioned paths that never existed in this repo):** there is no `ops/scripts/pci-17b-unified-push.mjs` anywhere in HQ git history — never committed by any agent. `ops/exports/<repo-name>/` (seen in the older PCI-15 packet) is Nadav's own **local, untracked** clone-staging convention on his PC, not a path in this git repo. The real source-of-truth files are the 7 listed in the table below, already on `main`.
+
 ## Why one file, one push
 
 Three separate pieces (repo, frontend bundle, DevOps/Pages files) were staged across several parallel Cloud runs and briefly went out of sync with each other. All of it is now consolidated on `main` in this HQ repo — this packet is the single source of truth for what to copy.
