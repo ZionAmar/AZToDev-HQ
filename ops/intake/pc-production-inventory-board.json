@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T08:44:30.000Z",
+  "updatedAt": "2026-09-10T09:52:00.000Z",
   "initiative": "pc-production-inventory",
   "project": "PC — סריקת in_production (פרויקטים לא בגיטהאב)",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production",
@@ -228,6 +228,24 @@
       "liveCheckAt": "2026-09-10T08:44Z",
       "liveCheckNote": "Still PRIVATE (404). Prior Noa message wrongly said 8-repo private flip — this task is public flip of expo-app only.",
       "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-13-expo-app-public-test.md",
+      "linearIssue": null,
+      "supersededNote": "Founder later asked expo-app back to private; live 404 at 09:52Z — no further public flip needed."
+    },
+    {
+      "id": "PCI-14",
+      "phase": "P4",
+      "titleHe": "הפיכת FiTime מציבורי לפרטי",
+      "owner": "34-pc-ops",
+      "status": "queued",
+      "priority": "P0",
+      "dod": "FiTime PRIVATE מאומת (public API 404 + gh visibility); outbox לפני/אחרי",
+      "blockedBy": ["founder_pin"],
+      "founderContext": "2026-09-10: «תהפכי לי את הריפוזיטורי פי טיים… לפרייבט» + «ביקשתי את fitime»",
+      "repos": ["ZionAmar/FiTime"],
+      "fingerprint": "TARGET:private REPOS:ZionAmar/FiTime",
+      "liveCheckAt": "2026-09-10T09:52Z",
+      "liveCheckNote": "PUBLIC (API 200). expo-app already PRIVATE (404) — exclude from this job.",
+      "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-14-fitime-private.md",
       "linearIssue": null
     }
   ],
