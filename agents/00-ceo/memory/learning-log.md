@@ -139,6 +139,12 @@ LEARNING:
 - note: PCI-11 opened, inbox+outbox written, factory.json updated, DELEGATE 34-pc-ops emitted
 
 ### 2026-09-10
+- task: Founder — «למה נדב על המחשב — זה לא בגיטהאב עצמו עושים את השינוי?» (PCI-11 visibility)
+- do: Clarify the mutation IS on GitHub (Settings → private); PC is needed only for owner-account login, not local files; live-test Cloud mutation when challenged (403 on expo-app this turn)
+- dont: Frame PCI-11 as "PC file work" — always permission/account scope
+- note: Explained App scoped to HQ repo only; offered self-service on github.com or Nadav continues with existing PIN
+
+### 2026-09-10
 - task: Founder — «למה זה לוקח כל כך הרבה זמן? מה היא בדיוק עושה?» (Ruth GitHub mapping re-email)
 - do: When founder asks why a run is slow, verify Cloud status live + distinguish retrieve/format/send from redoing yesterday's work; explain steps in plain Hebrew without paths/tools
 - dont: Imply Ruth is re-mapping GitHub from scratch — Keshet's artifact already exists from 2026-09-09
