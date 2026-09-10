@@ -197,3 +197,9 @@ LEARNING:
 - do: Accept founder attribution for PCI-11; live-verify each repo batch separately; close PCI-11 done; keep PCI-12 open if 2 still PUBLIC
 - dont: Mark entire multi-batch ask done when only first batch verified private
 - note: 7 PRIVATE + 2 still PUBLIC at 08:23Z; founder credits Nadav; PCI-12 delegated for close-out + retroactive outbox
+
+### 2026-09-10
+- task: Founder — Ruth link was cursor.com homepage not real bc- session
+- do: specialistSessionLine from background-jobs bc- id; give founder real URL when correcting; omit link if no id
+- dont: Append https://cursor.com/ as specialist attribution
+- note: Ruth news bc-da1b1d36; runtime fix formatNoaUpdate + sanitize
