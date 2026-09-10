@@ -17,10 +17,17 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+<<<<<<< HEAD
 - task: Founder — «מה הסטטוס? ומה התכנון?» after «תבנו»+PIN on cake page
 - do: Verify Keshet bc-cac9ce1b RUNNING before status; spell plan in plain Hebrew steps; attach only real specialist bc- URL
 - dont: Overstate progress when no PR/outbox yet; mix cake bet with separate GitHub «אשר» thread in the lead
 - note: Keshet early planning; founder build authorized; Noa bc-0247cb2f status reply
+=======
+- task: Founder — «ברגע שהיא מסיימת את התכנון תגיד לי» (cake recipe page)
+- do: Confirm async notify commitment; verify Keshet RUNNING before status; ping with plan summary when outbox exists
+- dont: Say planning is done without Keshet artifact; reopen GitHub «אשר» thread in cake reply
+- note: bc-cac9ce1b still planning; no cake outbox yet; founder wants ping when ready
+>>>>>>> 4b6dcf8 (docs(ceo): track founder notify-when-cake-planning-done request)
 
 ### 2026-09-10
 - task: Founder — «מה נשמע» (human check-in)
