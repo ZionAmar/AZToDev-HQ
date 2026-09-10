@@ -197,3 +197,9 @@ LEARNING:
 - do: Accept founder attribution for PCI-11; live-verify each repo batch separately; close PCI-11 done; keep PCI-12 open if 2 still PUBLIC
 - dont: Mark entire multi-batch ask done when only first batch verified private
 - note: 7 PRIVATE + 2 still PUBLIC at 08:23Z; founder credits Nadav; PCI-12 delegated for close-out + retroactive outbox
+
+### 2026-09-10
+- task: Founder — «הרשאות לעשות את זה גם כשהמחשב סגור?»
+- do: INFO — two paths (expand Cursor GitHub scope vs secure personal token); still PIN-gated; offer to plan if he picks one
+- dont: Say impossible from Cloud without explaining scope change is the unlock
+- note: Follow-up after Nadav-only visibility Q; no mutation or delegate until he chooses a path
