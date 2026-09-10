@@ -1,6 +1,8 @@
 /**
  * Classify a specialist finish so Noa routes: fix / tell ציון / next stage.
  */
+import { specialistSessionLine } from "./live-runs.mjs";
+
 export function triageSpecialistResult({
   agentId = "",
   name = "",
@@ -52,7 +54,14 @@ export function triageSpecialistResult({
   };
 }
 
-export function formatNoaUpdate({ name, triage, liveLine = "", preview = "" }) {
+export function formatNoaUpdate({
+  name,
+  triage,
+  liveLine = "",
+  preview = "",
+  cloudAgentId = "",
+  includePreview = false,
+}) {
   const lines = [
     "נועה · עדכון זרימה",
     triage.summaryHe,
@@ -60,7 +69,13 @@ export function formatNoaUpdate({ name, triage, liveLine = "", preview = "" }) {
   if (triage.waitingFor) lines.push(`מחכה ל: ${triage.waitingFor}`);
   if (triage.next) lines.push(`הבא: ${triage.next}`);
   if (liveLine) lines.push(liveLine);
-  const clip = String(preview || "").replace(/\s+/g, " ").trim().slice(0, 280);
+  const body = String(preview || "").trim();
+  const clip = body.replace(/\s+/g, " ").trim().slice(0, 280);
   if (clip && triage.kind === "problem") lines.push("", clip);
+  if (body && includePreview && triage.kind === "done") {
+    lines.push("", body.slice(0, 3200));
+  }
+  const sessionLine = specialistSessionLine(name, cloudAgentId);
+  if (sessionLine) lines.push("", sessionLine);
   return lines.join("\n");
 }

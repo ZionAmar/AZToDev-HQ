@@ -135,6 +135,12 @@ export function sanitizeForTelegram(text) {
   t = stripLearningBlock(t);
   t = stripActivateProduct(t);
   t = t.replace(/^DELEGATE:\s*.+$/gim, "").replace(/\n{3,}/g, "\n\n").trim();
+  // Drop bare cursor.com homepage links — only bc-… session URLs are valid
+  t = t
+    .replace(/^[^\n]{0,40}:\s*https?:\/\/cursor\.com\/?\s*$/gim, "")
+    .replace(/\bhttps?:\/\/cursor\.com\/?(?![a-zA-Z/])/gi, "")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
   t = polishTelegramHebrew(t);
 
   if (t.length > 3500) t = `${t.slice(0, 3480)}…`;

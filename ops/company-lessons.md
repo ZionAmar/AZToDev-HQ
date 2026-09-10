@@ -52,6 +52,11 @@ Failures that must not repeat. Injected into every live agent run.
 - dont: Imply a founder-provided Cloud link is fake/unverifiable without first searching this repo's own incident log for that exact id.
 - note: `bc-f695b210-891e-44ac-b3c9-fe98fa797fbf` (Dafna/frontend, HTML system map) is the same id already logged under `cloud_dispose_killed_dafna` above — a real run that got disposed mid-work, not a live task now. Three replies in a row treated it as unexplained before this was caught.
 
+### 2026-09-10 · specialist_fake_cursor_homepage_link
+- do: When relaying a specialist result to ציון, append only a verified session URL `https://cursor.com/agents/bc-…` from `background-jobs.json` / live-runs / delegate return — format `רות: <url>`. If no bc- id yet, omit the link line entirely.
+- dont: Paste bare `https://cursor.com/` or any homepage URL as if it were the specialist's run — the founder correctly flags it as fake.
+- note: Ruth AI news 2026-09-10 was delivered with homepage link; real session was bc-da1b1d36-44f2-5fbc-b37c-f13a27ea7170. Fixed in runtime: formatNoaUpdate + sanitize strip + runtime-facts guard.
+
 ### 2026-09-10 · parallel_email_send
 - do: Before sending email from an archived artifact, check whether a specialist Cloud run for the same deliverable is already RUNNING — pick one path: wait for Ruth, OR send once from archive and do not delegate.
 - dont: Launch Ruth to format/send and simultaneously send the same content from the desk/fast path because the founder asked "why is it slow" — that produces duplicate inbox messages.

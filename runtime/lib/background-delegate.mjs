@@ -236,6 +236,8 @@ export function startBackgroundDelegate({
         }
 
         if (notifyFounder) {
+          const sessionId =
+            row?.cloudAgentId || out.agentId || out.cloudAgentId || "";
           const triage = triageSpecialistResult({
             agentId,
             name,
@@ -249,6 +251,8 @@ export function startBackgroundDelegate({
               triage,
               liveLine: liveStatusHebrew(),
               preview: activated.cleaned,
+              cloudAgentId: sessionId,
+              includePreview: triage.kind === "done",
             }) + extra;
           await sendFounderTelegram(sanitizeForTelegram(msg).slice(0, 3500), {
             silent: false,
@@ -274,6 +278,8 @@ export function startBackgroundDelegate({
           /* ignore */
         }
         if (notifyFounder) {
+          const jobs = readJobs();
+          const row = (jobs.jobs || []).find((j) => j.id === jobId);
           const triage = triageSpecialistResult({
             agentId,
             name,
@@ -285,6 +291,7 @@ export function startBackgroundDelegate({
             triage,
             liveLine: liveStatusHebrew(),
             preview: msg,
+            cloudAgentId: row?.cloudAgentId || "",
           });
           await sendFounderTelegram(errMsg, { silent: false }).catch(() => {});
           appendTelegramThread(agentId, errMsg, { source: "background_delegate_error" });

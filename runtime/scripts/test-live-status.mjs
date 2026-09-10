@@ -3,12 +3,30 @@
  */
 import assert from "assert";
 import { triageSpecialistResult, formatNoaUpdate } from "../lib/noa-triage.mjs";
-import { cloudAgentUrl } from "../lib/live-runs.mjs";
+import {
+  cloudAgentUrl,
+  isValidCloudSessionUrl,
+  specialistSessionLine,
+} from "../lib/live-runs.mjs";
 import { liveStatusHebrew } from "../lib/live-status.mjs";
 import { unfinishedActiveWork } from "../lib/active-work-watch.mjs";
 
 assert.equal(cloudAgentUrl("bc-abc"), "https://cursor.com/agents/bc-abc");
 assert.equal(cloudAgentUrl(""), "");
+assert.equal(isValidCloudSessionUrl("https://cursor.com/agents/bc-abc"), true);
+assert.equal(isValidCloudSessionUrl("https://cursor.com/"), false);
+assert.match(
+  specialistSessionLine("רות", "bc-da1b1d36-44f2-5fbc-b37c-f13a27ea7170"),
+  /cursor\.com\/agents\/bc-da1b1d36/
+);
+assert.match(
+  formatNoaUpdate({
+    name: "רות",
+    triage: triageSpecialistResult({ name: "רות", text: "ok" }),
+    cloudAgentId: "bc-test123",
+  }),
+  /רות: https:\/\/cursor\.com\/agents\/bc-test123/
+);
 assert.equal(
   triageSpecialistResult({ name: "קשת", text: "DELEGATE: 34-pc-ops | push" }).kind,
   "next_stage"

@@ -15,6 +15,7 @@ export function runtimeFactsBlock() {
     wait,
     live,
     "NOA TRIAGE: HQ already classifies specialist Telegram (problem / waiting PIN / next stage). Do not dump raw specialist logs. If ציון asks status, answer with now / waiting-for / next / Cloud links.",
+    "SPECIALIST LINKS: When a specialist (Ruth/Nadav/Keshet/Tamir) finishes or runs, the founder-facing link MUST be the real session URL https://cursor.com/agents/bc-… from background-jobs or live-runs — never bare https://cursor.com/. If no bc- id exists yet, omit the link; do not invent one.",
   ]
     .filter(Boolean)
     .join("\n");
