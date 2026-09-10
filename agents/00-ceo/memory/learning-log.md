@@ -133,6 +133,12 @@ LEARNING:
 - note: Root-caused and fixed the `[הודעה קולית שענית עליה]` static-placeholder bug in `telegram-media.mjs`; code sits on `cursor/fix-voice-reply-quote-bug-b715` awaiting a real PR + merge (not auto-created by this environment); desk restart/redeploy still needs founder sign-off once merged.
 
 ### 2026-09-10
+- task: Founder approved PIN to make 7 GitHub repos private (expo-app, chrome-test, todo, ci-test, ci-pipeline-test, news, coffee_and_cake_App_DB)
+- do: After «אשר»+PIN on GitHub visibility mutations, route to Nadav (34-pc-ops) — Cloud App scoped to AZToDev-HQ only; one repo at a time with PCI-11 on board
+- dont: Tell founder Keshet runs gh edit from Cloud when installation cannot touch those public repos
+- note: PCI-11 opened, inbox+outbox written, factory.json updated, DELEGATE 34-pc-ops emitted
+
+### 2026-09-10
 - task: Founder — «למה זה לוקח כל כך הרבה זמן? מה היא בדיוק עושה?» (Ruth GitHub mapping re-email)
 - do: When founder asks why a run is slow, verify Cloud status live + distinguish retrieve/format/send from redoing yesterday's work; explain steps in plain Hebrew without paths/tools
 - dont: Imply Ruth is re-mapping GitHub from scratch — Keshet's artifact already exists from 2026-09-09
