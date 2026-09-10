@@ -15,6 +15,11 @@
 - dont: Tell Nadav to pull HQ branches when his shell returns 0xC0000142 — give copy-paste payloads instead
 - note: PCI-16 cake-recipe DevOps files extracted from cursor/cake-recipe-docker-pages-stage-18eb into verbatim outbox for PC ops
 
+### 2026-09-10 · pci-17b-unified-push
+- do: Stage `ops/exports/<repo>/` + `pci-17b-unified-push.mjs` on HQ; run script and paste raw JSON report even when blocked
+- dont: Claim push succeeded from Cloud when POST /user/repos → 403 (GitHub App scoped to AZToDev-HQ only)
+- note: Bundle 7/7 OK; script executed; repo create 403; Pages curl 404; needs founder gh session (Nadav PC or Tamir run)
+
 ### 2026-09-10 · pci-16-helper-bundle-and-api-check
 - do: Read-verify repo state before PATCH; report stale checklist rows when live API differs (HQ already private)
 - dont: Claim Cloud can flip personal-repo visibility or enable Pages — integration token is AZToDev-HQ scoped only (403)
