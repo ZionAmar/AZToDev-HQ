@@ -2,6 +2,11 @@
 
 Failures that must not repeat. Injected into every live agent run.
 
+### 2026-09-10 · readability_wrong_batch_direction
+- do: When founder approves a single-repo visibility test, reply with one sentence (what / who / when result) — no batch counts, no API jargon; live-check before stating direction (private vs public)
+- dont: Conflate a new «make public» test with an old «8 repos private» batch in the same reply — founder said «נורא קורא» when messages mixed wrong count + wrong direction
+- note: PIN received for expo-app → public; prior Noa said «8 repos private»; all 9 actually private at 08:44Z; PCI-13 filed
+
 ### 2026-09-09 · queued_pc_wip_freeze
 - do: Expire queued_pc older than 45m; clear Nadav finish into background-jobs + onWorkFinished
 - dont: Leave KNU/Nadav jobs in queued_pc after the real work already finished elsewhere
