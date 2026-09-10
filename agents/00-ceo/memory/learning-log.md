@@ -185,3 +185,9 @@ LEARNING:
 - do: Subset questions on an existing mapping (public/private, keep/review) → answer from verified PCI-07/08 artifact; no new scan
 - dont: Re-delegate Ruth/Keshet to re-run GitHub for a question already in the report
 - note: Answered 17 public + 1 private (AZToDev-HQ) from existing artifact; flagged 3 factory-listed privates not in Cloud-visible set
+
+### 2026-09-10
+- task: Founder confirms «נדב הצליח להפוך את כל מה שביקשתי לפרטי»
+- do: Accept founder attribution for PCI-11; live-verify each repo batch separately; close PCI-11 done; keep PCI-12 open if 2 still PUBLIC
+- dont: Mark entire multi-batch ask done when only first batch verified private
+- note: 7 PRIVATE + 2 still PUBLIC at 08:23Z; founder credits Nadav; PCI-12 delegated for close-out + retroactive outbox
