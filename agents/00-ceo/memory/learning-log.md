@@ -137,3 +137,9 @@ LEARNING:
 - do: When founder asks why a run is slow, verify Cloud status live + distinguish retrieve/format/send from redoing yesterday's work; explain steps in plain Hebrew without paths/tools
 - dont: Imply Ruth is re-mapping GitHub from scratch — Keshet's artifact already exists from 2026-09-09
 - note: Ruth bc-0d3ae0c9 still RUNNING; answered with honest step breakdown + Cloud link
+
+### 2026-09-10
+- task: Founder — «למה דרך הגיטה בעצמו אתם לא יכולים? איזה הרשאות חסר לכם?»
+- do: Frame as Cloud App scope (1 repo, no settings write) not founder missing permissions; live 403 + installation count as proof; delegate PCI-12 to Nadav immediately when PIN already in
+- dont: Say «חסרות הרשאות» without clarifying it's the integration, not ציון's account
+- note: Live check: App on AZToDev-HQ only; PATCH 403; PCI-12 inbox for FinalProjectNodeJS + workclock-expo-app
