@@ -147,6 +147,15 @@ export function inferRequiredDelegate(founderText) {
   if (!action && !/חשבונית|כביש\s*6|כרמל/.test(t)) return null;
 
   if (
+    /חדשות|האיי-?אי|ai news|בינה מלאכותית|hamivzakk|המבזק|tech news/i.test(t)
+  ) {
+    return {
+      agentId: "33-household-ops",
+      task: task || "Summarize today's AI/tech news headlines only — Hebrew brief for founder",
+    };
+  }
+
+  if (
     /מייל|gmail|חשבונית|כביש\s*6|מנהרות הכרמל|כרמל|pdf|inbox|חשבון/i.test(t)
   ) {
     return { agentId: "33-household-ops", task: task || "Check household mail / invoices" };

@@ -38,6 +38,9 @@ import { llmChat, llmConfigured } from "./llm.mjs";
 import { appendLearning } from "./agent-memory.mjs";
 import { recordCompanyLesson } from "./company-lessons.mjs";
 import { liveStatusHebrew } from "./live-status.mjs";
+import { isExplicitNewsAsk } from "./work-intent.mjs";
+import { enqueueWork, isForceRetryAsk } from "./work-queue.mjs";
+import { listBackgroundJobs } from "./background-delegate.mjs";
 
 export { hqCloudOnly };
 
@@ -402,6 +405,29 @@ export async function handleFounderTelegramMessage(input) {
     appendTelegramThread("noa", reply);
     journal("front_desk_status_shortcut", {});
     return { intent: "STATUS", reply };
+  }
+
+  const specialistBusy = (listBackgroundJobs(12) || []).some(
+    (j) => j.status === "running" || j.status === "queued_pc"
+  );
+  if (
+    (isForceRetryAsk(raw) || isExplicitNewsAsk(raw)) &&
+    !specialistBusy
+  ) {
+    const task = isExplicitNewsAsk(raw)
+      ? "Summarize today's AI/tech news headlines only. Hebrew brief for founder Telegram. Write outbox evidence."
+      : "Retry last AI news request from founder — today's headlines only, Hebrew brief, outbox evidence.";
+    const kicked = enqueueWork(
+      [{ agentId: "33-household-ops", task }],
+      { founderText: raw, fromAgentId: "00-ceo" }
+    );
+    const reply = kicked.started
+      ? "מפעילה את רות על חדשות AI. הקישור לסשן שלה יגיע תוך שניות — קישור אמיתי, לא דף הבית."
+      : "רות בתור — «סטטוס» יראה את הקישור ברגע שהסשן נפתח.";
+    await sendFounderTelegram(reply, { silent: false });
+    appendTelegramThread("noa", reply);
+    journal("front_desk_news_retry_shortcut", { started: kicked.started, raw: raw.slice(0, 80) });
+    return { intent: "NEWS_RETRY", reply, started: kicked.started };
   }
 
   if (

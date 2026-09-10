@@ -243,13 +243,17 @@ export function startBackgroundDelegate({
             ok: out.ok,
           });
           const extra = activated.message ? `\n\n${activated.message}` : "";
+          const sessionUrl = cloudAgentUrl(row?.cloudAgentId || out.agentId || "");
+          const linkLine = sessionUrl ? `${name}: ${sessionUrl}` : "";
           const msg =
             formatNoaUpdate({
               name,
               triage,
               liveLine: liveStatusHebrew(),
               preview: activated.cleaned,
-            }) + extra;
+            }) +
+            extra +
+            (linkLine ? `\n\n${linkLine}` : "");
           await sendFounderTelegram(sanitizeForTelegram(msg).slice(0, 3500), {
             silent: false,
           });

@@ -34,6 +34,10 @@ assert.equal(
   "33-household-ops"
 );
 assert.equal(
+  inferRequiredDelegate("תבדקי חדשות על האיי-איי")?.agentId,
+  "33-household-ops"
+);
+assert.equal(
   inferRequiredDelegate("מה הסטטוס של swap בשרת")?.agentId,
   "35-server-ops"
 );

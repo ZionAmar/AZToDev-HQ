@@ -39,6 +39,7 @@ import {
 } from "./cleanup-consoles.mjs";
 import { withAgentTurnLock } from "./console-gate.mjs";
 import { polishTelegramHebrew } from "./telegram-format.mjs";
+import { sanitizeAgentLinks, stripFalseDuplicateClaims } from "./agent-links.mjs";
 import { recordAgentTurn, stripLearningBlock } from "./agent-memory.mjs";
 import {
   appendFounderChannel,
@@ -135,6 +136,8 @@ export function sanitizeForTelegram(text) {
   t = stripLearningBlock(t);
   t = stripActivateProduct(t);
   t = t.replace(/^DELEGATE:\s*.+$/gim, "").replace(/\n{3,}/g, "\n\n").trim();
+  t = stripFalseDuplicateClaims(t);
+  t = sanitizeAgentLinks(t);
   t = polishTelegramHebrew(t);
 
   if (t.length > 3500) t = `${t.slice(0, 3480)}…`;

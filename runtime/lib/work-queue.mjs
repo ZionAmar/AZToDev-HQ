@@ -27,6 +27,11 @@ function busyNow() {
   );
 }
 
+export function isForceRetryAsk(founderText) {
+  const t = String(founderText || "").trim();
+  return /^(?:שוב\s+ו?עכשיו|שוב\s+עכשיו|נסי\s+שוב|תנסi\s+שוב|חדשות\s*ai)\s*[!.?]*$/i.test(t);
+}
+
 function recentlySame(agentId, task) {
   const needle = String(task || "").slice(0, 80);
   const jobs = listBackgroundJobs(30) || [];
@@ -48,7 +53,7 @@ export function enqueueWork(jobs, { founderText = "", fromAgentId = "00-ceo" } =
   const addedNames = [];
   for (const j of filtered) {
     if (productCloudBlocked(j.agentId)) continue;
-    if (recentlySame(j.agentId, j.task)) {
+    if (!isForceRetryAsk(founderText) && recentlySame(j.agentId, j.task)) {
       journal("work_queue_deduped", { agentId: j.agentId });
       continue;
     }

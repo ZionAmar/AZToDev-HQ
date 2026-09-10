@@ -2,6 +2,11 @@
 
 Failures that must not repeat. Injected into every live agent run.
 
+### 2026-09-10 · false_duplicate_run_reply
+- do: Before blocking a retry, check live WIP + background-jobs; route news/AI to Ruth; send only bc- session URLs from runtime; strip homepage cursor.com links
+- dont: Tell founder «ריצה כפולה» / «יש תוצאה טרייה» when nobody is running — Ruth was never delegated because news keywords were filtered out
+- note: Founder caught repeated false duplicate claims + fake cursor.com/ links; fixed work-intent, front-desk news shortcut, agent-links sanitizer
+
 ### 2026-09-10 · readability_wrong_batch_direction
 - do: When founder approves a single-repo visibility test, reply with one sentence (what / who / when result) — no batch counts, no API jargon; live-check before stating direction (private vs public)
 - dont: Conflate a new «make public» test with an old «8 repos private» batch in the same reply — founder said «נורא קורא» when messages mixed wrong count + wrong direction
