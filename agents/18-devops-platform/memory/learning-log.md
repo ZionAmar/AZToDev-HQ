@@ -1,5 +1,10 @@
 # Learning log — 18-devops-platform (Paz)
 
+### 2026-09-10 · pci-17b-unified-push-cloud-blocked
+- do: Assemble `ops/exports/cake-recipe-demo/` (7 files) + `pci-17b-unified-push.mjs` on HQ branch; PC runs same script with founder `gh` token
+- dont: Expect Cloud GitHub App to create/push `ZionAmar/cake-recipe-demo` — 403 Resource not accessible by integration
+- note: PCI-17b export bundle ready; push blocked; delegated to 34-pc-ops (PC offline)
+
 ### 2026-09-10 · dafna-company-system-docker-pages
 - do: Stage Dockerfile + Pages workflow under `ops/staging/<repo>/` in HQ when Cloud GitHub App cannot see the product repo; delegate push to 34-pc-ops with exact copy list
 - dont: Claim push/commit to a repo when `gh repo view` returns 404 from Cloud — same class as PCI-14 kidnest visibility
