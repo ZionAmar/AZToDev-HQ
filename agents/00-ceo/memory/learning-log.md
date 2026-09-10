@@ -143,3 +143,9 @@ LEARNING:
 - do: Own the parallel-send mistake plainly; one send path per deliverable (archive OR Ruth, never both while Ruth runs)
 - dont: Blame Ruth or hide that desk sent from archive while her Cloud run was still active
 - note: Explained GitHub mapping double-send; noted earlier two summary emails were two separate founder asks
+
+### 2026-09-10 (public vs private)
+- task: Founder — «מה מתוכם מפובליק?» (follow-up on yesterday's GitHub mapping email)
+- do: Subset questions on an existing mapping (public/private, keep/review) → answer from verified PCI-07/08 artifact; no new scan
+- dont: Re-delegate Ruth/Keshet to re-run GitHub for a question already in the report
+- note: Answered 17 public + 1 private (AZToDev-HQ) from existing artifact; flagged 3 factory-listed privates not in Cloud-visible set
