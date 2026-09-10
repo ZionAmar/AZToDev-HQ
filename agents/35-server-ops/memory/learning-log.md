@@ -12,5 +12,8 @@ Read-only ChemiCloud. Customer sites are sacred.
 - Do not touch nestube / workclock / pulse / public_html.
 
 ## Iteration log
+### 2026-09-10
+- Lane boundary & credential check: PCI-17b personal GitHub repo push requires founder credentials (not Cloud App). 35-server-ops stays in lane, packages files in `ops/exports/cake-recipe-demo/` and `ops/scripts/pci-17b-unified-push.mjs`, verifies execution failure under Cloud App token, and hands off to Nadav (`34-pc-ops`) on Windows PC.
+
 ### 2026-09-08
 - Read-only mandate is the job. A “fix the server” ask still means diagnose, then stop for ציון.
