@@ -193,6 +193,12 @@ LEARNING:
 - note: Answered 17 public + 1 private (AZToDev-HQ) from existing artifact; flagged 3 factory-listed privates not in Cloud-visible set
 
 ### 2026-09-10
+- task: Founder — «תכיני לי תוכנית לאופציה ראשונה» (expand Cursor GitHub App)
+- do: Option 1 plan = founder GitHub settings (2 min phone) + Cloud verify checklist + PIN still gates mutations; Nadav stays backup
+- dont: Delegate verification before founder expands App scope and sends אשר
+- note: Plan-only turn after permissions INFO thread; outbox 2026-09-10_cursor-github-expand-plan.md
+
+### 2026-09-10
 - task: Founder confirms «נדב הצליח להפוך את כל מה שביקשתי לפרטי»
 - do: Accept founder attribution for PCI-11; live-verify each repo batch separately; close PCI-11 done; keep PCI-12 open if 2 still PUBLIC
 - dont: Mark entire multi-batch ask done when only first batch verified private
