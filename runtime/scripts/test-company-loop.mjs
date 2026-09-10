@@ -9,7 +9,12 @@ import {
 } from "../lib/waiting-founder.mjs";
 import { inferRequiredDelegate } from "../lib/agent-memory.mjs";
 import { isMutatingCompanyAsk } from "../../hq/lib/delegate-relay.mjs";
-import { filterJobsForFounderAsk } from "../lib/work-intent.mjs";
+import {
+  filterJobsForFounderAsk,
+  isExplicitNewsAsk,
+  isForceRetryAsk,
+  lastFounderActionFromThread,
+} from "../lib/work-intent.mjs";
 
 assert.equal(
   inferRequiredDelegate("העלה את קידנסט מתיקיית פרויקט בשולחן העבודה לגיטהב כריפו פרטי")
@@ -41,6 +46,27 @@ assert.deepEqual(
 assert.equal(
   filterJobsForFounderAsk([{ agentId: "35-server-ops", task: "scan" }], "תבדוק מיילים").length,
   0
+);
+
+assert.ok(isExplicitNewsAsk("תבדקי לי חדשות על AI"));
+assert.equal(
+  inferRequiredDelegate("תבדקי לי חדשות, אבל רק שקשורות לאיי-איי")?.agentId,
+  "33-household-ops"
+);
+assert.deepEqual(
+  filterJobsForFounderAsk(
+    [{ agentId: "33-household-ops", task: "AI news" }],
+    "תבדקי חדשות על בינה מלאכותית"
+  ).map((j) => j.agentId),
+  ["33-household-ops"]
+);
+assert.ok(isForceRetryAsk("שוב ועכשיו"));
+assert.ok(!isForceRetryAsk("פתרת את כל הבעיות, שלא יקרה מצב"));
+assert.equal(
+  lastFounderActionFromThread(
+    "founder: תבדקי חדשות\nnoa: ok\nfounder: שוב ועכשיו"
+  ),
+  "תבדקי חדשות"
 );
 
 takeWaitingFounder("confirm");

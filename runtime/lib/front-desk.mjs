@@ -38,6 +38,12 @@ import { llmChat, llmConfigured } from "./llm.mjs";
 import { appendLearning } from "./agent-memory.mjs";
 import { recordCompanyLesson } from "./company-lessons.mjs";
 import { liveStatusHebrew } from "./live-status.mjs";
+import {
+  isForceRetryAsk,
+  lastFounderActionFromThread,
+} from "./work-intent.mjs";
+import { inferRequiredDelegate } from "./agent-memory.mjs";
+import { readAgentName } from "./router.mjs";
 
 export { hqCloudOnly };
 
@@ -350,6 +356,25 @@ export async function handleFounderTelegramMessage(input) {
   }
 
   appendTelegramThread("founder", raw);
+
+  if (isForceRetryAsk(raw)) {
+    const thread = recentTelegramThread(16);
+    const priorAsk = lastFounderActionFromThread(thread) || raw;
+    const inferred = inferRequiredDelegate(priorAsk);
+    if (inferred) {
+      enqueueWork([inferred], {
+        founderText: priorAsk,
+        fromAgentId: "00-ceo",
+        forceRetry: true,
+      });
+      const who = readAgentName(inferred.agentId) || inferred.agentId;
+      const reply = `הבנתי — מריצה שוב.\n\n${who} על זה עכשיו. אעדכן כשיהיה תוצר מוכח.`;
+      await sendFounderTelegram(reply, { silent: false });
+      appendTelegramThread("noa", reply);
+      journal("front_desk_force_retry", { agentId: inferred.agentId, priorAsk: priorAsk.slice(0, 120) });
+      return { intent: "FORCE_RETRY", reply, agentId: inferred.agentId };
+    }
+  }
 
   if (isFounderApprove(raw)) {
     const pending = takeWaitingFounder("confirm");

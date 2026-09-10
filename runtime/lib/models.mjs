@@ -130,9 +130,13 @@ export function classifyFounderSpeed(text, recentThread = "") {
       t
     )
   ) {
-    if (ACTION_RE.test(thread) || /לינק|מייל|קידנסט|kidnest|שלח|בדק/i.test(thread)) {
+    if (ACTION_RE.test(thread) || /לינק|מייל|קידנסט|kidnest|שלח|בדק|חדשות/i.test(thread)) {
       return { lane: "execute", reason: "followup_action" };
     }
+  }
+
+  if (/^(?:שוב\s*(?:ו)?עכשיו|נס(?:י|ה)\s*שוב|עוד\s*פעם)\s*[!.?]*$/i.test(t)) {
+    return { lane: "execute", reason: "force_retry" };
   }
 
   if (/סטטוס|מה קורה|מה המצב|סיכום|איפה אנחנו/i.test(lower)) {

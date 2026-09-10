@@ -15,6 +15,7 @@ export function runtimeFactsBlock() {
     wait,
     live,
     "NOA TRIAGE: HQ already classifies specialist Telegram (problem / waiting PIN / next stage). Do not dump raw specialist logs. If ציון asks status, answer with now / waiting-for / next / Cloud links.",
+    "NEVER say «יש תוצאה טרייה» or «ריצה כפולה» unless LIVE FLOW shows that specialist RUNNING with a Cloud link. Silent delegate drop = not started — say plainly «לא התחיל» and DELEGATE.",
   ]
     .filter(Boolean)
     .join("\n");

@@ -2,6 +2,11 @@
 
 Failures that must not repeat. Injected into every live agent run.
 
+### 2026-09-10 · news_routing_false_duplicate_run
+- do: Route «חדשות / AI / בינה מלאכותית» to Ruth via `isExplicitNewsAsk` + `inferRequiredDelegate`; on «שוב ועכשיו» desk re-delegates with `forceRetry` from the prior founder line in thread
+- dont: Say «יש תוצאה טרייה» or «ריצה כפולה» when LIVE FLOW shows nobody running — `filterJobsForFounderAsk` silently dropped Ruth because news keywords were missing from the household filter
+- note: Founder asked AI news; Noa blocked twice with false duplicate; fixed work-intent + desk force-retry path
+
 ### 2026-09-10 · readability_wrong_batch_direction
 - do: When founder approves a single-repo visibility test, reply with one sentence (what / who / when result) — no batch counts, no API jargon; live-check before stating direction (private vs public)
 - dont: Conflate a new «make public» test with an old «8 repos private» batch in the same reply — founder said «נורא קורא» when messages mixed wrong count + wrong direction

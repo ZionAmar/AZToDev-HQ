@@ -40,7 +40,10 @@ function recentlySame(agentId, task) {
   });
 }
 
-export function enqueueWork(jobs, { founderText = "", fromAgentId = "00-ceo" } = {}) {
+export function enqueueWork(
+  jobs,
+  { founderText = "", fromAgentId = "00-ceo", forceRetry = false } = {}
+) {
   const filtered = filterJobsForFounderAsk(jobs, founderText);
   const store = readQueue();
   store.items = Array.isArray(store.items) ? store.items : [];
@@ -48,7 +51,7 @@ export function enqueueWork(jobs, { founderText = "", fromAgentId = "00-ceo" } =
   const addedNames = [];
   for (const j of filtered) {
     if (productCloudBlocked(j.agentId)) continue;
-    if (recentlySame(j.agentId, j.task)) {
+    if (!forceRetry && recentlySame(j.agentId, j.task)) {
       journal("work_queue_deduped", { agentId: j.agentId });
       continue;
     }

@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder — «פתרת את כל הבעיות… שלא יקרה ריצה כפולה» after false duplicate on AI news
+- do: Code-fix news routing (isExplicitNewsAsk) + desk force-retry on «שוב ועכשיו»; explain root cause plainly; never claim duplicate without LIVE FLOW RUNNING
+- dont: Say «יש תוצאה טרייה» when filterJobsForFounderAsk silently dropped Ruth — that looks like duplicate to founder but nothing ran
+- note: PR cursor/fix-news-routing-contradiction-d350; still waiting אשר on GitHub scope check
+
+### 2026-09-10
 - task: Founder — «נורא קורא» (readability on visibility thread replies)
 - do: Short Hebrew, one fact per line, admit when a prior reply was wrong; separate «9 private done» from «1 public test pending»
 - dont: Say «8 repos private» when founder approved expo-app → public test; no API/Cursor/shell jargon in Telegram

@@ -140,8 +140,17 @@ export function inferRequiredDelegate(founderText) {
     return { agentId: "35-server-ops", task: task || "Read-only server RAM/swap/load" };
   }
 
+  if (
+    /חדשות|מבזק|news|איי.?איי|בינה\s*מלאכותית|artificial intelligence/i.test(t)
+  ) {
+    return {
+      agentId: "33-household-ops",
+      task: task || "News briefing per founder ask",
+    };
+  }
+
   const action =
-    /בדק|מצא|חפש|תרא|תציג|סטטוס|מה יש|תביא|תוציא|תפתח|תקרא|תרים|check|find|search|status|show|open/i.test(
+    /בדק|מצא|חפש|תרא|תציג|סטטוס|מה יש|תביא|תוציא|תפתח|תקרא|תרים|check|find|search|status|show|open|סכמ/i.test(
       t
     );
   if (!action && !/חשבונית|כביש\s*6|כרמל/.test(t)) return null;
