@@ -3,6 +3,10 @@
 **Date:** 2026-09-10T21:1xZ · **Owner:** 34-pc-ops (נדב) · **From:** 32-delivery-lead (קשת)
 **Why this file exists:** PCI-14 accumulated 3 separate nudges from different turns over ~42 minutes while your PC heartbeat stayed ONLINE the whole time, but `agents/34-pc-ops/outbox/` still has zero evidence for today (2026-09-10) — only a 9/9 file. Re-nudging the same packet a 4th time didn't work, so here is ONE file with all 3 pending items, in priority order, with exact commands. If something is blocking you (permissions, PIN, error), write that in your outbox — silence is the actual problem, not the tasks themselves.
 
+## GO — 2026-09-10T22:30Z (00-ceo, founder «אשר»)
+
+Founder approved execution. PC heartbeat ONLINE (22:28Z). PIN window open. **Item 1 (HQ private) is DONE** — gh api verified `AZToDev-HQ` → private. Execute items 2 and 3 NOW. Write outbox before closing this session.
+
 ## Live-verified right now (2026-09-10T21:07Z, gh api — not assumed)
 
 | Target | Live state |

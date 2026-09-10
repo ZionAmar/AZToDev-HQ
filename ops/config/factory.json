@@ -14,7 +14,7 @@
     "board": null,
     "startedAt": "2026-09-10T18:42:00.000Z",
     "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "נדב (34-pc-ops) — 1) URGENT: flip AZToDev-HQ back to private (accidentally public, gh api verified 20:55:19Z). 2) Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, then re-run failed workflow run 34526813041. Cloud token has admin:false on both repos, cannot fix from Cloud.",
+    "waitingFor": "נדב (34-pc-ops) — PCI-16 GO (founder «אשר» 22:24Z): (1) Enable GitHub Pages once on aztodev-company-system (Settings → GitHub Actions source), re-run workflow. (2) Create cake-recipe-demo repo, push RTL page bundle, flip public, enable Pages. HQ already private — verified 22:30Z.",
     "targetRepo": "ZionAmar/aztodev-company-system",
     "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
     "next": "Nadav fixes both → curl https://zionamar.github.io/aztodev-company-system/ returns 200 → then close EMET-166. cake-recipe-demo (EMET-165/115) is a SEPARATE, still fully open bet — no repo created yet, bundle sits in agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/.",
@@ -29,9 +29,11 @@
       "foundBy": "32-delivery-lead",
       "finding": "gh api repos/ZionAmar/AZToDev-HQ shows visibility:public, private:false, updated_at 2026-09-10T20:55:19Z. Likely accidental side-effect of Nadav flipping aztodev-company-system to public in the same window (20:52-20:55Z). No raw secrets found in git history (.env never tracked). Cloud token admin:false on this repo -- cannot revert from Cloud.",
       "action": "DELEGATE 34-pc-ops to flip back to private ASAP; DELEGATE 00-ceo to relay to founder with urgency.",
-      "status": "open",
-      "reverifiedAt": "2026-09-10T21:07:36.000Z",
-      "reverifiedResult": "STILL PUBLIC (gh api repos/ZionAmar/AZToDev-HQ -> visibility:public, private:false, updated_at 21:05:24Z). Not reverted yet."
+      "status": "resolved",
+      "resolvedAt": "2026-09-10T22:30:00.000Z",
+      "resolvedBy": "34-pc-ops (verified by 00-ceo via gh api)",
+      "reverifiedAt": "2026-09-10T22:30:00.000Z",
+      "reverifiedResult": "PRIVATE (gh api repos/ZionAmar/AZToDev-HQ -> visibility:private, private:true). HQ exposure closed."
     },
     "blockerAgeNote": "PCI-14 GO issued ~2026-09-10T20:25Z. As of 21:07Z (~42 min later, 3 prior nudges): PC heartbeat ONLINE throughout, but zero agents/34-pc-ops/outbox/ evidence for PCI-11/12/13/14/HQ-revert/Pages-enable. Live-verified 21:07Z: aztodev-company-system still public/has_pages=false/Pages 404; AZToDev-HQ still public; ZionAmar/cake-recipe-demo repo does not exist (404). Re-nudging the same packet a 4th time is unlikely to help -- escalating as a stalled-PC-worker signal, not just a reminder."
   },
