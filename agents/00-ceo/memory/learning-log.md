@@ -233,3 +233,9 @@ LEARNING:
 - do: Live-check installation scope when founder claims all-repos already set; explain Installed Apps vs Authorized OAuth screens
 - dont: Re-send full setup plan without acknowledging wrong-screen possibility
 - note: Cloud still selected/1 repo + 403 PATCH; offered re-auth + אשר for verify
+
+### 2026-09-10
+- task: Founder — «צריך סיסמה? מישהו עובד?» after «אשר» on aztodev-company-system public+Docker plan
+- do: On «צריך סיסמה? מישהו עובד?» after אשר+PIN — answer both plainly, remove PCI-14 HOLD, delegate Nadav same turn
+- dont: Say «מאושר» without actual GO; leave PCI-14 on HOLD after founder already said אשר
+- note: PIN reuse OK within window; Nadav activated PCI-14; Pages still 404 pre-upload
