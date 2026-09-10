@@ -9,3 +9,8 @@
 - do: Mirror `ops/staging/<repo>/` pattern for every product repo Cloud cannot push; bundle COPY list must match frontend artifact filenames (`styles.css` not just `index.html`)
 - dont: Skip honest Docker blocker report when sandbox has no `docker` binary — document Nadav/QA smoke commands instead of "should work"
 - note: Staged cake-recipe-demo Dockerfile + pages.yml; repo still 404; PCI-17 queues one-shot PC push (bundle + devops together)
+
+### 2026-09-10 · pci-16-cake-recipe-verbatim
+- do: When PC shell is broken, embed FULL raw file contents in outbox so 34-pc-ops can Write locally without git fetch
+- dont: Tell Nadav to pull HQ branches when his shell returns 0xC0000142 — give copy-paste payloads instead
+- note: PCI-16 cake-recipe DevOps files extracted from cursor/cake-recipe-docker-pages-stage-18eb into verbatim outbox for PC ops
