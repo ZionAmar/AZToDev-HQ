@@ -144,12 +144,22 @@ export function inferRequiredDelegate(founderText) {
     /בדק|מצא|חפש|תרא|תציג|סטטוס|מה יש|תביא|תוציא|תפתח|תקרא|תרים|check|find|search|status|show|open/i.test(
       t
     );
-  if (!action && !/חשבונית|כביש\s*6|כרמל/.test(t)) return null;
+  if (
+    !action &&
+    !/חשבונית|כביש\s*6|כרמל|חדשות|news|איי[\s-]?איי|ai\b|בינה\s*מלאכותית/i.test(t)
+  ) {
+    return null;
+  }
 
   if (
-    /מייל|gmail|חשבונית|כביש\s*6|מנהרות הכרמל|כרמל|pdf|inbox|חשבון/i.test(t)
+    /מייל|gmail|חשבונית|כביש\s*6|מנהרות הכרמל|כרמל|pdf|inbox|חשבון|חדשות|news|איי[\s-]?איי|ai\b|בינה\s*מלאכותית/i.test(
+      t
+    )
   ) {
-    return { agentId: "33-household-ops", task: task || "Check household mail / invoices" };
+    return {
+      agentId: "33-household-ops",
+      task: task || "Check household mail / invoices / news",
+    };
   }
   if (
     /דיסק|תיקי[הה]|windows|שולחן העבודה|במחשב|C:\\|מקום פנוי|קבצים אצלי/i.test(t)

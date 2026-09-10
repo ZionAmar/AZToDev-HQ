@@ -16,6 +16,16 @@ export function isExplicitMailAsk(text) {
   );
 }
 
+export function isExplicitNewsAsk(text) {
+  return /חדשות|news|איי[\s-]?איי|ai\b|בינה\s*מלאכותית|artificial\s*intelligence/i.test(
+    String(text || "")
+  );
+}
+
+export function isExplicitHouseholdAsk(text) {
+  return isExplicitMailAsk(text) || isExplicitNewsAsk(text);
+}
+
 export function isExplicitPcAsk(text) {
   const t = String(text || "");
   return /דיסק|תיקי[הה]|windows|שולחן העבודה|במחשב|C:\\|מקום פנוי|קבצים אצלי|גיטהב|github|העלה\s+ל|ריפו/i.test(
@@ -48,8 +58,8 @@ export function filterJobsForFounderAsk(jobs, founderText = "") {
       journal("delegate_dropped_unsolicited", { agentId: id, reason: "no_server_ask" });
       continue;
     }
-    if (id === "33-household-ops" && t && !isExplicitMailAsk(t) && !/רות/.test(t)) {
-      journal("delegate_dropped_unsolicited", { agentId: id, reason: "no_mail_ask" });
+    if (id === "33-household-ops" && t && !isExplicitHouseholdAsk(t) && !/רות/.test(t)) {
+      journal("delegate_dropped_unsolicited", { agentId: id, reason: "no_household_ask" });
       continue;
     }
     if (
