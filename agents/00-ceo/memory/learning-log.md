@@ -251,3 +251,8 @@ LEARNING:
 - do: Publish mandatory 6-step checklist in PCI-14 inbox; mirror same list in Hebrew to founder; re-DELEGATE Nadav same turn
 - dont: Claim Nadav is executing without outbox or live URL; give vague «הוא על זה» without the explicit step list
 - note: Pages still 404 ~11 min post-אשר; checklist enforced; PC online
+### 2026-09-10
+- task: Founder — «aztodev-company-system — זה הריפו»
+- do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew
+- dont: Use cake-recipe-demo after founder named aztodev-company-system; claim prior Nadav run succeeded without outbox
+- note: Repo name locked; Pages 404; Nadav re-nudged 20:52Z; PC online

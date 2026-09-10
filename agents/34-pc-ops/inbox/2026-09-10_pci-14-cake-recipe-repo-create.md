@@ -67,3 +67,10 @@ Live check: Pages still HTTP 404. Still no outbox report. PC **ONLINE** (A_Z · 
 - [ ] **6. Outbox evidence** — write `agents/34-pc-ops/outbox/2026-09-10_pci-14-cake-recipe-repo-create.md` with: repo URL, commit SHA, visibility=public, Pages URL, curl status code
 
 If any step fails — report which step + exact error in outbox. Do not mark done without step 5 passing.
+
+## Nudge — 2026-09-10T20:52Z (00-ceo — founder re-confirmed repo name)
+
+Founder (again): **«aztodev-company-system — זה הריפו»**  
+This is the **only** target repo. Do **not** use `cake-recipe-demo`.  
+Live check: Pages still HTTP 404. Still no outbox report. PC **ONLINE** (A_Z · 2026-09-10T20:51:16Z).  
+«אשר» + PIN still on record. **Execute all 6 checklist items now. Priority #1.**
