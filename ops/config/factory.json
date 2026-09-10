@@ -8,21 +8,29 @@
   "wipLimit": 1,
   "activeWork": {
     "slug": "cake-recipe-demo",
-    "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות, ריפו+Docker+GitHub Pages",
-    "phase": "github-upload",
+    "bet": "Dafna company-system-map — public + Docker + Pages (aztodev-company-system) — SEPARATE from cake-recipe-demo",
+    "phase": "pages-enable-needed",
     "owner": "34-pc-ops (נדב) → 18-devops-platform (פז)",
     "board": null,
     "startedAt": "2026-09-10T18:42:00.000Z",
     "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "נדב (34-pc-ops) — PCI-14 on ZionAmar/aztodev-company-system only (founder re-confirmed repo name 2026-09-10T20:52Z; «אשר»+PIN on record; mandatory 6-step checklist; nudged 20:46Z+20:49Z+20:52Z; PC online; Pages still 404; no Nadav outbox yet).",
+    "waitingFor": "נדב (34-pc-ops) — 1) URGENT: flip AZToDev-HQ back to private (accidentally public, gh api verified 20:55:19Z). 2) Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, then re-run failed workflow run 34526813041. Cloud token has admin:false on both repos, cannot fix from Cloud.",
     "targetRepo": "ZionAmar/aztodev-company-system",
     "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
-    "next": "נדב PCI-14 → פז Docker + live link → אורי QA → close EMET-165.",
-    "status": "in_progress",
+    "next": "Nadav fixes both → curl https://zionamar.github.io/aztodev-company-system/ returns 200 → then close EMET-166. cake-recipe-demo (EMET-165/115) is a SEPARATE, still fully open bet — no repo created yet, bundle sits in agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/.",
+    "status": "blocked",
     "finishedAt": null,
-    "linearIssue": "EMET-165",
-    "linearUrl": "https://linear.app/my-company1460/issue/EMET-165/activated-cake-recipe-demo-הוגה-keshet-planning-done-handoff-to",
-    "swappedFrom": "pc-production-inventory (see pausedWork — WIP=1, not abandoned, founder-directed priority swap given explicit תבנו+PIN on this bet)"
+    "linearIssue": "EMET-166",
+    "linearUrl": "https://linear.app/my-company1460/issue/EMET-166/urgent-aztodev-hq-repo-accidentally-public-aztodev-company-system",
+    "swappedFrom": "pc-production-inventory (see pausedWork — WIP=1, not abandoned, founder-directed priority swap given explicit תבנו+PIN on this bet)",
+    "repoMixupNote": "aztodev-company-system repo content is Dafna (14-frontend-engineer) company-system-map HTML, NOT the cake-recipe-demo page. Prior turns today (00-ceo/PCI-14) incorrectly assumed founder's Pages link meant the cake bet. Corrected 2026-09-10T21:05Z by 32-delivery-lead, live-verified via gh api (repo contents/README/commits).",
+    "hqExposureIncident": {
+      "foundAt": "2026-09-10T21:05:00.000Z",
+      "foundBy": "32-delivery-lead",
+      "finding": "gh api repos/ZionAmar/AZToDev-HQ shows visibility:public, private:false, updated_at 2026-09-10T20:55:19Z. Likely accidental side-effect of Nadav flipping aztodev-company-system to public in the same window (20:52-20:55Z). No raw secrets found in git history (.env never tracked). Cloud token admin:false on this repo -- cannot revert from Cloud.",
+      "action": "DELEGATE 34-pc-ops to flip back to private ASAP; DELEGATE 00-ceo to relay to founder with urgency.",
+      "status": "open"
+    }
   },
   "pausedWork": {
     "slug": "pc-production-inventory",
@@ -214,5 +222,14 @@
     ]
   },
   "updatedAt": "2026-09-10",
-  "lastHqHelloAt": "2026-09-09T13:40:00.000Z"
+  "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
+  "pendingWork": {
+    "cake-recipe-demo": {
+      "slug": "cake-recipe-demo",
+      "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",
+      "status": "ready_not_started",
+      "linearIssue": "EMET-165 / EMET-115",
+      "note": "Planning done (EMET-165 Done), architect stage Todo (EMET-115). Bundle built by 14-frontend-engineer (agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/). No repo created/pushed yet -- this is UNRELATED to aztodev-company-system, despite todays PCI-14 threads conflating the two. Resume once activeWork (HQ exposure + Pages fix) clears, per WIP=1."
+    }
+  }
 }

@@ -74,3 +74,25 @@ Founder (again): **«aztodev-company-system — זה הריפו»**
 This is the **only** target repo. Do **not** use `cake-recipe-demo`.  
 Live check: Pages still HTTP 404. Still no outbox report. PC **ONLINE** (A_Z · 2026-09-10T20:51:16Z).  
 «אשר» + PIN still on record. **Execute all 6 checklist items now. Priority #1.**
+
+## CORRECTION + URGENT — 2026-09-10T21:05Z (32-delivery-lead — Keshet, live-verified)
+
+**Steps 1–3 above are already done** (verified live via `gh api`, not assumed): repo exists, content pushed, `visibility: public`, Dockerfile + `.github/workflows/pages.yml` committed (author `Zion` — this was you, PC session, PCI-15 staging). Good work on those.
+
+**Repo-identity correction (important, doesn't change your task):** the content actually on `main` is **not** the cake-recipe page — it's Dafna's separate "company system map" HTML (`ops/reports/aztodev-company-system.html`, from the un-merged branch `cursor/dafna-company-system-map-ca15`). That's fine — this IS the repo the founder meant by "הריפו שיצרתם עכשיו" (the one just created for the map), separate from the still-untouched cake-recipe-demo (EMET-165, bundle sitting in `agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/`, not part of this ticket). Filed as `EMET-166` so it's not lost.
+
+**Step 4 (Pages) — exact reason it's still 404, live-verified:**
+- GitHub Actions run `34526813041` ("Deploy to GitHub Pages") ran once and **failed at the "Setup Pages" step** — because GitHub Pages has never been switched on once in repo Settings. The Actions workflow's `configure-pages` step cannot bootstrap Pages from zero; it needs one manual toggle first.
+- **Do this once:** open `https://github.com/ZionAmar/aztodev-company-system/settings/pages` → **Build and deployment → Source → GitHub Actions** → Save.
+- Then re-run the workflow: `gh run rerun 34526813041 --repo ZionAmar/aztodev-company-system` (or push any small commit to `main`).
+- Confirm: `curl -I https://zionamar.github.io/aztodev-company-system/` → expect `200`.
+
+## URGENT SEPARATE ITEM — AZToDev-HQ is now also public (likely accidental)
+
+Live check just now: `gh api repos/ZionAmar/AZToDev-HQ` → `visibility: public` (was private), changed **2026-09-10T20:55:19Z** — same time window as the aztodev-company-system flip. This is the company's own private HQ mirror (roster, strategy, personas, ChemiCloud IP) — founder never asked to make **this** repo public (his ask was about the newly-created map repo only).
+
+**Please flip it back now:** `gh repo edit ZionAmar/AZToDev-HQ --visibility private` (or GitHub Settings → General → Danger Zone → Change visibility → Private). Cloud's own GitHub token has `admin:false` on both repos here — this needs your PC/owner login, not Cloud. No raw secrets (`.env`) were ever committed to this repo's git history (checked), but please confirm nothing else looks wrong once you're in there.
+
+Full write-up: `EMET-166` (Linear) + `agents/32-delivery-lead/outbox/2026-09-10_hq-public-exposure-and-repo-mixup-correction.md`.
+
+Please write your outbox (`agents/34-pc-ops/outbox/2026-09-10_pci-14-cake-recipe-repo-create.md`) noting all of: Pages fix result + HQ visibility reverted + confirmation.
