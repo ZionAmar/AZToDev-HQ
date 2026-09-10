@@ -16,11 +16,19 @@ Three separate pieces (repo, frontend bundle, DevOps/Pages files) were staged ac
 
 ## Task — do all of this in ONE PC session, ONE commit
 
+**Quick automated path:**
+If git/node works on your PC, you can run the unified script directly:
+```bash
+node ops/scripts/pci-17b-unified-push.mjs
+```
+This reads the 7 canonical files already bundled in `ops/exports/cake-recipe-demo/`, uses your PC GitHub credentials, creates `ZionAmar/cake-recipe-demo` (private), commits, pushes, enables Pages, and runs verification.
+
+**Manual / step-by-step path:**
 1. Create **private** repo:
    ```
-   gh repo create ZionAmar/cake-recipe-demo --private --confirm
+   gh repo create ZionAmar/cake-recipe-demo --private
    ```
-2. Copy these **7 files** into the new repo root:
+2. Copy these **7 files** (also available in `ops/exports/cake-recipe-demo/`) into the new repo root:
 
    | File | Source in HQ (git, if fetch works) |
    |------|------|
