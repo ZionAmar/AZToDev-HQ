@@ -4,3 +4,8 @@
 - do: Stage Dockerfile + Pages workflow under `ops/staging/<repo>/` in HQ when Cloud GitHub App cannot see the product repo; delegate push to 34-pc-ops with exact copy list
 - dont: Claim push/commit to a repo when `gh repo view` returns 404 from Cloud — same class as PCI-14 kidnest visibility
 - note: Prepared nginx Dockerfile + pages.yml for aztodev-company-system; PC push queued as PCI-15
+
+### 2026-09-10 · pci-16-cake-recipe-verbatim
+- do: When PC shell is broken, embed FULL raw file contents in outbox so 34-pc-ops can Write locally without git fetch
+- dont: Tell Nadav to pull HQ branches when his shell returns 0xC0000142 — give copy-paste payloads instead
+- note: PCI-16 cake-recipe DevOps files extracted from cursor/cake-recipe-docker-pages-stage-18eb into verbatim outbox for PC ops
