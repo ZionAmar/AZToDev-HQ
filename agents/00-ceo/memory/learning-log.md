@@ -17,6 +17,11 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder — «חדשות AI של היום + נימה אישית»
+- do: Ruth for facts + real bc- link; Noa personal analysis on race-vs-safety narrative
+- dont: Fake Ruth link (cursor.com/ homepage) or skip delegate on explicit news ask
+- note: Ruth bc-a50cf910; outbox 2026-09-10_ai-news-today.md; Noa bc-e8f3945a
+### 2026-09-10
 - task: Founder — «נורא קורא» (readability on visibility thread replies)
 - do: Short Hebrew, one fact per line, admit when a prior reply was wrong; separate «9 private done» from «1 public test pending»
 - dont: Say «8 repos private» when founder approved expo-app → public test; no API/Cursor/shell jargon in Telegram
