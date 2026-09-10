@@ -1,0 +1,43 @@
+{
+  "at": "2026-09-10T23:02:06.305Z",
+  "task": "PCI-17b",
+  "repo": "ZionAmar/cake-recipe-demo",
+  "exportDir": "ops/exports/cake-recipe-demo",
+  "exportVerify": {
+    "ok": true,
+    "missing": [],
+    "count": 7
+  },
+  "push": {
+    "ok": false
+  },
+  "commitSha": null,
+  "repoPrivate": null,
+  "pagesEnable": {
+    "ok": false
+  },
+  "workflow": {
+    "ok": false
+  },
+  "curl": {
+    "url": "https://zionamar.github.io/cake-recipe-demo/",
+    "statusCode": 404,
+    "ok": true,
+    "stderr": ""
+  },
+  "errors": [
+    "repo_create_failed: Resource not accessible by integration (Cloud GitHub App cannot mutate founder personal repos — delegate 34-pc-ops)"
+  ],
+  "cloudAuth": {
+    "gitCredential": false,
+    "ghAccount": "✓ Logged in to github.com account cursor (/home/ubuntu/.config/gh/hosts.yml)"
+  },
+  "repoCreate": {
+    "ok": false,
+    "existed": false,
+    "url": "https://github.com/ZionAmar/cake-recipe-demo",
+    "error": "Resource not accessible by integration",
+    "status": 403,
+    "via": "gh"
+  }
+}
