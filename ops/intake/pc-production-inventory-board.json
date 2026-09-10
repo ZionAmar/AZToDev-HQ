@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-10T08:16:37.685Z",
+  "updatedAt": "2026-09-10T08:44:30.000Z",
   "initiative": "pc-production-inventory",
   "project": "PC — סריקת in_production (פרויקטים לא בגיטהאב)",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production",
@@ -195,7 +195,7 @@
       "phase": "P4",
       "titleHe": "הפיכת FinalProjectNodeJS + ZionAmar-workclock-expo-app מציבורי לפרטי",
       "owner": "34-pc-ops",
-      "status": "in_progress",
+      "status": "done",
       "priority": "P0",
       "dod": "שני הריפואים PRIVATE מאומתים ב-gh; outbox עם טבלת הצלחה/כישלון לכל repo",
       "blockedBy": null,
@@ -206,9 +206,28 @@
         "ZionAmar/FinalProjectNodeJS",
         "ZionAmar/ZionAmar-workclock-expo-app"
       ],
-      "liveCheckAt": "2026-09-10T08:23Z",
-      "liveCheckNote": "Both still PUBLIC (unauthenticated API 200); founder said Nadav succeeded on all — delegate Nadav to finish + verify + outbox",
+      "liveCheckAt": "2026-09-10T08:44Z",
+      "liveCheckNote": "Both PRIVATE (public API 404 each). Founder credited Nadav; retroactive outbox still pending.",
       "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-12-two-repos-private.md",
+      "completedAt": "2026-09-10T08:44Z",
+      "linearIssue": null
+    },
+    {
+      "id": "PCI-13",
+      "phase": "P4",
+      "titleHe": "טסט — הפיכת expo-app מפרטי לציבורי (אישור+PIN)",
+      "owner": "34-pc-ops",
+      "status": "in_progress",
+      "priority": "P0",
+      "dod": "expo-app PUBLIC מאומת (API 200 + gh visibility); outbox לפני/אחרי",
+      "blockedBy": null,
+      "founderApprovedAt": "2026-09-10",
+      "pinReceived": true,
+      "founderContext": "2026-09-10: «בוא נעשה טסט… expo-app… תהפוך אותו לפאבליק» + מאשר + PIN",
+      "repos": ["ZionAmar/expo-app"],
+      "liveCheckAt": "2026-09-10T08:44Z",
+      "liveCheckNote": "Still PRIVATE (404). Prior Noa message wrongly said 8-repo private flip — this task is public flip of expo-app only.",
+      "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-13-expo-app-public-test.md",
       "linearIssue": null
     }
   ],

@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder — «נורא קורא» (readability on visibility thread replies)
+- do: Short Hebrew, one fact per line, admit when a prior reply was wrong; separate «9 private done» from «1 public test pending»
+- dont: Say «8 repos private» when founder approved expo-app → public test; no API/Cursor/shell jargon in Telegram
+- note: All 9 private live at 08:44Z; PCI-13 inbox filed; last Noa message conflated batches
+
+### 2026-09-10
 - task: Founder — «גם את final project nodejs וגם את workclock expo app תהפכו לפרטיים»
 - do: New visibility batch = new PCI task (PCI-12) + inbox packet; live-check both repos before replying; gate on fresh אשר+PIN
 - dont: Delegate Nadav before PIN for this specific ask, even though PCI-11 used same method
