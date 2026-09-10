@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-10
+- task: Founder — «מה הסטטוס? ומה התכנון?» after «תבנו»+PIN on cake page
+- do: Verify Keshet bc-cac9ce1b RUNNING before status; spell plan in plain Hebrew steps; attach only real specialist bc- URL
+- dont: Overstate progress when no PR/outbox yet; mix cake bet with separate GitHub «אשר» thread in the lead
+- note: Keshet early planning; founder build authorized; Noa bc-0247cb2f status reply
+
+### 2026-09-10
 - task: Founder — «מה נשמע» (human check-in)
 - do: Warm short reply first; one gentle next-step line only; real bc- URL in outbox not Telegram unless specialist ran
 - dont: Pivot to AI news or factory status dump on greeting; fake cursor.com homepage links
