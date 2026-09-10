@@ -19,3 +19,8 @@
 - do: Read-verify repo state before PATCH; report stale checklist rows when live API differs (HQ already private)
 - dont: Claim Cloud can flip personal-repo visibility or enable Pages — integration token is AZToDev-HQ scoped only (403)
 - note: Bundle confirmed on rtl-58ef + docker-pages-stage-18eb; item 1 (HQ private) already satisfied; items 2–3 (Pages toggle, cake-recipe-demo repo) remain blocked on PC
+
+### 2026-09-10 · pci-17b-unified-push
+- do: Stage `ops/exports/cake-recipe-demo/` (7 files) + `pci-17b-unified-push.mjs`; run from Cloud for honest JSON (403/404) before PC handoff
+- dont: Claim push succeeded from Cloud when POST /user/repos → 403 — cursor integration cannot create founder personal repos
+- note: Bundle+script ready on branch; repo still 404; curl 404; Nadav must run script on founder PC
