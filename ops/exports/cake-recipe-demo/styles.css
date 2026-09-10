@@ -1,0 +1,222 @@
+/* Cake Recipe Demo — RTL static page */
+
+:root {
+  --color-bg: #faf6f1;
+  --color-surface: #ffffff;
+  --color-text: #2c1810;
+  --color-muted: #6b5344;
+  --color-accent: #8b4513;
+  --color-accent-soft: #d4a574;
+  --color-chocolate: #3d2314;
+  --color-tip-bg: #fff8e7;
+  --color-tip-border: #e8c547;
+  --font-body: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+  --radius: 12px;
+  --shadow: 0 4px 24px rgba(44, 24, 16, 0.08);
+  --max-width: 960px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: linear-gradient(180deg, var(--color-bg) 0%, #f0e6dc 100%);
+  min-height: 100vh;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: -100%;
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: var(--radius);
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.container {
+  width: min(100% - 2rem, var(--max-width));
+  margin-inline: auto;
+}
+
+.site-header {
+  background: linear-gradient(135deg, var(--color-chocolate) 0%, var(--color-accent) 100%);
+  color: #fff;
+  padding: 3rem 0 2.5rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.site-header h1 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+}
+
+.lead {
+  margin: 0 auto 1.75rem;
+  max-width: 36ch;
+  font-size: 1.1rem;
+  opacity: 0.92;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 2rem;
+  margin: 0;
+}
+
+.meta div {
+  text-align: center;
+}
+
+.meta dt {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.75;
+  margin-bottom: 0.15rem;
+}
+
+.meta dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.recipe-grid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem 0 3rem;
+}
+
+@media (min-width: 720px) {
+  .recipe-grid {
+    grid-template-columns: 1fr 1.4fr;
+    align-items: start;
+  }
+
+  .tip {
+    grid-column: 1 / -1;
+  }
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+}
+
+.card h2 {
+  margin: 0 0 1rem;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent-soft);
+  padding-bottom: 0.5rem;
+}
+
+.ingredients {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ingredients li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.ingredients li:last-child {
+  border-bottom: none;
+}
+
+.amount {
+  flex-shrink: 0;
+  min-width: 5.5rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.steps {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.steps li {
+  margin-bottom: 1rem;
+  padding-inline-start: 0.25rem;
+}
+
+.steps li:last-child {
+  margin-bottom: 0;
+}
+
+.steps strong {
+  color: var(--color-chocolate);
+}
+
+.tip {
+  background: var(--color-tip-bg);
+  border: 1px solid var(--color-tip-border);
+}
+
+.tip h2 {
+  color: var(--color-chocolate);
+  border-bottom-color: var(--color-tip-border);
+}
+
+.tip p {
+  margin: 0;
+}
+
+.site-footer {
+  padding: 1.5rem 0 2rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
