@@ -47,6 +47,11 @@ Failures that must not repeat. Injected into every live agent run.
 - dont: Imply a founder-provided Cloud link is fake/unverifiable without first searching this repo's own incident log for that exact id.
 - note: `bc-f695b210-891e-44ac-b3c9-fe98fa797fbf` (Dafna/frontend, HTML system map) is the same id already logged under `cloud_dispose_killed_dafna` above — a real run that got disposed mid-work, not a live task now. Three replies in a row treated it as unexplained before this was caught.
 
+### 2026-09-10 · parallel_email_send
+- do: Before sending email from an archived artifact, check whether a specialist Cloud run for the same deliverable is already RUNNING — pick one path: wait for Ruth, OR send once from archive and do not delegate.
+- dont: Launch Ruth to format/send and simultaneously send the same content from the desk/fast path because the founder asked "why is it slow" — that produces duplicate inbox messages.
+- note: Founder asked to resend GitHub mapping; Ruth bc-0d3ae0c9 was RUNNING while Noa also sent from Keshet's 2026-09-09 artifact (628da7e8…). Two emails, same content.
+
 ### 2026-09-09 · reply_to_voice_was_never_transcribed
 - do: When the exact same literal, unfilled template string (e.g. a bracketed placeholder) repeats identically across 3+ founder turns, treat it as a code bug and go read the generating source before drafting another reply — grep `runtime/lib/` for the literal placeholder text.
 - dont: Keep answering a broken quoted-voice message ("[מגיב להודעה קודמת]: «[הודעה קולית שענית עליה]»") as if it were a real, readable founder instruction each time, or re-delegate an already-closed task because the visible content is unreadable.

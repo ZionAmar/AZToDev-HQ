@@ -137,3 +137,9 @@ LEARNING:
 - do: When founder asks why a run is slow, verify Cloud status live + distinguish retrieve/format/send from redoing yesterday's work; explain steps in plain Hebrew without paths/tools
 - dont: Imply Ruth is re-mapping GitHub from scratch — Keshet's artifact already exists from 2026-09-09
 - note: Ruth bc-0d3ae0c9 still RUNNING; answered with honest step breakdown + Cloud link
+
+### 2026-09-10 (duplicate email)
+- task: Founder — «למה זה נשלח פעמיים»
+- do: Own the parallel-send mistake plainly; one send path per deliverable (archive OR Ruth, never both while Ruth runs)
+- dont: Blame Ruth or hide that desk sent from archive while her Cloud run was still active
+- note: Explained GitHub mapping double-send; noted earlier two summary emails were two separate founder asks
