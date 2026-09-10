@@ -26,6 +26,7 @@ export async function sendGmail({
   subject,
   text,
   html,
+  from,
 } = {}) {
   const map = {
     aztodev: { user: "GMAIL_USER", pass: "GMAIL_APP_PASS" },
@@ -44,7 +45,7 @@ export async function sendGmail({
     auth: { user, pass },
   });
   const info = await transporter.sendMail({
-    from: `"AZToDev / נועה" <${user}>`,
+    from: from || `"AZToDev / נועה" <${user}>`,
     to,
     subject: subject || "(no subject)",
     text: text || "",
@@ -64,6 +65,7 @@ export async function sendFounderEmail({
   text,
   html,
   to = founderEmail(),
+  from,
 } = {}) {
-  return sendGmail({ account: "aztodev", to, subject, text, html });
+  return sendGmail({ account: "aztodev", to, subject, text, html, from });
 }
