@@ -217,7 +217,7 @@
       "phase": "P4",
       "titleHe": "טסט — הפיכת expo-app מפרטי לציבורי (אישור+PIN)",
       "owner": "34-pc-ops",
-      "status": "in_progress",
+      "status": "cancelled",
       "priority": "P0",
       "dod": "expo-app PUBLIC מאומת (API 200 + gh visibility); outbox לפני/אחרי",
       "blockedBy": null,

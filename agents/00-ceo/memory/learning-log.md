@@ -197,3 +197,9 @@ LEARNING:
 - do: Accept founder attribution for PCI-11; live-verify each repo batch separately; close PCI-11 done; keep PCI-12 open if 2 still PUBLIC
 - dont: Mark entire multi-batch ask done when only first batch verified private
 - note: 7 PRIVATE + 2 still PUBLIC at 08:23Z; founder credits Nadav; PCI-12 delegated for close-out + retroactive outbox
+
+### 2026-09-10
+- task: Founder — «ביקשתי את fitime» (correction after misheard «פי טיים»)
+- do: Map fitime → ZionAmar/FiTime only; live-check before reply; fingerprint TARGET:private REPOS:FiTime; skip expo-app when already 404
+- dont: Reuse wrong repo from fuzzy voice/text match; bundle expo-app into fitime job when expo already private
+- note: FiTime PUBLIC at 09:52Z; expo-app PRIVATE; PCI-14 filed blocked on PIN
