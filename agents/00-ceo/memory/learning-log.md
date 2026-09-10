@@ -131,3 +131,9 @@ LEARNING:
 - do: A literal, unfilled template placeholder repeating identically across multiple founder turns is a code bug (find and read the generating source) — not a prompt/communication issue to keep smoothing over in Hebrew replies. Verify PR/merge state live before writing "opened"/"pushed to main" — say exactly what happened (branch pushed, PR request registered but not auto-created) when that's the truth.
 - dont: Re-delegate or re-relay an already-closed task just because the founder's new message's actual content is unreadable (empty voice-quote placeholder) — first check whether he's really asking something new.
 - note: Root-caused and fixed the `[הודעה קולית שענית עליה]` static-placeholder bug in `telegram-media.mjs`; code sits on `cursor/fix-voice-reply-quote-bug-b715` awaiting a real PR + merge (not auto-created by this environment); desk restart/redeploy still needs founder sign-off once merged.
+
+### 2026-09-10
+- task: Founder — «למה זה לוקח כל כך הרבה זמן? מה היא בדיוק עושה?» (Ruth GitHub mapping re-email)
+- do: When founder asks why a run is slow, verify Cloud status live + distinguish retrieve/format/send from redoing yesterday's work; explain steps in plain Hebrew without paths/tools
+- dont: Imply Ruth is re-mapping GitHub from scratch — Keshet's artifact already exists from 2026-09-09
+- note: Ruth bc-0d3ae0c9 still RUNNING; answered with honest step breakdown + Cloud link
