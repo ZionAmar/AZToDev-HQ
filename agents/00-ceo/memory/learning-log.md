@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-10
+- task: Founder — «גם את final project nodejs וגם את workclock expo app תהפכו לפרטיים»
+- do: New visibility batch = new PCI task (PCI-12) + inbox packet; live-check both repos before replying; gate on fresh אשר+PIN
+- dont: Delegate Nadav before PIN for this specific ask, even though PCI-11 used same method
+- note: FinalProjectNodeJS + ZionAmar-workclock-expo-app both PUBLIC at 08:16Z; PCI-12 blocked on founder_pin
+
 ### 2026-09-09 (later, +4)
 - task: Founder — «משהו נראה מאוד מבולבל אצליכם תבדקי טוב מה הבלאגן שנהיה בחברה, אני מרגיש לא בטוח» after a thread where Noa twice (15:40Z, 15:55Z) told him she was "sending to Keshet" / "he'll answer" without ever emitting a real DELEGATE line, so nothing actually ran — the PCI-07b packet sat untouched in `agents/32-delivery-lead/inbox/` since 15:34Z.
 - do: When a founder says a reply "feels off/confused," diff what was *said* against what actually ran (grep for a real DELEGATE line / inbox→outbox roundtrip in git), name the exact theater turn out loud to him, and fix it in the same reply with a real DELEGATE — don't just reassure him verbally.

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-09T15:03:30.000Z",
+  "updatedAt": "2026-09-10T08:16:37.685Z",
   "initiative": "pc-production-inventory",
   "project": "PC — סריקת in_production (פרויקטים לא בגיטהאב)",
   "projectPath": "C:\\Users\\amazi\\Desktop\\Projects\\in_production",
@@ -185,9 +185,27 @@
       "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-11-seven-repos-private.md",
       "liveVerifiedAt": "2026-09-10T08:11:00Z",
       "liveVerifiedNote": "All 7 now PRIVATE (public API 404 each; dropped from Cloud public repo list 18→11). Executor unattributed — no Nadav outbox. Between 07:55Z (still PUBLIC) and 08:11Z (PRIVATE). Nadav audit delegated for retroactive verify + attribution.",
-      "status": "done_pending_audit",
       "linearIssue": null,
       "instructions": "One repo at a time. Cloud GitHub App cannot perform this — Nadav PC gh session only."
+    },
+    {
+      "id": "PCI-12",
+      "phase": "P4",
+      "titleHe": "הפיכת FinalProjectNodeJS + ZionAmar-workclock-expo-app מציבורי לפרטי",
+      "owner": "34-pc-ops",
+      "status": "blocked",
+      "priority": "P0",
+      "dod": "שני הריפואים PRIVATE מאומתים ב-gh; outbox עם טבלת הצלחה/כישלון לכל repo",
+      "blockedBy": ["founder_pin"],
+      "founderContext": "2026-09-10: «גם את final project nodejs וגם את workclock expo app תהפכו לפרטיים»",
+      "repos": [
+        "ZionAmar/FinalProjectNodeJS",
+        "ZionAmar/ZionAmar-workclock-expo-app"
+      ],
+      "liveCheckAt": "2026-09-10T08:16Z",
+      "liveCheckNote": "Both PUBLIC; Cloud PATCH 403",
+      "inbox": "agents/34-pc-ops/inbox/2026-09-10_pci-12-two-repos-private.md",
+      "linearIssue": null
     }
   ],
   "pcOnlineDelegateNudges": [
