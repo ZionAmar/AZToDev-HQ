@@ -24,3 +24,8 @@
 - do: Desk `GITHUB_STATIC_PUBLISH` with `HQ_BRANCH:cursor/...` + runtime `GITHUB_HQ_REPO` when desk `.env` lacks it; poll live HTML until JS hash flips after Pages workflow
 - dont: Mark republish Done on `pushed_at` alone — verify live HTML references new hash (not stale `index-mKCXMWMT.js` CDN)
 - note: Q10 fix bundle republished via ChemiCloud desk bridge; live `index-ZmMTvbPf.js`; final QA queued to 20-qa-sdet
+
+### 2026-09-11 · emet-168-shana-tova-publish
+- do: Desk `GITHUB_STATIC_PUBLISH` with runtime `GITHUB_HQ_REPO=https://github.com/ZionAmar/AZToDev-HQ` when desk `.env` newlines corrupted; add `.github/workflows/pages.yml` when repo has zero workflows before claiming live
+- dont: Done on bundle upload + Pages API OK alone — workflow build_type needs pages.yml + successful Actions run + curl 200
+- note: shana-tova-greeting live 13:42Z; workflow cdf6759; QA queued to 20-qa-sdet
