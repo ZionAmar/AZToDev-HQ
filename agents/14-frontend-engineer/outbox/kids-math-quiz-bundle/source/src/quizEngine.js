@@ -60,9 +60,15 @@ export function buildQuestions() {
     const sorted = shuffle(byOp[op]).sort((a, b) => diffRank[a.diff] - diffRank[b.diff]);
     picked.push(sorted[0], sorted[1], sorted[2]);
   });
-  const extra = shuffle(QUESTION_POOL.filter((t) => !picked.includes(t))).slice(0, 1);
+  const remaining = shuffle(QUESTION_POOL.filter((t) => !picked.includes(t)));
 
-  return shuffle([...picked, ...extra])
+  let templates = shuffle([...picked, ...remaining]);
+  const fillPool = shuffle(QUESTION_POOL);
+  for (let i = 0; templates.length < TOTAL_QUESTIONS; i++) {
+    templates.push(fillPool[i % fillPool.length]);
+  }
+
+  return shuffle(templates)
     .slice(0, TOTAL_QUESTIONS)
     .map((t) => {
       const item = t.gen();
