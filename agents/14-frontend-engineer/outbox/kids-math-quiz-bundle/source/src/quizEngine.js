@@ -55,14 +55,19 @@ export function buildQuestions() {
   QUESTION_POOL.forEach((t) => byOp[t.op].push(t));
 
   const diffRank = { easy: 0, medium: 1, hard: 2 };
-  const picked = [];
+  const templates = [];
   ['add', 'sub', 'mul'].forEach((op) => {
     const sorted = shuffle(byOp[op]).sort((a, b) => diffRank[a.diff] - diffRank[b.diff]);
-    picked.push(sorted[0], sorted[1], sorted[2]);
+    templates.push(sorted[0], sorted[1], sorted[2]);
   });
-  const extra = shuffle(QUESTION_POOL.filter((t) => !picked.includes(t))).slice(0, 1);
 
-  return shuffle([...picked, ...extra])
+  // Pool has 9 unique templates (3 ops × 3 difficulties). Reuse random templates for #10+
+  // — gen() produces fresh numbers each call, so reuse is safe and keeps op coverage.
+  while (templates.length < TOTAL_QUESTIONS) {
+    templates.push(QUESTION_POOL[rand(0, QUESTION_POOL.length - 1)]);
+  }
+
+  return shuffle(templates)
     .slice(0, TOTAL_QUESTIONS)
     .map((t) => {
       const item = t.gen();

@@ -6,6 +6,12 @@ Bench until API contract + spec exist. React `components/` + `pages/`. PWA if ch
 - Do not run while `productWorkEnabled` is false. No product PRs until then.
 
 ## Iteration log
+### 2026-09-11
+- task: Fix kids-math-quiz Q10 — buildQuestions() must always return exactly 10 questions
+- do: Stochastic node:test 200 runs + pad templates when pool size < TOTAL_QUESTIONS
+- dont: Claim republish done when Cloud token push:false on ZionAmar/kids-math-quiz
+- note: 9-not-10 pool exhaustion fixed; bundle rebuilt index-DFBhvlc5.js; desk republish queued
+
 ### 2026-09-10
 - task: PCI-16 — commit cake-recipe-demo-bundle to HQ for blocked PC lane
 - do: HQ branch + outbox with raw file bodies when Nadav OFFLINE
