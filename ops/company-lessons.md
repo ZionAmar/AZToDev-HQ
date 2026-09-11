@@ -2,6 +2,11 @@
 
 Failures that must not repeat. Injected into every live agent run.
 
+### 2026-09-11 · github_pages_never_nadav_after_desk_proof
+- do: After cake-recipe-demo proved desk push+Pages without PC, route all pure-GitHub publish/Pages fixes to 18-devops-platform desk GITHUB_TOKEN; cancel 34-pc-ops GitHub packets same turn
+- dont: Keep delegating Pages enable to Nadav when founder says «לא צריך מחשב» — math-quiz repo was already pushed via desk, only Pages activation remained
+- note: Founder 2026-09-11; kids-math-quiz on main 08:17Z, Pages 404; configure-pages needs enablement:true or desk token
+
 ### 2026-09-10 · readability_wrong_batch_direction
 - do: When founder approves a single-repo visibility test, reply with one sentence (what / who / when result) — no batch counts, no API jargon; live-check before stating direction (private vs public)
 - dont: Conflate a new «make public» test with an old «8 repos private» batch in the same reply — founder said «נורא קורא» when messages mixed wrong count + wrong direction
