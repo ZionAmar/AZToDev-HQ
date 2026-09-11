@@ -229,6 +229,25 @@
   "updatedAt": "2026-09-10",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
   "pendingWork": {
+    "kids-math-quiz": {
+      "slug": "kids-math-quiz",
+      "bet": "PCI-KMG-01 — Kids math quiz (React) for founder ציון",
+      "founderAskVerbatim": "צרו לי משחק מתמטיקה קטן לילדים בריאקט ועשו הכל ותנו לי קישור בסוף לאתר",
+      "status": "built_awaiting_publish",
+      "linearIssue": "EMET-167",
+      "linearUrl": "https://linear.app/my-company1460/issue/EMET-167/pci-kmg-01-kids-math-quiz-react-for-founder-ציון",
+      "phase": "frontend build done (real React/Vite, not the 3 prior found-nothing relays) — repo create + Pages publish delegated to 34-pc-ops, not yet done",
+      "builtAt": "2026-09-11T08:1xZ",
+      "builtBy": "32-delivery-lead (built directly this run — first turn to arrive with the actual founder ask attached, not just a packet-existence check)",
+      "buildEvidence": "agents/14-frontend-engineer/outbox/kids-math-quiz-bundle/ (built dist + full React/Vite source under bundle/source/), agents/14-frontend-engineer/outbox/2026-09-11_kids-math-quiz-react-built.md",
+      "publishAttempt": "Live-verified this run: gh repo create ZionAmar/kids-math-quiz from Cloud → 403 Resource not accessible by integration (same root cause as PCI-11/PCI-14 — Cloud's GitHub App token is scoped to AZToDev-HQ only). Cannot create/push under founder's personal account from Cloud.",
+      "targetRepo": "ZionAmar/kids-math-quiz",
+      "targetPagesUrl": "https://zionamar.github.io/kids-math-quiz/",
+      "waitingFor": "34-pc-ops (נדב) or the desk auto-push path (same one that landed cake-recipe-demo without Nadav on 2026-09-11T06:12Z) — create repo, push built bundle root, enable Pages. Packet: agents/34-pc-ops/inbox/2026-09-11_pci-kmg-01-github-static-publish-kids-math-quiz.md",
+      "wipNote": "Honest WIP=1 flag: this is now a 3rd concurrent open bet alongside hq-exposure-and-company-system-pages (EMET-166, blocked on Nadav) and cake-recipe-demo (EMET-165, awaiting QA). Not silently fragmented — started because Noa dispatched this with the founder's own verbatim ask attached and explicit build+delegate instructions (not a WIP-idle auto-start guess). Flagging the count, not hiding it.",
+      "founderNoteSent": false,
+      "founderNoteBlockedReason": "No live URL yet — Pages does not exist until 34-pc-ops (or the desk bridge) completes the publish step. Per this run's own rule: Hebrew founder note only when the URL actually returns 200."
+    },
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",
       "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",
