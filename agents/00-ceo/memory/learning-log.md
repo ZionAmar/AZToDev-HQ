@@ -251,6 +251,12 @@ LEARNING:
 - do: Publish mandatory 6-step checklist in PCI-14 inbox; mirror same list in Hebrew to founder; re-DELEGATE Nadav same turn
 - dont: Claim Nadav is executing without outbox or live URL; give vague «הוא על זה» without the explicit step list
 - note: Pages still 404 ~11 min post-אשר; checklist enforced; PC online
+### 2026-09-11
+- task: Founder — «יאללה צרו את המשחק» (kids React math game)
+- do: Treat «יאללה צרו» as build GO; WIP swap to kids-math-game-react; Keshet inbox + intake + factory.json same turn; cake 200 honest
+- dont: Require duplicate «אשר+תבנו» when founder already pivoted from «סיימו קודם» to explicit build command
+- note: KMG pipeline kickoff; company-map 404 background; Nadav PC ONLINE
+
 ### 2026-09-10
 - task: Founder — «aztodev-company-system — זה הריפו»
 - do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew

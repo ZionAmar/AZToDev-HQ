@@ -7,33 +7,34 @@
   "chemiCloudHqDeploy": true,
   "wipLimit": 1,
   "activeWork": {
-    "slug": "hq-exposure-and-company-system-pages",
-    "bet": "Dafna company-system-map — public + Docker + Pages (aztodev-company-system) — SEPARATE from cake-recipe-demo",
-    "phase": "pages-enable-needed",
-    "owner": "34-pc-ops (נדב) → 18-devops-platform (פז)",
-    "board": null,
-    "startedAt": "2026-09-10T18:42:00.000Z",
-    "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "נדב (34-pc-ops) — item 1 (AZToDev-HQ→private) CONFIRMED DONE live-verified 2026-09-10T21:4xZ (gh api → private:true, visibility:private) — no PC action needed, checklist row was stale. Remaining: Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, then re-run failed workflow run 34526813041 — AND execute PCI-17b (cake-recipe-demo repo create + push, 7 staged files, one commit). PC heartbeat flipped OFFLINE→ONLINE at 22:29:38Z then back to OFFLINE again this run (22:4xZ) — flapping, not fixed. Zero new outbox evidence from Nadav across both windows (live-verified 22:4xZ: agents/34-pc-ops/outbox/ still only has the unrelated 2026-09-09 KNU-03 file; gh api repos/ZionAmar/cake-recipe-demo still 404). A follow-up task this run claimed a Cursor-shell 0xC0000142 crash running a node script (`ops/scripts/pci-17b-unified-push.mjs`) that does not exist anywhere in HQ git history — corrected in the Nadav packet, not treated as fact. Added `ops/scripts/pci-17b-cake-recipe-push.ps1`, a git+gh-only PowerShell script with zero Cursor/node dependency, as the new primary execution path (run from a plain PowerShell window or Task Scheduler, same pattern as NADAV-PC.vbs) — it self-writes the outbox result on completion. Packet remains QUEUED, not re-nudged as a 4th duplicate ask; the added script is new content, not a repeat.",
-    "targetRepo": "ZionAmar/aztodev-company-system",
-    "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
-    "next": "Nadav fixes both → curl https://zionamar.github.io/aztodev-company-system/ returns 200 → then close EMET-166. cake-recipe-demo (EMET-165/115) is a SEPARATE, still fully open bet — no repo created yet, bundle sits in agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/.",
-    "status": "blocked",
+    "slug": "kids-math-game-react",
+    "bet": "משחק מתמטיקה לילדים — React, עברית RTL, GitHub Pages",
+    "phase": "planning-kickoff",
+    "owner": "32-delivery-lead (קשת) → pipeline",
+    "board": "ops/intake/ideas/IDEA-2026-09-11-kids-math-game-react.md",
+    "startedAt": "2026-09-11T06:16:28.917Z",
+    "gate": "founder GO «יאללה צרו את המשחק» — productWorkEnabled already true from cake bet",
+    "waitingFor": "קשת — Linear + pipeline folder + architect handoff",
+    "next": "12-software-architect spec → 14-frontend-engineer React build → 18-devops Pages → 34-pc-ops repo+link → 20-qa-sdet",
+    "status": "active",
     "finishedAt": null,
-    "linearIssue": "EMET-166",
-    "linearUrl": "https://linear.app/my-company1460/issue/EMET-166/urgent-aztodev-hq-repo-accidentally-public-aztodev-company-system",
-    "swappedFrom": "pc-production-inventory (see pausedWork — WIP=1, not abandoned, founder-directed priority swap given explicit תבנו+PIN on this bet)",
-    "repoMixupNote": "aztodev-company-system repo content is Dafna (14-frontend-engineer) company-system-map HTML, NOT the cake-recipe-demo page. Prior turns today (00-ceo/PCI-14) incorrectly assumed founder's Pages link meant the cake bet. Corrected 2026-09-10T21:05Z by 32-delivery-lead, live-verified via gh api (repo contents/README/commits).",
-    "hqExposureIncident": {
-      "foundAt": "2026-09-10T21:05:00.000Z",
-      "foundBy": "32-delivery-lead",
-      "finding": "gh api repos/ZionAmar/AZToDev-HQ shows visibility:public, private:false, updated_at 2026-09-10T20:55:19Z. Likely accidental side-effect of Nadav flipping aztodev-company-system to public in the same window (20:52-20:55Z). No raw secrets found in git history (.env never tracked). Cloud token admin:false on this repo -- cannot revert from Cloud.",
-      "action": "DELEGATE 34-pc-ops to flip back to private ASAP; DELEGATE 00-ceo to relay to founder with urgency.",
-      "status": "resolved",
-      "reverifiedAt": "2026-09-10T21:4xZ",
-      "reverifiedResult": "CONFIRMED PRIVATE (gh api repos/ZionAmar/AZToDev-HQ -> visibility:private, private:true). Reverted (by Nadav or founder, not this run) between the 21:07Z check and now. Pages-on-aztodev-company-system item remains open."
-    },
-    "blockerAgeNote": "PCI-14 GO issued ~2026-09-10T20:25Z. As of 22:32Z (~2h07m later): AZToDev-HQ→private landed (fixed between 21:07Z and 21:4xZ, confirmed still private:true at 22:32Z). Still open, re-verified live 22:32Z: aztodev-company-system still public/has_pages:false/Pages 404 (last workflow run: failure); ZionAmar/cake-recipe-demo still does not exist (404, unchanged since 21:07Z). Paz's DevOps staging for cake-recipe-demo (Dockerfile/.dockerignore/pages.yml/PAGES_SETUP.md in ops/staging/cake-recipe-demo/) and the frontend RTL bundle (agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/) are both confirmed present and unchanged — nothing new needed from Paz, that hand-off is already done. New signal this turn: PC heartbeat flipped OFFLINE→ONLINE at 22:29:38Z — the single consolidated PCI-17b packet is queued to run automatically; not re-nudged (queued task firing on his own heartbeat coming back is the intended flow, not a 4th manual nudge)."
+    "linearIssue": "TBD — Keshet opens one issue under AZToDev Product — Keshet",
+    "linearUrl": "https://linear.app/my-company1460/project/aztodev-product-keshet-938f19d950dd",
+    "swappedFrom": "hq-exposure-and-company-system-pages + cake-recipe-demo close-out",
+    "founderGoAt": "2026-09-11T06:16:28.917Z",
+    "founderGoText": "יאללה צרו את המשחק",
+    "referenceQualityBar": "products/kids-math-quiz/index.html",
+    "backgroundPcWork": "34-pc-ops: company-map Pages 404 + cake images push — not blocking KMG WIP"
+  },
+  "backgroundWork": {
+    "slug": "hq-exposure-and-company-system-pages",
+    "bet": "company-system-map Pages + cake images close-out",
+    "owner": "34-pc-ops (נדב)",
+    "status": "background",
+    "pausedAt": "2026-09-11T06:16:28.917Z",
+    "pausedReason": "WIP swap — founder «יאללה צרו את המשחק»; cake live 200 at https://zionamar.github.io/cake-recipe-demo/; company-map still 404",
+    "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
+    "linearIssue": "EMET-166"
   },
   "pausedWork": {
     "slug": "pc-production-inventory",
@@ -224,7 +225,7 @@
       "/start"
     ]
   },
-  "updatedAt": "2026-09-10",
+  "updatedAt": "2026-09-11",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
   "pendingWork": {
     "cake-recipe-demo": {
