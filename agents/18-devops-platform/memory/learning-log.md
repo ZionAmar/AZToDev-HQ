@@ -1,5 +1,10 @@
 # Learning log — 18-devops-platform (Paz)
 
+### 2026-09-11 · aztodev-company-system-pages-enable-403
+- do: Run all three API calls (POST pages, POST rerun, GET pages) + curl even when expecting 403 — return full JSON bodies as evidence; queue exact Nadav commands
+- dont: Claim Pages enabled or workflow rerun succeeded when integration token returns 403 on both mutating endpoints
+- note: Cloud read OK (repo public, has_pages:false, run 34526813041 failure at Setup Pages); mutations blocked; live URL still 404; delegated to 34-pc-ops
+
 ### 2026-09-10 · dafna-company-system-docker-pages
 - do: Stage Dockerfile + Pages workflow under `ops/staging/<repo>/` in HQ when Cloud GitHub App cannot see the product repo; delegate push to 34-pc-ops with exact copy list
 - dont: Claim push/commit to a repo when `gh repo view` returns 404 from Cloud — same class as PCI-14 kidnest visibility
