@@ -1,6 +1,9 @@
 {
   "url": "https://zionamar.github.io/kids-math-quiz/",
-  "timestamp": "2026-09-11T09:24:26.297Z",
+  "timestamp": "2026-09-11T11:39:50.602Z",
+  "bundleHash": "assets/index-mKCXMWMT.js",
+  "oldBundleHash": "assets/index-mKCXMWMT.js",
+  "hashChanged": false,
   "runs": [
     {
       "runId": 1,
@@ -10,7 +13,8 @@
       "error": "Expected question 10, got: ",
       "pageErrors": [
         "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ]
+      ],
+      "bundleHash": "assets/index-mKCXMWMT.js"
     },
     {
       "runId": 2,
@@ -20,7 +24,8 @@
       "error": "Expected question 10, got: ",
       "pageErrors": [
         "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ]
+      ],
+      "bundleHash": "assets/index-mKCXMWMT.js"
     },
     {
       "runId": 3,
@@ -30,26 +35,24 @@
       "error": "Expected question 10, got: ",
       "pageErrors": [
         "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ]
+      ],
+      "bundleHash": "assets/index-mKCXMWMT.js"
     }
   ],
   "checklist": {
-    "rtl": false,
-    "langHe": false,
-    "title": false,
+    "rtl": true,
+    "langHe": true,
+    "title": true,
     "responsive_mobile": true,
     "responsive_tablet": true,
     "responsive_desktop": true,
     "no404s": true,
-    "favicon": true
+    "favicon": true,
+    "network404s": []
   },
-  "consoleErrors": [],
-  "network404s": [],
   "pageErrors": [
-    "TypeError: Cannot read properties of undefined (reading 'answer')",
-    "TypeError: Cannot read properties of undefined (reading 'answer')",
     "TypeError: Cannot read properties of undefined (reading 'answer')"
   ],
   "overall": "FAIL",
-  "summary": "FAIL: 3/3 runs did not reach results"
+  "summary": "BLOCKED: republish not detected — still serving assets/index-mKCXMWMT.js"
 }
