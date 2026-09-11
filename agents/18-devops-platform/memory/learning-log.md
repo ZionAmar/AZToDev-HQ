@@ -1,5 +1,10 @@
 # Learning log — 18-devops-platform (Paz)
 
+### 2026-09-11 · enable-pages-desk-token
+- do: Cloud integration token 403 on Pages POST → SSH ChemiCloud desk, use `GITHUB_TOKEN` from `~/aztodev-desk/.env` via node fetch (POST pages + rerun workflow + curl verify) — PC-off safe, same class as cake-recipe-demo desk path
+- dont: Route Pages-enable to 34-pc-ops when desk token exists — pure GitHub must not wait on Nadav heartbeat per company lesson `cloud_github_pc_off_bridge`
+- note: kids-math-quiz already 200; aztodev-company-system Pages enabled (201), workflow 34526813041 rerun success, both URLs 200
+
 ### 2026-09-10 · dafna-company-system-docker-pages
 - do: Stage Dockerfile + Pages workflow under `ops/staging/<repo>/` in HQ when Cloud GitHub App cannot see the product repo; delegate push to 34-pc-ops with exact copy list
 - dont: Claim push/commit to a repo when `gh repo view` returns 404 from Cloud — same class as PCI-14 kidnest visibility
