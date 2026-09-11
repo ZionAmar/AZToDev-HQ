@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-11
+- task: founder: למה שום דבר לא רץ? הרי ביקשתי לבנות משחק
+- do: On «למה לא רץ» — verify PCI/inbox on main; if missing admit theater + create packet + DELEGATE Keshet same turn
+- dont: Repeat «מתחילים» without PCI-KMG-01 committed to main
+- note: Math game theater gap closed; PCI-KMG-01 + WIP swap; PIN gate for build phase
+
 ### 2026-09-10
 - task: Founder «נו. עוד לא סיים?» ~7 min after PCI-14 GO
 - do: Honest «עדיין לא» + curl Pages + check Nadav outbox; nudge PCI-14 inbox; re-DELEGATE same turn
