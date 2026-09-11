@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-11
+- task: Founder «מה עם האתר של השנה טובה שביקשתי»
+- do: Curl Shana Tova 404 + confirm math Q10 fix live; delegate Keshet kickoff; ask «יאללה»+PIN once for this bet
+- dont: Say queued without stating nothing built and math prerequisite now closed
+- note: Shana Tova 404; quiz index-ZmMTvbPf.js; EMET-167 closed in thread
+
 ### 2026-09-10
 - task: Founder «נו. עוד לא סיים?» ~7 min after PCI-14 GO
 - do: Honest «עדיין לא» + curl Pages + check Nadav outbox; nudge PCI-14 inbox; re-DELEGATE same turn
