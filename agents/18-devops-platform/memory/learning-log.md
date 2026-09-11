@@ -19,3 +19,8 @@
 - do: Read-verify repo state before PATCH; report stale checklist rows when live API differs (HQ already private)
 - dont: Claim Cloud can flip personal-repo visibility or enable Pages — integration token is AZToDev-HQ scoped only (403)
 - note: Bundle confirmed on rtl-58ef + docker-pages-stage-18eb; item 1 (HQ private) already satisfied; items 2–3 (Pages toggle, cake-recipe-demo repo) remain blocked on PC
+
+### 2026-09-11 · pci-kmg-01-kids-math-quiz-desk-bridge-verify
+- do: When desk bridge already published (AZToDev committer, curl 200), verify repo root matches HQ bundle hashes + write 18-devops-platform outbox even if Keshet verified first — close the lane evidence gap without re-pushing
+- dont: Route pure GitHub static publish to 34-pc-ops when desk bridge already landed it PC-off; dont credit Nadav without outbox
+- note: kids-math-quiz live at https://zionamar.github.io/kids-math-quiz/ (200, bundle match); QA still on 20-qa-sdet
