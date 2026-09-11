@@ -7,18 +7,18 @@
   "chemiCloudHqDeploy": true,
   "wipLimit": 1,
   "activeWork": {
-    "slug": "hq-exposure-and-company-system-pages",
-    "bet": "Dafna company-system-map — public + Docker + Pages (aztodev-company-system) — SEPARATE from cake-recipe-demo",
-    "phase": "pages-enable-needed",
-    "owner": "34-pc-ops (נדב) → 18-devops-platform (פז)",
+    "slug": "finish-cake-images-and-company-map",
+    "bet": "Close open deliverables: cake-recipe-demo with images + aztodev-company-system Pages live — kids math game deferred per founder 2026-09-11",
+    "phase": "pci-19-execution",
+    "owner": "34-pc-ops (נדב) + 14-frontend-engineer (דפנה images) → 20-qa-sdet (אורי)",
     "board": null,
     "startedAt": "2026-09-10T18:42:00.000Z",
     "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "נדב (34-pc-ops) — item 1 (AZToDev-HQ→private) CONFIRMED DONE live-verified 2026-09-10T21:4xZ (gh api → private:true, visibility:private) — no PC action needed, checklist row was stale. Remaining: Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, then re-run failed workflow run 34526813041 — AND execute PCI-17b (cake-recipe-demo repo create + push, 7 staged files, one commit). PC heartbeat flipped OFFLINE→ONLINE at 22:29:38Z then back to OFFLINE again this run (22:4xZ) — flapping, not fixed. Zero new outbox evidence from Nadav across both windows (live-verified 22:4xZ: agents/34-pc-ops/outbox/ still only has the unrelated 2026-09-09 KNU-03 file; gh api repos/ZionAmar/cake-recipe-demo still 404). A follow-up task this run claimed a Cursor-shell 0xC0000142 crash running a node script (`ops/scripts/pci-17b-unified-push.mjs`) that does not exist anywhere in HQ git history — corrected in the Nadav packet, not treated as fact. Added `ops/scripts/pci-17b-cake-recipe-push.ps1`, a git+gh-only PowerShell script with zero Cursor/node dependency, as the new primary execution path (run from a plain PowerShell window or Task Scheduler, same pattern as NADAV-PC.vbs) — it self-writes the outbox result on completion. Packet remains QUEUED, not re-nudged as a 4th duplicate ask; the added script is new content, not a repeat.",
+    "waitingFor": "נדב (34-pc-ops) — PCI-19 item 1: enable Pages on aztodev-company-system (404, has_pages:false). Item 2: push cake images after Dafna commits bundle with img tags (live cake 200 but 0 images). PC heartbeat ONLINE 2026-09-11T06:04Z. HQ private confirmed — no action.",
     "targetRepo": "ZionAmar/aztodev-company-system",
     "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
-    "next": "Nadav fixes both → curl https://zionamar.github.io/aztodev-company-system/ returns 200 → then close EMET-166. cake-recipe-demo (EMET-165/115) is a SEPARATE, still fully open bet — no repo created yet, bundle sits in agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/.",
-    "status": "blocked",
+    "next": "Nadav PCI-19 company-map Pages 200 → Dafna images bundle in HQ → Nadav push cake → Uri QA both → founder gets both links. Math game (IDEA-2026-09-11) deferred.",
+    "status": "in_progress",
     "finishedAt": null,
     "linearIssue": "EMET-166",
     "linearUrl": "https://linear.app/my-company1460/issue/EMET-166/urgent-aztodev-hq-repo-accidentally-public-aztodev-company-system",
@@ -224,7 +224,7 @@
       "/start"
     ]
   },
-  "updatedAt": "2026-09-10",
+  "updatedAt": "2026-09-11",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
   "pendingWork": {
     "cake-recipe-demo": {

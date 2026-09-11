@@ -256,3 +256,9 @@ LEARNING:
 - do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew
 - dont: Use cake-recipe-demo after founder named aztodev-company-system; claim prior Nadav run succeeded without outbox
 - note: Repo name locked; Pages 404; Nadav re-nudged 20:52Z; PC online
+
+### 2026-09-11
+- task: Founder «אז תסיימו קודם את מה שחסר ממקודם» — defer math game, close cake images + company map
+- do: Live-verify img count + Pages 404; PCI-19 Nadav (map now + cake push after Dafna); Dafna inbox for missing images in HQ bundle; PC ONLINE → delegate Nadav same turn
+- dont: Claim images version exists in HQ when bundle has zero img tags; start math game pipeline
+- note: cake 200/0 imgs; aztodev-company-system has_pages:false; founder priority clear
