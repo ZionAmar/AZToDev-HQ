@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="éÙÑÕÜÙÝ ÜéÒéÕÒ ÕÜÑèÛÔ">
+  <defs>
+    <linearGradient id="bgWheat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff8e6"/>
+      <stop offset="100%" stop-color="#f3d98a"/>
+    </linearGradient>
+    <linearGradient id="stalkG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e3b94a"/>
+      <stop offset="100%" stop-color="#b98a26"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bgWheat)"/>
+  <g opacity="0.3">
+    <circle cx="330" cy="60" r="55" fill="#fff0b0"/>
+  </g>
+  <g stroke="#8a6a1f" stroke-width="3" fill="none">
+    <path d="M150 250 C150 200 140 150 130 100"/>
+    <path d="M200 250 C200 195 200 140 200 85"/>
+    <path d="M250 250 C250 200 260 150 270 100"/>
+    <path d="M180 250 C178 205 172 160 165 118"/>
+    <path d="M220 250 C222 205 228 160 235 118"/>
+  </g>
+  <g fill="url(#stalkG)" stroke="#8a6a1f" stroke-width="1.5">
+    <ellipse cx="130" cy="95" rx="8" ry="14" transform="rotate(-10 130 95)"/>
+    <ellipse cx="122" cy="112" rx="8" ry="14" transform="rotate(-25 122 112)"/>
+    <ellipse cx="138" cy="112" rx="8" ry="14" transform="rotate(15 138 112)"/>
+    <ellipse cx="200" cy="80" rx="9" ry="16"/>
+    <ellipse cx="190" cy="98" rx="8" ry="14" transform="rotate(-18 190 98)"/>
+    <ellipse cx="210" cy="98" rx="8" ry="14" transform="rotate(18 210 98)"/>
+    <ellipse cx="182" cy="118" rx="8" ry="14" transform="rotate(-28 182 118)"/>
+    <ellipse cx="218" cy="118" rx="8" ry="14" transform="rotate(28 218 118)"/>
+    <ellipse cx="270" cy="95" rx="8" ry="14" transform="rotate(10 270 95)"/>
+    <ellipse cx="278" cy="112" rx="8" ry="14" transform="rotate(25 278 112)"/>
+    <ellipse cx="262" cy="112" rx="8" ry="14" transform="rotate(-15 262 112)"/>
+    <ellipse cx="165" cy="112" rx="7" ry="12" transform="rotate(-8 165 112)"/>
+    <ellipse cx="235" cy="112" rx="7" ry="12" transform="rotate(8 235 112)"/>
+  </g>
+  <path d="M120 250 C160 235 240 235 280 250 L275 265 C235 253 165 253 125 265 Z" fill="#d9a63a" stroke="#8a6a1f" stroke-width="2"/>
+</svg>

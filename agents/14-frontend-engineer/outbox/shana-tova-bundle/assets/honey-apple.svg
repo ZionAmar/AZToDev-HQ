@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="êäÕ× ÑÓÑé">
+  <defs>
+    <linearGradient id="bgHoney" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff6e0"/>
+      <stop offset="100%" stop-color="#ffd98a"/>
+    </linearGradient>
+    <radialGradient id="jarHoney" cx="40%" cy="20%" r="80%">
+      <stop offset="0%" stop-color="#ffcf5c"/>
+      <stop offset="100%" stop-color="#d98c1f"/>
+    </radialGradient>
+    <radialGradient id="appleG" cx="35%" cy="25%" r="75%">
+      <stop offset="0%" stop-color="#ffe36b"/>
+      <stop offset="60%" stop-color="#f2b53a"/>
+      <stop offset="100%" stop-color="#c97a12"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bgHoney)"/>
+  <g opacity="0.3">
+    <circle cx="340" cy="230" r="80" fill="#ffe9b8"/>
+  </g>
+  <path d="M130 130 C130 100 155 85 185 90 L235 90 C255 90 260 115 255 140 L245 220 C243 235 230 245 210 245 L165 245 C148 245 138 235 136 220 Z" fill="url(#jarHoney)" stroke="#a6650f" stroke-width="3"/>
+  <ellipse cx="195" cy="95" rx="55" ry="14" fill="#fff1c4" stroke="#a6650f" stroke-width="3"/>
+  <path d="M150 150 C170 145 210 145 235 152" stroke="#fff1c4" stroke-width="6" fill="none" opacity="0.6" stroke-linecap="round"/>
+  <path d="M215 60 C205 80 215 95 235 100 C245 80 240 65 215 60 Z" fill="#e6a13a" stroke="#a6650f" stroke-width="2"/>
+  <line x1="222" y1="100" x2="230" y2="165" stroke="#c97a12" stroke-width="5" stroke-linecap="round"/>
+  <path d="M230 165 C232 178 226 188 216 192 C222 198 232 198 238 190 C246 196 256 190 256 178 C256 168 246 162 238 165 C238 158 232 158 230 165 Z" fill="#e6a13a" opacity="0.9"/>
+  <circle cx="80" cy="200" r="42" fill="url(#appleG)" stroke="#8a4e0d" stroke-width="3"/>
+  <path d="M80 158 C76 148 84 142 90 146" fill="none" stroke="#6b8a3a" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="93" cy="150" rx="12" ry="7" fill="#7fae4a" transform="rotate(20 93 150)"/>
+  <circle cx="320" cy="205" r="34" fill="url(#appleG)" stroke="#8a4e0d" stroke-width="3"/>
+  <path d="M320 171 C317 163 323 158 328 161" fill="none" stroke="#6b8a3a" stroke-width="4" stroke-linecap="round"/>
+</svg>

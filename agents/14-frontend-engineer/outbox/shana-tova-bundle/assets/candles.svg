@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="àèÕê ×Ò ÕÐÕè ÜéàÔ ØÕÑÔ">
+  <defs>
+    <linearGradient id="bgCandle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3a1f4a"/>
+      <stop offset="100%" stop-color="#7a3b5a"/>
+    </linearGradient>
+    <radialGradient id="glowC" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#ffe9a8" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#ffe9a8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="flameC" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#ff8a3d"/>
+      <stop offset="60%" stop-color="#ffd24a"/>
+      <stop offset="100%" stop-color="#fff6cf"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bgCandle)"/>
+  <circle cx="150" cy="120" r="90" fill="url(#glowC)"/>
+  <circle cx="260" cy="140" r="80" fill="url(#glowC)"/>
+  <g>
+    <rect x="130" y="150" width="26" height="90" rx="6" fill="#f4e3c8"/>
+    <path d="M143 120 C150 135 156 145 143 150 C130 145 136 135 143 120 Z" fill="url(#flameC)"/>
+  </g>
+  <g>
+    <rect x="245" y="170" width="26" height="70" rx="6" fill="#f4e3c8"/>
+    <path d="M258 142 C265 157 271 167 258 172 C245 167 251 157 258 142 Z" fill="url(#flameC)"/>
+  </g>
+  <g fill="#ffd8e0" opacity="0.85">
+    <circle cx="70" cy="70" r="3"/>
+    <circle cx="330" cy="55" r="3"/>
+    <circle cx="300" cy="90" r="2.5"/>
+    <circle cx="60" cy="200" r="2.5"/>
+    <circle cx="350" cy="220" r="3"/>
+  </g>
+  <path d="M40 260 C120 235 280 235 360 260" stroke="#f2c9d8" stroke-width="3" fill="none" opacity="0.5"/>
+</svg>

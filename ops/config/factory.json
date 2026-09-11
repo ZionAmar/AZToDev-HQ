@@ -272,11 +272,17 @@
       "linearUrl": "https://linear.app/my-company1460/issue/EMET-168/shana-tova-greeting-one-pager-rtl-carousel-pages-publish",
       "linearNote": "Opened for real 2026-09-11T12:3xZ (32-delivery-lead) via Linear GraphQL mutation (issueCreate), team EMET, project פיתוח מוצר — EMET (= linearProductProject), state Todo. Evidence comment posted documenting gate status. Not a duplicate: re-searched Linear live immediately before creating (issues filter title contains shana/טובה/greeting) — zero prior matches.",
       "gate": "Condition 1 (EMET-167 QA pass) — MET, re-verified live this turn via Linear GraphQL (issues filter number:167 -> state.name: \"Done\"), independent of any cached claim. Condition 2 (explicit founder «יאללה»/«תבנו» + action PIN for THIS specific bet) — still NOT met: full ops/founder-channel/ledger.jsonl re-checked end-to-end, zero mention of an explicit go+PIN for Shana Tova specifically (only the original spec ask + a general publish-quality reaffirmation, which is scope not authorization). Per this run's own dispatch instructions: Linear ticket + pipeline plan may be opened now; 14-frontend-engineer/18-devops-platform engineer mutations stay HELD until the PIN lands (no PIN window currently open).",
-      "next": "00-ceo relays to ציון: EMET-167 done + this ticket (EMET-168) ready to go the moment he sends «יאללה»+PIN for Shana Tova specifically. On PIN: DELEGATE 14-frontend-engineer (build) → 18-devops-platform (desk Pages publish) → 20-qa-sdet (live QA) → 32-delivery-lead (independent re-verify + close + live URL).",
-      "waitingFor": "founder יאללה+PIN for this specific bet (EMET-167 close condition now satisfied)",
+      "next": "18-devops-platform (Paz) runs GITHUB_STATIC_PUBLISH → 20-qa-sdet (Uri) live QA once URL is live → 32-delivery-lead independent re-verify + close + live URL to founder.",
+      "waitingFor": "18-devops-platform (Paz) — desk-token GitHub publish (repo create + push + Pages enable). Cloud confirmed live this turn it cannot self-publish (403, token scoped to AZToDev-HQ only).",
       "openedBy": "32-delivery-lead",
       "openedAt": "2026-09-11T12:3xZ",
-      "priorRecheckedAt": "2026-09-11T09:3xZ (2nd re-check, same run window as Noa's explicit After-EMET-167-QA-pass dispatch) — both conditions still false at that time. Superseded by this turn: condition 1 now met (EMET-167 closed 11:46Z, re-verified live 12:3xZ)."
+      "priorRecheckedAt": "2026-09-11T09:3xZ (2nd re-check, same run window as Noa's explicit After-EMET-167-QA-pass dispatch) — both conditions still false at that time. Superseded 12:3xZ: condition 1 met (EMET-167 closed). Superseded again this turn (13:2xZ): condition 2 (founder יאללה+PIN) reported met via this run's own dispatch (HQ ACTION PIN window unlocked until 2026-09-11T13:20:38.855Z) — treated as authoritative per company lesson `pin_yalla_must_resume`, not re-litigated from local ledger alone.",
+      "status": "frontend_built_publish_delegated",
+      "buildEvidence": "agents/14-frontend-engineer/outbox/shana-tova-bundle/ (index.html, styles.css, script.js, assets/*.svg x6), agents/14-frontend-engineer/outbox/2026-09-11_shana-tova-onepager-built.md. Locally verified: all assets 200 via python http.server; RTL/lang/footer attributes grep-confirmed (footer = EaseToDev only).",
+      "publishPacket": "agents/18-devops-platform/inbox/2026-09-11_emet-168-github-static-publish-shana-tova.md — REPO:ZionAmar/shana-tova-greeting SOURCE:agents/14-frontend-engineer/outbox/shana-tova-bundle VISIBILITY:public. Routed to 18-devops-platform (desk token), not 34-pc-ops/Nadav, per this run's explicit routing rule.",
+      "publishBlockedReason": "Cloud GitHub App token scoped to AZToDev-HQ only — gh api repos/ZionAmar/shana-tova-greeting -> not found; gh repo create -> real 403/GraphQL 'Resource not accessible by integration', live-verified 2026-09-11T13:1xZ.",
+      "liveUrl": null,
+      "targetPagesUrl": "https://zionamar.github.io/shana-tova-greeting/"
     },
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",

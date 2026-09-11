@@ -1,0 +1,329 @@
+/* Shana Tova greeting one-pager — RTL, warm holiday palette */
+
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Rubik:wght@400;500;600&display=swap");
+
+:root {
+  --gold: #e6a13a;
+  --gold-deep: #c97a12;
+  --wine: #7a1f2f;
+  --wine-deep: #4a1420;
+  --cream: #fff8ec;
+  --ink: #3a2416;
+  --shadow: rgba(122, 31, 47, 0.18);
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Rubik", "Segoe UI", Tahoma, sans-serif;
+  color: var(--ink);
+  background: linear-gradient(160deg, #fff8ec 0%, #ffe9c2 45%, #ffd9a0 100%);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+.skip-link {
+  position: absolute;
+  right: -999px;
+  top: 0;
+  background: var(--wine);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 8px 8px;
+  z-index: 100;
+}
+.skip-link:focus {
+  right: 0;
+}
+
+/* Decorative floating blobs */
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.drop {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0.35;
+}
+.drop-1 {
+  width: 260px;
+  height: 260px;
+  top: -80px;
+  right: -60px;
+  background: radial-gradient(circle at 30% 30%, #ffcf7a, transparent 70%);
+}
+.drop-2 {
+  width: 320px;
+  height: 320px;
+  bottom: -120px;
+  left: -100px;
+  background: radial-gradient(circle at 40% 40%, #e0483f33, transparent 70%);
+}
+.drop-3 {
+  width: 180px;
+  height: 180px;
+  top: 40%;
+  left: 8%;
+  background: radial-gradient(circle at 40% 40%, #ffe9a880, transparent 70%);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2rem;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 1.5rem 1rem 2.5rem;
+}
+
+.hero-eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--gold-deep);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+}
+
+.hero-title {
+  font-family: "Frank Ruhl Libre", "Times New Roman", serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 8vw, 4.5rem);
+  line-height: 1.12;
+  margin: 0 0 1.25rem;
+  color: var(--wine);
+  text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
+}
+
+.hero-title span {
+  color: var(--gold-deep);
+  background: linear-gradient(90deg, var(--gold-deep), #e0483f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-blessing {
+  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
+  max-width: 640px;
+  margin: 0 auto 1.25rem;
+  color: #5a3a24;
+}
+
+.hero-blessing strong {
+  color: var(--wine);
+}
+
+.hero-signoff {
+  font-size: 1.1rem;
+  color: var(--wine);
+  margin: 0;
+}
+
+/* Carousel */
+.carousel-section {
+  margin: 1rem 0 2.5rem;
+  position: relative;
+}
+
+.carousel {
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px var(--shadow);
+  background: rgba(255, 255, 255, 0.35);
+  padding: 1.25rem 0;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: scrollTrack 32s linear infinite;
+  padding-inline: 1.5rem;
+}
+
+.carousel:hover .carousel-track,
+.carousel-track.is-paused {
+  animation-play-state: paused;
+}
+
+@keyframes scrollTrack {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* RTL: track built from doubled slide-set; shifting left (negative in RTL flow)
+       gives a continuous rightward "auto-scroll" feel with no visible seam. */
+    transform: translateX(-50%);
+  }
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: 240px;
+  margin: 0;
+  background: var(--cream);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(122, 31, 47, 0.12);
+  border: 1px solid rgba(230, 161, 58, 0.35);
+}
+
+.slide img {
+  display: block;
+  width: 100%;
+  height: 168px;
+  object-fit: cover;
+}
+
+.slide figcaption {
+  text-align: center;
+  padding: 0.65rem 0.5rem 0.9rem;
+  font-weight: 600;
+  color: var(--wine);
+  font-size: 0.95rem;
+}
+
+.carousel-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.9rem auto 0;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(122, 31, 47, 0.25);
+  color: var(--wine);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.carousel-toggle:hover,
+.carousel-toggle:focus-visible {
+  background: #fff;
+}
+
+.carousel-toggle[aria-pressed="true"] .icon-pause {
+  display: none;
+}
+.carousel-toggle .icon-play {
+  display: none;
+}
+.carousel-toggle[aria-pressed="true"] .icon-play {
+  display: inline;
+}
+
+/* Wishes grid */
+.wishes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem 0 1rem;
+}
+
+.wish-card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(230, 161, 58, 0.35);
+  border-radius: 16px;
+  padding: 1.1rem 0.75rem;
+  text-align: center;
+  box-shadow: 0 6px 14px rgba(122, 31, 47, 0.08);
+}
+
+.wish-emoji {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.wish-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #5a3a24;
+}
+
+/* Footer — EaseToDev only, no sponsor block */
+.site-footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 1.75rem 1rem 2.25rem;
+}
+
+.footer-brand {
+  display: inline-block;
+  font-family: "Frank Ruhl Libre", serif;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  color: var(--wine-deep);
+  opacity: 0.75;
+  padding: 0.35rem 1rem;
+  border-top: 1px solid rgba(122, 31, 47, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .wishes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .slide {
+    width: 190px;
+  }
+  .slide img {
+    height: 132px;
+  }
+}
+
+@media (max-width: 420px) {
+  main {
+    padding: 2rem 1rem 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track {
+    animation: none;
+  }
+  .carousel {
+    overflow-x: auto;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}

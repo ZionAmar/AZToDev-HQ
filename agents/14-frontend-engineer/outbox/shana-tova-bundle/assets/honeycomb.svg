@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="ÛÕÕèê ÓÑé Õ×ÙÙÝ ÞêÕçÙÝ">
+  <defs>
+    <linearGradient id="bgComb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff4d6"/>
+      <stop offset="100%" stop-color="#ffcf66"/>
+    </linearGradient>
+    <linearGradient id="combCell" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffdb7a"/>
+      <stop offset="100%" stop-color="#e79a1e"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#bgComb)"/>
+  <g fill="url(#combCell)" stroke="#a6650f" stroke-width="2">
+    <polygon points="80,60 110,45 140,60 140,90 110,105 80,90"/>
+    <polygon points="140,60 170,45 200,60 200,90 170,105 140,90"/>
+    <polygon points="200,60 230,45 260,60 260,90 230,105 200,90"/>
+    <polygon points="260,60 290,45 320,60 320,90 290,105 260,90"/>
+    <polygon points="110,105 140,90 170,105 170,135 140,150 110,135"/>
+    <polygon points="170,105 200,90 230,105 230,135 200,150 170,135"/>
+    <polygon points="230,105 260,90 290,105 290,135 260,150 230,135"/>
+    <polygon points="80,150 110,135 140,150 140,180 110,195 80,180"/>
+    <polygon points="140,150 170,135 200,150 200,180 170,195 140,180"/>
+    <polygon points="200,150 230,135 260,150 260,180 230,195 200,180"/>
+    <polygon points="260,150 290,135 320,150 320,180 290,195 260,180"/>
+  </g>
+  <ellipse cx="200" cy="240" rx="14" ry="20" fill="#fdf3d0" stroke="#a6650f" stroke-width="2"/>
+  <g stroke="#4a2f12" stroke-width="2">
+    <line x1="192" y1="228" x2="192" y2="252"/>
+    <line x1="200" y1="225" x2="200" y2="255"/>
+    <line x1="208" y1="228" x2="208" y2="252"/>
+  </g>
+  <g transform="translate(300,220)">
+    <ellipse cx="0" cy="0" rx="16" ry="11" fill="#f2b53a" stroke="#4a2f12" stroke-width="2"/>
+    <path d="M-16 0 h32" stroke="#4a2f12" stroke-width="2"/>
+    <circle cx="14" cy="-2" r="4" fill="#4a2f12"/>
+    <path d="M-4 -10 q6 -10 14 -4 M-8 -10 q10 -14 20 -2" fill="none" stroke="#fff" stroke-width="2" opacity="0.8"/>
+  </g>
+</svg>
