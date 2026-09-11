@@ -256,3 +256,9 @@ LEARNING:
 - do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew
 - dont: Use cake-recipe-demo after founder named aztodev-company-system; claim prior Nadav run succeeded without outbox
 - note: Repo name locked; Pages 404; Nadav re-nudged 20:52Z; PC online
+
+### 2026-09-11
+- task: Founder — «למה בכלל צריך את נדב? הרי לא צריך מחשב בשביל זה»
+- do: Answer yes he's right for Cloud/React bets; cite cake desk-publish as proof; merge unmerged kickoff branch to main before DELEGATE Keshet; route GitHub publish via desk bridge not 34-pc-ops
+- dont: Route math game or GitHub Pages to Nadav PC; leave PCI-KMG-01 only on unmerged branch while claiming Keshet started
+- note: PCI-KMG-01 was on cursor/math-game-kickoff-ea70 not main; routing fixed; Keshet delegated Cloud-only pipeline
