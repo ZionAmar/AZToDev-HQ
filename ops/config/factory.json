@@ -229,6 +229,17 @@
   "updatedAt": "2026-09-10",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
   "pendingWork": {
+    "shana-tova-greeting": {
+      "slug": "shana-tova-greeting",
+      "bet": "דף ברכה שנה טובה — one page, גלריה מתגלגלת, EaseToDev בלבד",
+      "status": "queued_after_emet167_qa",
+      "intake": "ops/intake/ideas/IDEA-2026-09-11-shana-tova-greeting-page.md",
+      "noaDecision": "Keep",
+      "founderAskAt": "2026-09-11T09:07:00.000Z",
+      "gate": "EMET-167 QA pass + founder «יאללה»/«תבנו» + action PIN (new product scope)",
+      "phase": "intake only — no Linear, no engineers until gates clear",
+      "note": "Founder: after kids-math-quiz republish QA closes, build Shana Tova greeting page. Same static Pages pattern as cake-recipe-demo."
+    },
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",
       "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",

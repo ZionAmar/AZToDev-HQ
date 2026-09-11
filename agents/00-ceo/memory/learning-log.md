@@ -16,6 +16,11 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-11
+- task: Founder Shana Tova one-pager after math quiz — carousel, blessing, EaseToDev footer only
+- do: Keep intake + pendingWork queue while WIP=1 on EMET-167 QA; cite Uri Cloud link; ask «יאללה»+PIN before Keshet build
+- dont: Kick engineers on new bet same turn while 20-qa-sdet still holds prerequisite QA
+- note: IDEA-2026-09-11-shana-tova queued; outbox 2026-09-11_shana-tova-intake-queued-after-math-qa
 ### 2026-09-10
 - task: Founder «נו. עוד לא סיים?» ~7 min after PCI-14 GO
 - do: Honest «עדיין לא» + curl Pages + check Nadav outbox; nudge PCI-14 inbox; re-DELEGATE same turn
