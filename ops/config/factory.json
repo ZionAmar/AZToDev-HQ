@@ -14,11 +14,11 @@
     "board": null,
     "startedAt": "2026-09-10T18:42:00.000Z",
     "gate": "none — תבנו+PIN already received (see productWorkEnabledNote)",
-    "waitingFor": "נדב (34-pc-ops) — item 1 (AZToDev-HQ→private) CONFIRMED DONE live-verified 2026-09-10T21:4xZ (gh api → private:true, visibility:private) — no PC action needed, checklist row was stale. Remaining: Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, then re-run failed workflow run 34526813041 — AND execute PCI-17b (cake-recipe-demo repo create + push, 7 staged files, one commit). PC heartbeat flipped OFFLINE→ONLINE at 22:29:38Z then back to OFFLINE again this run (22:4xZ) — flapping, not fixed. Zero new outbox evidence from Nadav across both windows (live-verified 22:4xZ: agents/34-pc-ops/outbox/ still only has the unrelated 2026-09-09 KNU-03 file; gh api repos/ZionAmar/cake-recipe-demo still 404). A follow-up task this run claimed a Cursor-shell 0xC0000142 crash running a node script (`ops/scripts/pci-17b-unified-push.mjs`) that does not exist anywhere in HQ git history — corrected in the Nadav packet, not treated as fact. Added `ops/scripts/pci-17b-cake-recipe-push.ps1`, a git+gh-only PowerShell script with zero Cursor/node dependency, as the new primary execution path (run from a plain PowerShell window or Task Scheduler, same pattern as NADAV-PC.vbs) — it self-writes the outbox result on completion. Packet remains QUEUED, not re-nudged as a 4th duplicate ask; the added script is new content, not a repeat.",
+    "waitingFor": "נדב (34-pc-ops) — ONLY remaining item: Enable GitHub Pages once in Settings (Source: GitHub Actions) on aztodev-company-system, re-run failed workflow run 34526813041, curl 200. PCI-17b cake-recipe-demo CONFIRMED DONE live 2026-09-11T05:10Z (curl 200, repo public, has_pages:true) — no Nadav outbox in HQ git yet but GitHub evidence is definitive. PC heartbeat ONLINE 2026-09-11T05:26Z.",
     "targetRepo": "ZionAmar/aztodev-company-system",
     "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
-    "next": "Nadav fixes both → curl https://zionamar.github.io/aztodev-company-system/ returns 200 → then close EMET-166. cake-recipe-demo (EMET-165/115) is a SEPARATE, still fully open bet — no repo created yet, bundle sits in agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/.",
-    "status": "blocked",
+    "next": "Nadav enables Pages on aztodev-company-system → curl 200 → close EMET-166. cake-recipe-demo LIVE at https://zionamar.github.io/cake-recipe-demo/ (200, 2026-09-11T05:10Z) — QA pending.",
+    "status": "partial — cake live, company-map Pages pending",
     "finishedAt": null,
     "linearIssue": "EMET-166",
     "linearUrl": "https://linear.app/my-company1460/issue/EMET-166/urgent-aztodev-hq-repo-accidentally-public-aztodev-company-system",
@@ -33,7 +33,7 @@
       "reverifiedAt": "2026-09-10T21:4xZ",
       "reverifiedResult": "CONFIRMED PRIVATE (gh api repos/ZionAmar/AZToDev-HQ -> visibility:private, private:true). Reverted (by Nadav or founder, not this run) between the 21:07Z check and now. Pages-on-aztodev-company-system item remains open."
     },
-    "blockerAgeNote": "PCI-14 GO issued ~2026-09-10T20:25Z. As of 22:32Z (~2h07m later): AZToDev-HQ→private landed (fixed between 21:07Z and 21:4xZ, confirmed still private:true at 22:32Z). Still open, re-verified live 22:32Z: aztodev-company-system still public/has_pages:false/Pages 404 (last workflow run: failure); ZionAmar/cake-recipe-demo still does not exist (404, unchanged since 21:07Z). Paz's DevOps staging for cake-recipe-demo (Dockerfile/.dockerignore/pages.yml/PAGES_SETUP.md in ops/staging/cake-recipe-demo/) and the frontend RTL bundle (agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/) are both confirmed present and unchanged — nothing new needed from Paz, that hand-off is already done. New signal this turn: PC heartbeat flipped OFFLINE→ONLINE at 22:29:38Z — the single consolidated PCI-17b packet is queued to run automatically; not re-nudged (queued task firing on his own heartbeat coming back is the intended flow, not a 4th manual nudge)."
+    "blockerAgeNote": "2026-09-11T05:26Z: cake-recipe-demo LIVE (curl 200, repo created 05:09Z). ONLY remaining blocker: aztodev-company-system has_pages:false, workflow 34526813041 failed, Pages 404 — needs one-time Settings toggle by Nadav. PC ONLINE."
   },
   "pausedWork": {
     "slug": "pc-production-inventory",
@@ -224,16 +224,17 @@
       "/start"
     ]
   },
-  "updatedAt": "2026-09-10",
+  "updatedAt": "2026-09-11",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
   "pendingWork": {
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",
       "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",
-      "status": "queued_pc_offline",
+      "status": "live_pending_qa",
       "linearIssue": "EMET-165 / EMET-115 / EMET-116",
-      "phase": "architect-done + frontend-done + devops-staged-and-merged, unified PCI-17 packet ready for Nadav — PC OFFLINE, queued not nudged",
-      "note": "Planning done (EMET-165 Done). Architect spec done (12-software-architect). Frontend RTL bundle done (14-frontend-engineer). DevOps staging done (18-devops-platform, Paz) — ops/staging/cake-recipe-demo/{Dockerfile,.dockerignore,.github/workflows/pages.yml,PAGES_SETUP.md} — this was itself stranded on an unmerged branch (cursor/cake-recipe-docker-pages-stage-18eb) plus 4 more overlapping/duplicate branches from parallel runs responding to the same delegation (WIP-fragmentation recurrence, same bug class as the 21:15Z fix) — all merged into main 2026-09-10T21:4xZ by 32-delivery-lead, zero conflicts of substance. gh api repos/ZionAmar/cake-recipe-demo re-verified 404 again at 22:4xZ — repo still does not exist, unchanged. Nadav's founder-PC shell is broken (0xC0000142, discovered by Paz's helper run) and PC heartbeat flapped ONLINE(22:29Z)→OFFLINE(22:4xZ) within this thread without producing any outbox — task remains QUEUED, not actively waiting for a reply. Unified single-file ask written: agents/34-pc-ops/inbox/2026-09-10_pci-17b-unified-cake-recipe-repo-devops-pages.md (supersedes PCI-16 item 3 + standalone PCI-17 — one push: repo create + bundle + devops files + Pages toggle, with full verbatim copy-paste fallback in case git fetch still fails once his shell returns). This run added ops/scripts/pci-17b-cake-recipe-push.ps1 (PowerShell, no Cursor/node dependency) as a new alternative execution path after a follow-up task reported a Cursor-shell 0xC0000142 crash on a node script that does not exist in HQ history — corrected, not accepted as fact. Next after Nadav: QA (20-qa-sdet/Uri) verifies live Pages URL, then close EMET-165 build phase."
+      "phase": "live — Pages 200 verified 2026-09-11T05:10Z",
+      "liveUrl": "https://zionamar.github.io/cake-recipe-demo/",
+      "note": "Repo created+pushed by Nadav on PC ~05:09Z (no formal outbox in HQ git yet). curl 200, RTL Hebrew verified. Next: QA (20-qa-sdet) then close EMET-165 build phase."
     }
   },
   "orphanedBranchesMergedAt": "2026-09-10T21:4xZ",
