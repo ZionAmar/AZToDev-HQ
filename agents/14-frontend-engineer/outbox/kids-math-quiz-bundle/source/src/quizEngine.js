@@ -61,8 +61,12 @@ export function buildQuestions() {
     picked.push(sorted[0], sorted[1], sorted[2]);
   });
   const extra = shuffle(QUESTION_POOL.filter((t) => !picked.includes(t))).slice(0, 1);
+  const templates = shuffle([...picked, ...extra]);
+  while (templates.length < TOTAL_QUESTIONS) {
+    templates.push(QUESTION_POOL[rand(0, QUESTION_POOL.length - 1)]);
+  }
 
-  return shuffle([...picked, ...extra])
+  return shuffle(templates)
     .slice(0, TOTAL_QUESTIONS)
     .map((t) => {
       const item = t.gen();
