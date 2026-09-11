@@ -2,6 +2,11 @@
 
 Failures that must not repeat. Injected into every live agent run.
 
+### 2026-09-11 · dispatcher_parallel_branch_fragmentation
+- do: One bet = one branch. Before starting any fix/status/intake work, `git fetch --all` and check `git branch -r --sort=-committerdate` for an existing in-flight branch on the same bet; continue that branch (or merge it first) instead of opening a new one. When multiple branches already exist for the same bug, pick the most complete one and close/delete the rest — don't add a 4th.
+- dont: Let the dispatcher spin up a fresh Cloud run (new branch) for every founder message/status-check on an already-open bet — this produced 24 unmerged `cursor/*` branches in ~4h (05:27Z-09:13Z) for what was really 2 bets (cake-recipe-demo status, kids-math-quiz Q10 bug), including 3 separate branches independently "fixing" the identical Q10 crash and 2 separate branches independently doing the identical Shana Tova intake — none visible to `main`, none aware of each other.
+- note: Found live 2026-09-11T09:2xZ by 32-delivery-lead while checking the Shana Tova gate: EMET-167 (kids-math-quiz) QA failed twice (Q10 crash) and a plausible fix exists on branch `cursor/kids-math-quiz-q10-fix-afab` but was never republished (repo `pushed_at` unchanged, live site still serves the crashing build) — main had zero record of any of this. Also found the Shana Tova intake itself (IDEA file + CEO write-up) duplicated across `cursor/shana-tova-intake-60f1` and `cursor/shana-tova-publish-commitment-9ffa`, neither merged. Consolidated the true state onto `main` this run (`ops/config/factory.json`, this file) without attempting a full 24-branch merge (out of scope for a gate-check task; flagging for a dedicated reconciliation pass instead of rushing one and risking new conflicts).
+
 ### 2026-09-10 · readability_wrong_batch_direction
 - do: When founder approves a single-repo visibility test, reply with one sentence (what / who / when result) — no batch counts, no API jargon; live-check before stating direction (private vs public)
 - dont: Conflate a new «make public» test with an old «8 repos private» batch in the same reply — founder said «נורא קורא» when messages mixed wrong count + wrong direction
