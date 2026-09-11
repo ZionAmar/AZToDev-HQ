@@ -7,6 +7,29 @@
   "chemiCloudHqDeploy": true,
   "wipLimit": 1,
   "activeWork": {
+    "slug": "kids-math-game-react",
+    "bet": "משחק מתמטיקה לילדים — React, RTL, GitHub Pages live link",
+    "phase": "kickoff-planning",
+    "owner": "32-delivery-lead (קשת) → pipeline",
+    "board": "ops/intake/ideas/IDEA-2026-09-11-kids-math-game-react.md",
+    "startedAt": "2026-09-11T07:48:00.000Z",
+    "gate": "new_product — founder said «יאללה צרו את המשחק»; action PIN needed before engineer PRs",
+    "waitingFor": "founder action PIN (new_product gate) OR Keshet planning completion",
+    "next": "Keshet PCI-KMG-01: Linear + pipeline + architect brief → after PIN: React build → Pages → Nadav repo if 403 → QA → founder URL",
+    "status": "active",
+    "finishedAt": null,
+    "linearIssue": null,
+    "linearUrl": null,
+    "swappedFrom": "hq-exposure-and-company-system-pages (founder explicit GO on math game 2026-09-11)",
+    "liveVerification": {
+      "checkedAt": "2026-09-11T07:48:00.000Z",
+      "mathGameUrl": "404",
+      "mathGameRepo": "not found",
+      "cakeUrl": "200 with images",
+      "companyMapUrl": "404"
+    }
+  },
+  "pausedWorkCompanyMap": {
     "slug": "hq-exposure-and-company-system-pages",
     "bet": "Dafna company-system-map — public + Docker + Pages (aztodev-company-system) — SEPARATE from cake-recipe-demo",
     "phase": "pages-enable-needed",
@@ -18,7 +41,10 @@
     "targetRepo": "ZionAmar/aztodev-company-system",
     "targetPagesUrl": "https://zionamar.github.io/aztodev-company-system/",
     "next": "Nadav fixes both → curl https://zionamar.github.io/aztodev-company-system/ returns 200 → then close EMET-166. cake-recipe-demo (EMET-165/115) is a SEPARATE, still fully open bet — no repo created yet, bundle sits in agents/14-frontend-engineer/outbox/cake-recipe-demo-bundle/.",
-    "status": "blocked",
+    "status": "paused",
+    "pausedAt": "2026-09-11T07:48:00.000Z",
+    "pausedReason": "WIP=1 swap — founder explicit GO on kids-math-game-react. Not abandoned: PCI-20 delegated to Nadav for Pages enable.",
+    "waitingFor": "נדב — PCI-20: enable GitHub Pages on aztodev-company-system (one Settings click + workflow rerun)",
     "finishedAt": null,
     "linearIssue": "EMET-166",
     "linearUrl": "https://linear.app/my-company1460/issue/EMET-166/urgent-aztodev-hq-repo-accidentally-public-aztodev-company-system",
@@ -227,10 +253,19 @@
   "updatedAt": "2026-09-10",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
   "pendingWork": {
+    "kids-math-game-react": {
+      "slug": "kids-math-game-react",
+      "bet": "משחק מתמטיקה לילדים — React, RTL, GitHub Pages",
+      "status": "kickoff",
+      "intake": "ops/intake/ideas/IDEA-2026-09-11-kids-math-game-react.md",
+      "packet": "agents/32-delivery-lead/inbox/2026-09-11_pci-kmg-01-kids-math-game-kickoff.md",
+      "gate": "new_product — action PIN before engineer PRs",
+      "note": "Prior turns claimed start without real packet (theater). PCI-KMG-01 created 2026-09-11T07:48Z; Keshet delegated same turn."
+    },
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",
       "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",
-      "status": "queued_pc_offline",
+      "status": "live_pending_qa_close",
       "linearIssue": "EMET-165 / EMET-115 / EMET-116",
       "phase": "architect-done + frontend-done + devops-staged-and-merged, unified PCI-17 packet ready for Nadav — PC OFFLINE, queued not nudged",
       "note": "Planning done (EMET-165 Done). Architect spec done (12-software-architect). Frontend RTL bundle done (14-frontend-engineer). DevOps staging done (18-devops-platform, Paz) — ops/staging/cake-recipe-demo/{Dockerfile,.dockerignore,.github/workflows/pages.yml,PAGES_SETUP.md} — this was itself stranded on an unmerged branch (cursor/cake-recipe-docker-pages-stage-18eb) plus 4 more overlapping/duplicate branches from parallel runs responding to the same delegation (WIP-fragmentation recurrence, same bug class as the 21:15Z fix) — all merged into main 2026-09-10T21:4xZ by 32-delivery-lead, zero conflicts of substance. gh api repos/ZionAmar/cake-recipe-demo re-verified 404 again at 22:4xZ — repo still does not exist, unchanged. Nadav's founder-PC shell is broken (0xC0000142, discovered by Paz's helper run) and PC heartbeat flapped ONLINE(22:29Z)→OFFLINE(22:4xZ) within this thread without producing any outbox — task remains QUEUED, not actively waiting for a reply. Unified single-file ask written: agents/34-pc-ops/inbox/2026-09-10_pci-17b-unified-cake-recipe-repo-devops-pages.md (supersedes PCI-16 item 3 + standalone PCI-17 — one push: repo create + bundle + devops files + Pages toggle, with full verbatim copy-paste fallback in case git fetch still fails once his shell returns). This run added ops/scripts/pci-17b-cake-recipe-push.ps1 (PowerShell, no Cursor/node dependency) as a new alternative execution path after a follow-up task reported a Cursor-shell 0xC0000142 crash on a node script that does not exist in HQ history — corrected, not accepted as fact. Next after Nadav: QA (20-qa-sdet/Uri) verifies live Pages URL, then close EMET-165 build phase."
