@@ -50,6 +50,14 @@ function makeOptions(correct) {
   return shuffle([...opts]);
 }
 
+function materialize(t) {
+  const item = t.gen();
+  item.op = t.op;
+  item.diff = t.diff;
+  item.options = makeOptions(item.answer);
+  return item;
+}
+
 export function buildQuestions() {
   const byOp = { add: [], sub: [], mul: [] };
   QUESTION_POOL.forEach((t) => byOp[t.op].push(t));
@@ -58,19 +66,19 @@ export function buildQuestions() {
   const picked = [];
   ['add', 'sub', 'mul'].forEach((op) => {
     const sorted = shuffle(byOp[op]).sort((a, b) => diffRank[a.diff] - diffRank[b.diff]);
-    picked.push(sorted[0], sorted[1], sorted[2]);
+    picked.push(sorted[0], sorted[1]);
   });
-  const extra = shuffle(QUESTION_POOL.filter((t) => !picked.includes(t))).slice(0, 1);
 
-  return shuffle([...picked, ...extra])
-    .slice(0, TOTAL_QUESTIONS)
-    .map((t) => {
-      const item = t.gen();
-      item.op = t.op;
-      item.diff = t.diff;
-      item.options = makeOptions(item.answer);
-      return item;
-    });
+  let templates = shuffle([
+    ...picked,
+    ...shuffle(QUESTION_POOL.filter((t) => !picked.includes(t))),
+  ]);
+  while (templates.length < TOTAL_QUESTIONS) {
+    templates.push(...shuffle(QUESTION_POOL));
+  }
+  templates = templates.slice(0, TOTAL_QUESTIONS);
+
+  return shuffle(templates).map(materialize);
 }
 
 export function emptyStats() {
