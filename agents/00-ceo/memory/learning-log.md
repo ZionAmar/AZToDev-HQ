@@ -256,3 +256,9 @@ LEARNING:
 - do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew
 - dont: Use cake-recipe-demo after founder named aztodev-company-system; claim prior Nadav run succeeded without outbox
 - note: Repo name locked; Pages 404; Nadav re-nudged 20:52Z; PC online
+
+### 2026-09-11
+- task: Founder — «למה בכלל צריך את נדב?» + «לא אמור להיות חסר כלום. תבדקו טוב יש את כl ההרשאות»
+- do: On GitHub-only blocker after desk already pushed — cancel Nadav packets, route Pages enable to 18-devops-platform desk token; live-verify cake 200 / math+map 404 before reply
+- dont: Tell founder PC needed for GitHub after cake-recipe-demo proved desk path; keep waiting on Nadav heartbeat for pure GitHub
+- note: Math React on GitHub main 08:17Z; only Pages enable blocked; founder correction accepted
