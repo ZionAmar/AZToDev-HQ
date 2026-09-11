@@ -5,101 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="מתכון לעוגת שוקולד רכה — דמו סטטי RTL מ-AZToDev"
+      content="מתכון לעוגת שוקולד עשירה — דמו סטטי RTL מ-AZToDev"
     />
-    <title>עוגת שוקולד רכה — מתכון</title>
+    <title>עוגת שוקולד עשירה — מתכון</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">דלג לתוכן</a>
 
-    <header class="site-header">
-      <div class="container">
-        <p class="eyebrow">מתכון ביתי · AZToDev Demo</p>
-        <h1>עוגת שוקולד רכה</h1>
-        <p class="lead">
-          עוגה עשירה ולחה — מושלמת לקפה של שישי בבוקר או לאירוח קטן.
-        </p>
-        <dl class="meta" aria-label="פרטי המתכון">
-          <div>
-            <dt>זמן הכנה</dt>
-            <dd>20 דק׳</dd>
-          </div>
-          <div>
-            <dt>זמן אפייה</dt>
-            <dd>35 דק׳</dd>
-          </div>
-          <div>
-            <dt>מנות</dt>
-            <dd>10 פרוסות</dd>
-          </div>
-          <div>
-            <dt>רמת קושי</dt>
-            <dd>קל</dd>
-          </div>
-        </dl>
+    <header class="meta-bar" aria-label="פרטי המתכון">
+      <div class="container meta-pills">
+        <span class="pill">👥 12 פרוסות</span>
+        <span class="pill">🕐 הכנה 25 דק׳</span>
+        <span class="pill">🔥 אפייה 35 דק׳</span>
+        <span class="pill">📊 בינוני</span>
       </div>
     </header>
 
-    <main id="main" class="container recipe-grid">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media">
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200&q=80"
+          alt="פרוסת עוגת שוקולד על צלחת"
+          width="1200"
+          height="800"
+          decoding="async"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content container">
+        <h1 id="hero-title">עוגת שוקולד עשירה</h1>
+        <p class="hero-subtitle">
+          עוגה רכה ולחה — מושלמת ליום הולדת או קפה של שישי
+        </p>
+      </div>
+    </section>
+
+    <main id="main" class="container recipe-main">
+      <section class="intro card" aria-labelledby="intro-heading">
+        <h2 id="intro-heading" class="visually-hidden">הקדמה</h2>
+        <p>
+          עוגת שוקולד קלאסית עם בלילה רכה וטעם עמוק — מתאימה למי שאוהב עוגה
+          ביתית בלי להשקיע שעות. המתכון פשוט לעקיבה, והתוצאה נראית מרשימה על
+          כל שולחן.
+        </p>
+      </section>
+
       <section class="card" aria-labelledby="ingredients-heading">
-        <h2 id="ingredients-heading">מצרכים</h2>
+        <h2 id="ingredients-heading">מרכיבים</h2>
+
+        <h3 class="subheading">לבלילה</h3>
         <ul class="ingredients">
-          <li><span class="amount">200 ג׳</span> קמח</li>
-          <li><span class="amount">50 ג׳</span> אבקת קקאו</li>
-          <li><span class="amount">200 ג׳</span> סוכר</li>
-          <li><span class="amount">2</span> ביצים</li>
-          <li><span class="amount">120 מ״ל</span> שמן</li>
+          <li><span class="amount">200 גרם</span> קמח לבן</li>
+          <li><span class="amount">50 גרם</span> אבקת קקאו</li>
+          <li><span class="amount">1½ כפיות</span> אפייה</li>
+          <li><span class="amount">½ כפית</span> מלח</li>
+          <li><span class="amount">200 גרם</span> סוכר</li>
+          <li><span class="amount">2</span> ביצים גדולות</li>
           <li><span class="amount">240 מ״ל</span> חלב</li>
-          <li><span class="amount">1 כפית</span> אבקת אפייה</li>
-          <li><span class="amount">1/2 כפית</span> מלח</li>
+          <li><span class="amount">120 מ״ל</span> שמן קנולה</li>
           <li><span class="amount">1 כפית</span> תמצית וניל</li>
-          <li><span class="amount">100 ג׳</span> שוקולד מריר (אופציונלי, לפירור)</li>
+        </ul>
+
+        <h3 class="subheading">לציפוי (אופציונלי)</h3>
+        <ul class="ingredients optional">
+          <li><span class="amount">100 גרם</span> שוקולד מריר</li>
+          <li><span class="amount">50 מ״ל</span> שמנת מתוקה</li>
         </ul>
       </section>
 
       <section class="card" aria-labelledby="steps-heading">
-        <h2 id="steps-heading">אופן ההכנה</h2>
-        <ol class="steps">
-          <li>
-            <strong>חימום תנור:</strong> מחממים תנור ל־180°C. משמנים תבנית 24 ס״מ
-            ומרפדים בנייר אפייה.
+        <h2 id="steps-heading">שלבי הכנה</h2>
+        <ol class="step-list">
+          <li class="step-card has-image">
+            <div class="step-body">
+              <span class="step-badge" aria-hidden="true">1</span>
+              <div class="step-text">
+                <h3>חימום תנור</h3>
+                <p>
+                  180°C. מריחת תבנית 24×34 ס״מ בחמאה וקמח.
+                </p>
+              </div>
+            </div>
+            <img
+              class="step-image"
+              src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80"
+              alt="תנור חם מוכן לאפייה"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
           </li>
-          <li>
-            <strong>ערבוב יבש:</strong> מערבבים בקערה קמח, קקאו, אבקת אפייה
-            ומלח.
+
+          <li class="step-card">
+            <div class="step-body">
+              <span class="step-badge" aria-hidden="true">2</span>
+              <div class="step-text">
+                <h3>ערבוב יבשים</h3>
+                <p>קמח, קקאו, אבקת אפייה ומלח במערוך.</p>
+              </div>
+            </div>
           </li>
-          <li>
-            <strong>ערבוב רטוב:</strong> בקערה נפרדת מקציפים ביצים וסוכר עד
-            תערובת בהירה. מוסיפים שמן, חלב ווניל.
+
+          <li class="step-card">
+            <div class="step-body">
+              <span class="step-badge" aria-hidden="true">3</span>
+              <div class="step-text">
+                <h3>ערבוב רטובים</h3>
+                <p>סוכר, ביצים, חלב, שמן ווניל עד תערובת חלקה.</p>
+              </div>
+            </div>
           </li>
-          <li>
-            <strong>שילוב:</strong> מערבבים את היבש לרטוב בעדינות — בלי
-            להעמיס. אם רוצים, מוסיפים פירורי שוקולד.
+
+          <li class="step-card has-image">
+            <div class="step-body">
+              <span class="step-badge" aria-hidden="true">4</span>
+              <div class="step-text">
+                <h3>שילוב</h3>
+                <p>
+                  הוספת תערובת יבשה לרטובה; ערבוב עד איחוד (לא לערבב יותר
+                  מדי).
+                </p>
+              </div>
+            </div>
+            <img
+              class="step-image"
+              src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80"
+              alt="ערבוב בלילת עוגה בקערה"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
           </li>
-          <li>
-            <strong>אפייה:</strong> יוצקים לתבנית ואופים 30–35 דק׳. שיניים
-            נקיות יוצאות יבשות מהמרכז.
+
+          <li class="step-card has-image">
+            <div class="step-body">
+              <span class="step-badge" aria-hidden="true">5</span>
+              <div class="step-text">
+                <h3>אפייה</h3>
+                <p>יציקה לתבנית, 35 דק׳ עד שקיסם יוצא נקי.</p>
+              </div>
+            </div>
+            <img
+              class="step-image"
+              src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=800&q=80"
+              alt="עוגה בתבנית לפני אפייה"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
           </li>
-          <li>
-            <strong>מנוחה:</strong> מצננים 15 דק׳ בתבנית, מעבירים לרשת, ומגישים
-            פושרת או בטמפרטורת החדר.
+
+          <li class="step-card">
+            <div class="step-body">
+              <span class="step-badge" aria-hidden="true">6</span>
+              <div class="step-text">
+                <h3>צינון</h3>
+                <p>15 דק׳ בתבנית, אחר כך על רשת.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="step-card has-image">
+            <div class="step-body">
+              <span class="step-badge" aria-hidden="true">7</span>
+              <div class="step-text">
+                <h3>ציפוי (אופציונלי)</h3>
+                <p>המסת שוקולד + שמנת, מריחה על עוגה מצוננת.</p>
+              </div>
+            </div>
+            <img
+              class="step-image"
+              src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=800&q=80"
+              alt="ציפוי שוקולד מבריק"
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
           </li>
         </ol>
       </section>
 
-      <aside class="card tip" aria-labelledby="tip-heading">
-        <h2 id="tip-heading">טיפ של דפנה</h2>
-        <p>
-          לעוגה עוד יותר לחה — החליפו חצי מכמות החלב ביוגורט טבעי. לפני
-          ההגשה, פזרו אבקת סוכר או ציפו בגנאch שוקולד.
-        </p>
-      </aside>
+      <section class="card tips" aria-labelledby="tips-heading">
+        <h2 id="tips-heading">טיפים</h2>
+        <ul class="tips-list">
+          <li>אל תפתחו את דלת התנור ב-20 הדקות הראשונות.</li>
+          <li>עוגה טובה יותר ביום למחרת — עטפו בניילון נצמד.</li>
+          <li>ללא ציפוי: פיזור אבקת סוכר מעל.</li>
+        </ul>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container">
-        <p>דמו סטטי RTL · AZToDev · Frontend Engineer (דפנה)</p>
+        <p>
+          AZToDev · מתכון לדוגמה ·
+          <a
+            href="https://github.com/ZionAmar/cake-recipe-demo"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </p>
       </div>
     </footer>
   </body>
