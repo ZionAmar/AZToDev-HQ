@@ -1,58 +1,48 @@
 {
   "url": "https://zionamar.github.io/kids-math-quiz/",
-  "timestamp": "2026-09-11T11:39:50.602Z",
-  "bundleHash": "assets/index-mKCXMWMT.js",
-  "oldBundleHash": "assets/index-mKCXMWMT.js",
-  "hashChanged": false,
+  "timestamp": "2026-09-11T11:45:39.513Z",
+  "bundleHash": "index-ZmMTvbPf.js",
   "runs": [
     {
       "runId": 1,
-      "questionsAnswered": 9,
-      "reachedResults": false,
-      "crashAt": 10,
-      "error": "Expected question 10, got: ",
-      "pageErrors": [
-        "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ],
-      "bundleHash": "assets/index-mKCXMWMT.js"
+      "questionsAnswered": 10,
+      "reachedResults": true,
+      "crashAt": null,
+      "error": null,
+      "pageErrors": []
     },
     {
       "runId": 2,
-      "questionsAnswered": 9,
-      "reachedResults": false,
-      "crashAt": 10,
-      "error": "Expected question 10, got: ",
-      "pageErrors": [
-        "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ],
-      "bundleHash": "assets/index-mKCXMWMT.js"
+      "questionsAnswered": 10,
+      "reachedResults": true,
+      "crashAt": null,
+      "error": null,
+      "pageErrors": []
     },
     {
       "runId": 3,
-      "questionsAnswered": 9,
-      "reachedResults": false,
-      "crashAt": 10,
-      "error": "Expected question 10, got: ",
-      "pageErrors": [
-        "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ],
-      "bundleHash": "assets/index-mKCXMWMT.js"
+      "questionsAnswered": 10,
+      "reachedResults": true,
+      "crashAt": null,
+      "error": null,
+      "pageErrors": []
     }
   ],
   "checklist": {
     "rtl": true,
     "langHe": true,
     "title": true,
+    "bundleHash": "index-ZmMTvbPf.js",
     "responsive_mobile": true,
     "responsive_tablet": true,
     "responsive_desktop": true,
     "no404s": true,
     "favicon": true,
-    "network404s": []
+    "restart": true
   },
-  "pageErrors": [
-    "TypeError: Cannot read properties of undefined (reading 'answer')"
-  ],
-  "overall": "FAIL",
-  "summary": "BLOCKED: republish not detected — still serving assets/index-mKCXMWMT.js"
+  "consoleErrors": [],
+  "network404s": [],
+  "pageErrors": [],
+  "overall": "PASS",
+  "summary": "PASS: 3/3 runs reached results + restart OK"
 }
