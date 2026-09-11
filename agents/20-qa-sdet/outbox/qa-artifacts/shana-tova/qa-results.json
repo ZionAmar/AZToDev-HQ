@@ -1,0 +1,39 @@
+{
+  "url": "https://zionamar.github.io/shana-tova-greeting/",
+  "timestamp": "2026-09-11T13:45:43.402Z",
+  "repo": "ZionAmar/shana-tova-greeting",
+  "commitSha": "cdf6759",
+  "pushedAt": "2026-09-11T13:41:15Z",
+  "assetChecks": {
+    "assets/pomegranate.svg": 200,
+    "assets/honey-apple.svg": 200,
+    "assets/shofar.svg": 200,
+    "assets/honeycomb.svg": 200,
+    "assets/wheat-sheaf.svg": 200,
+    "assets/candles.svg": 200
+  },
+  "checklist": {
+    "rtl": true,
+    "langHe": true,
+    "titleOk": true,
+    "footerEaseToDevOnly": true,
+    "blessingKeywords": true,
+    "slideCount": 12,
+    "carouselExists": true,
+    "responsive_mobile": true,
+    "responsive_tablet": true,
+    "responsive_desktop": true,
+    "no404s": true,
+    "network404s": [],
+    "consoleErrors": []
+  },
+  "carousel": {
+    "autoScrolls": true,
+    "toggleExists": true,
+    "pauseWorks": true,
+    "transformBefore": "matrix(1, 0, 0, 1, -24.9365, 0)",
+    "transformAfter": "matrix(1, 0, 0, 1, -124.682, 0)"
+  },
+  "overall": "PASS",
+  "summary": "PASS: live Shana Tova page — RTL, blessing, carousel, EaseToDev footer, all assets 200"
+}

@@ -7,6 +7,12 @@ Bench until there is something to break. Then repro + Playwright. WIP=1 with eng
 - Do not mark Done without evidence.
 
 ## Iteration log
+### 2026-09-11 (EMET-168 Shana Tova)
+- task: Full live QA on https://zionamar.github.io/shana-tova-greeting/ after desk publish; on pass delegate 32-delivery-lead to close EMET-168
+- do: Publish gate first (repo exists + curl 200 on all assets) before Playwright — publish landed 13:41Z after prior 404 at 13:33Z
+- dont: Start Playwright when Pages still 404 — BLOCKED with curl/gh evidence, delegate back to 18-devops-platform
+- note: QA 13:45Z PASS — RTL carousel auto-scroll + pause, EaseToDev footer only, blessing keywords OK, 6 SVGs 200, no console errors
+
 ### 2026-09-11
 - task: Verify desk-github republish (hash ≠ index-mKCXMWMT.js) then QA kids-math-quiz (EMET-167)
 - do: Hash gate first with curl + gh api before Playwright — report BLOCKED if bundle unchanged
