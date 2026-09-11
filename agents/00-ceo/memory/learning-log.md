@@ -17,6 +17,12 @@ HQ appends after each turn. You read this before answering ציון.
 
 ## Iteration log
 ### 2026-09-11
+- task: Founder «אבל פעם הבאה לא תקרה לי יותר תקלה כזאת??»
+- do: Name 3 concrete rule fixes (desk publish not Nadav, live hash before «מוכן», PIN→immediate kick); confirm Keshet bc-4e79d361 RUNNING for Shana Tova
+- dont: Promise 100%; re-ask PIN when unlocked; blame Nadav for GitHub publish
+- note: Glitch ask after Q10 cycle; quiz index-ZmMTvbPf.js live; EMET-168 building
+
+### 2026-09-11
 - task: Founder «מה עם האתר של השנה טובה שביקשתי»
 - do: Curl Shana Tova 404 + confirm math Q10 fix live; delegate Keshet kickoff; ask «יאללה»+PIN once for this bet
 - dont: Say queued without stating nothing built and math prerequisite now closed

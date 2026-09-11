@@ -2,6 +2,11 @@
 
 Failures that must not repeat. Injected into every live agent run.
 
+### 2026-09-11 · publish_ready_not_live_nadav_wrong_route
+- do: GitHub Pages publish = desk token («גיטהאב מהשרת»), never Nadav. Before any founder «מוכן/סגור» claim, curl the live JS bundle hash and compare to the fix branch. After founder «יאללה»+PIN on a bet, kick engineers immediately — never reply «מחכים ל-PIN» while HQ ACTION PIN is UNLOCKED.
+- dont: Route static site publish to 34-pc-ops; say «התיקון מוכן» when live URL still serves the pre-fix bundle; hold EMET-168 after founder already sent PIN for Shana Tova specifically.
+- note: Founder asked «פעם הבאה לא תקרה?» after kids-math Q10 took 3 fix cycles + wrong Nadav routing before 18-devops-platform desk republish landed index-ZmMTvbPf.js; Keshet then held Shana Tova on PIN already received.
+
 ### 2026-09-11 · dispatcher_parallel_branch_fragmentation
 - do: One bet = one branch. Before starting any fix/status/intake work, `git fetch --all` and check `git branch -r --sort=-committerdate` for an existing in-flight branch on the same bet; continue that branch (or merge it first) instead of opening a new one. When multiple branches already exist for the same bug, pick the most complete one and close/delete the rest — don't add a 4th.
 - dont: Let the dispatcher spin up a fresh Cloud run (new branch) for every founder message/status-check on an already-open bet — this produced 24 unmerged `cursor/*` branches in ~4h (05:27Z-09:13Z) for what was really 2 bets (cake-recipe-demo status, kids-math-quiz Q10 bug), including 3 separate branches independently "fixing" the identical Q10 crash and 2 separate branches independently doing the identical Shana Tova intake — none visible to `main`, none aware of each other.
