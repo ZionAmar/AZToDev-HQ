@@ -1,55 +1,48 @@
 {
   "url": "https://zionamar.github.io/kids-math-quiz/",
-  "timestamp": "2026-09-11T09:24:26.297Z",
+  "timestamp": "2026-09-11T11:45:39.513Z",
+  "bundleHash": "index-ZmMTvbPf.js",
   "runs": [
     {
       "runId": 1,
-      "questionsAnswered": 9,
-      "reachedResults": false,
-      "crashAt": 10,
-      "error": "Expected question 10, got: ",
-      "pageErrors": [
-        "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ]
+      "questionsAnswered": 10,
+      "reachedResults": true,
+      "crashAt": null,
+      "error": null,
+      "pageErrors": []
     },
     {
       "runId": 2,
-      "questionsAnswered": 9,
-      "reachedResults": false,
-      "crashAt": 10,
-      "error": "Expected question 10, got: ",
-      "pageErrors": [
-        "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ]
+      "questionsAnswered": 10,
+      "reachedResults": true,
+      "crashAt": null,
+      "error": null,
+      "pageErrors": []
     },
     {
       "runId": 3,
-      "questionsAnswered": 9,
-      "reachedResults": false,
-      "crashAt": 10,
-      "error": "Expected question 10, got: ",
-      "pageErrors": [
-        "TypeError: Cannot read properties of undefined (reading 'answer')"
-      ]
+      "questionsAnswered": 10,
+      "reachedResults": true,
+      "crashAt": null,
+      "error": null,
+      "pageErrors": []
     }
   ],
   "checklist": {
-    "rtl": false,
-    "langHe": false,
-    "title": false,
+    "rtl": true,
+    "langHe": true,
+    "title": true,
+    "bundleHash": "index-ZmMTvbPf.js",
     "responsive_mobile": true,
     "responsive_tablet": true,
     "responsive_desktop": true,
     "no404s": true,
-    "favicon": true
+    "favicon": true,
+    "restart": true
   },
   "consoleErrors": [],
   "network404s": [],
-  "pageErrors": [
-    "TypeError: Cannot read properties of undefined (reading 'answer')",
-    "TypeError: Cannot read properties of undefined (reading 'answer')",
-    "TypeError: Cannot read properties of undefined (reading 'answer')"
-  ],
-  "overall": "FAIL",
-  "summary": "FAIL: 3/3 runs did not reach results"
+  "pageErrors": [],
+  "overall": "PASS",
+  "summary": "PASS: 3/3 runs reached results + restart OK"
 }
