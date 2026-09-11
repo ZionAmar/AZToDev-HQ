@@ -19,3 +19,8 @@
 - do: Read-verify repo state before PATCH; report stale checklist rows when live API differs (HQ already private)
 - dont: Claim Cloud can flip personal-repo visibility or enable Pages — integration token is AZToDev-HQ scoped only (403)
 - note: Bundle confirmed on rtl-58ef + docker-pages-stage-18eb; item 1 (HQ private) already satisfied; items 2–3 (Pages toggle, cake-recipe-demo repo) remain blocked on PC
+
+### 2026-09-11 · kids-math-quiz-q10-fix-republish
+- do: Desk `GITHUB_STATIC_PUBLISH` with `HQ_BRANCH:cursor/...` + runtime `GITHUB_HQ_REPO` when desk `.env` lacks it; poll live HTML until JS hash flips after Pages workflow
+- dont: Mark republish Done on `pushed_at` alone — verify live HTML references new hash (not stale `index-mKCXMWMT.js` CDN)
+- note: Q10 fix bundle republished via ChemiCloud desk bridge; live `index-ZmMTvbPf.js`; final QA queued to 20-qa-sdet
