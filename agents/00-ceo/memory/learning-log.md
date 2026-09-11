@@ -251,6 +251,12 @@ LEARNING:
 - do: Publish mandatory 6-step checklist in PCI-14 inbox; mirror same list in Hebrew to founder; re-DELEGATE Nadav same turn
 - dont: Claim Nadav is executing without outbox or live URL; give vague «הוא על זה» without the explicit step list
 - note: Pages still 404 ~11 min post-אשר; checklist enforced; PC online
+### 2026-09-11
+- task: Founder — «מה לגבי המשחק מתמטיקה שביקשתי»
+- do: On math-game status ask — live-verify all three URLs; admit PCI-KMG-01 never existed; create intake+inbox same turn; ask PIN for new_product
+- dont: Repeat «קשת על זה» when Keshet verified zero packet/Linear/pipeline exists
+- note: cake 200+images; map 404; no math repo; PCI-KMG-01 written cursor/math-game-honest-status-4870
+
 ### 2026-09-10
 - task: Founder — «aztodev-company-system — זה הריפו»
 - do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew

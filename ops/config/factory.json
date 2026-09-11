@@ -227,6 +227,17 @@
   "updatedAt": "2026-09-10",
   "lastHqHelloAt": "2026-09-09T13:40:00.000Z",
   "pendingWork": {
+    "kids-math-game-react": {
+      "slug": "kids-math-game-react",
+      "bet": "משחק מתמטיקה לילדים — React, עברית RTL, GitHub Pages",
+      "status": "queued_awaiting_pin",
+      "intake": "ops/intake/ideas/IDEA-2026-09-11-kids-math-game-react.md",
+      "inboxPacket": "agents/32-delivery-lead/inbox/2026-09-11_pci-kmg-01-kids-math-game-go.md",
+      "phase": "intake+packet created 2026-09-11 — blocked on founder PIN (new_product) + WIP=1 (EMET-166 company-map Pages still 404)",
+      "founderGoAt": "2026-09-11",
+      "founderGoText": "יאללה צרו את המשחק",
+      "note": "Prior turns claimed kickoff but PCI-KMG-01 did not exist until 00-ceo run 2026-09-11. Keshet hold artifact: agents/32-delivery-lead/outbox/2026-09-11_pci-kmg-01-not-found-wip-held.md. Next after PIN: Keshet opens one Linear project, pipeline folder, architect spec."
+    },
     "cake-recipe-demo": {
       "slug": "cake-recipe-demo",
       "bet": "דף מתכון הוגה (עוגה) — RTL, תמונות",
