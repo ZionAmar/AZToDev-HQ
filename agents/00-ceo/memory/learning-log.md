@@ -16,6 +16,12 @@ HQ appends after each turn. You read this before answering ציון.
 - Do not production-deploy, spend, or publish without an explicit founder yes + PIN.
 
 ## Iteration log
+### 2026-09-11
+- task: Founder «כמובן שהאתר הזה יפורסם והכל ותיתנו לי לינק חי שעובד» (Shana Tova after math)
+- do: Confirm live-link deliverable in plain Hebrew; queue intake + pendingWork while WIP=1 on 20-qa-sdet; name live QA Cloud link
+- dont: Start Keshet build same turn; re-ask «יאללה» when founder already reaffirmed publish expectation
+- note: Intake was missing on main — created and pushed; math QA bc-80f02f9e still holds WIP
+
 ### 2026-09-10
 - task: Founder «נו. עוד לא סיים?» ~7 min after PCI-14 GO
 - do: Honest «עדיין לא» + curl Pages + check Nadav outbox; nudge PCI-14 inbox; re-DELEGATE same turn

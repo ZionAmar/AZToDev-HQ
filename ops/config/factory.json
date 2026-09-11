@@ -243,6 +243,18 @@
       "qaDelegatedAt": "2026-09-11T07:3xZ",
       "qaDelegatedBy": "32-delivery-lead",
       "qaPacket": "agents/20-qa-sdet/inbox/2026-09-11_cake-recipe-demo-live-qa.md"
+    },
+    "shana-tova-greeting-page": {
+      "slug": "shana-tova-greeting-page",
+      "bet": "דף one-page «שנה טובה» — carousel, ברכה עברית, EaseToDev בלבד",
+      "status": "queued_after_emet-167",
+      "linearIssue": null,
+      "phase": "intake — waiting WIP=1 (kids-math-quiz EMET-167 QA)",
+      "founderAskAt": "2026-09-11T09:0xZ",
+      "publishCommitmentAt": "2026-09-11T09:10Z",
+      "intake": "ops/intake/ideas/IDEA-2026-09-11-shana-tova-greeting-page.md",
+      "note": "Founder confirmed: «כמובן שהאתר הזה יפורסם והכל ותיתנו לי לינק חי שעובד». Same GitHub Pages path as cake. Kickoff via 32-delivery-lead after EMET-167 closes; PIN at new_product gate if needed.",
+      "next": "32-delivery-lead opens bet → 14-frontend-engineer → 18-devops-platform Pages → 20-qa-sdet → Noa sends live link"
     }
   },
   "orphanedBranchesMergedAt": "2026-09-10T21:4xZ",
