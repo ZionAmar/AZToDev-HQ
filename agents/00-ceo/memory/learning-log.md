@@ -251,6 +251,12 @@ LEARNING:
 - do: Publish mandatory 6-step checklist in PCI-14 inbox; mirror same list in Hebrew to founder; re-DELEGATE Nadav same turn
 - dont: Claim Nadav is executing without outbox or live URL; give vague «הוא על זה» without the explicit step list
 - note: Pages still 404 ~11 min post-אשר; checklist enforced; PC online
+### 2026-09-11
+- task: Founder — «יאו מה קורה איך זה מתקדם» (kids math game)
+- do: Live-verify cake/map/math-repo on progress asks; merge GO branch inbox to main if desk cannot see PCI-KMG-01; split honest phases (planning vs live link)
+- dont: Say empty queue when Keshet PCI-KMG-01 is queued; report cake without images when live page has hero+step imgs
+- note: Cake images live 06:55Z; KMG planning-kickoff; map 404; GO files merged from cursor/kids-math-game-go-a77d
+
 ### 2026-09-10
 - task: Founder — «aztodev-company-system — זה הריפו»
 - do: Lock PCI-14 target repo on founder repeat; honest «still no outbox»; re-DELEGATE Nadav with 6-step list in Hebrew
